@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0c"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#f5a623"/>
+  <text x="100" y="260" font-family="system-ui,-apple-system,sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-1">Revelation Agency</text>
+  <text x="100" y="330" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="400" fill="rgba(255,255,255,0.5)">Systems-first growth partner</text>
+  <text x="100" y="420" font-family="system-ui,-apple-system,sans-serif" font-size="22" font-weight="600" fill="#f5a623" letter-spacing="4">DREAM. BUILD. SCALE.</text>
+  <text x="100" y="560" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="400" fill="rgba(255,255,255,0.3)">revelationagency.com</text>
+</svg>

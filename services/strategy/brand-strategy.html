@@ -1,0 +1,1550 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <!-- RA-PWA-HEAD:start -->
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Revelation">
+  <meta name="theme-color" content="#D72532">
+  <!-- RA-PWA-HEAD:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D72532">
+<title>Brand Strategy — Revelation Agency</title>
+<meta name="description" content="Define your market position before competitors define it for you. Brand positioning frameworks, messaging architecture, and value proposition design — engineered to compound.">
+<link rel="canonical" href="https://revelationagency.com/services/strategy/brand-strategy">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revelation Agency">
+<meta property="og:title" content="Brand Strategy — Revelation Agency">
+<meta property="og:description" content="Your market position is either defined or inherited. Choose.">
+<meta property="og:url" content="https://revelationagency.com/services/strategy/brand-strategy">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" as="font" type="font/woff2" href="../../assets/webfonts/Orbitron-VF.woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+@font-face { font-family: 'Orbitron'; src: url('../../assets/webfonts/Orbitron-VF.woff2') format('woff2'); font-weight: 400 900; font-style: normal; font-display: swap; }
+
+:root {
+  --red: #D72532; --red-deep: #AD1C24; --red-dark: #840D11;
+  --charcoal: #2B2B2B; --black: #181818; --off-black: #1E1E1E;
+  --grey-light: #F7F7F5; --grey-mid: #EDECE9; --white: #FFFFFF;
+  --font-head: 'Bebas Neue', 'Orbitron', sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --btn-radius: 45px 0 45px 45px;
+  --section-pad: 110px 0;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); font-size: 1rem; line-height: 1.65; color: var(--charcoal); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+.eyebrow { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: inline-block; margin-bottom: 16px; }
+.eyebrow--white { color: rgba(255,255,255,0.5); }
+
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.highlight { color: var(--red); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 36px; border-radius: var(--btn-radius); border: none; cursor: pointer; transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), background .25s var(--ease-out), color .25s var(--ease-out), border-color .25s var(--ease-out); white-space: nowrap; text-decoration: none; position: relative; overflow: hidden; isolation: isolate; }
+.btn::before { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent); transform: skewX(-20deg); transition: left .5s var(--ease-out); pointer-events: none; }
+.btn:hover::before { left: 130%; }
+.btn .btn-arrow { display: inline-block; transition: transform .25s var(--ease-out); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+.btn--primary { background: var(--red); color: var(--white); }
+.btn--primary:hover { background: var(--red-deep); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(215,37,50,0.40); }
+.btn--outline { background: transparent; color: var(--charcoal); border: 1.5px solid rgba(43,43,43,0.3); }
+.btn--outline:hover { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); transform: translateY(-2px); }
+.btn--white { background: var(--white); color: var(--charcoal); }
+.btn--white:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.15); }
+
+/* Nav */
+.ra-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(0,0,0,0.07); transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease; }
+.ra-nav__inner { display: flex; align-items: center; justify-content: space-between; height: 96px; padding: 0 48px; max-width: 1440px; margin: 0 auto; transition: height .3s ease; }
+.ra-nav.scrolled .ra-nav__inner { height: 88px; }
+.ra-nav__logo { display: flex; align-items: center; text-decoration: none; }
+.ra-nav__logo img { height: 76px; width: auto; display: block; transition: height .3s ease; }
+.ra-nav.scrolled .ra-nav__logo img { height: 68px; }
+.ra-nav__links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.ra-nav__links a { font-size: 14px; font-weight: 500; color: var(--charcoal); opacity: 0.7; transition: opacity .2s; position: relative; }
+.ra-nav__links a:hover, .ra-nav__links a.is-current { opacity: 1; }
+.ra-nav__links a.is-current::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--red); border-radius: 2px; }
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-drop { position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%) translateY(-6px); background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 8px; min-width: 180px; list-style: none; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; box-shadow: 0 8px 32px rgba(0,0,0,0.1); z-index: 1002; }
+.has-drop:hover .ra-drop { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.ra-drop a { display: block; padding: 8px 14px; font-size: 13px; border-radius: 7px; opacity: 1; color: var(--charcoal); }
+/* 3-Level Flyout Nav */
+.ra-drop--l2{min-width:220px;}
+.ra-drop--l2 > li{position:relative;}
+.ra-drop--l2 .has-drop-l3 > a{display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+.ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{font-size:9px;opacity:0.35;transition:opacity .2s ease-out,transform .2s ease-out;}
+.ra-drop--l2 .has-drop-l3:hover > a{background:var(--grey-light);}
+.ra-drop--l2 .has-drop-l3:hover > a .ra-drop__arrow{opacity:1;transform:translateX(3px);color:var(--red);}
+.ra-drop--l3{position:absolute;top:-8px;left:calc(100% + 6px);transform:translateX(-6px);background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:8px;min-width:230px;list-style:none;opacity:0;pointer-events:none;transition:opacity .2s ease-out,transform .2s ease-out;box-shadow:0 12px 40px rgba(0,0,0,0.12);z-index:1003;}
+.has-drop-l3:hover > .ra-drop--l3{opacity:1;pointer-events:auto;transform:translateX(0);}
+.ra-drop--l3 a{display:block;padding:9px 14px;font-size:13px;border-radius:7px;opacity:1;color:var(--charcoal);white-space:nowrap;}
+.ra-drop--l3 a:hover{background:var(--grey-light);color:var(--red);}
+.ra-drop--l3 a.is-current{background:rgba(215,37,50,0.08);color:var(--red);font-weight:600;}
+.ra-drop--l3 a::after{display:none !important;}
+
+.ra-drop a:hover { background: var(--grey-light); }
+.ra-drop a.is-current { background: rgba(215,37,50,0.08); color: var(--red); font-weight: 600; }
+.ra-drop a::after { display: none !important; }
+.ra-nav__right { display: flex; align-items: center; gap: 16px; }
+.ra-nav__hamburger { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+.ra-nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); transition: transform .25s ease, opacity .2s ease; border-radius: 2px; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* BREADCRUMB */
+.ra-crumb { padding: 130px 0 0; background: linear-gradient(155deg, #fafafa 0%, #ffffff 100%); }
+.ra-crumb__trail { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(43,43,43,0.55); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.ra-crumb__trail a { color: rgba(43,43,43,0.55); transition: color .2s; }
+.ra-crumb__trail a:hover { color: var(--red); }
+.ra-crumb__trail .sep { opacity: 0.5; }
+.ra-crumb__trail .cur { color: var(--red); font-weight: 600; }
+
+/* HERO */
+.sub-hero { padding: 40px 0 90px; background: linear-gradient(155deg, #fafafa 0%, #ffffff 55%, #f4f4f2 100%); position: relative; overflow: hidden; }
+.sub-hero__glow { position: absolute; top: -120px; right: -140px; width: 640px; height: 640px; background: radial-gradient(circle, rgba(237,28,36,0.09) 0%, transparent 65%); pointer-events: none; }
+.sub-hero__inner { position: relative; z-index: 1; max-width: 920px; padding-top: 60px; }
+.sub-hero__eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+.sub-hero__eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); }
+.sub-hero__title { font-family: var(--font-head); font-size: clamp(38px, 5vw, 66px); line-height: 1.05; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); font-weight: 700; margin-bottom: 28px; }
+.sub-hero__title em { font-style: normal; color: var(--red); }
+.sub-hero__desc { font-size: 18px; line-height: 1.7; color: #555; max-width: 680px; margin-bottom: 40px; }
+.sub-hero__actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+/* WHAT IT IS */
+.sub-what { padding: var(--section-pad); background: var(--white); position: relative; }
+.sub-what__inner { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; position: relative; z-index: 1; }
+.sub-what__header h2 { font-size: clamp(32px, 4vw, 52px); letter-spacing: 0.04em; color: var(--charcoal); margin-bottom: 20px; }
+.sub-what__header h2 em { font-style: normal; color: var(--red); }
+.sub-what__header p { font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 16px; }
+.sub-what__pull { margin-top: 28px; padding: 22px 24px; border-left: 3px solid var(--red); background: rgba(215,37,50,0.04); border-radius: 0 12px 12px 0; font-family: var(--font-head); font-size: clamp(17px, 1.8vw, 20px); letter-spacing: 0.04em; line-height: 1.3; color: var(--charcoal); text-transform: uppercase; }
+.sub-what__pull em { font-style: normal; color: var(--red); }
+.sub-what__points { display: flex; flex-direction: column; gap: 14px; }
+.sub-what__point { padding: 22px 24px; border: 1px solid rgba(43,43,43,0.08); border-radius: 14px; background: var(--grey-light); transition: border-color .25s, transform .25s var(--ease-out); }
+.sub-what__point:hover { border-color: rgba(215,37,50,0.25); transform: translateX(3px); }
+.sub-what__point h4 { font-size: 16px; font-weight: 700; letter-spacing: 0.06em; color: var(--charcoal); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+.sub-what__point h4 i { color: var(--red); font-size: 14px; }
+.sub-what__point p { font-size: 14px; line-height: 1.7; color: #555; margin: 0; }
+
+/* DELIVER */
+.sub-deliver { padding: var(--section-pad); background: var(--grey-light); position: relative; overflow: hidden; }
+.sub-deliver__header { text-align: center; margin-bottom: 56px; max-width: 720px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+.sub-deliver__header h2 { font-size: clamp(32px, 4vw, 52px); letter-spacing: 0.04em; color: var(--charcoal); margin-bottom: 18px; }
+.sub-deliver__header p { font-size: 17px; line-height: 1.7; color: #555; }
+.sub-deliver__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; position: relative; z-index: 1; }
+.sub-deliver__card { background: var(--white); border: 1px solid rgba(43,43,43,0.08); border-radius: 16px; padding: 32px 28px; position: relative; overflow: hidden; transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), border-color .25s var(--ease-out); }
+.sub-deliver__card::after { content: ''; position: absolute; bottom: 0; left: 28px; right: 28px; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-out); }
+.sub-deliver__card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.06); border-color: rgba(215,37,50,0.22); }
+.sub-deliver__card:hover::after { transform: scaleX(1); }
+.sub-deliver__card-num { font-family: var(--font-head); font-size: 14px; letter-spacing: 0.16em; color: var(--red); margin-bottom: 16px; }
+.sub-deliver__card h3 { font-size: 20px; letter-spacing: 0.04em; color: var(--charcoal); margin-bottom: 12px; line-height: 1.15; }
+.sub-deliver__card p { font-size: 14px; line-height: 1.75; color: #555; }
+
+/* WHO IT'S FOR (dark) */
+.sub-who { padding: var(--section-pad); background: var(--off-black); color: #fff; position: relative; overflow: hidden; }
+.sub-who__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+.sub-who__header h2 { font-size: clamp(30px, 3.6vw, 48px); letter-spacing: 0.04em; color: #fff; margin-bottom: 22px; line-height: 1.05; }
+.sub-who__header h2 em { font-style: normal; color: var(--red); }
+.sub-who__header p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.65); }
+.sub-who__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.sub-who__list li { padding: 18px 22px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); border-radius: 12px; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.82); display: flex; gap: 14px; align-items: flex-start; transition: border-color .25s, background .25s; }
+.sub-who__list li:hover { border-color: rgba(215,37,50,0.35); background: rgba(215,37,50,0.05); }
+.sub-who__list li i { color: var(--red); font-size: 14px; margin-top: 4px; flex-shrink: 0; }
+
+/* BACK LINK */
+.sub-back { padding: 70px 0; background: var(--white); border-top: 1px solid rgba(43,43,43,0.06); text-align: center; }
+.sub-back a { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal); transition: color .2s, gap .2s; }
+.sub-back a:hover { color: var(--red); gap: 14px; }
+.sub-back a i { font-size: 12px; transition: transform .2s; }
+.sub-back a:hover i { transform: translateX(-3px); }
+
+/* CTA */
+.ra-cta { padding: 120px 0; background: var(--red); position: relative; overflow: hidden; text-align: center; }
+.ra-cta__noise { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.5; pointer-events: none; }
+.ra-cta__content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.ra-cta__title { color: #fff; font-family: var(--font-head); font-size: clamp(36px, 4vw, 56px); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; line-height: 1.05; }
+.ra-cta__desc { font-size: 17px; color: rgba(255,255,255,0.82); margin-bottom: 40px; line-height: 1.7; }
+
+/* Footer */
+.ra-footer { background: var(--black); padding: 80px 0 0; }
+.ra-footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 48px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.ra-footer__logo { display: inline-flex; align-items: center; margin-bottom: 20px; background: #fff; padding: 10px 18px; border-radius: 10px; }
+.ra-footer__logo img { height: 68px; width: auto; display: block; }
+.ra-footer__brand p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+.ra-footer__tagline { font-family: var(--font-head); font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+.ra-footer__social { display: flex; gap: 10px; margin-top: 24px; }
+.ra-footer__social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 14px; transition: background .2s, color .2s; }
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color .2s; }
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {align-self:start; background: rgba(237,28,36,0.08); border: 1px solid rgba(237,28,36,0.15); border-radius: 16px; padding: 32px 28px; }
+.ra-footer__cta h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 10px; line-height: 1.3; }
+.ra-footer__cta p { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; line-height: 1.6; }
+.ra-footer__bottom { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+.ra-footer__copyright { font-size: 13px; color: rgba(255,255,255,0.25); }
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+
+/* Animations */
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up-d1 { transition-delay: 0.08s; } .fade-up-d2 { transition-delay: 0.16s; } .fade-up-d3 { transition-delay: 0.24s; }
+
+/* =============================================
+   NAV DROPDOWN — Premium mega-menu v2 (site-wide)
+   Higher specificity selectors so per-page nav
+   overrides (e.g. The Reveal's bare .ra-drop rules)
+   cannot undo the center transform on hover.
+   ============================================= */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+
+/* Services mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--charcoal) !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: var(--red) !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; transition: none; } }
+
+/* FX TOOLKIT */
+.fx-glow { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.fx-glow--tl { background: radial-gradient(ellipse at 15% 20%, rgba(237,28,36,0.12) 0%, transparent 55%); }
+.fx-glow--tr { background: radial-gradient(ellipse at 85% 25%, rgba(237,28,36,0.12) 0%, transparent 55%); }
+.fx-glow--bl { background: radial-gradient(ellipse at 10% 80%, rgba(237,28,36,0.10) 0%, transparent 55%); }
+.fx-glow--center { background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.14) 0%, transparent 60%); }
+.fx-shimmer { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 0%, transparent 40%, rgba(237,28,36,0.06) 50%, transparent 60%, transparent 100%); background-size: 220% 100%; animation: fx-shimmer 11s linear infinite; z-index: 0; mix-blend-mode: screen; }
+@keyframes fx-shimmer { 0% { background-position: -110% 0; } 100% { background-position: 110% 0; } }
+.fx-grid-lines { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(215,37,50,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(215,37,50,0.05) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%); z-index: 0; }
+.fx-grid-lines--dark { background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); }
+.fx-micro-dots { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.fx-micro-dots::before, .fx-micro-dots::after { content: ''; position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(215,37,50,0.30); box-shadow: 120px 80px 0 rgba(43,43,43,0.20), 240px 160px 0 rgba(215,37,50,0.22), 340px 40px 0 rgba(43,43,43,0.14), 420px 240px 0 rgba(215,37,50,0.20), 540px 100px 0 rgba(43,43,43,0.16), 640px 280px 0 rgba(215,37,50,0.18), 720px 60px 0 rgba(43,43,43,0.18), 820px 200px 0 rgba(215,37,50,0.24), 920px 140px 0 rgba(43,43,43,0.12), 1020px 320px 0 rgba(215,37,50,0.16); top: 20px; left: 20px; animation: fx-float-a 14s ease-in-out infinite; }
+.fx-micro-dots::after { top: 60px; left: 80px; background: rgba(43,43,43,0.22); animation: fx-float-b 18s ease-in-out infinite; animation-delay: -4s; }
+@keyframes fx-float-a { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(12px, -18px); } }
+@keyframes fx-float-b { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-16px, 14px); } }
+.fx-line-pulse { position: relative; height: 1px; background: rgba(215,37,50,0.14); margin: 56px auto; max-width: 100%; overflow: hidden; }
+.fx-line-pulse::after { content: ''; position: absolute; top: -1px; left: -25%; width: 25%; height: 3px; background: linear-gradient(90deg, transparent, rgba(237,28,36,0.9), transparent); box-shadow: 0 0 10px rgba(237,28,36,0.55); animation: fx-line-pulse 4.5s linear infinite; }
+@keyframes fx-line-pulse { 0% { left: -25%; } 100% { left: 100%; } }
+
+/* MOBILE */
+/* NAV-REBUILD-GLOBAL */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+@media (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6, .sub-hero__title, .ra-cta__title, .eyebrow, .eyebrow--white { font-family: 'Bebas Neue', 'Orbitron', sans-serif !important; font-feature-settings: normal; }
+  h1, h2, h3, h4, .sub-hero__title, .ra-cta__title { word-break: normal !important; overflow-wrap: break-word !important; hyphens: manual !important; }
+  .container { padding: 0 20px !important; }
+  .btn { padding: 12px 20px !important; font-size: 12px !important; letter-spacing: 0.05em !important; max-width: 100%; white-space: normal; text-align: center; }
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column !important; padding: 16px 20px; gap: 4px !important; border-top: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; z-index: 1001; }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 16px; opacity: 1; pointer-events: auto; transform: none; }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; align-items: center; gap: 8px; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; white-space: nowrap; }
+  .ra-crumb { padding: 100px 0 0; }
+  .sub-hero { padding: 24px 0 56px; }
+  .sub-hero__inner { padding-top: 20px; }
+  .sub-hero__title { font-size: clamp(28px, 8vw, 40px); }
+  .sub-hero__desc { font-size: 15px; }
+  .sub-what { padding: 64px 0; }
+  .sub-what__inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .sub-deliver { padding: 64px 0; }
+  .sub-deliver__grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .sub-deliver__card { padding: 24px 22px; }
+  .sub-who { padding: 72px 0; }
+  .sub-who__inner { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .ra-cta { padding: 56px 0 !important; }
+  .ra-cta__title { font-size: clamp(1.5rem, 7vw, 2.25rem) !important; }
+  .ra-footer { padding: 60px 0 0; }
+  .ra-footer__inner { grid-template-columns: 1fr !important; gap: 40px !important; padding-bottom: 40px; }
+  .ra-footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .fx-micro-dots { display: none; }
+  .fx-grid-lines { background-size: 50px 50px; }
+
+  /* NAV-3L-MOBILE */
+  .ra-nav__links .ra-drop--l2{position:static;display:block;background:transparent;box-shadow:none;border:0;padding:0 0 0 12px;opacity:1;pointer-events:auto;transform:none;min-width:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a{padding:10px 4px !important;font-size:14px !important;opacity:0.85;display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{transition:transform .2s;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > a .ra-drop__arrow{transform:rotate(90deg);color:var(--red);}
+  .ra-nav__links .ra-drop--l3{position:static;display:none;background:transparent;box-shadow:none;border:0;padding:0 0 8px 14px;opacity:1;pointer-events:auto;transform:none;min-width:0;margin:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3{display:block;}
+  .ra-nav__links .ra-drop--l3 a{padding:9px 4px;font-size:13px;opacity:0.75;white-space:normal;display:block;}
+
+  /* LOGO-MOBILE-FIRM */
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+
+  /* NAV-3L-HIERARCHY */
+  .ra-nav__links .has-drop > a { font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l2 { padding-left: 16px !important; }
+  .ra-nav__links .ra-drop--l2 > li > a { font-weight: 500 !important; }
+  .ra-nav__links .ra-drop--l3 { padding-left: 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
+  .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
+
+  /* NAV-REBUILD-MOBILE */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: var(--charcoal, #2b2b2b);
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    flex: 0 0 auto !important;
+    min-width: 44px;
+    min-height: 44px;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red); }
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    transform: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .has-drop > a { font-weight: 600 !important; }
+  .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+  .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
+  .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
+}
+
+/* RA-WAVE1-GLOBAL-CSS-START */
+/* ===== Go-to-top button ===== */
+.ra-goto-top{
+  position:fixed;right:20px;bottom:20px;z-index:990;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red,#ED1C24);color:#fff;border:0;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
+  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  font-size:16px;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+}
+.ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
+@media (max-width:720px){
+  .ra-goto-top{right:14px;bottom:14px;width:44px;height:44px;}
+}
+@media print{.ra-goto-top{display:none !important;}}
+
+/* ===== Mobile-menu V2: bigger hit target + scrollable overflow ===== */
+@media (max-width:768px){
+  /* Hide the inline chevron icon embedded inside the L1 link text on
+     mobile — we use the dedicated toggle button as the only chevron. */
+  .ra-nav__links .has-drop > a > .fa-chevron-down{display:none !important;}
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow{display:none !important;}
+
+  /* Make the toggle button a generous full-row-height tap target on the
+     right side. The flex parent lets the link take the left side and
+     the button stretches down the right with internal padding. */
+  .ra-nav__services-toggle,
+  .ra-nav__l2-toggle{
+    align-self:stretch !important;
+    min-width:56px !important;
+    min-height:48px !important;
+    padding:12px 18px !important;
+    font-size:18px !important;
+  }
+
+  /* Make the open mobile menu panel scrollable so deeply nested
+     submenus never clip below the viewport edge. */
+  .ra-nav.is-open .ra-nav__links{
+    max-height:calc(100vh - 92px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior:contain !important;
+    padding-bottom:32px !important;
+  }
+}
+
+/* ===== Footer mini-form ===== */
+.ra-footer__miniform{margin-bottom:16px;}
+.ra-footer__miniform-title{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row{
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input{
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus{
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn{
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status{
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error{color:#ff8888;}
+/* RA-WAVE1-GLOBAL-CSS-END */
+
+/* RA-NAV-MEGAMENU-CSS-START — canonical mega-menu styles, do not hand-edit */
+/* === Desktop nav hide-by-default for mobile-only elements ===
+   Without these, .ra-nav__cta-mobile renders as a 2nd CTA on desktop
+   and .ra-nav__services-toggle / .ra-nav__l2-toggle render as visible
+   extra chevron buttons next to each dropdown parent. */
+.ra-nav__hamburger { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+.ra-nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal, #2B2B2B); transition: transform .25s, opacity .2s; border-radius: 2px; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* === Desktop mega-menu — Premium mega-menu v2 (site-wide) ===
+   Higher specificity selectors so per-page nav overrides cannot undo
+   the centered transform on hover or the 3-column grid layout. */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal, #2B2B2B);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+
+/* Services / Portfolio mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title (Strategy / Creative / Marketing) — red caps */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head, 'Orbitron', sans-serif);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal, #2B2B2B) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline inside the mega-menu */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #2B2B2B !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: #D72532 !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red, #D72532) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+
+/* NAV-REBUILD-GLOBAL — toggle buttons hidden on desktop */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+/* === Mobile (<=768px) — hamburger drawer + accordion submenus === */
+@media (max-width: 768px){
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column !important; padding: 16px 20px; gap: 4px !important; border-top: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; z-index: 1001; }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; max-height: calc(100vh - 92px) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important; padding-bottom: 32px !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 16px; opacity: 1; pointer-events: auto; transform: none; }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; }
+
+  /* Hide inline chevron icons on mobile (toggle button takes over) */
+  .ra-nav__links .has-drop > a > .fa-chevron-down { display: none !important; }
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow { display: none !important; }
+
+  /* L2 + L3 stack as accordion on mobile */
+  .ra-nav__links .ra-drop--l2 { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 12px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; grid-template-columns: 1fr; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a { padding: 10px 4px !important; font-size: 14px !important; opacity: 0.85; display: flex !important; align-items: center; justify-content: space-between; gap: 14px; color: var(--charcoal, #2B2B2B) !important; background: transparent !important; border-bottom: 0 !important; letter-spacing: 0.02em !important; text-transform: none !important; font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l3 { position: static; display: none; background: transparent; box-shadow: none; border: 0; padding: 0 0 8px 14px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; margin: 0; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3 { display: block; }
+  .ra-nav__links .ra-drop--l3 a { padding: 9px 4px; font-size: 13px; opacity: 0.75; white-space: normal; display: block; }
+
+  /* Toggle buttons surface on mobile */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    background: transparent; border: 0; color: var(--charcoal, #2B2B2B);
+    padding: 12px 18px; font-size: 18px; line-height: 1; cursor: pointer;
+    flex: 0 0 auto !important; min-width: 56px; min-height: 48px;
+    align-self: stretch !important;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+
+  /* Accordion animation on mobile */
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important; overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important; pointer-events: auto !important;
+    display: block !important; position: static !important;
+    background: transparent !important; box-shadow: none !important;
+    border: 0 !important; transform: none !important; min-width: 0 !important;
+    padding: 0 !important; margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+}
+/* RA-NAV-MEGAMENU-CSS-END */
+
+/* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
+.ra-footer {
+  background: var(--black);
+  padding: 80px 0 0;
+}
+.ra-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ra-footer__brand {}
+.ra-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+.ra-footer__logo img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+.ra-footer__brand p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.ra-footer__tagline {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+.ra-footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.ra-footer__social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {
+  align-self: start;
+  background: rgba(237,28,36,0.08);
+  border: 1px solid rgba(237,28,36,0.15);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+.ra-footer__cta h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ra-footer__cta p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.ra-footer__bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ra-footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+@media (max-width: 768px) {
+h1, h2, h3, h4, h5, h6,
+  .display-1, .display-2, .display-3,
+  .ra-hero__title, .ra-hero__tagline,
+  .ra-problem__title, .ra-founder__sig,
+  .ra-process__step-num, .ra-sprint__fw-title,
+  .ra-sprint__stat-num, .ra-footer__tagline,
+  .ra-system__col h3, .ra-problem__card h3,
+  .ra-work__item-title, .ra-cta__title,
+  .eyebrow, .eyebrow--white {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif !important;
+    font-feature-settings: normal;
+  }
+.ra-hero__inner,
+  .ra-problem__grid,
+  .ra-work__grid,
+  .ra-process__steps,
+  .ra-system__cols,
+  .ra-form__grid,
+  .ra-contact__inner,
+  .ra-footer__inner,
+  [class*="__grid"],
+  [class*="__cols"],
+  [class*="__columns"],
+  [class*="__row"] {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+.ra-hero__inner > *,
+  .ra-problem__grid > *,
+  .ra-work__grid > *,
+  .ra-process__steps > *,
+  .ra-system__cols > *,
+  .ra-form__grid > *,
+  .ra-contact__inner > *,
+  .ra-footer__inner > *,
+  [class*="__grid"] > *,
+  [class*="__cols"] > *,
+  [class*="__columns"] > *,
+  [class*="__row"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: 1 / -1 !important;
+  }
+.ra-footer { padding: 60px 0 0; }
+.ra-footer__inner { gap: 40px !important; padding-bottom: 40px; }
+.ra-footer__brand,
+  .ra-footer__nav,
+  .ra-footer__cta { width: 100%; }
+.ra-footer__logo {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    width: auto;
+  }
+.ra-footer__logo img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+.ra-footer__nav ul { padding: 0; margin: 0; list-style: none; }
+.ra-footer__nav a { word-break: break-word; }
+.ra-footer__cta .btn { width: 100%; justify-content: center; }
+}
+.ra-footer__miniform {margin-bottom:16px;}
+.ra-footer__miniform-title {
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row {
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input {
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus {
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn {
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status {
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error {color:#ff8888;}
+/* RA-FOOTER-CANONICAL-CSS-END */
+</style>
+<link rel="stylesheet" href="/assets/css/portfolio-cards-v3.css">
+</head>
+
+<body>
+
+<!-- NAV -->
+<!-- RA-NAV-CANONICAL-START -->
+<nav class="ra-nav" id="ra-nav">
+  <div class="ra-nav__inner">
+    <a href="../../index.html" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="../../assets/revelation-logo.png" alt="Revelation Agency">
+    </a>
+
+    <ul class="ra-nav__links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../about.html">About</a></li>
+      <li class="has-drop">
+        <a href="../../services.html" class="is-current">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="../../services/strategy/index.html">Strategy <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../../services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="../../services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../../services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../../services/creative/index.html">Creative <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../services/creative/branding.html">Branding</a></li>
+              <li><a href="../../services/creative/website-development.html">Website Development</a></li>
+              <li><a href="../../services/creative/app-development.html">App Development</a></li>
+              <li><a href="../../services/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../../services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../../services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../../services/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="../../services/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../the-reveal/index.html">The Reveal</a></li>
+      <li class="has-drop">
+        <a href="../../portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="../../portfolio/strategy.html">Strategy Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../portfolio/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../../portfolio/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="../../portfolio/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../../portfolio/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../../portfolio/creative.html">Creative Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../portfolio/creative/branding.html">Branding</a></li>
+              <li><a href="../../portfolio/creative/website-development.html">Website Development</a></li>
+              <li><a href="../../portfolio/creative/app-development.html">App Development</a></li>
+              <li><a href="../../portfolio/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../../portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../../portfolio/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../../portfolio/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../../portfolio/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="../../portfolio/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="ra-nav__right">
+      <a href="../../booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="../../booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Book a Call</a>
+    </div>
+
+    <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<!-- RA-NAV-CANONICAL-END -->
+
+<!-- BREADCRUMB -->
+<div class="ra-crumb">
+  <div class="container">
+    <div class="ra-crumb__trail">
+      <a href="../../services.html">Services</a>
+      <span class="sep">/</span>
+      <a href="index.html">Strategy</a>
+      <span class="sep">/</span>
+      <span class="cur">Brand Strategy</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="sub-hero">
+  <div class="sub-hero__glow"></div>
+  <div class="fx-grid-lines" aria-hidden="true"></div>
+  <div class="fx-glow fx-glow--bl" aria-hidden="true"></div>
+  <div class="container">
+    <div class="sub-hero__inner">
+      <div class="sub-hero__eyebrow fade-up">Strategy · Sprint 01</div>
+      <h1 class="sub-hero__title fade-up fade-up-d1">Your market position is either <em>defined</em> or <em>inherited.</em> Choose.</h1>
+      <p class="sub-hero__desc fade-up fade-up-d2">Brand strategy is the deliberate act of deciding what you stand for before the market decides it for you. It's the difference between being known for something and being one of many. We engineer positioning frameworks that are durable, differentiated, and built to compound — not slogans, not taglines, actual decisions that show up in every conversation, ad, and sales call.</p>
+      <div class="sub-hero__actions fade-up fade-up-d3">
+        <a href="../../booking.html" class="btn btn--primary">Book a Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+        <a href="#deliverables" class="btn btn--outline">See Deliverables</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="sub-what">
+  <div class="container">
+    <div class="sub-what__inner">
+      <div class="sub-what__header fade-up">
+        <div class="eyebrow">What It Is</div>
+        <h2>Position, <em>before</em> promotion.</h2>
+        <p>Most businesses skip brand strategy and jump to tactics — logos, ads, posts, campaigns. Then they wonder why nothing compounds. Brand strategy is the upstream work that makes everything downstream actually work.</p>
+        <p>We don't treat brand as a visual exercise. We treat it as a positioning problem: who you're for, what category you're in, what you promise, and what makes the promise credible. Once that's locked, creative and marketing have something real to execute against.</p>
+        <div class="sub-what__pull">"A brand without a position is just a <em>logo</em> with a logo."</div>
+      </div>
+      <div class="sub-what__points fade-up fade-up-d2">
+        <div class="sub-what__point">
+          <h4><i class="fa-solid fa-bullseye"></i> Strategic Clarity</h4>
+          <p>Decide what you are, what you aren't, and where you stand — so every downstream decision gets easier.</p>
+        </div>
+        <div class="sub-what__point">
+          <h4><i class="fa-solid fa-layer-group"></i> Message Consistency</h4>
+          <p>Align sales, marketing, and creative around the same positioning so you stop contradicting yourself in market.</p>
+        </div>
+        <div class="sub-what__point">
+          <h4><i class="fa-solid fa-chart-line"></i> Category Ownership</h4>
+          <p>Stop competing on features. Define the lane, claim it, and make competitors react to you instead of the other way around.</p>
+        </div>
+        <div class="sub-what__point">
+          <h4><i class="fa-solid fa-scale-balanced"></i> Pricing Power</h4>
+          <p>Positioning drives perceived value. Clear position = less price sensitivity = healthier margins.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="sub-deliver" id="deliverables">
+  <div class="fx-grid-lines" aria-hidden="true"></div>
+  <div class="container">
+    <div class="sub-deliver__header fade-up">
+      <div class="eyebrow">What We Deliver</div>
+      <h2>Four documented <span class="highlight">assets.</span></h2>
+      <p>Every brand strategy engagement produces the same four core deliverables — documented, actionable, and owned by you. No slide decks that disappear into a Drive folder.</p>
+    </div>
+    <div class="sub-deliver__grid">
+      <div class="sub-deliver__card fade-up fade-up-d1">
+        <div class="sub-deliver__card-num">01 / Deliverable</div>
+        <h3>Brand Positioning Framework</h3>
+        <p>A one-page positioning doctrine — target, category, promise, proof — that governs every message, campaign, and sales conversation from day one forward.</p>
+      </div>
+      <div class="sub-deliver__card fade-up fade-up-d2">
+        <div class="sub-deliver__card-num">02 / Deliverable</div>
+        <h3>Messaging Architecture</h3>
+        <p>Headline hierarchy, key proof points, objection-handling language, and tone guardrails — built so your team and vendors can write on-brand without reinventing it every time.</p>
+      </div>
+      <div class="sub-deliver__card fade-up fade-up-d3">
+        <div class="sub-deliver__card-num">03 / Deliverable</div>
+        <h3>Competitive Analysis</h3>
+        <p>Where competitors are positioned, where the gaps are, and which lane you're going to own. Not a feature comparison — a strategic map.</p>
+      </div>
+      <div class="sub-deliver__card fade-up fade-up-d3">
+        <div class="sub-deliver__card-num">04 / Deliverable</div>
+        <h3>Value Proposition Design</h3>
+        <p>The single most important sentence your business needs to say clearly. We pressure-test it until it's specific, ownable, and impossible to confuse with a competitor's.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="sub-who">
+  <div class="fx-grid-lines fx-grid-lines--dark" aria-hidden="true"></div>
+  <div class="fx-glow fx-glow--tr" aria-hidden="true"></div>
+  <div class="container">
+    <div class="sub-who__inner">
+      <div class="sub-who__header fade-up">
+        <div class="eyebrow eyebrow--white">Who It's For</div>
+        <h2>Built for operators ready to <em>own a position.</em></h2>
+        <p>Brand strategy engagements are best for teams that are past the "just try more tactics" phase and ready to make a real decision about what they stand for.</p>
+      </div>
+      <ul class="sub-who__list fade-up fade-up-d2">
+        <li><i class="fa-solid fa-check"></i> Founders who can't explain their business in one sentence without hedging</li>
+        <li><i class="fa-solid fa-check"></i> Established companies whose messaging drifted as the product/service expanded</li>
+        <li><i class="fa-solid fa-check"></i> Teams competing on price because nothing else feels differentiated</li>
+        <li><i class="fa-solid fa-check"></i> Operators preparing for a rebrand, launch, or category expansion</li>
+        <li><i class="fa-solid fa-check"></i> Businesses bleeding time debating copy, direction, and visual choices</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+
+<!-- RA-SUBPORTFOLIO-V2-START -->
+<section class="sub-portfolio">
+  <div class="fx-grid-lines" aria-hidden="true"></div>
+  <div class="container">
+    <div class="sub-portfolio__header fade-up">
+      <div class="eyebrow">Brand Strategy Work</div>
+      <h2>Positioning that <span class="highlight">earns the room.</span></h2>
+      <p>Real strategy decks we built — research, positioning frameworks, narrative architecture, and launch plans for operators across home services, hospitality, and finance.</p>
+    </div>
+    <div class="sub-portfolio__grid">
+        <a class="sub-portfolio__card fade-up" href="../../portfolio/case-studies/ivory-pools.html">
+          <div class="sub-portfolio__card-bg sub-portfolio__card-bg--img" style="--bg-img:url('/assets/img/portfolio/ivory-pools/thumbnail.png');"></div>
+          <div class="sub-portfolio__card-body">
+            <span class="sub-portfolio__card-label">Brand Strategy</span>
+            <h3 class="sub-portfolio__card-title">Ivory Pool Services</h3>
+            <p class="sub-portfolio__card-desc">Stock logo &rarr; complete brand system &mdash; positioning, identity, website, and bilingual video for Central Valley pool operators.</p>
+          </div>
+        </a>
+        <a class="sub-portfolio__card fade-up" href="../../portfolio/case-studies/trust-energy.html">
+          <div class="sub-portfolio__card-bg sub-portfolio__card-bg--img" style="--bg-img:url('/assets/img/portfolio/trust-energy/thumbnail.png');"></div>
+          <div class="sub-portfolio__card-body">
+            <span class="sub-portfolio__card-label">Brand Strategy</span>
+            <h3 class="sub-portfolio__card-title">Trust Energy</h3>
+            <p class="sub-portfolio__card-desc">Whole-brand build for the solar dealer surface &mdash; identity system anchoring 4 years of paid acquisition at $25/lead.</p>
+          </div>
+        </a>
+        <a class="sub-portfolio__card fade-up" href="../../portfolio/case-studies/ams-energy-solutions.html">
+          <div class="sub-portfolio__card-bg sub-portfolio__card-bg--img" style="--bg-img:url('/assets/img/portfolio/ams-energy-solutions/thumbnail.png');"></div>
+          <div class="sub-portfolio__card-body">
+            <span class="sub-portfolio__card-label">Brand Strategy</span>
+            <h3 class="sub-portfolio__card-title">AMS Energy Solutions</h3>
+            <p class="sub-portfolio__card-desc">Solar dealer brand foundation &mdash; identity system, business cards, brand guide, and conversion website for the AMS Energy team.</p>
+          </div>
+        </a>
+        <a class="sub-portfolio__card fade-up" href="../../portfolio/case-studies/risen-sun-solar-roofing.html">
+          <div class="sub-portfolio__card-bg sub-portfolio__card-bg--img" style="--bg-img:url('/assets/img/portfolio/risen-sun-solar-roofing/thumbnail.png');"></div>
+          <div class="sub-portfolio__card-body">
+            <span class="sub-portfolio__card-label">Brand Strategy</span>
+            <h3 class="sub-portfolio__card-title">Risen Sun Solar &amp; Roofing</h3>
+            <p class="sub-portfolio__card-desc">In-house solar + roofing brand foundation &mdash; full identity system, business cards, and custom React/Vite website at gorisensun.com.</p>
+          </div>
+        </a>
+        <a class="sub-portfolio__card fade-up" href="../../portfolio/case-studies/wealth-coach-360.html">
+          <div class="sub-portfolio__card-bg sub-portfolio__card-bg--img" style="--bg-img:url('/assets/img/portfolio/wealth-coach-360/thumbnail.png');"></div>
+          <div class="sub-portfolio__card-body">
+            <span class="sub-portfolio__card-label">Brand Strategy</span>
+            <h3 class="sub-portfolio__card-title">Wealth Coach 360</h3>
+            <p class="sub-portfolio__card-desc">Coaching flagship brand build &mdash; identity, custom video E-course platform, GHL automation backbone, and community for Bill Gerard's premium program.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+</section>
+<!-- RA-SUBPORTFOLIO-V2-END -->
+
+<div class="sub-back">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Strategy Overview</a>
+  </div>
+</div>
+
+<!-- REVEAL-SUBSERVICE -->
+<section class="ra-svc-reveal">
+  <style>
+    .ra-svc-reveal{background:var(--off-black,#1e1e1e);padding:88px 0 96px;color:#fff;position:relative;overflow:hidden;}
+    .ra-svc-reveal::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;}
+    .ra-svc-reveal__inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 32px;}
+    .ra-svc-reveal__head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap;}
+    .ra-svc-reveal__eyebrow{display:inline-block;font-family:var(--font-head);font-size:11px;letter-spacing:0.26em;color:var(--red);margin-bottom:10px;text-transform:uppercase;}
+    .ra-svc-reveal__title{font-family:var(--font-head);font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:0.03em;text-transform:uppercase;margin:0;color:#fff;}
+    .ra-svc-reveal__more{font-family:var(--font-head);font-size:12px;letter-spacing:0.22em;color:var(--red);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+    .ra-svc-reveal__more i{transition:transform .25s ease;}
+    .ra-svc-reveal__more:hover i{transform:translateX(4px);}
+    .ra-svc-reveal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .ra-svc-reveal__card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px;padding:24px;border-radius:10px;overflow:hidden;background-size:cover;background-position:center;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,0.06);transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);}
+    .ra-svc-reveal__card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.4);}
+    .ra-svc-reveal__tag{font-family:var(--font-head);font-size:10px;letter-spacing:0.22em;color:var(--red);background:rgba(215,37,50,0.15);border:1px solid rgba(215,37,50,0.35);padding:4px 9px;border-radius:3px;margin-bottom:12px;text-transform:uppercase;width:fit-content;}
+    .ra-svc-reveal__title-card,.ra-svc-reveal__card h3{font-family:var(--font-head);font-size:18px;line-height:1.2;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:10px;color:#fff;}
+    .ra-svc-reveal__excerpt{font-size:13px;line-height:1.55;color:rgba(255,255,255,0.7);margin-bottom:14px;}
+    .ra-svc-reveal__link{font-family:var(--font-head);font-size:10.5px;letter-spacing:0.22em;color:var(--red);text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;}
+    @media(max-width:960px){.ra-svc-reveal__grid{grid-template-columns:1fr;gap:14px;}.ra-svc-reveal{padding:64px 0 76px;}.ra-svc-reveal__card{min-height:220px;}}
+  </style>
+  <div class="ra-svc-reveal__inner">
+    <div class="ra-svc-reveal__head fade-up">
+      <div>
+        <span class="ra-svc-reveal__eyebrow">From The Reveal</span>
+        <h2 class="ra-svc-reveal__title">Keep reading</h2>
+      </div>
+      <a href="../../the-reveal/index.html" class="ra-svc-reveal__more">All Articles <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="ra-svc-reveal__grid">
+      <a href="../../the-reveal/your-brand-isnt-what-you-say-it-is.html" class="ra-svc-reveal__card" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55),rgba(24,24,24,0.9)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=75&fit=crop');">
+        <span class="ra-svc-reveal__tag">Strategy</span>
+        <h3 class="ra-svc-reveal__title">Your Brand Isn't What You Say It Is &mdash; It's What You Prove</h3>
+        <p class="ra-svc-reveal__excerpt">You can spend six figures on a brand refresh and still lose to a competitor whose website is full of real results and honest case studies. In 2026, proof is the positioning.</p>
+        <span class="ra-svc-reveal__link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="../../the-reveal/outsourcing-your-marketing-isnt-a-shortcut.html" class="ra-svc-reveal__card" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55),rgba(24,24,24,0.9)),url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=75&fit=crop');">
+        <span class="ra-svc-reveal__tag">Strategy</span>
+        <h3 class="ra-svc-reveal__title">Outsourcing Your Marketing Isn't a Shortcut &mdash; It's a Strategy</h3>
+        <p class="ra-svc-reveal__excerpt">The narrative that outsourcing is a budget compromise has it exactly backwards. The best-run companies outsource to access specialists who don't exist on any org chart.</p>
+        <span class="ra-svc-reveal__link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="../../the-reveal/revelation-agency-is-now-live.html" class="ra-svc-reveal__card" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55),rgba(24,24,24,0.9)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=75&fit=crop');">
+        <span class="ra-svc-reveal__tag">Announcements</span>
+        <h3 class="ra-svc-reveal__title">Revelation Agency Is Now Live &mdash; And We're Not Here to Play Small</h3>
+        <p class="ra-svc-reveal__excerpt">This isn't a press release. It's a declaration of intent. Revelation Agency exists because too many businesses are getting sold marketing theater when they need a partner who actually knows how to move the needle.</p>
+        <span class="ra-svc-reveal__link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ra-cta">
+  <div class="ra-cta__noise"></div>
+  <div class="fx-glow fx-glow--center" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ra-cta__content fade-up">
+      <h2 class="ra-cta__title">Define the position. Everything else gets easier.</h2>
+      <p class="ra-cta__desc">Thirty minutes. We'll stress-test your current positioning and tell you exactly where it's leaking — or whether you need to rebuild from the foundation up.</p>
+      <a href="../../booking.html" class="btn btn--white">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- RA-FOOTER-CANONICAL-START -->
+<footer class="ra-footer">
+  <div class="container">
+    <div class="ra-footer__inner">
+      <div class="ra-footer__brand">
+        <div class="ra-footer__logo">
+          <img src="../../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
+        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <div class="ra-footer__social">
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <!-- FOOTER-ADDRESS -->
+        <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
+          <div style="color:rgba(255,255,255,0.72); font-weight:600; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; margin-bottom:6px;">Revelation Agency</div>
+          <div>55 Shaw Ave. #201</div>
+          <div>Clovis, CA 93612</div>
+          <div style="margin-top:6px; font-style:italic; color:rgba(255,255,255,0.55);">We work remotely across the globe.</div>
+        </address>
+      </div>
+
+      <div class="ra-footer__nav ra-footer__nav--services">
+        <style>
+          .ra-footer__nav--services .ra-footer__svc{list-style:none;margin:0;padding:0;}
+          .ra-footer__nav--services .ra-footer__svc-group{margin-bottom:4px;}
+          .ra-footer__nav--services .ra-footer__svc-group:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-parent{display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 0;cursor:pointer;transition:color .2s;line-height:1.2;}
+          .ra-footer__nav--services .ra-footer__svc-parent:hover{color:var(--red);}
+          .ra-footer__nav--services .ra-footer__svc-caret{font-size:11px;color:rgba(255,255,255,0.45);transition:transform .28s ease,color .2s;margin-left:8px;flex-shrink:0;display:inline-block;}
+          .ra-footer__nav--services .ra-footer__svc-children{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .32s ease,opacity .22s ease,margin-top .22s ease;margin-top:0;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-children,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-caret,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-caret{transform:rotate(180deg);color:#fff;}
+          .ra-footer__nav--services .ra-footer__svc-children li{margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-children li:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-children a{font-size:13px;color:rgba(255,255,255,0.5);padding-left:2px;display:block;transition:color .2s;}
+          .ra-footer__nav--services .ra-footer__svc-children a:hover{color:#fff;}
+          @media (max-width:720px){
+            .ra-footer__nav--services .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;}
+            .ra-footer__nav--services .ra-footer__svc-caret{display:none;}
+          }
+        </style>
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
+        <ul class="ra-footer__svc">
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../../services/strategy/">Strategy<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../../services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../../services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="../../services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../../services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../../services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../../services/creative/branding.html">Branding</a></li>
+              <li><a href="../../services/creative/video-production.html">Video Production</a></li>
+              <li><a href="../../services/creative/website-development.html">Website Development</a></li>
+              <li><a href="../../services/creative/app-development.html">App Development</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../../services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../../services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../../services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../../services/marketing/search-rankings.html">Search Rankings</a></li>
+              <li><a href="../../services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ra-footer__nav">
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
+        <ul>
+          <li><a href="../../the-reveal/index.html">The Reveal</a></li>
+          <li><a href="../../portfolio.html">Portfolio</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+          <li><a href="tel:+15592017039">(559) 201-7039</a></li>
+          <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
+        </ul>
+      </div><div class="ra-footer__cta">
+<!-- RA-FOOTER-MINIFORM-START -->
+        <form class="ra-footer__miniform" data-booking-url="../../booking.html" novalidate>
+          <h5 class="ra-footer__miniform-title">Let's Connect</h5>
+          <div class="ra-footer__miniform-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          </div>
+          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <div class="ra-footer__miniform-status" aria-live="polite"></div>
+        </form>
+        <script>(function(){
+          var forms=document.querySelectorAll('.ra-footer__miniform');
+          forms.forEach(function(f){
+            if(f.dataset.bound==='1')return;f.dataset.bound='1';
+            var status=f.querySelector('.ra-footer__miniform-status');
+            f.addEventListener('submit',function(ev){
+              ev.preventDefault();
+              var name=(f.name && f.name.value || '').trim();
+              var phone=(f.phone && f.phone.value || '').trim();
+              if(!name||!phone){if(status){status.textContent='Add a name and phone so we can prefill your booking.';status.classList.add('is-error');}return;}
+              try{
+                sessionStorage.setItem('ra_lead_name',name);
+                sessionStorage.setItem('ra_lead_phone',phone);
+                sessionStorage.setItem('ra_lead_source','footer-miniform');
+              }catch(e){}
+              var base=f.getAttribute('data-booking-url')||'booking.html';
+              var url=base+(base.indexOf('?')===-1?'?':'&')+'name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&src=footer-miniform';
+              window.location.href=url;
+            });
+          });
+        })();</script>
+<!-- RA-FOOTER-MINIFORM-END -->
+        <div class="ra-footer__cta-map" data-ra-footer-map="1" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+          <iframe src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&output=embed" width="100%" height="120" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing Revelation Agency office in Clovis, CA" title="Revelation Agency — Clovis, CA"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-footer__bottom">
+      <p class="ra-footer__copyright">&copy; 2026 <a href="../../index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+    </div>
+  </div>
+</footer>
+<!-- RA-FOOTER-CANONICAL-END -->
+
+<script>
+(function(){
+  var nav = document.getElementById('ra-nav');
+  if (nav) { var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 10); }; window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+  var btn = document.getElementById('ra-nav-hamburger');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){ var open = nav.classList.toggle('is-open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+      }
+
+  /* NAV-3L-JS */
+  document.querySelectorAll('.has-drop-l3 > a').forEach(function(anchor){
+    anchor.addEventListener('click', function(ev){
+      if (window.innerWidth > 768) return;
+      var li = anchor.parentElement;
+      if (!li.querySelector('.ra-drop--l3')) return;
+      if (!li.classList.contains('is-open')) {
+        ev.preventDefault();
+        var parentUl = li.parentElement;
+        if (parentUl) parentUl.querySelectorAll('.has-drop-l3.is-open').forEach(function(x){ if (x !== li) x.classList.remove('is-open'); });
+        li.classList.add('is-open');
+      }
+    });
+  });
+})();
+(function(){
+  var observer = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+})();
+
+/* NAV-REBUILD-JS */
+  (function(){
+    var navEl = document.getElementById('ra-nav');
+    var hamBtn = document.getElementById('ra-nav-hamburger');
+    if (!navEl) return;
+    document.querySelectorAll('.ra-nav__services-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l2');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        document.querySelectorAll('.has-drop > .ra-drop--l2.open').forEach(function(s){
+          if (s !== sub) {
+            s.classList.remove('open');
+            var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__services-toggle');
+            if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            s.querySelectorAll('.ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+            s.querySelectorAll('.ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+          }
+        });
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    document.querySelectorAll('.ra-nav__l2-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop-l3');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l3');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        var parentUl = li.parentElement;
+        if (parentUl) {
+          parentUl.querySelectorAll(':scope > .has-drop-l3 > .ra-drop--l3.open').forEach(function(s){
+            if (s !== sub) {
+              s.classList.remove('open');
+              var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__l2-toggle');
+              if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            }
+          });
+        }
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    navEl.querySelectorAll('.ra-nav__links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('is-open');
+        if (hamBtn) hamBtn.setAttribute('aria-expanded', 'false');
+        navEl.querySelectorAll('.ra-nav__services-toggle.open, .ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+        navEl.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+      });
+    });
+  })();
+
+</script>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="67db6de80d1911ef2ab3e790"></script>
+
+<!-- RA-GOTO-TOP-START -->
+<button class="ra-goto-top" type="button" aria-label="Back to top" id="ra-goto-top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>(function(){
+  var btn=document.getElementById('ra-goto-top');if(!btn)return;
+  var threshold=400,ticking=false;
+  function update(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>threshold){btn.classList.add('is-visible');}else{btn.classList.remove('is-visible');}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  btn.addEventListener('click',function(){
+    try{window.scrollTo({top:0,behavior:'smooth'});}
+    catch(e){window.scrollTo(0,0);}
+  });
+  update();
+})();</script>
+<!-- RA-GOTO-TOP-END -->
+</body>
+</html>

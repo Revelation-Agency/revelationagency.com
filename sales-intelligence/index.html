@@ -1,0 +1,2844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Revelation Agency — Sales Intelligence Capabilities</title>
+<meta name="description" content="The Sales Intelligence program from Revelation Agency — an Operations Manager for the owner, an Executive Assistant for every rep. Pipeline visibility, automated follow-up, and AI-assisted sales infrastructure that scales without adding headcount.">
+<link rel="canonical" href="https://revelationagency.com/sales-intelligence/">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://revelationagency.com/sales-intelligence">
+<meta property="og:title" content="Sales Intelligence — Revelation Agency">
+<meta property="og:description" content="An Operations Manager for the owner. An Executive Assistant for every rep. The Sales Intelligence program from Revelation Agency.">
+<meta property="og:image" content="https://proposals.revelationagency.com/assets/proposal-og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Revelation Agency">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Intelligence — Revelation Agency">
+<meta name="twitter:description" content="An Operations Manager for the owner. An Executive Assistant for every rep.">
+
+<!-- Google Fonts: Orbitron + Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   REVELATION DESIGN SYSTEM v1.0 — TOKENS
+   =========================================== */
+:root {
+    --red: #D72532;
+    --red-deep: #AD1C24;
+    --red-dark: #840D11;
+    --charcoal: #2B2B2B;
+    --off-black: #1E1E1E;
+    --grey-light: #F7F7F5;
+    --grey-mid: #C9C9C5;
+    --grey-line-dark: rgba(255,255,255,0.10);
+    --grey-line-light: rgba(0,0,0,0.10);
+    --white: #FFFFFF;
+
+    --font-display: 'Orbitron', 'Saira Condensed', sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --display-1: clamp(2.2rem, 6.4vw, 5.4rem);
+    --display-2: clamp(1.6rem, 3.6vw, 3rem);
+    --display-3: clamp(1.2rem, 2.4vw, 1.9rem);
+    --eyebrow:   clamp(0.62rem, 0.78vw, 0.78rem);
+    --body:      clamp(0.82rem, 0.95vw, 1rem);
+    --body-sm:   clamp(0.7rem, 0.82vw, 0.85rem);
+
+    --slide-padding: clamp(1.4rem, 3.2vw, 2.8rem);
+    --content-gap: clamp(0.9rem, 1.8vw, 1.6rem);
+    --grid-gap: clamp(1rem, 2.2vw, 1.8rem);
+
+    --radius-asym: 45px 0 45px 45px;
+    --radius-card: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    height: 100%; width: 100%; overflow: hidden;
+    background: var(--off-black); color: var(--white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================================
+   DECK + SLIDE
+   =========================================== */
+.deck { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+.slide {
+    position: absolute; inset: 0; width: 100vw; height: 100vh; height: 100dvh;
+    display: flex; flex-direction: column; overflow: hidden;
+    opacity: 0; pointer-events: none; transform-origin: top left;
+}
+.slide.is-active { opacity: 1; pointer-events: auto; z-index: 2; }
+.slide.dark   { background: var(--off-black); color: var(--white); }
+.slide.light  { background: var(--grey-light); color: var(--off-black); }
+.slide.red    { background: var(--red); color: var(--white); }
+
+/* ===========================================
+   CHROME — header + footer
+   =========================================== */
+.slide-header, .slide-footer {
+    flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    padding: clamp(0.8rem, 1.4vw, 1.2rem) var(--slide-padding);
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; gap: 1rem; white-space: nowrap;
+}
+.slide-header { position: relative; }
+.slide-header::after {
+    content: ''; position: absolute; left: var(--slide-padding); right: var(--slide-padding); bottom: 0;
+    height: 1px; background: var(--grey-line-dark);
+}
+.slide-footer { position: relative; margin-top: auto; }
+.slide-footer::before {
+    content: ''; position: absolute; left: var(--slide-padding); right: var(--slide-padding); top: 0;
+    height: 1px; background: var(--grey-line-dark);
+}
+.slide.light .slide-header::after, .slide.light .slide-footer::before { background: var(--grey-line-light); }
+.slide.red .slide-header::after, .slide.red .slide-footer::before { background: rgba(255,255,255,0.18); }
+.slide-header__left, .slide-header__right { display: flex; align-items: center; gap: 1em; }
+.slide-header__doc-sep { display: inline-block; width: clamp(40px, 6vw, 80px); height: 1px; background: currentColor; opacity: 0.6; }
+
+/* Brand wordmark + logo image */
+.brand-wordmark {
+    display: inline-flex; align-items: baseline; gap: 0.45em;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(0.72rem, 0.95vw, 0.9rem); letter-spacing: 0.18em; line-height: 1;
+}
+.brand-wordmark .bw-2 { color: var(--red); font-weight: 700; }
+.slide.red .brand-wordmark .bw-2 { color: var(--off-black); }
+.brand-logo-wrap { display: inline-flex; align-items: center; gap: 0.85em; }
+.brand-logo-img {
+    height: clamp(48px, 5.6vw, 78px);
+    width: auto; display: block;
+    background: var(--white);
+    padding: clamp(7px, 0.9vw, 13px) clamp(12px, 1.4vw, 20px);
+    border-radius: clamp(10px, 1.2vw, 14px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.slide.light .brand-logo-img {
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.slide.red .brand-logo-img {
+    background: var(--white);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+/* Brackets */
+.slide.has-brackets > .bracket {
+    position: absolute; width: clamp(16px, 1.6vw, 24px); height: clamp(16px, 1.6vw, 24px);
+    border-color: var(--red); border-style: solid; z-index: 5; pointer-events: none;
+}
+.slide.has-brackets > .bracket.tl { top: clamp(14px, 1.4vw, 22px); left: clamp(14px, 1.4vw, 22px); border-width: 2px 0 0 2px; }
+.slide.has-brackets > .bracket.tr { top: clamp(14px, 1.4vw, 22px); right: clamp(14px, 1.4vw, 22px); border-width: 2px 2px 0 0; }
+.slide.has-brackets > .bracket.bl { bottom: clamp(14px, 1.4vw, 22px); left: clamp(14px, 1.4vw, 22px); border-width: 0 0 2px 2px; }
+.slide.has-brackets > .bracket.br { bottom: clamp(14px, 1.4vw, 22px); right: clamp(14px, 1.4vw, 22px); border-width: 0 2px 2px 0; }
+.slide.has-brackets .slide-header {
+    padding-top: clamp(3.2rem, 4.4vw, 4.2rem); padding-bottom: clamp(0.9rem, 1.4vw, 1.2rem);
+    padding-left: clamp(3.4rem, 5vw, 4.8rem); padding-right: clamp(3.4rem, 5vw, 4.8rem);
+}
+.slide.has-brackets .slide-footer {
+    padding-top: clamp(0.9rem, 1.4vw, 1.2rem); padding-bottom: clamp(3.2rem, 4.4vw, 4.2rem);
+    padding-left: clamp(3.4rem, 5vw, 4.8rem); padding-right: clamp(3.4rem, 5vw, 4.8rem);
+}
+.slide.has-brackets .slide-header::after,
+.slide.has-brackets .slide-footer::before {
+    left: clamp(3.4rem, 5vw, 4.8rem); right: clamp(3.4rem, 5vw, 4.8rem);
+}
+
+/* ===========================================
+   SLIDE BODY
+   =========================================== */
+.slide-body {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(1rem, 2.2vw, 2.2rem) var(--slide-padding);
+    gap: var(--content-gap); overflow: hidden; min-height: 0; position: relative;
+}
+.slide-body--top { justify-content: flex-start; padding-top: clamp(1.4rem, 2.6vw, 2.4rem); }
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+.eyebrow {
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 0.8em;
+}
+.eyebrow::before { content: ''; width: clamp(20px, 2.4vw, 36px); height: 1px; background: currentColor; opacity: 0.6; }
+.eyebrow .num { color: var(--red); }
+.slide.red .eyebrow .num { color: var(--off-black); }
+
+.display-1 {
+    font-family: var(--font-display); font-weight: 900; font-size: var(--display-1);
+    line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase;
+}
+.display-2 {
+    font-family: var(--font-display); font-weight: 800; font-size: var(--display-2);
+    line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase;
+}
+.display-3 {
+    font-family: var(--font-display); font-weight: 700; font-size: var(--display-3);
+    line-height: 1.08; text-transform: uppercase;
+}
+.lede {
+    font-family: var(--font-body); font-weight: 400;
+    font-size: clamp(0.9rem, 1.05vw, 1.1rem); line-height: 1.5;
+    max-width: 60ch; color: var(--grey-mid);
+}
+.slide.light .lede { color: var(--charcoal); }
+.slide.red .lede   { color: rgba(255,255,255,0.92); }
+.body-text { font-family: var(--font-body); font-size: var(--body); line-height: 1.55; color: var(--grey-mid); }
+.slide.light .body-text { color: var(--charcoal); }
+.text-red   { color: var(--red); }
+.text-white { color: var(--white); }
+.text-black { color: var(--off-black); }
+
+/* Closing line — direct child of .slide-body, NORMAL FLOW, never absolute */
+.closing-line {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.78rem, 0.98vw, 0.94rem); line-height: 1.55;
+    color: var(--grey-mid);
+    margin-top: clamp(0.6rem, 1.2vw, 1.1rem);
+    margin-bottom: clamp(0.4rem, 0.8vw, 0.8rem);
+    max-width: 80ch; opacity: 0.92;
+    position: static !important; flex-shrink: 0;
+}
+.slide.light .closing-line { color: var(--charcoal); opacity: 0.82; }
+.slide.red .closing-line { color: rgba(255,255,255,0.92); }
+
+/* Reveal initial state */
+.reveal { opacity: 0; will-change: opacity, transform; }
+
+/* ===========================================
+   COVER
+   =========================================== */
+.cover-grid {
+    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+    padding: clamp(1.4rem, 2.8vw, 2.6rem) var(--slide-padding) clamp(1.2rem, 2.2vw, 2rem);
+    gap: clamp(1.2rem, 2.6vw, 2.2rem);
+    min-height: 0; position: relative; z-index: 1;
+}
+.cover-hero {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: clamp(0.8rem, 1.6vw, 1.4rem); position: relative; flex: 1;
+}
+.cover-logo-mark {
+    height: clamp(48px, 6vw, 80px); width: auto; display: block;
+    margin-bottom: clamp(0.4rem, 0.8vw, 0.8rem);
+    filter: drop-shadow(0 0 24px rgba(215,37,50,0.25));
+}
+.cover-headline {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(2.8rem, 10vw, 8.5rem);
+    line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase;
+}
+.cover-subline {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.95rem, 1.9vw, 1.5rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--grey-mid);
+    line-height: 1.35;
+    max-width: 38ch;
+}
+.cover-subline .accent { color: var(--white); }
+.cover-subline .dot { color: var(--red); }
+.cover-subline .line { display: block; }
+
+.meta-block {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    padding-top: clamp(1rem, 1.8vw, 1.4rem);
+    border-top: 1px solid var(--grey-line-dark);
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--grey-mid);
+    position: static !important; flex-shrink: 0;
+}
+.meta-block .sep { color: var(--red); opacity: 0.7; }
+
+/* ===========================================
+   SPLIT GRID + BULLETS + LABELED BULLETS
+   =========================================== */
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3.6vw, 3.6rem);
+    align-items: center;
+    flex: 1; min-height: 0;
+}
+.split-grid--6-6 { grid-template-columns: 6fr 6fr; }
+.split-grid--5-7 { grid-template-columns: 5fr 7fr; }
+.split-grid--7-5 { grid-template-columns: 7fr 5fr; }
+.split-left, .split-right {
+    display: flex; flex-direction: column;
+    gap: clamp(0.7rem, 1.4vw, 1.2rem);
+    justify-content: center; min-width: 0;
+}
+
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.bullet-item {
+    display: grid; grid-template-columns: clamp(18px, 1.8vw, 24px) 1fr;
+    gap: clamp(0.5rem, 0.9vw, 0.85rem); align-items: baseline;
+}
+.bullet-item::before {
+    content: ''; width: clamp(14px, 1.4vw, 20px); height: 2px;
+    background: var(--red); margin-top: 0.6em;
+}
+.bullet-item p { font-family: var(--font-body); font-size: var(--body); line-height: 1.55; }
+.slide.dark .bullet-item p { color: rgba(255,255,255,0.88); }
+.slide.light .bullet-item p { color: var(--charcoal); }
+.slide.red .bullet-item p { color: rgba(255,255,255,0.94); }
+.slide.red .bullet-item::before { background: var(--off-black); }
+
+.labeled-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.labeled-bullet { display: flex; flex-direction: column; gap: 0.3em; }
+.labeled-bullet__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.labeled-bullet__body {
+    font-family: var(--font-body); font-size: var(--body); line-height: 1.5; color: var(--grey-mid);
+}
+.slide.light .labeled-bullet__body { color: var(--charcoal); }
+.slide.red .labeled-bullet__body { color: rgba(255,255,255,0.92); }
+
+/* ===========================================
+   PARTICLE FIELD
+   =========================================== */
+.particle-canvas, .close-particles {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+}
+
+/* ===========================================
+   STACK BARS (Slide 02) — horizontal bar chart, animated width
+   Track is dark, fill is colored, label sits inside fill, percentage
+   sits at the right edge OUTSIDE the fill so it's always readable.
+   =========================================== */
+.stack {
+    display: flex; flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.85rem);
+    width: 100%;
+}
+.stack__head {
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); margin-bottom: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+.stack-row {
+    position: relative;
+    height: clamp(46px, 5.6vw, 60px);
+    background: rgba(43,43,43,0.10);
+    border-radius: 45px 0 45px 45px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+.stack-row:hover { transform: translateX(4px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+.stack-row__fill {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: 0;
+    border-radius: inherit;
+    display: flex; align-items: center;
+    padding-left: clamp(0.9rem, 1.6vw, 1.3rem);
+    overflow: hidden;
+    transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: width;
+    background: var(--bar-color, var(--red));
+}
+.stack-row.is-animated .stack-row__fill { width: var(--target-pct, 100%); }
+/* Pulsing edge — visible only after fill expands */
+.stack-row__fill::after {
+    content: '';
+    position: absolute; top: 12%; right: 0; bottom: 12%;
+    width: 2px;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 0 14px rgba(255,255,255,0.6);
+    opacity: 0;
+    animation: stackEdgePulse 2.2s ease-in-out infinite;
+}
+.stack-row.is-animated .stack-row__fill::after { opacity: 0.85; transition: opacity 0.4s ease 1s; }
+@keyframes stackEdgePulse {
+    0%, 100% { opacity: 0.4; }
+    50%      { opacity: 1; }
+}
+.stack-row__label {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.78rem, 1.05vw, 1rem);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); white-space: nowrap;
+    line-height: 1;
+}
+.stack-row__pct {
+    position: absolute; top: 50%; right: clamp(0.9rem, 1.6vw, 1.3rem);
+    transform: translateY(-50%);
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--charcoal); line-height: 1; z-index: 2;
+}
+
+/* ===========================================
+   THREE CARDS
+   =========================================== */
+.three-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.85rem, 2vw, 1.6rem); align-content: center;
+}
+.three-cards.value-cards--two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px; margin-left: auto; margin-right: auto;
+    gap: clamp(1.2rem, 2.4vw, 2rem);
+}
+.card {
+    border: 1px solid var(--grey-line-dark);
+    padding: clamp(1rem, 2vw, 1.6rem);
+    display: flex; flex-direction: column; gap: clamp(0.55rem, 1.1vw, 0.9rem);
+    position: relative; background: rgba(255,255,255,0.015);
+    transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+    border-radius: 2px;
+}
+.slide.light .card { border-color: var(--grey-line-light); background: rgba(0,0,0,0.015); }
+.card:hover { border-color: var(--red); transform: translateY(-3px); }
+.card__num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--eyebrow); letter-spacing: 0.18em; color: var(--red);
+}
+.card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+    letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.08;
+}
+.card__price {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    line-height: 1; color: var(--white); letter-spacing: -0.01em;
+}
+.slide.light .card__price { color: var(--off-black); }
+.card__price .text-red { font-size: 0.55em; font-weight: 700; letter-spacing: 0.04em; }
+.card__body {
+    font-family: var(--font-body); font-size: var(--body); line-height: 1.5; color: var(--grey-mid);
+}
+.slide.light .card__body { color: var(--charcoal); }
+
+/* ===========================================
+   ASK CARDS
+   =========================================== */
+.ask-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2.4vw, 2rem); align-content: center;
+}
+.ask-card {
+    position: relative; border: 1.5px solid rgba(255,255,255,0.32);
+    padding: clamp(1.3rem, 2.4vw, 2rem);
+    display: flex; flex-direction: column; gap: clamp(0.65rem, 1.3vw, 1.1rem);
+    background: rgba(0,0,0,0.06);
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    border-radius: 2px;
+}
+.ask-card:hover { border-color: var(--white); background: rgba(0,0,0,0.14); transform: translateY(-4px); }
+.ask-card__num {
+    position: relative; font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.76rem, 1vw, 0.92rem); letter-spacing: 0.2em;
+    color: var(--white); opacity: 0.92; align-self: flex-start; padding-bottom: 0.3em;
+}
+.ask-card__num-line {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: var(--off-black);
+}
+.ask-card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1rem, 1.55vw, 1.35rem);
+    letter-spacing: 0.03em; text-transform: uppercase; line-height: 1.05; color: var(--white);
+}
+.ask-card__body {
+    font-family: var(--font-body); font-size: var(--body); line-height: 1.55; color: rgba(255,255,255,0.94);
+}
+
+/* Red-slide grid texture */
+.slide.red .slide-body::after {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+    background-size: 80px 80px; opacity: 0.5; pointer-events: none; z-index: 0;
+}
+.slide.red .slide-body > * { position: relative; z-index: 1; }
+
+/* ===========================================
+   VISION SLIDE 05 — pullquote (reduced from v1)
+   =========================================== */
+.vision-quote {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.95rem, 1.8vw, 1.5rem);
+    line-height: 1.18; letter-spacing: -0.005em; text-transform: uppercase;
+    color: var(--white);
+    padding: clamp(0.35rem, 0.7vw, 0.55rem) 0 clamp(0.35rem, 0.7vw, 0.55rem) clamp(0.8rem, 1.4vw, 1.2rem);
+    border-left: 4px solid var(--off-black);
+    max-width: 30ch;
+    display: flex; flex-direction: column; gap: clamp(0.2rem, 0.5vw, 0.4rem);
+}
+.vision-quote .accent { color: var(--off-black); }
+
+/* Vision-graphics column (Slide 05) */
+.vision-graphics {
+    display: flex; flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.85rem);
+    width: 100%; max-width: 400px; margin-left: 0; margin-right: auto;
+    align-items: stretch;
+}
+.vis-card {
+    background: var(--off-black);
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: var(--radius-card);
+    padding: clamp(0.6rem, 1.2vw, 0.95rem) clamp(0.85rem, 1.5vw, 1.2rem);
+    display: flex; flex-direction: column;
+    gap: clamp(0.35rem, 0.7vw, 0.55rem);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.32);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+.vis-card::after {
+    content: ''; position: absolute;
+    inset: 0; pointer-events: none;
+    background: radial-gradient(circle at top right, rgba(215,37,50,0.18), transparent 55%);
+    opacity: 0.7;
+}
+.vis-card > * { position: relative; z-index: 1; }
+.vis-card__svg {
+    width: 100%;
+    height: clamp(56px, 7.5vh, 88px);
+    display: block;
+}
+/* Invert SVG strokes/fills inside the new dark vis-card */
+.vis-card svg [stroke="#1E1E1E"] { stroke: rgba(255,255,255,0.85) !important; }
+.vis-card svg [fill="#1E1E1E"]   { fill:   rgba(255,255,255,0.85) !important; }
+.vis-card svg [stroke="#FFFFFF"] { stroke: var(--red) !important; }
+.vis-card__label {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.74rem, 0.95vw, 0.88rem);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    display: flex; justify-content: space-between; align-items: baseline;
+}
+.vis-card__label .multiplier {
+    font-size: 1.4em; color: var(--red);
+    font-weight: 900;
+}
+.vis-bar {
+    height: clamp(8px, 1.2vw, 12px);
+    background: var(--red);
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 0 12px rgba(215,37,50,0.45);
+}
+.vis-bar--small { width: 22%; }
+.vis-bar--big   { width: 100%; }
+.vis-card__ceiling {
+    font-family: var(--font-body); font-size: clamp(0.66rem, 0.82vw, 0.76rem);
+    font-style: italic; color: rgba(255,255,255,0.55);
+    margin-top: 0.2rem;
+}
+
+/* ===========================================
+   SYSTEM GRAPHIC (Slide 04)
+   =========================================== */
+.sys-graphic-wrap {
+    width: 100%; height: 100%;
+    min-height: clamp(320px, 44vh, 500px);
+    display: flex; align-items: center; justify-content: center;
+}
+.sys-graphic { width: 100%; height: 100%; max-width: 580px; max-height: 480px; }
+.sys-caption {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.72rem, 0.88vw, 0.85rem);
+    color: var(--charcoal); opacity: 0.7;
+    text-align: center;
+    margin-top: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+
+/* ===========================================
+   OWNER / REP HUB GRAPHIC (Slide 06 + 07)
+   =========================================== */
+.hub-graphic-wrap {
+    width: 100%; height: 100%;
+    min-height: clamp(280px, 38vh, 400px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: clamp(0.5rem, 1vw, 0.9rem);
+}
+.hub-graphic { width: 100%; height: 100%; max-width: 460px; max-height: 380px; }
+.hub-caption {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.7rem, 0.85vw, 0.82rem);
+    color: rgba(255,255,255,0.65); text-align: center;
+}
+
+/* ===========================================
+   INFRASTRUCTURE WALL (Slide 10)
+   =========================================== */
+.wall-graphic-wrap {
+    width: 100%; height: 100%;
+    min-height: clamp(280px, 38vh, 400px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+.wall-graphic { width: 100%; height: 100%; max-width: 440px; max-height: 360px; }
+.wall-caption {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.7rem, 0.85vw, 0.82rem);
+    color: var(--charcoal); opacity: 0.7; text-align: center;
+}
+
+/* Slide 11 — cost / human-error graphic (right column, dark slide) */
+.cost-graphic-wrap {
+    width: 100%; height: 100%;
+    min-height: clamp(220px, 30vh, 320px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+.cost-graphic { width: 100%; height: 100%; max-width: 400px; max-height: 320px; }
+.cost-caption {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.72rem, 0.88vw, 0.86rem);
+    color: rgba(255,255,255,0.7); text-align: center;
+    max-width: 38ch;
+}
+
+/* ===========================================
+   CROSSED-OUT ICONS (Slide 12)
+   =========================================== */
+.cross-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(0.8rem, 1.6vw, 1.4rem);
+    align-content: center;
+    width: 100%; max-width: 420px; margin: 0 auto;
+}
+.cross-card {
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.7rem);
+    padding: clamp(0.85rem, 1.6vw, 1.3rem);
+    border: 1px solid var(--grey-line-light);
+    border-radius: var(--radius-card);
+    background: rgba(0,0,0,0.025);
+    transition: border-color 0.3s ease, background 0.3s ease;
+    position: relative;
+}
+.cross-card:hover { border-color: var(--red); }
+.cross-card:hover .cross-card__x line { stroke-width: 3; }
+.cross-card__icon {
+    width: clamp(48px, 6vw, 72px);
+    height: clamp(48px, 6vw, 72px);
+    position: relative;
+}
+.cross-card__icon svg { width: 100%; height: 100%; }
+.cross-card__icon .icon-base { stroke: rgba(43,43,43,0.35); fill: none; stroke-width: 2; }
+.cross-card__x {
+    position: absolute; inset: -6%;
+    pointer-events: none;
+}
+.cross-card__x line {
+    stroke: var(--red); stroke-width: 2.5; stroke-linecap: round;
+    transition: stroke-width 0.25s ease;
+}
+.cross-card__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--charcoal); text-align: center;
+}
+.cross-caption {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.72rem, 0.88vw, 0.85rem);
+    color: var(--charcoal); opacity: 0.7;
+    text-align: center;
+    margin-top: clamp(0.5rem, 1vw, 0.9rem);
+}
+
+/* ===========================================
+   FIT-CHECK ROWS (Slide 14)
+   =========================================== */
+.fit-rows {
+    display: flex; flex-direction: column;
+    gap: clamp(0.35rem, 0.7vw, 0.55rem);
+    flex: 1; min-height: 0;
+    justify-content: flex-start;
+}
+.fit-row {
+    display: grid;
+    grid-template-columns: clamp(42px, 4.8vw, 54px) 1fr;
+    gap: clamp(0.7rem, 1.3vw, 1.05rem);
+    align-items: center;
+    padding: clamp(0.4rem, 0.75vw, 0.6rem) 0;
+    border-bottom: 1px solid var(--grey-line-light);
+}
+.fit-row:last-child { border-bottom: 0; }
+.fit-row__icon {
+    width: clamp(36px, 4.4vw, 48px); height: clamp(36px, 4.4vw, 48px);
+    display: flex; align-items: center; justify-content: center;
+}
+.fit-row__icon svg { width: 100%; height: 100%; }
+.fit-row__icon svg .ic-line {
+    stroke: var(--red); fill: none; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+}
+.fit-row__icon svg .ic-fill { fill: var(--red); }
+.fit-row__content { display: flex; flex-direction: column; gap: 0.18em; }
+.fit-row__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.78rem, 1vw, 0.92rem);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    line-height: 1.1;
+}
+.fit-row__body {
+    font-family: var(--font-body); font-size: clamp(0.74rem, 0.88vw, 0.88rem);
+    line-height: 1.4; color: var(--charcoal); opacity: 0.85;
+}
+
+/* ===========================================
+   TIMELINE GRIDS (Slide 08 + 09)
+   =========================================== */
+.timeline-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.7rem, 1.5vw, 1.3rem);
+    flex: 1; min-height: 0; align-content: center;
+}
+.timeline-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.tl-step {
+    display: flex; flex-direction: column; gap: clamp(0.25rem, 0.6vw, 0.45rem);
+    padding: clamp(0.75rem, 1.4vw, 1.1rem);
+    border: 1px solid var(--grey-line-light); border-radius: 2px;
+    background: rgba(0,0,0,0.018); position: relative;
+    min-height: 0;
+}
+.slide.dark .tl-step { border-color: var(--grey-line-dark); background: rgba(255,255,255,0.02); }
+.tl-step__num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.15rem, 2vw, 1.7rem);
+    line-height: 1; color: var(--red); letter-spacing: -0.01em;
+    margin-bottom: clamp(0.15rem, 0.4vw, 0.3rem);
+}
+.tl-step__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.74rem, 1vw, 0.92rem);
+    letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.15;
+}
+.tl-step__body {
+    font-family: var(--font-body);
+    font-size: clamp(0.7rem, 0.85vw, 0.82rem);
+    line-height: 1.45; color: var(--charcoal); opacity: 0.85;
+}
+.slide.dark .tl-step__body { color: rgba(255,255,255,0.82); opacity: 1; }
+.tl-step__dur {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: clamp(0.6rem, 0.74vw, 0.7rem);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--red); margin-top: clamp(0.2rem, 0.4vw, 0.3rem);
+}
+
+/* ===========================================
+   CLOSE SLIDE — contact block + booking widget placeholder
+   =========================================== */
+.close-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: center;
+    position: relative; z-index: 1;
+    width: 100%;
+}
+.close-stack__left, .close-stack__right {
+    display: flex; flex-direction: column;
+    gap: clamp(0.55rem, 1.1vw, 0.95rem);
+    align-items: flex-start;
+    min-width: 0;
+}
+.close-stack__right { align-items: stretch; justify-content: center; }
+@media (max-width: 900px) {
+    .close-stack { grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.6rem); }
+}
+.close-contact {
+    display: grid; grid-template-columns: max-content 1fr;
+    gap: clamp(0.3rem, 0.7vw, 0.55rem) clamp(1.2rem, 2.4vw, 1.8rem);
+    padding-top: clamp(0.6rem, 1.1vw, 0.9rem);
+    padding-bottom: clamp(0.6rem, 1.1vw, 0.9rem);
+    border-top: 1px solid var(--grey-line-dark);
+    border-bottom: 1px solid var(--grey-line-dark);
+    margin-top: clamp(0.4rem, 0.8vw, 0.7rem);
+    width: 100%;
+}
+.close-contact__key {
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--red);
+}
+.close-contact__val {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    letter-spacing: 0.02em; text-transform: uppercase;
+}
+
+/* Close-slide CTA + contact cards (booking widget removed — opens in new tab) */
+/* (uses earlier .close-stack rule — single source of truth) */
+.close-contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 1rem) clamp(1.8rem, 3.4vw, 3rem);
+    width: 100%;
+    margin-top: clamp(0.4rem, 0.8vw, 0.7rem);
+    padding: clamp(0.7rem, 1.3vw, 1rem) 0;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.contact-item {
+    display: flex; flex-direction: column;
+    gap: clamp(0.15rem, 0.3vw, 0.25rem);
+    text-decoration: none;
+    color: var(--white);
+    transition: color 0.2s ease, transform 0.2s ease;
+    min-width: 0;
+}
+.contact-item--link:hover { transform: translateY(-2px); }
+.contact-item--link:hover .contact-item__val { color: var(--red); }
+.contact-item__key {
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--red); line-height: 1;
+}
+.contact-item__val {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--white);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+/* Email — lowercase, narrower font, one-line on desktop */
+.contact-item--email .contact-item__val {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+    max-width: 100%;
+}
+@media (max-width: 900px) {
+    .close-contact-bar { gap: 0.6rem 1.4rem; }
+    .contact-item--email .contact-item__val { white-space: normal; overflow-wrap: anywhere; }
+}
+
+/* The big red CTA button replacing the calendar iframe */
+.close-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.8em;
+    padding: clamp(0.95rem, 1.7vw, 1.25rem) clamp(1.6rem, 2.8vw, 2.4rem);
+    background: var(--red); color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    border-radius: var(--radius-asym);
+    box-shadow: 0 10px 28px rgba(215,37,50,0.4);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+    text-align: center;
+}
+.close-cta-btn:hover {
+    background: var(--red-deep); transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(215,37,50,0.55);
+}
+.close-cta-btn__arrow { font-weight: 900; transition: transform 0.25s ease; }
+.close-cta-btn:hover .close-cta-btn__arrow { transform: translateX(5px); }
+
+/* ===========================================
+   KEYBOARD HINT
+   =========================================== */
+.kbd-hint {
+    position: fixed; bottom: clamp(80px, 12vh, 110px); left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body); font-size: var(--eyebrow);
+    font-weight: 700; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+    z-index: 199; pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.kbd-hint.fade { opacity: 0; }
+@media (max-width: 540px) { .kbd-hint { display: none; } }
+
+/* OVERVIEW */
+.deck.overview { background: #0a0a0a; overflow: auto; }
+.deck.overview .slide {
+    opacity: 1 !important; pointer-events: auto !important; cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08); z-index: 1;
+}
+.deck.overview .slide.is-active, .deck.overview .slide:hover {
+    box-shadow: 0 0 0 2px var(--red), 0 12px 40px rgba(0,0,0,0.5); z-index: 3;
+}
+.deck.overview .slide .reveal { opacity: 1 !important; }
+.overview-label {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; color: var(--white); text-transform: uppercase;
+    z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.deck.overview ~ .overview-label { opacity: 1; }
+
+/* ===========================================
+   BOTTOM NAVIGATION RIBBON
+   =========================================== */
+.deck-ribbon {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px clamp(12px, 3vw, 32px);
+    background: linear-gradient(180deg, rgba(30,30,30,0.85) 0%, rgba(30,30,30,0.98) 100%);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.3); gap: 12px;
+}
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .deck-ribbon { padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+}
+.deck-ribbon__btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--red); color: #fff; border: none;
+    padding: 11px 18px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800; font-size: 12px;
+    letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
+    min-height: 44px; min-width: 100px;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 8px rgba(215,37,50,0.35);
+}
+.deck-ribbon__btn:hover:not([disabled]) {
+    background: var(--red-deep); transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(215,37,50,0.5);
+}
+.deck-ribbon__btn:active:not([disabled]) { transform: translateY(0); }
+.deck-ribbon__btn[disabled] {
+    background: rgba(215,37,50,0.25); color: rgba(255,255,255,0.4);
+    cursor: default; box-shadow: none;
+}
+.deck-ribbon__progress {
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; padding: 9px 16px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 700; font-size: 12px;
+    letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
+}
+.deck-ribbon__progress:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.35); }
+.deck-ribbon__current { color: var(--red); }
+.deck-ribbon__sep { opacity: 0.4; margin: 0 0.3em; }
+.slide { padding-bottom: 82px !important; }
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .slide { padding-bottom: calc(82px + env(safe-area-inset-bottom)) !important; }
+}
+@media (max-width: 540px) {
+    .deck-ribbon { padding: 9px 12px; gap: 8px; }
+    .deck-ribbon__btn { padding: 10px 14px; font-size: 11px; min-width: 86px; min-height: 42px; }
+    .deck-ribbon__progress { font-size: 11px; padding: 8px 12px; }
+}
+@media print {
+    .deck-ribbon { display: none !important; }
+    .slide { padding-bottom: var(--slide-padding, 2rem) !important; }
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-height: 820px) {
+    :root {
+        --slide-padding: clamp(0.9rem, 2.3vw, 2rem);
+        --content-gap: clamp(0.7rem, 1.5vw, 1.2rem);
+        --display-1: clamp(2rem, 6vw, 4.6rem);
+        --display-2: clamp(1.4rem, 3.2vw, 2.5rem);
+        --display-3: clamp(1.05rem, 2.1vw, 1.6rem);
+    }
+}
+@media (max-height: 760px) {
+    :root {
+        --slide-padding: clamp(0.85rem, 2.1vw, 1.8rem);
+        --content-gap: clamp(0.6rem, 1.4vw, 1.05rem);
+        --display-1: clamp(1.9rem, 5.6vw, 4.2rem);
+        --display-2: clamp(1.3rem, 3vw, 2.3rem);
+    }
+    .stack-row { height: clamp(36px, 4.4vw, 48px); }
+    .cover-logo-mark { height: clamp(40px, 5vw, 64px); }
+}
+@media (max-height: 720px) {
+    :root {
+        --slide-padding: clamp(0.8rem, 2vw, 1.6rem);
+        --content-gap: clamp(0.55rem, 1.2vw, 0.95rem);
+        --display-1: clamp(1.7rem, 5.2vw, 3.8rem);
+        --display-2: clamp(1.2rem, 2.8vw, 2.1rem);
+    }
+    .stack-row { height: clamp(34px, 4vw, 44px); }
+}
+@media (max-height: 640px) {
+    :root {
+        --display-1: clamp(1.5rem, 4.8vw, 3.2rem);
+        --display-2: clamp(1.1rem, 2.6vw, 1.9rem);
+    }
+    .slide-header, .slide-footer { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+}
+@media (max-width: 900px) {
+    .split-grid { grid-template-columns: 1fr !important; gap: clamp(0.8rem, 2vw, 1.4rem); }
+    .timeline-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+    :root {
+        --slide-padding: clamp(0.85rem, 3.6vw, 1.4rem);
+        --display-1: clamp(1.9rem, 8vw, 3rem);
+        --display-2: clamp(1.3rem, 5.6vw, 2rem);
+        --display-3: clamp(1rem, 4.2vw, 1.4rem);
+    }
+    .slide-header__right { display: none; }
+    .slide-header { padding: 0.6rem 0.9rem; }
+    .slide-footer { padding: 0.55rem 0.9rem; font-size: 0.54rem; }
+    .three-cards, .ask-grid { grid-template-columns: 1fr !important; }
+    .cross-grid { grid-template-columns: 1fr 1fr; max-width: 320px; }
+    .vision-graphics { max-width: 100%; margin-left: 0; }
+    .cover-headline { font-size: clamp(2.4rem, 12vw, 3.4rem); }
+    .cover-subline { font-size: clamp(0.85rem, 4vw, 1.1rem); }
+    .stack-row { height: clamp(36px, 9vw, 44px); }
+    .close-contact { grid-template-columns: 1fr; gap: 0.2rem 0; }
+    .close-contact__key { font-size: 0.62rem; opacity: 0.7; }
+    .close-contact__val { font-size: 0.92rem; margin-bottom: 0.35rem; }
+    .fit-row { grid-template-columns: clamp(38px, 9vw, 46px) 1fr; gap: 0.85rem; }
+}
+@media (max-width: 540px) {
+    .timeline-grid { grid-template-columns: 1fr !important; }
+}
+
+/* PRINT */
+@media print {
+    html, body { background: white !important; height: auto !important; overflow: visible !important; }
+    .deck { position: relative !important; height: auto !important; overflow: visible !important; }
+    .slide {
+        position: relative !important; inset: auto !important;
+        opacity: 1 !important; transform: none !important; pointer-events: auto !important;
+        page-break-after: always; page-break-inside: avoid;
+        height: 100vh !important; max-height: 100vh !important;
+        padding-bottom: var(--slide-padding) !important;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .stack-row { opacity: 1 !important; transform: none !important; }
+    .stack-row .stack-row__fill { width: var(--target-pct, 100%) !important; transition: none !important; }
+    .kbd-hint, .overview-label { display: none !important; }
+    .particle-canvas, .close-particles { display: none !important; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; }
+    .stack-row { opacity: 1 !important; transform: none !important; }
+    .stack-row .stack-row__fill { width: var(--target-pct, 100%) !important; transition: none !important; }
+}
+
+/* ===========================================
+   GRAPHIC ANIMATIONS
+   =========================================== */
+@keyframes sysPulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.08); }
+}
+@keyframes sysOrbitDot {
+    from { offset-distance: 0%; }
+    to   { offset-distance: 100%; }
+}
+@keyframes hubGlow {
+    0%, 100% { filter: drop-shadow(0 0 4px rgba(215,37,50,0.4)); }
+    50%      { filter: drop-shadow(0 0 12px rgba(215,37,50,0.9)); }
+}
+@keyframes wallFlow {
+    0%   { opacity: 0; transform: translateY(-6px); }
+    25%  { opacity: 1; transform: translateY(0); }
+    75%  { opacity: 1; transform: translateY(20px); }
+    100% { opacity: 0; transform: translateY(26px); }
+}
+
+/* Pulse on system graphic satellite nodes */
+.sys-graphic .sat-node { animation: sysPulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.sys-graphic .sat-node:nth-child(1) { animation-delay: 0s; }
+.sys-graphic .sat-node:nth-child(2) { animation-delay: 0.3s; }
+.sys-graphic .sat-node:nth-child(3) { animation-delay: 0.6s; }
+.sys-graphic .sat-node:nth-child(4) { animation-delay: 0.9s; }
+.sys-graphic .sat-node:nth-child(5) { animation-delay: 1.2s; }
+
+/* Hub nodes (slide 06 + 07) — sequential pulse */
+.hub-graphic .hub-node { animation: hubGlow 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.hub-graphic .hub-node:nth-of-type(1) { animation-delay: 0s; }
+.hub-graphic .hub-node:nth-of-type(2) { animation-delay: 1s; }
+.hub-graphic .hub-node:nth-of-type(3) { animation-delay: 2s; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+<!-- =========================================
+     SLIDE 01 — COVER
+     ========================================= -->
+<section class="slide dark has-brackets" data-title="Cover" data-particles="true">
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+    <canvas class="particle-canvas"></canvas>
+
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <div class="slide-header__right">
+            <span class="slide-header__doc-sep"></span>
+            <span>CAPABILITIES&nbsp;&nbsp;DECK</span>
+        </div>
+    </header>
+
+    <div class="cover-grid">
+        <div class="cover-hero">
+            <span class="eyebrow reveal"><span class="num">—</span> REVELATION AGENCY · CAPABILITIES DECK</span>
+            <h1 class="cover-headline reveal">SALES<br>INTELLIGENCE<span class="text-red">.</span></h1>
+            <p class="cover-subline reveal">
+                <span class="line"><span class="accent">An Operations Manager</span> for the owner<span class="dot">.</span></span>
+                <span class="line"><span class="accent">An Executive Assistant</span> for every rep<span class="dot">.</span></span>
+            </p>
+        </div>
+
+        <div class="meta-block reveal">
+            <span>BUILT BY REVELATION AGENCY</span>
+            <span class="sep">·</span>
+            <span>REVELATIONAGENCY.COM</span>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>01 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 02 — THE PROBLEM
+     ========================================= -->
+<section class="slide light" data-title="The Problem">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>02 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">01</span> THE PROBLEM</span>
+        <h2 class="display-2 reveal">MOST SALES TEAMS ARE <span class="text-red">FLYING BLIND.</span></h2>
+        <p class="lede reveal">Owners can't see what's really happening on calls. Reps drown in admin instead of selling. Pipeline rots because follow-up is inconsistent. Coaching happens reactively, after deals are already lost.</p>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="split-left" style="justify-content:flex-start;">
+                <ul class="bullet-list">
+                    <li class="bullet-item"><p>Owners review maybe 1% of calls — and that 1% isn't randomly sampled.</p></li>
+                    <li class="bullet-item"><p>Reps spend 2–3 hours/day on admin instead of selling.</p></li>
+                    <li class="bullet-item"><p>40–60% of qualified pipeline goes cold without ever getting a second touch.</p></li>
+                    <li class="bullet-item"><p>Coaching is reactive — by the time you see a problem, the deal's already lost.</p></li>
+                </ul>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="stack">
+                    <div class="stack__head">Where rep time actually goes</div>
+                    <div class="stack-row" style="--target-pct:75%;  --bar-color:var(--red);">
+                        <div class="stack-row__fill"><span class="stack-row__label">Selling</span></div>
+                        <span class="stack-row__pct">30%</span>
+                    </div>
+                    <div class="stack-row" style="--target-pct:100%; --bar-color:var(--charcoal);">
+                        <div class="stack-row__fill"><span class="stack-row__label">Admin</span></div>
+                        <span class="stack-row__pct">40%</span>
+                    </div>
+                    <div class="stack-row" style="--target-pct:50%;  --bar-color:#6B6F73;">
+                        <div class="stack-row__fill"><span class="stack-row__label">Coordination</span></div>
+                        <span class="stack-row__pct">20%</span>
+                    </div>
+                    <div class="stack-row" style="--target-pct:25%;  --bar-color:var(--off-black);">
+                        <div class="stack-row__fill"><span class="stack-row__label">Coaching</span></div>
+                        <span class="stack-row__pct">10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>02 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 03 — CURRENT STATE
+     ========================================= -->
+<section class="slide light" data-title="Current State">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>03 / 15</span>
+    </header>
+
+    <div class="slide-body" style="padding-top:clamp(1.6rem,3vw,2.4rem); padding-bottom:clamp(1.6rem,2.6vw,2.4rem);">
+        <span class="eyebrow reveal" style="margin-top:clamp(0.4rem,0.9vw,0.7rem);"><span class="num">02</span> CURRENT STATE</span>
+        <h2 class="display-2 reveal">WHAT YOU'VE PROBABLY <span class="text-red">TRIED.</span></h2>
+        <p class="lede reveal">Every sales team eventually buys tools to solve this. Most tools solve one slice and leave the rest broken.</p>
+
+        <div class="three-cards reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="card">
+                <span class="card__num">01</span>
+                <h3 class="card__title">CRM</h3>
+                <p class="card__body">Tracks what already happened. Doesn't tell you what to do next. Reps update it grudgingly.</p>
+            </div>
+            <div class="card">
+                <span class="card__num">02</span>
+                <h3 class="card__title">CALL RECORDING SOFTWARE</h3>
+                <p class="card__body">Records 80 hours of calls/week. Nobody listens. Insights stay locked in audio.</p>
+            </div>
+            <div class="card">
+                <span class="card__num">03</span>
+                <h3 class="card__title">SALES COACHING CONSULTANTS</h3>
+                <p class="card__body">Expensive, episodic, gone after 90 days. Doesn't scale to every rep, every call.</p>
+            </div>
+        </div>
+
+        <p class="closing-line reveal" style="margin-top:clamp(1rem,1.8vw,1.5rem); margin-bottom:clamp(1rem,1.6vw,1.5rem);">Each piece works in isolation. None of them talk to each other. The owner still ends up doing the integration in their head.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>03 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 04 — WHAT YOU NEED
+     ========================================= -->
+<section class="slide light" data-title="What You Need">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>04 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">03</span> WHAT YOU NEED</span>
+        <h2 class="display-2 reveal">A SYSTEM, <span class="text-red">NOT ANOTHER TOOL.</span></h2>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">VISIBILITY <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Know what's happening on every call, in every pipeline stage.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">INTELLIGENCE <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Patterns, insights, and recommendations surfaced automatically.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">CUSTOMIZATION <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Every prospect researched, every follow-up tailored to what was said.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">COACHING <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Every rep coached daily on what they did well and what to fix.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">ACCOUNTABILITY <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Reps held to standards automatically. Pipeline reality reported without chasing.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="sys-graphic-wrap">
+                    <svg class="sys-graphic" viewBox="0 0 620 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- LEFT label -->
+                        <text x="80" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2.2" fill="#2B2B2B" opacity="0.55">MINIMAL INPUTS</text>
+
+                        <!-- Input icons left (stacked) -->
+                        <g class="inputs" stroke="#2B2B2B" stroke-width="2" fill="none">
+                            <!-- Phone -->
+                            <g transform="translate(80,120)">
+                                <rect x="-14" y="-22" width="28" height="42" rx="3"/>
+                                <line x1="-7" y1="-14" x2="7" y2="-14"/>
+                                <circle cx="0" cy="14" r="2" fill="#2B2B2B"/>
+                            </g>
+                            <text x="80" y="160" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#2B2B2B" opacity="0.6">CALLS</text>
+                            <!-- CRM / database -->
+                            <g transform="translate(80,220)">
+                                <ellipse cx="0" cy="-16" rx="18" ry="6"/>
+                                <path d="M-18,-16 v32 a18,6 0 0 0 36,0 v-32"/>
+                                <path d="M-18,0 a18,6 0 0 0 36,0"/>
+                            </g>
+                            <text x="80" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#2B2B2B" opacity="0.6">CRM</text>
+                            <!-- Calendar -->
+                            <g transform="translate(80,320)">
+                                <rect x="-18" y="-16" width="36" height="32" rx="2"/>
+                                <line x1="-18" y1="-8" x2="18" y2="-8"/>
+                                <line x1="-10" y1="-16" x2="-10" y2="-22"/>
+                                <line x1="10" y1="-16" x2="10" y2="-22"/>
+                                <rect x="-4" y="-1" width="8" height="6" fill="#2B2B2B" stroke="none"/>
+                            </g>
+                            <text x="80" y="362" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#2B2B2B" opacity="0.6">CALENDAR</text>
+                        </g>
+
+                        <!-- Connector lines input → center, dashed red -->
+                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                            <path id="sysPath1" d="M100,120 Q200,160 280,230" stroke-dasharray="3 4"/>
+                            <path id="sysPath2" d="M100,220 L268,230" stroke-dasharray="3 4"/>
+                            <path id="sysPath3" d="M100,320 Q200,290 280,232" stroke-dasharray="3 4"/>
+                        </g>
+
+                        <!-- Central system node — bigger, with subtitle inside -->
+                        <g transform="translate(310,230)">
+                            <circle r="68" fill="none" stroke="#D72532" stroke-width="1.5" opacity="0.25"/>
+                            <circle r="76" fill="none" stroke="#D72532" stroke-width="1" opacity="0.12"/>
+                            <circle r="58" fill="#D72532"/>
+                            <text y="-8" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="900" font-size="16" letter-spacing="2.5" fill="#FFFFFF">SYSTEM</text>
+                            <line x1="-22" y1="2" x2="22" y2="2" stroke="#FFFFFF" stroke-width="1" opacity="0.55"/>
+                            <text y="18" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="7" letter-spacing="1.8" fill="#FFFFFF" opacity="0.92">CUSTOM-BUILT</text>
+                            <text y="30" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="7" letter-spacing="1.8" fill="#FFFFFF" opacity="0.92">FOR YOUR ORG</text>
+                        </g>
+
+                        <!-- 5 satellite pillar nodes — connector lines (drawn first, under nodes) -->
+                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                            <line id="satPath1" x1="368" y1="230" x2="460" y2="100"/>
+                            <line id="satPath2" x1="368" y1="230" x2="500" y2="180"/>
+                            <line id="satPath3" x1="368" y1="230" x2="500" y2="280"/>
+                            <line id="satPath4" x1="368" y1="230" x2="460" y2="360"/>
+                            <line id="satPath5" x1="368" y1="230" x2="400" y2="400"/>
+                        </g>
+
+                        <!-- Satellite nodes — each has a label OUTSIDE the circle to the right -->
+                        <g>
+                            <!-- VISIBILITY -->
+                            <g class="sat-node">
+                                <circle cx="460" cy="100" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                            </g>
+                            <text x="490" y="104" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">VISIBILITY</text>
+                            <!-- INTELLIGENCE -->
+                            <g class="sat-node">
+                                <circle cx="500" cy="180" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                            </g>
+                            <text x="530" y="184" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">INTEL</text>
+                            <!-- CUSTOMIZATION -->
+                            <g class="sat-node">
+                                <circle cx="500" cy="280" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                            </g>
+                            <text x="530" y="284" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">CUSTOM</text>
+                            <!-- COACHING -->
+                            <g class="sat-node">
+                                <circle cx="460" cy="360" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                            </g>
+                            <text x="490" y="364" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">COACH</text>
+                            <!-- ACCOUNTABILITY -->
+                            <g class="sat-node">
+                                <circle cx="400" cy="400" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                            </g>
+                            <text x="430" y="404" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">ACCT.</text>
+                        </g>
+
+                        <!-- RIGHT label -->
+                        <text x="500" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2.2" fill="#2B2B2B" opacity="0.55">CONTINUOUS INTEL OUT</text>
+
+                        <!-- Animated data dots flowing input → center → satellites -->
+                        <g fill="#D72532">
+                            <circle r="4">
+                                <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+                                    <mpath href="#sysPath1"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="3s" begin="0.5s" repeatCount="indefinite">
+                                    <mpath href="#sysPath2"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="3s" begin="1s" repeatCount="indefinite">
+                                    <mpath href="#sysPath3"/>
+                                </animateMotion>
+                            </circle>
+                        </g>
+                        <g fill="#FFFFFF" stroke="#D72532" stroke-width="1">
+                            <circle r="4">
+                                <animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite">
+                                    <mpath href="#satPath1"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite">
+                                    <mpath href="#satPath2"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="2.4s" begin="2.1s" repeatCount="indefinite">
+                                    <mpath href="#satPath3"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="2.4s" begin="2.4s" repeatCount="indefinite">
+                                    <mpath href="#satPath4"/>
+                                </animateMotion>
+                            </circle>
+                            <circle r="4">
+                                <animateMotion dur="2.4s" begin="2.7s" repeatCount="indefinite">
+                                    <mpath href="#satPath5"/>
+                                </animateMotion>
+                            </circle>
+                        </g>
+                    </svg>
+                </div>
+                <p class="sys-caption">Frictionless data in. Continuous intelligence out.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>04 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 05 — THE VISION (red)
+     ========================================= -->
+<section class="slide red" data-title="The Vision">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>05 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">04</span> THE VISION</span>
+        <h2 class="display-2 reveal">NOT A HUMAN REPLACEMENT. <span class="text-black">A HUMAN SUPERCHARGER.</span></h2>
+
+        <div class="split-grid split-grid--7-5 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); gap:clamp(1rem,2vw,2rem);">
+            <div class="split-left">
+                <p class="lede" style="color:rgba(255,255,255,0.95);">AI can do about 25% of what a human can do. A human leveraging AI can increase their own productivity by 1000%.</p>
+                <div class="vision-quote">
+                    <span>Replacing humans <span class="accent">doubles</span> you.</span>
+                    <span>Supercharging humans <span class="accent">10x's</span> you.</span>
+                    <span>We build the system that <span class="accent">10x's you.</span></span>
+                </div>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="vision-graphics">
+                    <!-- TOP: replacement -->
+                    <div class="vis-card">
+                        <svg class="vis-card__svg" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- ceiling line + label -->
+                            <line x1="20" y1="14" x2="200" y2="14" stroke="#1E1E1E" stroke-width="1.5" stroke-dasharray="3 3"/>
+                            <text x="200" y="11" text-anchor="end" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="1.4" fill="#1E1E1E">CEILING</text>
+                            <!-- small human silhouette -->
+                            <g transform="translate(60,52)" stroke="#FFFFFF" stroke-width="1.6" fill="none">
+                                <circle cx="0" cy="-12" r="6"/>
+                                <path d="M-8,-2 a8,8 0 0 1 16,0 v14 h-16 z"/>
+                            </g>
+                            <!-- robot overlap, bigger -->
+                            <g transform="translate(78,46)" stroke="#1E1E1E" stroke-width="1.8" fill="none">
+                                <rect x="-12" y="-18" width="24" height="22" rx="3"/>
+                                <circle cx="-5" cy="-9" r="2" fill="#1E1E1E"/>
+                                <circle cx="5" cy="-9" r="2" fill="#1E1E1E"/>
+                                <line x1="-4" y1="-2" x2="4" y2="-2"/>
+                                <line x1="-18" y1="-10" x2="-12" y2="-10"/>
+                                <line x1="12" y1="-10" x2="18" y2="-10"/>
+                                <rect x="-12" y="4" width="24" height="20"/>
+                            </g>
+                            <!-- X over human -->
+                            <line x1="51" y1="42" x2="69" y2="62" stroke="#FFFFFF" stroke-width="1.5"/>
+                            <line x1="69" y1="42" x2="51" y2="62" stroke="#FFFFFF" stroke-width="1.5"/>
+                        </svg>
+                        <div class="vis-bar vis-bar--small"></div>
+                        <div class="vis-card__label">
+                            <span>REPLACEMENT</span>
+                            <span class="multiplier">2x</span>
+                        </div>
+                        <div class="vis-card__ceiling">Hard ceiling. Always.</div>
+                    </div>
+                    <!-- BOTTOM: supercharge -->
+                    <div class="vis-card">
+                        <svg class="vis-card__svg" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- confident human with aura -->
+                            <g transform="translate(110,55)">
+                                <!-- circuit aura: hexagons -->
+                                <g stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.85">
+                                    <circle cx="0" cy="0" r="34" stroke-dasharray="2 4"/>
+                                    <circle cx="0" cy="0" r="44" stroke-dasharray="2 6" opacity="0.55"/>
+                                </g>
+                                <!-- circuit nodes -->
+                                <g fill="#FFFFFF" opacity="0.9">
+                                    <circle cx="0" cy="-34" r="2"/>
+                                    <circle cx="29" cy="17" r="2"/>
+                                    <circle cx="-29" cy="17" r="2"/>
+                                    <circle cx="32" cy="-22" r="1.5"/>
+                                    <circle cx="-32" cy="-22" r="1.5"/>
+                                </g>
+                                <!-- confident silhouette -->
+                                <g stroke="#1E1E1E" stroke-width="2" fill="none">
+                                    <circle cx="0" cy="-18" r="7"/>
+                                    <path d="M-12,-3 a12,12 0 0 1 24,0 l-3,15 h-18 z" fill="#1E1E1E" stroke="#1E1E1E"/>
+                                    <line x1="-18" y1="-3" x2="-12" y2="-12"/>
+                                    <line x1="18" y1="-3" x2="12" y2="-12"/>
+                                </g>
+                            </g>
+                            <!-- upward arrow above (no ceiling) -->
+                            <g stroke="#1E1E1E" stroke-width="2" fill="none">
+                                <line x1="190" y1="14" x2="190" y2="4"/>
+                                <path d="M186,8 L190,4 L194,8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <text x="184" y="11" text-anchor="end" font-family="Inter,sans-serif" font-size="7" font-weight="700" letter-spacing="1.2" fill="#1E1E1E">NO CEILING</text>
+                        </svg>
+                        <div class="vis-bar vis-bar--big"></div>
+                        <div class="vis-card__label">
+                            <span>SUPERCHARGE</span>
+                            <span class="multiplier">10x↑</span>
+                        </div>
+                        <div class="vis-card__ceiling">Compounds with the human.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="closing-line reveal" style="color:rgba(255,255,255,0.92); margin-top:clamp(0.7rem,1.4vw,1.2rem);">Your team stays. They just get senior-level support they couldn't otherwise afford. You stay focused on what actually matters.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>05 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 06 — FOR THE OWNER (dark, center-out hub)
+     ========================================= -->
+<section class="slide dark" data-title="For the Owner">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>06 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">05</span> FOR THE OWNER</span>
+        <h2 class="display-2 reveal">A 24/7 ANALYST, STRATEGIST <span class="text-red">&amp; MANAGER.</span></h2>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">VISIBILITY <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Every call analyzed, every rep scored, every pipeline stage tracked, every gap surfaced.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">STRATEGY <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Patterns across calls become recommendations: what to double down on, what to kill.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">INSIGHTS <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Money-hiding-in-plain-sight surfaced weekly. Dead pipeline revived. Win/loss patterns made visible.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">MANAGEMENT <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Reps coached automatically. Activity standards held. Accountability without chasing.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="hub-graphic-wrap">
+                    <svg class="hub-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Connector lines first (underneath) -->
+                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.45">
+                            <line x1="230" y1="180" x2="230" y2="60" stroke-dasharray="3 4"/>
+                            <line x1="230" y1="180" x2="380" y2="240" stroke-dasharray="3 4"/>
+                            <line x1="230" y1="180" x2="80" y2="240" stroke-dasharray="3 4"/>
+                        </g>
+
+                        <!-- Owner center -->
+                        <g transform="translate(230,180)">
+                            <circle r="38" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <g stroke="#FFFFFF" stroke-width="2" fill="none">
+                                <circle cx="0" cy="-10" r="9"/>
+                                <path d="M-14,8 a14,14 0 0 1 28,0 v14 h-28 z"/>
+                            </g>
+                            <text y="42" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="2" fill="#FFFFFF">OWNER</text>
+                        </g>
+
+                        <!-- Orbiting nodes -->
+                        <g font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="1.5" fill="#FFFFFF" text-anchor="middle">
+                            <!-- ANALYST top -->
+                            <g class="hub-node">
+                                <circle cx="230" cy="60" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(230,55)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <polyline points="-10,5 -4,-3 2,2 10,-7"/>
+                                    <line x1="-12" y1="8" x2="12" y2="8"/>
+                                </g>
+                                <text x="230" y="76">ANALYST</text>
+                            </g>
+                            <!-- STRATEGIST right -->
+                            <g class="hub-node">
+                                <circle cx="380" cy="240" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(380,235)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <path d="M-2,-10 a3,3 0 0 1 4,0 l1,4 h-6 z"/>
+                                    <line x1="0" y1="-6" x2="0" y2="0"/>
+                                    <line x1="-4" y1="2" x2="4" y2="2"/>
+                                    <rect x="-5" y="2" width="10" height="5"/>
+                                </g>
+                                <text x="380" y="256">STRATEGIST</text>
+                            </g>
+                            <!-- MANAGER left -->
+                            <g class="hub-node">
+                                <circle cx="80" cy="240" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(80,235)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <rect x="-7" y="-9" width="14" height="16" rx="1"/>
+                                    <line x1="-4" y1="-5" x2="4" y2="-5"/>
+                                    <line x1="-4" y1="-1" x2="4" y2="-1"/>
+                                    <line x1="-4" y1="3" x2="2" y2="3"/>
+                                </g>
+                                <text x="80" y="256">MANAGER</text>
+                            </g>
+                        </g>
+
+                        <!-- Pulse dots traveling along lines -->
+                        <g fill="#FFFFFF">
+                            <circle r="3">
+                                <animateMotion dur="2.4s" repeatCount="indefinite" path="M230,60 L230,180"/>
+                            </circle>
+                            <circle r="3">
+                                <animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M380,240 L230,180"/>
+                            </circle>
+                            <circle r="3">
+                                <animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M80,240 L230,180"/>
+                            </circle>
+                        </g>
+                    </svg>
+                    <p class="hub-caption">Three senior hires. Always on.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>06 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 07 — FOR EVERY REP (dark, mirrored split — graphic LEFT)
+     ========================================= -->
+<section class="slide dark" data-title="For Every Rep">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>07 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">06</span> FOR EVERY REP</span>
+        <h2 class="display-2 reveal">A 24/7 <span class="text-red">EXECUTIVE ASSISTANT.</span></h2>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left" style="justify-content:center;">
+                <div class="hub-graphic-wrap">
+                    <svg class="hub-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Connector lines (from inputs → rep) -->
+                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                            <line x1="270" y1="84" x2="320" y2="186" stroke-dasharray="3 4"/>
+                            <line x1="270" y1="198" x2="320" y2="200" stroke-dasharray="3 4"/>
+                            <line x1="270" y1="312" x2="320" y2="216" stroke-dasharray="3 4"/>
+                        </g>
+
+                        <!-- Rep silhouette (right) — mid-conversation pose with phone -->
+                        <g transform="translate(346,200)">
+                            <circle r="42" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <g stroke="#FFFFFF" stroke-width="2" fill="none">
+                                <circle cx="-3" cy="-12" r="9"/>
+                                <path d="M-17,7 a14,14 0 0 1 28,0 v14 h-28 z"/>
+                                <!-- phone in hand -->
+                                <rect x="9" y="-8" width="6" height="11" rx="1"/>
+                                <line x1="11" y1="-5" x2="13" y2="-5"/>
+                            </g>
+                            <text y="44" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="2" fill="#FFFFFF">REP</text>
+                        </g>
+
+                        <!-- Three input panels (left) feeding INTO the rep -->
+                        <g font-family="Orbitron,sans-serif" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+                            <!-- INTEL top -->
+                            <g class="hub-node">
+                                <rect x="20" y="46" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(50,84)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <rect x="-10" y="-12" width="20" height="24" rx="1.5"/>
+                                    <line x1="-5" y1="-6" x2="5" y2="-6"/>
+                                    <line x1="-5" y1="-1" x2="5" y2="-1"/>
+                                    <line x1="-5" y1="4" x2="3" y2="4"/>
+                                </g>
+                                <text x="170" y="80" font-size="14" letter-spacing="3">INTEL</text>
+                                <text x="170" y="100" font-size="9" font-weight="600" letter-spacing="2" opacity="0.75">PRE-CALL BRIEF</text>
+                            </g>
+                            <!-- CUSTOMIZATION middle -->
+                            <g class="hub-node">
+                                <rect x="20" y="160" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(50,198)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <path d="M-12,-8 a3,3 0 0 1 3,-3 h18 a3,3 0 0 1 3,3 v11 a3,3 0 0 1 -3,3 h-12 l-6,6 v-6 h0 a3,3 0 0 1 -3,-3 z"/>
+                                </g>
+                                <text x="170" y="194" font-size="12" letter-spacing="2.4">CUSTOMIZATION</text>
+                                <text x="170" y="214" font-size="9" font-weight="600" letter-spacing="2" opacity="0.75">FOLLOW-UP DRAFTS</text>
+                            </g>
+                            <!-- SELF-IMPROVEMENT bottom -->
+                            <g class="hub-node">
+                                <rect x="20" y="274" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <g transform="translate(50,312)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+                                    <polyline points="-12,10 -5,2 1,6 11,-6"/>
+                                    <path d="M6,-6 L11,-6 L11,-1" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <text x="170" y="308" font-size="13" letter-spacing="2.4">SELF-IMPROVE</text>
+                                <text x="170" y="328" font-size="9" font-weight="600" letter-spacing="2" opacity="0.75">DAILY REFLECTION</text>
+                            </g>
+                        </g>
+
+                        <!-- Pulse dots flowing INTO rep -->
+                        <g fill="#FFFFFF">
+                            <circle r="4"><animateMotion dur="2.4s" repeatCount="indefinite" path="M270,84 L320,186"/></circle>
+                            <circle r="4"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="M270,198 L320,200"/></circle>
+                            <circle r="4"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M270,312 L320,216"/></circle>
+                        </g>
+                    </svg>
+                    <p class="hub-caption">Their personal AI partner.</p>
+                </div>
+            </div>
+            <div class="split-right">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">INTEL <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Pre-appointment brief on every prospect — who they're meeting, what matters to them, what to lead with, known objections.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">CUSTOMIZATION <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Post-call follow-up drafted from what was actually said on the call. Specific to that prospect's words.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">SELF-IMPROVEMENT <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Daily reflection on wins and misses. Every rep gets sharper every week without a manager babysitting.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>07 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 08 — THE FLOW (8 cards in 4x2)
+     ========================================= -->
+<section class="slide light" data-title="The Flow">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>08 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">07</span> THE FLOW</span>
+        <h2 class="display-2 reveal" style="margin-bottom:clamp(1rem,1.8vw,1.6rem);">ONE UNIFIED SYSTEM, <span class="text-red">EIGHT WORKING PARTS.</span></h2>
+
+        <div class="timeline-grid timeline-grid--4 reveal">
+            <div class="tl-step">
+                <span class="tl-step__num">01</span>
+                <h4 class="tl-step__title">Prospect Research</h4>
+                <p class="tl-step__body">System scouts and researches every new lead.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">02</span>
+                <h4 class="tl-step__title">Pre-Call Brief</h4>
+                <p class="tl-step__body">Rep gets briefed before every appointment.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">03</span>
+                <h4 class="tl-step__title">Call Capture</h4>
+                <p class="tl-step__body">Recording or transcript captured automatically.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">04</span>
+                <h4 class="tl-step__title">Call Analysis</h4>
+                <p class="tl-step__body">System analyzes performance + extracts what prospect actually said.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">05</span>
+                <h4 class="tl-step__title">Custom Follow-Up</h4>
+                <p class="tl-step__body">Draft generated for rep approval, tied to specific call content.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">06</span>
+                <h4 class="tl-step__title">Pipeline Tracking</h4>
+                <p class="tl-step__body">Status updates surface to owner dashboard.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">07</span>
+                <h4 class="tl-step__title">Coaching &amp; Insights</h4>
+                <p class="tl-step__body">Rep + owner get pattern-based recommendations.</p>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">08</span>
+                <h4 class="tl-step__title">Revival Sequences</h4>
+                <p class="tl-step__body">Dormant leads get personalized re-engagement.</p>
+            </div>
+        </div>
+
+        <p class="closing-line reveal">All eight pieces work together as one system. No copying between tools. No data falling between cracks.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>08 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 09 — ONBOARDING (30 to 90 days)
+     ========================================= -->
+<section class="slide light" data-title="Onboarding">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>09 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">08</span> ONBOARDING</span>
+        <h2 class="display-2 reveal">FROM SIGNED TO SHIPPED <span class="text-red">IN 30 TO 90 DAYS.</span></h2>
+        <p class="lede reveal">Timeline scales with your team's size and the depth of customization needed. Small focused teams ship in 30 days. Larger organizations with deeper integration requirements may run 60–90 days. Either way, you'll see value before the engagement closes.</p>
+
+        <div class="timeline-grid timeline-grid--4 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="tl-step">
+                <span class="tl-step__num">01</span>
+                <h4 class="tl-step__title">Discovery &amp; Setup</h4>
+                <p class="tl-step__body">Map your offer, ICP, sales process. Connect your call recording + CRM. Define what "good" looks like for your business.</p>
+                <span class="tl-step__dur">PHASE 1 · 1–3 WEEKS</span>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">02</span>
+                <h4 class="tl-step__title">Build &amp; Configure</h4>
+                <p class="tl-step__body">System custom-tuned to your business. Brain trained on your materials. First prospect research runs.</p>
+                <span class="tl-step__dur">PHASE 2 · 1–3 WEEKS</span>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">03</span>
+                <h4 class="tl-step__title">Reps Online</h4>
+                <p class="tl-step__body">Reps get their executive assistant. Pre-call briefs start firing. First custom follow-ups generated.</p>
+                <span class="tl-step__dur">PHASE 3 · 1–3 WEEKS</span>
+            </div>
+            <div class="tl-step">
+                <span class="tl-step__num">04</span>
+                <h4 class="tl-step__title">Full System Live</h4>
+                <p class="tl-step__body">Owner dashboard live. Pattern recognition firing. Cold pipeline revival sequences deploying.</p>
+                <span class="tl-step__dur">PHASE 4 · 1–3 WEEKS</span>
+            </div>
+        </div>
+
+        <p class="closing-line reveal">Once live, I manage the infrastructure. You focus on running your business.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>09 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 10 — ONGOING SERVICE
+     ========================================= -->
+<section class="slide light" data-title="Ongoing Service">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>10 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">09</span> ONGOING SERVICE</span>
+        <h2 class="display-2 reveal">YOU NEVER TOUCH THE TECH. <span class="text-red">I'M YOUR DEDICATED AI PARTNER.</span></h2>
+        <p class="lede reveal">I host everything on hardware at my office. You get the results, I handle the system.</p>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">HARDWARE HOSTED <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">System runs on dedicated infrastructure at my location. Nothing for you to install, update, or maintain.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">MONTHLY OPTIMIZATION <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Pattern data reviewed monthly. Prompts refined. System gets smarter every month based on what's working for you.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">DIRECT LINE <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">When something breaks or you want to add a capability, you text me. Not a support ticket queue.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">CONTINUOUS LEARNING <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Every other client improves your system too. Cross-client pattern recognition without ever sharing your data.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="wall-graphic-wrap">
+                    <svg class="wall-graphic" viewBox="0 0 440 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Server / hardware top -->
+                        <g transform="translate(220,80)">
+                            <rect x="-60" y="-44" width="120" height="80" rx="4" fill="#FFFFFF" stroke="#2B2B2B" stroke-width="2"/>
+                            <!-- Server rack slots -->
+                            <g stroke="#2B2B2B" stroke-width="1.5" fill="none">
+                                <rect x="-50" y="-34" width="100" height="14" rx="1"/>
+                                <rect x="-50" y="-16" width="100" height="14" rx="1"/>
+                                <rect x="-50" y="2" width="100" height="14" rx="1"/>
+                                <rect x="-50" y="20" width="100" height="10" rx="1"/>
+                            </g>
+                            <circle cx="44" cy="-27" r="2" fill="#D72532"/>
+                            <circle cx="44" cy="-9" r="2" fill="#D72532"/>
+                            <circle cx="44" cy="9" r="2" fill="#D72532"/>
+                            <text y="56" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="10" letter-spacing="2" fill="#2B2B2B">REVELATION INFRA</text>
+                        </g>
+
+                        <!-- The Wall -->
+                        <g>
+                            <line x1="30" y1="190" x2="410" y2="190" stroke="#D72532" stroke-width="2"/>
+                            <line x1="30" y1="194" x2="410" y2="194" stroke="#D72532" stroke-width="0.5" opacity="0.4"/>
+                            <text x="220" y="183" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="8" letter-spacing="2.4" fill="#D72532">THE WALL — YOU NEVER TOUCH THE TECH</text>
+                        </g>
+
+                        <!-- Owner / client icons below -->
+                        <g font-family="Orbitron,sans-serif" font-weight="800" font-size="7" letter-spacing="1" fill="#2B2B2B" text-anchor="middle">
+                            <!-- Client 1 -->
+                            <g transform="translate(110,280)">
+                                <circle r="26" fill="#FFFFFF" stroke="#2B2B2B" stroke-width="2"/>
+                                <g stroke="#2B2B2B" stroke-width="1.8" fill="none">
+                                    <circle cx="0" cy="-6" r="6"/>
+                                    <path d="M-9,4 a9,9 0 0 1 18,0 v8 h-18 z"/>
+                                </g>
+                                <text y="40">YOU</text>
+                            </g>
+                            <!-- Client 2 -->
+                            <g transform="translate(220,290)">
+                                <circle r="26" fill="#FFFFFF" stroke="#2B2B2B" stroke-width="2"/>
+                                <g stroke="#2B2B2B" stroke-width="1.8" fill="none">
+                                    <circle cx="0" cy="-6" r="6"/>
+                                    <path d="M-9,4 a9,9 0 0 1 18,0 v8 h-18 z"/>
+                                </g>
+                                <text y="40">TEAM</text>
+                            </g>
+                            <!-- Client 3 -->
+                            <g transform="translate(330,280)">
+                                <circle r="26" fill="#FFFFFF" stroke="#2B2B2B" stroke-width="2"/>
+                                <g stroke="#2B2B2B" stroke-width="1.8" fill="none">
+                                    <circle cx="0" cy="-6" r="6"/>
+                                    <path d="M-9,4 a9,9 0 0 1 18,0 v8 h-18 z"/>
+                                </g>
+                                <text y="40">REPS</text>
+                            </g>
+                        </g>
+
+                        <!-- Arrows from server (through wall) to clients = RESULTS flowing down -->
+                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.6">
+                            <line x1="180" y1="120" x2="115" y2="252" stroke-dasharray="3 4"/>
+                            <line x1="220" y1="120" x2="220" y2="262" stroke-dasharray="3 4"/>
+                            <line x1="260" y1="120" x2="325" y2="252" stroke-dasharray="3 4"/>
+                        </g>
+                        <!-- Flowing dots downward -->
+                        <g fill="#D72532">
+                            <circle r="3"><animateMotion dur="3s" repeatCount="indefinite" path="M180,120 L115,252"/></circle>
+                            <circle r="3"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M220,120 L220,262"/></circle>
+                            <circle r="3"><animateMotion dur="3s" begin="2s" repeatCount="indefinite" path="M260,120 L325,252"/></circle>
+                        </g>
+                    </svg>
+                    <p class="wall-caption">Infrastructure managed. Results delivered.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>10 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 11 — THE VALUE
+     ========================================= -->
+<section class="slide dark" data-title="The Value">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>11 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">10</span> THE VALUE</span>
+        <h2 class="display-2 reveal">AN OPERATIONS MANAGER AND AN EXECUTIVE ASSISTANT <span class="text-red">PER REP — FOR PENNIES ON THE DOLLAR.</span></h2>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left" style="gap:clamp(0.6rem,1.2vw,1rem);">
+                <div class="card value-card" style="padding:clamp(0.7rem,1.3vw,1.1rem); gap:clamp(0.25rem,0.5vw,0.45rem);">
+                    <span class="card__num">AN OPERATIONS MANAGER</span>
+                    <h3 class="card__price">$150–250K<span class="text-red"> / yr</span></h3>
+                    <p class="card__body" style="font-size:clamp(0.75rem,0.9vw,0.88rem); line-height:1.4;">Senior-level oversight. Takes meetings, vacations, other jobs. Mine doesn't.</p>
+                </div>
+                <div class="card value-card" style="padding:clamp(0.7rem,1.3vw,1.1rem); gap:clamp(0.25rem,0.5vw,0.45rem);">
+                    <span class="card__num">AN EXECUTIVE ASSISTANT PER REP</span>
+                    <h3 class="card__price">$50–80K<span class="text-red"> / rep / yr</span></h3>
+                    <p class="card__body" style="font-size:clamp(0.75rem,0.9vw,0.88rem); line-height:1.4;">Per-rep support. Multiply by team size — plus benefits, ramp, turnover.</p>
+                    <p class="card__body" style="font-size:clamp(0.7rem,0.82vw,0.8rem); line-height:1.45; font-style:italic; opacity:0.78; margin-top:clamp(0.3rem,0.6vw,0.5rem); padding-top:clamp(0.4rem,0.7vw,0.6rem); border-top:1px solid rgba(255,255,255,0.1);">Same humans, senior-level support that wasn't possible before. Pricing fits the engagement — we'll talk through it.</p>
+                </div>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="cost-graphic-wrap">
+                    <svg class="cost-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- TOP: human + warning indicating error -->
+                        <g transform="translate(110,90)">
+                            <circle r="42" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <g stroke="#FFFFFF" stroke-width="2" fill="none">
+                                <circle cx="0" cy="-12" r="9"/>
+                                <path d="M-14,7 a14,14 0 0 1 28,0 v14 h-28 z"/>
+                            </g>
+                            <!-- Warning triangle -->
+                            <g transform="translate(28,-22)">
+                                <path d="M0,-14 L12,8 L-12,8 z" fill="#D72532" stroke="#1E1E1E" stroke-width="1.5"/>
+                                <text x="0" y="4" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="11" fill="#FFFFFF">!</text>
+                            </g>
+                            <text y="64" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="2" fill="#FFFFFF">HUMAN ERROR</text>
+                        </g>
+
+                        <!-- Inefficiency arrows leading down to leaking funnel -->
+                        <g stroke="#D72532" stroke-width="1.6" fill="none" opacity="0.6">
+                            <line x1="80" y1="160" x2="60" y2="210" stroke-dasharray="4 4"/>
+                            <line x1="110" y1="160" x2="110" y2="210" stroke-dasharray="4 4"/>
+                            <line x1="140" y1="160" x2="160" y2="210" stroke-dasharray="4 4"/>
+                        </g>
+
+                        <!-- Funnel (leaky) -->
+                        <g transform="translate(110,260)">
+                            <path d="M-70,-50 L70,-50 L40,10 L40,46 L-40,46 L-40,10 z" fill="rgba(215,37,50,0.08)" stroke="#D72532" stroke-width="2"/>
+                            <line x1="-30" y1="-30" x2="30" y2="-30" stroke="rgba(215,37,50,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
+                            <line x1="-22" y1="-12" x2="22" y2="-12" stroke="rgba(215,37,50,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
+                            <!-- Leak cracks -->
+                            <line x1="-58" y1="-30" x2="-66" y2="-22" stroke="#D72532" stroke-width="1.5"/>
+                            <line x1="58" y1="-30" x2="66" y2="-22" stroke="#D72532" stroke-width="1.5"/>
+                            <line x1="-44" y1="0" x2="-52" y2="8" stroke="#D72532" stroke-width="1.5"/>
+                        </g>
+
+                        <!-- Money falling out — animated $$ symbols flowing right -->
+                        <g font-family="Orbitron,sans-serif" font-weight="900" font-size="22" fill="#D72532">
+                            <text x="240" y="120">
+                                $
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 50,180; 100,260" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3s" repeatCount="indefinite"/>
+                            </text>
+                            <text x="280" y="120">
+                                $
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 30,150; 60,240" dur="3s" begin="0.6s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3s" begin="0.6s" repeatCount="indefinite"/>
+                            </text>
+                            <text x="320" y="130">
+                                $
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 40,160; 80,250" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+                            </text>
+                            <text x="350" y="180">
+                                $
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 30,120; 60,200" dur="3s" begin="1.8s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="3s" begin="1.8s" repeatCount="indefinite"/>
+                            </text>
+                        </g>
+
+                        <!-- Drain labels -->
+                        <text x="320" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="10" letter-spacing="2" fill="#D72532">REVENUE LEAK</text>
+                        <text x="320" y="305" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" font-size="8" letter-spacing="1.5" fill="#FFFFFF" opacity="0.65">LOST DEALS · WASTED HOURS · COLD PIPELINE</text>
+                    </svg>
+                    <p class="cost-caption">Without a system: human error compounds, pipeline leaks, revenue walks.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>11 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 12 — POSITIONING
+     ========================================= -->
+<section class="slide light" data-title="Positioning">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>12 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">11</span> POSITIONING</span>
+        <h2 class="display-2 reveal">WHAT YOU'RE <span class="text-red">NOT BUYING.</span></h2>
+
+        <div class="split-grid split-grid--6-6 reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); align-items:center;">
+            <div class="split-left">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">NOT ANOTHER TOOL <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">You don't learn anything. You don't manage anything. You don't log in to dashboards if you don't want to.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">NOT A HUMAN REPLACEMENT <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Your reps stay. They just get better. So does your manager. So do you.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">NOT GENERIC AI <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">Every system is custom-built around your offer, your ICP, your sales process. Not a SaaS subscription with templates.</p>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">NOT A 6-MONTH BUILD <span class="text-red">—</span></span>
+                        <p class="labeled-bullet__body">30 days from signed to fully live for small teams. If you're not seeing value by day 60, you walk.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <div class="cross-grid">
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <g class="icon-base">
+                                    <rect x="8" y="14" width="48" height="36" rx="3"/>
+                                    <line x1="8" y1="22" x2="56" y2="22"/>
+                                    <rect x="14" y="28" width="12" height="14"/>
+                                    <line x1="32" y1="30" x2="50" y2="30"/>
+                                    <line x1="32" y1="36" x2="48" y2="36"/>
+                                    <line x1="32" y1="42" x2="44" y2="42"/>
+                                </g>
+                            </svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <line x1="10" y1="10" x2="54" y2="54"/>
+                                <line x1="54" y1="10" x2="10" y2="54"/>
+                            </svg>
+                        </div>
+                        <span class="cross-card__label">Another Tool</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <g class="icon-base">
+                                    <!-- Robot -->
+                                    <rect x="20" y="14" width="24" height="22" rx="3"/>
+                                    <circle cx="26" cy="23" r="2"/>
+                                    <circle cx="38" cy="23" r="2"/>
+                                    <line x1="28" y1="30" x2="36" y2="30"/>
+                                    <line x1="14" y1="22" x2="20" y2="22"/>
+                                    <line x1="44" y1="22" x2="50" y2="22"/>
+                                    <rect x="20" y="38" width="24" height="14"/>
+                                </g>
+                            </svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <line x1="10" y1="10" x2="54" y2="54"/>
+                                <line x1="54" y1="10" x2="10" y2="54"/>
+                            </svg>
+                        </div>
+                        <span class="cross-card__label">Replacement</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <g class="icon-base">
+                                    <!-- Cookie cutter / template -->
+                                    <rect x="10" y="12" width="44" height="40" rx="2"/>
+                                    <line x1="10" y1="22" x2="54" y2="22"/>
+                                    <line x1="10" y1="32" x2="54" y2="32"/>
+                                    <line x1="10" y1="42" x2="54" y2="42"/>
+                                    <line x1="22" y1="22" x2="22" y2="52"/>
+                                    <line x1="42" y1="22" x2="42" y2="52"/>
+                                </g>
+                            </svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <line x1="10" y1="10" x2="54" y2="54"/>
+                                <line x1="54" y1="10" x2="10" y2="54"/>
+                            </svg>
+                        </div>
+                        <span class="cross-card__label">Generic AI</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <g class="icon-base">
+                                    <!-- Calendar with 6 months -->
+                                    <rect x="10" y="16" width="44" height="36" rx="2"/>
+                                    <line x1="10" y1="24" x2="54" y2="24"/>
+                                    <line x1="18" y1="16" x2="18" y2="12"/>
+                                    <line x1="46" y1="16" x2="46" y2="12"/>
+                                    <text x="32" y="44" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="12" fill="rgba(43,43,43,0.35)" stroke="none">6mo</text>
+                                </g>
+                            </svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <line x1="10" y1="10" x2="54" y2="54"/>
+                                <line x1="54" y1="10" x2="10" y2="54"/>
+                            </svg>
+                        </div>
+                        <span class="cross-card__label">6-Month Build</span>
+                    </div>
+                </div>
+                <p class="cross-caption">Everything you've been pitched. None of it applies.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>12 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 13 — A QUICK ASK (RED)  — UNCHANGED
+     ========================================= -->
+<section class="slide red" data-title="A Quick Ask">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>13 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">12</span> A QUICK ASK</span>
+        <h2 class="display-2 reveal">KNOW SOMEONE THIS <span class="text-black">WOULD FIT?</span></h2>
+        <p class="lede reveal">I'm in growth mode. If this resonates and you know a sales leader who'd benefit — even if it's not for you — I take referrals seriously.</p>
+
+        <div class="ask-grid reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="ask-card">
+                <span class="ask-card__num">01<span class="ask-card__num-line"></span></span>
+                <h3 class="ask-card__title">FOR WARM INTROS</h3>
+                <p class="ask-card__body">Send me their name. I'll handle the rest. If they close, I send something meaningful your way — your call on what that looks like.</p>
+            </div>
+            <div class="ask-card">
+                <span class="ask-card__num">02<span class="ask-card__num-line"></span></span>
+                <h3 class="ask-card__title">FOR PARTNERS</h3>
+                <p class="ask-card__body">If you help businesses with sales, ops, or growth — let's talk about a partnership structure. White-label, revenue share, or co-sell, depending on fit.</p>
+            </div>
+        </div>
+
+        <p class="closing-line reveal" style="color:rgba(255,255,255,0.92);">I'm building this to last 10 years. The first 20 clients shape what it becomes. Refer wisely — your name carries weight.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>13 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 14 — FIT CHECK (5 rows with icons)
+     ========================================= -->
+<section class="slide light" data-title="Fit Check">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES INTELLIGENCE</span>
+        </div>
+        <span>14 / 15</span>
+    </header>
+
+    <div class="slide-body" style="padding-top:clamp(1.6rem,3vw,2.4rem); padding-bottom:clamp(1.2rem,2vw,2rem);">
+        <span class="eyebrow reveal"><span class="num">13</span> FIT CHECK</span>
+        <h2 class="display-2 reveal" style="margin-bottom:clamp(0.8rem,1.4vw,1.2rem);">THIS WORKS BEST <span class="text-red">FOR…</span></h2>
+
+        <div class="fit-rows reveal">
+            <div class="fit-row">
+                <div class="fit-row__icon">
+                    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="ic-line">
+                            <!-- 5 person silhouettes clustered -->
+                            <circle cx="14" cy="22" r="3.5"/>
+                            <path d="M9,30 a5,5 0 0 1 10,0 v6 h-10 z"/>
+                            <circle cx="28" cy="18" r="4"/>
+                            <path d="M22,26 a6,6 0 0 1 12,0 v8 h-12 z"/>
+                            <circle cx="42" cy="22" r="3.5"/>
+                            <path d="M37,30 a5,5 0 0 1 10,0 v6 h-10 z"/>
+                            <circle cx="20" cy="40" r="3"/>
+                            <path d="M16,46 a4,4 0 0 1 8,0 v4 h-8 z"/>
+                            <circle cx="36" cy="40" r="3"/>
+                            <path d="M32,46 a4,4 0 0 1 8,0 v4 h-8 z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fit-row__content">
+                    <span class="fit-row__label">Sales teams of any size</span>
+                    <p class="fit-row__body">From solo founders running their own pipeline to enterprise teams. The system scales to your headcount and ramp speed.</p>
+                </div>
+            </div>
+            <div class="fit-row">
+                <div class="fit-row__icon">
+                    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="ic-line">
+                            <!-- Stopwatch + phone -->
+                            <circle cx="22" cy="32" r="14"/>
+                            <line x1="22" y1="18" x2="22" y2="32"/>
+                            <line x1="22" y1="32" x2="30" y2="32"/>
+                            <line x1="19" y1="14" x2="25" y2="14"/>
+                            <line x1="22" y1="14" x2="22" y2="18"/>
+                            <!-- Phone overlay -->
+                            <rect x="38" y="20" width="10" height="18" rx="1.5"/>
+                            <line x1="41" y1="24" x2="45" y2="24"/>
+                            <circle cx="43" cy="34" r="1" fill="currentColor" stroke="none" class="ic-fill"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fit-row__content">
+                    <span class="fit-row__label">Owners who can't review every call</span>
+                    <p class="fit-row__body">If you could, you wouldn't need me. Pain starts at "more calls than you can personally oversee."</p>
+                </div>
+            </div>
+            <div class="fit-row">
+                <div class="fit-row__icon">
+                    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="ic-line">
+                            <!-- Two people facing with speech bubble -->
+                            <circle cx="14" cy="20" r="4"/>
+                            <path d="M8,32 a6,6 0 0 1 12,0 v6 h-12 z"/>
+                            <circle cx="42" cy="20" r="4"/>
+                            <path d="M36,32 a6,6 0 0 1 12,0 v6 h-12 z"/>
+                            <!-- Speech bubble between -->
+                            <rect x="22" y="20" width="12" height="9" rx="2"/>
+                            <path d="M26,29 L24,33 L29,29"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fit-row__content">
+                    <span class="fit-row__label">Industries with consultative sales</span>
+                    <p class="fit-row__body">Anywhere reps have real conversations, not transactions. Home services, B2B, financial, real estate, professional services.</p>
+                </div>
+            </div>
+            <div class="fit-row">
+                <div class="fit-row__icon">
+                    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="ic-line">
+                            <!-- Hourglass -->
+                            <path d="M14,10 h16 v6 l-6,12 l6,12 v6 h-16 v-6 l6,-12 l-6,-12 z"/>
+                            <line x1="14" y1="10" x2="30" y2="10"/>
+                            <line x1="14" y1="46" x2="30" y2="46"/>
+                            <!-- Dollar sign -->
+                            <text x="43" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="20" fill="#D72532" stroke="none" class="ic-fill">$</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fit-row__content">
+                    <span class="fit-row__label">Owners who value time over labor cost</span>
+                    <p class="fit-row__body">If you're hunting the cheapest tool, this isn't it. If you want your time back, this is built for you.</p>
+                </div>
+            </div>
+            <div class="fit-row">
+                <div class="fit-row__icon">
+                    <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="ic-line">
+                            <!-- Upward growth chart -->
+                            <line x1="10" y1="46" x2="46" y2="46"/>
+                            <line x1="10" y1="46" x2="10" y2="10"/>
+                            <polyline points="14,40 22,32 30,36 38,22 46,14"/>
+                            <path d="M42,14 L46,14 L46,18" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- bars -->
+                            <line x1="14" y1="40" x2="14" y2="46" opacity="0.45"/>
+                            <line x1="22" y1="32" x2="22" y2="46" opacity="0.45"/>
+                            <line x1="30" y1="36" x2="30" y2="46" opacity="0.45"/>
+                            <line x1="38" y1="22" x2="38" y2="46" opacity="0.45"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fit-row__content">
+                    <span class="fit-row__label">Teams ready to be coached</span>
+                    <p class="fit-row__body">System surfaces what reps do well and what they don't. Cultures that can't handle honest feedback won't love this.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>14 / 15</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 15 — CLOSE (50/50 with calendar placeholder)
+     ========================================= -->
+<section class="slide dark has-brackets" data-title="Close" data-particles="true">
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <span>15 / 15</span>
+    </header>
+
+    <div class="slide-body">
+        <canvas class="close-particles"></canvas>
+
+        <div class="close-stack reveal">
+            <div class="close-stack__left">
+                <span class="eyebrow"><span class="num">—</span> READY WHEN YOU ARE</span>
+                <h2 class="display-2">LET'S <span class="text-red">TALK.</span></h2>
+                <p class="lede">One 30-minute conversation tells us if this is a fit. No pressure, no canned demo. I'll ask about your team, your pipeline, and your time. You'll ask whatever you need to ask.</p>
+
+                <div class="close-contact-bar">
+                    <a class="contact-item contact-item--link" href="tel:+15598000095">
+                        <span class="contact-item__key">Phone</span>
+                        <span class="contact-item__val">559-800-0095</span>
+                    </a>
+                    <a class="contact-item contact-item--link contact-item--email" href="mailto:blaine@revelationagency.com">
+                        <span class="contact-item__key">Email</span>
+                        <span class="contact-item__val">blaine@revelationagency.com</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="close-stack__right">
+                <a class="close-cta-btn"
+                   href="https://api.leadconnectorhq.com/widget/booking/xbsXZ260ceuKPHPn7zb6"
+                   target="_blank" rel="noopener noreferrer">
+                    <span class="close-cta-btn__label">Book a Strategy Session</span>
+                    <span class="close-cta-btn__arrow">→</span>
+                </a>
+
+                <p class="closing-line" style="margin-top:clamp(0.6rem,1.2vw,1rem);">Or — if you know someone this would help — that intro means more than a sales call. Either way, you've got my attention.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>BLAINE McKENZIE · REVELATION AGENCY</span>
+        <span>15 / 15</span>
+    </footer>
+</section>
+
+</div><!-- /.deck -->
+
+<nav class="deck-ribbon" aria-label="Slide navigation" id="deckRibbon">
+    <button class="deck-ribbon__btn deck-ribbon__btn--prev" id="ribbonPrev" aria-label="Previous slide" disabled>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="deck-ribbon__btn-label">PREV</span>
+    </button>
+    <button class="deck-ribbon__progress" id="ribbonProgress" aria-label="Open slide overview">
+        <span class="deck-ribbon__current">01</span>
+        <span class="deck-ribbon__sep">/</span>
+        <span class="deck-ribbon__total">15</span>
+    </button>
+    <button class="deck-ribbon__btn deck-ribbon__btn--next" id="ribbonNext" aria-label="Next slide">
+        <span class="deck-ribbon__btn-label">NEXT</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</nav>
+
+<div class="kbd-hint" id="kbdHint">PRESS → OR TAP TO ADVANCE · ESC FOR OVERVIEW</div>
+<div class="overview-label">OVERVIEW — CLICK A SLIDE TO RESUME · ESC TO CLOSE</div>
+
+<script type="module">
+import { animate, stagger } from "https://cdn.jsdelivr.net/npm/motion@12/+esm";
+
+const EASE_OUT_EXPO  = [0.16, 1, 0.3, 1];
+const EASE_OUT_CUBIC = [0.33, 1, 0.68, 1];
+
+class ParticleField {
+    constructor(canvas, hostEl, opts = {}) {
+        this.canvas = canvas;
+        this.host = hostEl || canvas.parentElement;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.mouseX = 0; this.mouseY = 0;
+        this.parallaxX = 0; this.parallaxY = 0;
+        this.running = false; this.rafId = null;
+        this.dpr = window.devicePixelRatio || 1;
+        this.dotColor = opts.dotColor || 'rgba(201, 201, 197, 0.42)';
+        this.lineColor = opts.lineColor || 'rgba(201, 201, 197, ';
+        this.count = opts.count || 36;
+        this._onMove = this.onMouseMove.bind(this);
+        this._onResize = this.resize.bind(this);
+        this.resize();
+        this.init();
+        window.addEventListener('resize', this._onResize);
+        this.host.addEventListener('mousemove', this._onMove);
+    }
+    resize() {
+        const rect = this.canvas.getBoundingClientRect();
+        if (rect.width === 0) return;
+        this.w = rect.width; this.h = rect.height;
+        this.canvas.width = this.w * this.dpr;
+        this.canvas.height = this.h * this.dpr;
+        this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    }
+    init() {
+        const COUNT = this.count, RED = 3;
+        this.particles = [];
+        for (let i = 0; i < COUNT; i++) {
+            this.particles.push({
+                x: Math.random() * (this.w || 800),
+                y: Math.random() * (this.h || 600),
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: (Math.random() - 0.5) * 0.18,
+                r: 1.3 + Math.random() * 0.9,
+                red: i < RED
+            });
+        }
+    }
+    onMouseMove(e) {
+        const rect = this.host.getBoundingClientRect();
+        this.mouseX = e.clientX - rect.left - this.w / 2;
+        this.mouseY = e.clientY - rect.top - this.h / 2;
+    }
+    start() {
+        if (this.running) return;
+        this.resize();
+        if (this.particles.length === 0 || this.w === 0) this.init();
+        this.running = true;
+        this.loop();
+    }
+    stop() {
+        this.running = false;
+        if (this.rafId) cancelAnimationFrame(this.rafId);
+    }
+    loop() {
+        if (!this.running) return;
+        this.update(); this.draw();
+        this.rafId = requestAnimationFrame(() => this.loop());
+    }
+    update() {
+        this.parallaxX += (this.mouseX * 0.025 - this.parallaxX) * 0.04;
+        this.parallaxY += (this.mouseY * 0.025 - this.parallaxY) * 0.04;
+        for (const p of this.particles) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < -20) p.x = this.w + 20;
+            if (p.x > this.w + 20) p.x = -20;
+            if (p.y < -20) p.y = this.h + 20;
+            if (p.y > this.h + 20) p.y = -20;
+        }
+    }
+    draw() {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, this.w, this.h);
+        ctx.save();
+        ctx.translate(this.parallaxX, this.parallaxY);
+        const CONNECT = 110;
+        ctx.lineWidth = 1;
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const a = this.particles[i], b = this.particles[j];
+                const dx = a.x - b.x, dy = a.y - b.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECT) {
+                    const alpha = (1 - dist / CONNECT) * 0.18;
+                    ctx.strokeStyle = `${this.lineColor}${alpha})`;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        for (const p of this.particles) {
+            ctx.beginPath();
+            ctx.fillStyle = p.red ? 'rgba(215, 37, 50, 0.9)' : this.dotColor;
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+}
+
+class PresenterDeck {
+    constructor() {
+        this.deck = document.getElementById('deck');
+        this.slides = Array.from(this.deck.querySelectorAll('.slide'));
+        this.currentSlide = 0;
+        this.inOverview = false;
+        this.particleFields = new Map();
+        this.slideReveals = this.slides.map(slide => Array.from(slide.querySelectorAll('.reveal')));
+
+        this.setupRibbon();
+        this.setupKeyboard();
+        this.setupClicks();
+        this.setupTouch();
+        this.setupParticles();
+        this.setupKbdHint();
+
+        this.slides[0].classList.add('is-active');
+        this.render();
+    }
+
+    setupRibbon() {
+        this._rPrev = document.getElementById('ribbonPrev');
+        this._rNext = document.getElementById('ribbonNext');
+        const rProgress = document.getElementById('ribbonProgress');
+        this._rCurrent = rProgress?.querySelector('.deck-ribbon__current');
+        this._rTotal   = rProgress?.querySelector('.deck-ribbon__total');
+        if (this._rPrev) this._rPrev.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+        if (this._rNext) this._rNext.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+        if (rProgress)   rProgress.addEventListener('click',  (e) => { e.stopPropagation(); this.toggleOverview(); });
+    }
+
+    setupKeyboard() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (this.inOverview) {
+                if (e.key === 'Escape') { e.preventDefault(); this.toggleOverview(); }
+                return;
+            }
+            switch (e.key) {
+                case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+                    e.preventDefault(); this.next(); break;
+                case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                    e.preventDefault(); this.prev(); break;
+                case 'Home':
+                    e.preventDefault(); this.goTo(0); break;
+                case 'End':
+                    e.preventDefault(); this.goTo(this.slides.length - 1); break;
+                case 'Escape':
+                    e.preventDefault(); this.toggleOverview(); break;
+                case 'f': case 'F': this.toggleFullscreen(); break;
+                case 'p': case 'P': window.print(); break;
+            }
+        });
+    }
+
+    setupClicks() {
+        this.deck.addEventListener('click', (e) => {
+            if (this.inOverview) {
+                const slide = e.target.closest('.slide');
+                if (slide) {
+                    const idx = this.slides.indexOf(slide);
+                    if (idx > -1) { this.goTo(idx); this.toggleOverview(); }
+                }
+                return;
+            }
+            if (e.target.closest('button, a, input, textarea, .deck-ribbon')) return;
+            this.next();
+        });
+    }
+
+    setupTouch() {
+        let startX = 0, startY = 0;
+        this.deck.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+            startY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        this.deck.addEventListener('touchend', (e) => {
+            if (this.inOverview) return;
+            const dx = e.changedTouches[0].screenX - startX;
+            const dy = e.changedTouches[0].screenY - startY;
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+                if (dx < 0) this.next(); else this.prev();
+            }
+        }, { passive: true });
+    }
+
+    setupParticles() {
+        this.slides.forEach((slide, i) => {
+            if (slide.dataset.particles === 'true') {
+                const canvas = slide.querySelector('canvas.particle-canvas, canvas.close-particles');
+                if (canvas) {
+                    const field = new ParticleField(canvas, canvas.parentElement, {
+                        dotColor: 'rgba(201, 201, 197, 0.42)',
+                        lineColor: 'rgba(201, 201, 197, ',
+                        count: 36
+                    });
+                    this.particleFields.set(i, field);
+                }
+            }
+        });
+        if (this.particleFields.has(0)) {
+            requestAnimationFrame(() => this.particleFields.get(0).start());
+        }
+    }
+
+    setupKbdHint() {
+        this.kbdHint = document.getElementById('kbdHint');
+        const hide = () => this.kbdHint && this.kbdHint.classList.add('fade');
+        setTimeout(hide, 6000);
+        document.addEventListener('keydown', hide, { once: true });
+        this.deck.addEventListener('click', hide, { once: true });
+    }
+
+    next() {
+        if (this.currentSlide < this.slides.length - 1) {
+            this.transitionToSlide(this.currentSlide + 1, 'forward');
+        }
+    }
+    prev() {
+        if (this.currentSlide > 0) {
+            this.transitionToSlide(this.currentSlide - 1, 'backward');
+        }
+    }
+    goTo(slideIdx) {
+        slideIdx = Math.max(0, Math.min(this.slides.length - 1, slideIdx));
+        if (slideIdx === this.currentSlide) return;
+        this.transitionToSlide(slideIdx, 'jump');
+    }
+
+    transitionToSlide(newIdx, direction) {
+        const oldSlide = this.slides[this.currentSlide];
+        const newSlide = this.slides[newIdx];
+        const oldIdx = this.currentSlide;
+
+        if (this.particleFields.has(oldIdx)) this.particleFields.get(oldIdx).stop();
+        this.slideReveals[oldIdx].forEach(r => animate(r, { opacity: 0, y: 10 }, { duration: 0 }));
+        // Reset stack-row fills on the outgoing slide
+        oldSlide.querySelectorAll('.stack-row').forEach(b => {
+            b.classList.remove('is-animated');
+            animate(b, { opacity: 0, x: 30 }, { duration: 0 });
+        });
+
+        const dir = direction === 'backward' ? -1 : 1;
+        animate(oldSlide, { opacity: 0, x: -20 * dir }, { duration: 0.18, ease: 'linear' })
+            .then(() => oldSlide.classList.remove('is-active'));
+        newSlide.classList.add('is-active');
+        animate(newSlide, { opacity: [0, 1], x: [20 * dir, 0] }, { duration: 0.28, ease: EASE_OUT_EXPO });
+
+        this.currentSlide = newIdx;
+        this.slideReveals[newIdx].forEach(r => animate(r, { opacity: 0, y: 10 }, { duration: 0 }));
+
+        if (this.particleFields.has(newIdx)) {
+            requestAnimationFrame(() => this.particleFields.get(newIdx).start());
+        }
+        this.render();
+    }
+
+    render() {
+        const reveals = this.slideReveals[this.currentSlide];
+        reveals.forEach((el, i) => {
+            const delay = 0.12 + i * 0.06;
+            animate(el, { opacity: [0, 1], y: [10, 0] }, {
+                duration: 0.55, ease: EASE_OUT_EXPO, delay
+            });
+        });
+        // Stack-bar bubbly entrance: each bar slides in from left, then fills.
+        // Fill width is CSS-driven via .is-filled class so the bar visibly
+        // grows from 0 to its target width (no scaleX trick).
+        const activeSlide = this.slides[this.currentSlide];
+        const stackRows = activeSlide.querySelectorAll('.stack-row');
+        if (stackRows.length) {
+            const bars = Array.from(stackRows);
+            bars.forEach((bar, i) => {
+                const enterDelay = 0.35 + i * 0.12;
+                animate(bar, { opacity: [0, 1], x: [-30, 0] }, {
+                    duration: 0.5, ease: EASE_OUT_EXPO, delay: enterDelay
+                });
+                // Trigger CSS width transition shortly after bar enters
+                setTimeout(() => bar.classList.add('is-animated'),
+                    (enterDelay + 0.2) * 1000);
+            });
+        }
+        this.updateControls();
+    }
+
+    updateControls() {
+        if (this._rCurrent) {
+            const cur = this.currentSlide + 1;
+            const tot = this.slides.length;
+            this._rCurrent.textContent = String(cur).padStart(2, '0');
+            this._rTotal.textContent   = String(tot).padStart(2, '0');
+            this._rPrev.disabled = (this.currentSlide === 0);
+            this._rNext.disabled = (this.currentSlide === this.slides.length - 1);
+        }
+    }
+
+    toggleOverview() {
+        this.inOverview = !this.inOverview;
+        if (this.inOverview) this.enterOverview();
+        else this.exitOverview();
+    }
+    enterOverview() {
+        this.particleFields.forEach(f => f.stop());
+        const vw = window.innerWidth, vh = window.innerHeight;
+        const cols = 4, rows = 4, pad = 50, gap = 28;
+        const targetW = vw - pad * 2;
+        const slideW = (targetW - gap * (cols - 1)) / cols;
+        const scale = slideW / vw;
+        const slideH = vh * scale;
+        const totalH = slideH * rows + gap * (rows - 1);
+        const startY = (vh - totalH) / 2;
+        this.slides.forEach((slide, i) => {
+            const col = i % cols, row = Math.floor(i / cols);
+            const ox = pad + col * (slideW + gap);
+            const oy = startY + row * (slideH + gap);
+            slide.style.transform = `translate(${ox}px, ${oy}px) scale(${scale})`;
+        });
+        this.deck.classList.add('overview');
+    }
+    exitOverview() {
+        this.slides.forEach((slide) => { slide.style.transform = ''; });
+        this.deck.classList.remove('overview');
+        if (this.particleFields.has(this.currentSlide)) {
+            requestAnimationFrame(() => this.particleFields.get(this.currentSlide).start());
+        }
+    }
+
+    toggleFullscreen() {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+        else document.exitFullscreen?.();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => { new PresenterDeck(); });
+</script>
+
+</body>
+</html>

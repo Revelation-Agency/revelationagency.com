@@ -1,0 +1,1430 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <!-- RA-PWA-HEAD:start -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Revelation">
+  <meta name="theme-color" content="#D72532">
+  <!-- RA-PWA-HEAD:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D72532">
+<title>FAQ — Revelation Agency</title>
+<meta name="description" content="Questions worth asking — about engagements, pricing, timelines, deliverables, and how Revelation Agency actually works.">
+<link rel="canonical" href="https://revelationagency.com/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FAQ — Revelation Agency">
+<meta property="og:description" content="The straight answers to the questions people actually ask before hiring us.">
+<meta property="og:url" content="https://revelationagency.com/faq.html">
+
+<link rel="preload" as="font" type="font/woff2" href="assets/webfonts/Orbitron-VF.woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+@font-face { font-family: 'Orbitron'; src: url('assets/webfonts/Orbitron-VF.woff2') format('woff2'); font-weight: 400 900; font-style: normal; font-display: swap; }
+
+:root { --red:#D72532; --red-deep:#AD1C24; --charcoal:#2B2B2B; --black:#181818; --off-black:#1E1E1E; --grey-light:#F7F7F5; --white:#FFFFFF; --font-head:'Bebas Neue','Orbitron',sans-serif; --font-body:'Helvetica Neue',Helvetica,Arial,sans-serif; --btn-radius:45px 0 45px 45px; --section-pad:110px 0; --ease-out:cubic-bezier(0.16,1,0.3,1); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--font-body);font-size:1rem;line-height:1.65;color:var(--charcoal);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);display:inline-block;margin-bottom:16px;}
+.eyebrow--white{color:rgba(255,255,255,0.5);}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.1;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:16px 36px;border-radius:var(--btn-radius);border:none;cursor:pointer;transition:transform .25s var(--ease-out),box-shadow .25s,background .25s,color .25s,border-color .25s;white-space:nowrap;position:relative;overflow:hidden;isolation:isolate;}
+.btn::before{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);transform:skewX(-20deg);transition:left .5s;}
+.btn:hover::before{left:130%;}
+.btn .btn-arrow{transition:transform .25s;}
+.btn:hover .btn-arrow{transform:translateX(4px);}
+.btn--primary{background:var(--red);color:#fff;}
+.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 12px 32px rgba(215,37,50,0.40);}
+.btn--outline{background:transparent;color:var(--charcoal);border:1.5px solid rgba(43,43,43,0.3);}
+.btn--outline:hover{border-color:var(--charcoal);background:var(--charcoal);color:#fff;transform:translateY(-2px);}
+.btn--ghost-dark{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);}
+.btn--ghost-dark:hover{border-color:#fff;background:#fff;color:var(--charcoal);}
+
+.ra-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,0.07);transition:background .3s,box-shadow .3s;}
+.ra-nav__inner{display:flex;align-items:center;justify-content:space-between;height:96px;padding:0 48px;max-width:1440px;margin:0 auto;transition:height .3s;}
+.ra-nav.scrolled .ra-nav__inner{height:88px;}
+.ra-nav__logo img{height:76px;width:auto;display:block;transition:height .3s;}
+.ra-nav.scrolled .ra-nav__logo img{height:68px;}
+.ra-nav__links{display:flex;align-items:center;gap:36px;list-style:none;}
+.ra-nav__links a{font-size:14px;font-weight:500;color:var(--charcoal);opacity:0.7;transition:opacity .2s;position:relative;}
+.ra-nav__links a:hover,.ra-nav__links a.is-current{opacity:1;}
+.ra-nav__links a.is-current::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);border-radius:2px;}
+.ra-nav__links .has-drop{position:relative;}
+.ra-drop{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:8px;min-width:180px;list-style:none;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 8px 32px rgba(0,0,0,0.1);z-index:1002;}
+.has-drop:hover .ra-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+/* 3-Level Flyout Nav */
+.ra-drop--l2{min-width:220px;}
+.ra-drop--l2 > li{position:relative;}
+.ra-drop--l2 .has-drop-l3 > a{display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+.ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{font-size:9px;opacity:0.35;transition:opacity .2s ease-out,transform .2s ease-out;}
+.ra-drop--l2 .has-drop-l3:hover > a{background:var(--grey-light);}
+.ra-drop--l2 .has-drop-l3:hover > a .ra-drop__arrow{opacity:1;transform:translateX(3px);color:var(--red);}
+.ra-drop--l3{position:absolute;top:-8px;left:calc(100% + 6px);transform:translateX(-6px);background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:8px;min-width:230px;list-style:none;opacity:0;pointer-events:none;transition:opacity .2s ease-out,transform .2s ease-out;box-shadow:0 12px 40px rgba(0,0,0,0.12);z-index:1003;}
+.has-drop-l3:hover > .ra-drop--l3{opacity:1;pointer-events:auto;transform:translateX(0);}
+.ra-drop--l3 a{display:block;padding:9px 14px;font-size:13px;border-radius:7px;opacity:1;color:var(--charcoal);white-space:nowrap;}
+.ra-drop--l3 a:hover{background:var(--grey-light);color:var(--red);}
+.ra-drop--l3 a.is-current{background:rgba(215,37,50,0.08);color:var(--red);font-weight:600;}
+.ra-drop--l3 a::after{display:none !important;}
+
+.ra-drop a{display:block;padding:8px 14px;font-size:13px;border-radius:7px;opacity:1;color:var(--charcoal);}
+.ra-drop a:hover{background:var(--grey-light);}
+.ra-nav__right{display:flex;align-items:center;gap:16px;}
+.ra-nav__hamburger{display:none;background:transparent;border:0;padding:8px;cursor:pointer;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;}
+.ra-nav__hamburger span{display:block;width:22px;height:2px;background:var(--charcoal);transition:transform .25s,opacity .2s;border-radius:2px;}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2){opacity:0;}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.ra-nav__cta-mobile{display:none;}
+
+/* HERO */
+.faq-hero{min-height:52vh;padding:180px 0 80px;background:linear-gradient(160deg,var(--black) 0%,var(--off-black) 60%,#222 100%);position:relative;overflow:hidden;color:#fff;}
+.faq-hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 40%,rgba(0,0,0,0.9) 0%,transparent 70%);pointer-events:none;}
+.faq-hero__glow{position:absolute;top:-20%;left:-10%;width:60%;height:120%;background:radial-gradient(ellipse at center,rgba(215,37,50,0.18) 0%,transparent 60%);filter:blur(60px);pointer-events:none;}
+.faq-hero__inner{position:relative;z-index:1;max-width:840px;text-align:center;margin:0 auto;}
+.faq-hero__tagline{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;}
+.faq-hero__tagline::before{content:'';display:block;width:24px;height:2px;background:var(--red);}
+.faq-hero__title{font-size:clamp(40px,6vw,76px);margin-bottom:22px;}
+.faq-hero__title em{font-style:normal;color:var(--red);}
+.faq-hero__desc{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.65);max-width:640px;margin:0 auto;}
+
+/* FAQ BODY */
+.faq-body{padding:var(--section-pad);background:var(--white);}
+.faq-body__wrap{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:60px;align-items:start;}
+.faq-body__side{position:sticky;top:120px;}
+.faq-body__side-title{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+.faq-body__side h3{font-family:var(--font-head);font-size:28px;color:var(--charcoal);line-height:1.15;margin-bottom:18px;letter-spacing:0.04em;}
+.faq-body__side p{font-size:14px;line-height:1.7;color:#666;margin-bottom:24px;}
+.faq-body__side-cats{display:flex;flex-direction:column;gap:6px;margin-bottom:28px;}
+.faq-body__side-cat{font-size:13px;color:#666;padding:10px 12px;border-radius:8px;transition:background .2s,color .2s;border:1px solid transparent;}
+.faq-body__side-cat:hover{background:var(--grey-light);color:var(--charcoal);border-color:rgba(43,43,43,0.08);}
+
+/* ACCORDION */
+.faq-list{display:flex;flex-direction:column;gap:14px;}
+.faq-item{background:var(--white);border:1px solid rgba(43,43,43,0.08);border-radius:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s;}
+.faq-item:hover{border-color:rgba(215,37,50,0.3);}
+.faq-item.is-open{border-color:rgba(215,37,50,0.35);box-shadow:0 16px 40px rgba(0,0,0,0.05);}
+.faq-item__q{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;text-align:left;padding:22px 28px;background:transparent;border:0;cursor:pointer;font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--charcoal);line-height:1.4;letter-spacing:0.01em;}
+.faq-item__q-num{font-family:var(--font-head);font-size:13px;letter-spacing:0.2em;color:var(--red);margin-right:14px;min-width:28px;}
+.faq-item__q-ico{width:32px;height:32px;border-radius:8px;background:var(--grey-light);color:var(--charcoal);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;transition:background .25s,color .25s,transform .25s;}
+.faq-item.is-open .faq-item__q-ico{background:var(--red);color:#fff;transform:rotate(180deg);}
+.faq-item__a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-out);}
+.faq-item__a-inner{padding:0 28px 24px 70px;font-size:14.5px;line-height:1.75;color:#555;}
+.faq-item__a-inner p+p{margin-top:12px;}
+.faq-item__a-inner strong{color:var(--charcoal);}
+.faq-item__a-inner a{color:var(--red);font-weight:600;}
+
+/* INSIGHTS */
+.faq-insights{padding:var(--section-pad);background:var(--grey-light);}
+.faq-insights__header{text-align:center;max-width:720px;margin:0 auto 48px;}
+.faq-insights__header h2{font-size:clamp(30px,3.6vw,48px);color:var(--charcoal);margin-bottom:16px;}
+.faq-insights__header h2 em{font-style:normal;color:var(--red);}
+.faq-insights__header p{font-size:16px;line-height:1.7;color:#555;}
+.faq-insights__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.faq-insight{background:var(--white);border:1px solid rgba(43,43,43,0.08);border-radius:16px;padding:36px 30px;transition:transform .25s var(--ease-out),border-color .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.faq-insight:hover{transform:translateY(-4px);border-color:rgba(215,37,50,0.25);box-shadow:0 16px 40px rgba(0,0,0,0.06);}
+.faq-insight__tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);padding:5px 10px;background:rgba(215,37,50,0.08);border-radius:6px;margin-bottom:18px;}
+.faq-insight__title{font-family:var(--font-head);font-size:22px;color:var(--charcoal);margin-bottom:12px;letter-spacing:0.04em;line-height:1.2;}
+.faq-insight p{font-size:14px;color:#666;line-height:1.7;margin-bottom:20px;}
+.faq-insight__meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#999;letter-spacing:0.04em;}
+.faq-insight__meta-read{color:var(--red);font-weight:600;}
+.faq-insights__note{text-align:center;margin-top:36px;font-size:13px;color:#999;font-style:italic;}
+.faq-insights__note a{color:var(--red);font-style:normal;font-weight:600;}
+
+/* CTA STRIP */
+.faq-cta{padding:var(--section-pad);background:var(--off-black);color:#fff;position:relative;overflow:hidden;}
+.faq-cta__glow{position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse at center,rgba(215,37,50,0.18) 0%,transparent 60%);filter:blur(60px);pointer-events:none;}
+.faq-cta__inner{position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center;}
+.faq-cta h2{font-size:clamp(34px,4vw,56px);margin-bottom:20px;}
+.faq-cta h2 em{font-style:normal;color:var(--red);}
+.faq-cta p{font-size:17px;line-height:1.75;color:rgba(255,255,255,0.7);margin-bottom:34px;max-width:640px;margin-left:auto;margin-right:auto;}
+.faq-cta__buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+.ra-footer{background:var(--black);padding:80px 0 0;}
+.ra-footer__inner{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:48px;padding-bottom:64px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.ra-footer__logo{display:inline-flex;align-items:center;margin-bottom:20px;background:#fff;padding:10px 18px;border-radius:10px;}
+.ra-footer__logo img{height:68px;width:auto;}
+.ra-footer__brand p{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.4);margin-bottom:12px;}
+.ra-footer__tagline{font-family:var(--font-head);font-size:13px;font-weight:600;color:rgba(255,255,255,0.2);letter-spacing:0.05em;}
+.ra-footer__social{display:flex;gap:10px;margin-top:24px;}
+.ra-footer__social a{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);transition:background .2s,color .2s;}
+.ra-footer__social a:hover{background:var(--red);color:#fff;}
+.ra-footer__nav h5{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:20px;}
+.ra-footer__nav ul{list-style:none;}
+.ra-footer__nav ul li{margin-bottom:12px;}
+.ra-footer__nav ul a{font-size:14px;color:rgba(255,255,255,0.5);transition:color .2s;}
+.ra-footer__nav ul a:hover{color:#fff;}
+.ra-footer__cta{align-self:start;background:rgba(237,28,36,0.08);border:1px solid rgba(237,28,36,0.15);border-radius:16px;padding:32px 28px;}
+.ra-footer__cta h4{font-size:16px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3;}
+.ra-footer__cta p{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px;line-height:1.6;}
+.ra-footer__bottom{padding:24px 0;display:flex;align-items:center;justify-content:space-between;}
+.ra-footer__copyright{font-size:13px;color:rgba(255,255,255,0.25);}
+.ra-footer__copyright a{color:rgba(255,255,255,0.35);}
+.ra-footer__copyright a:hover{color:#fff;}
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up-d1{transition-delay:0.08s;}.fade-up-d2{transition-delay:0.16s;}.fade-up-d3{transition-delay:0.24s;}.fade-up-d4{transition-delay:0.32s;}
+
+/* =============================================
+   NAV DROPDOWN — Premium mega-menu v2 (site-wide)
+   Higher specificity selectors so per-page nav
+   overrides (e.g. The Reveal's bare .ra-drop rules)
+   cannot undo the center transform on hover.
+   ============================================= */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+
+/* Services mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--charcoal) !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: var(--red) !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+@media (prefers-reduced-motion: reduce){.fade-up{opacity:1;transform:none;transition:none;}}
+
+@media (max-width: 768px){
+  h1,h2,h3,h4,h5,h6,.faq-hero__title{font-family:'Bebas Neue','Orbitron',sans-serif !important;word-break:normal !important;overflow-wrap:break-word !important;hyphens:manual !important;}
+  .container{padding:0 20px !important;}
+  .btn{padding:12px 20px !important;font-size:12px !important;max-width:100%;white-space:normal;text-align:center;}
+  .ra-nav{background:#fff !important;box-shadow:0 2px 12px rgba(0,0,0,0.08) !important;}
+  .ra-nav__inner{height:72px !important;padding:0 16px !important;}
+  .ra-nav__logo img{height:56px !important;}
+  .ra-nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column !important;padding:16px 20px;gap:4px !important;border-top:1px solid rgba(0,0,0,0.06);box-shadow:0 12px 24px rgba(0,0,0,0.08);list-style:none;margin:0;z-index:1001;}
+  .ra-nav.is-open .ra-nav__links{display:flex !important;}
+  .ra-nav__links li{width:100%;}
+  .ra-nav__links a{display:block;padding:12px 4px;font-size:15px;}
+  .ra-nav__links .ra-drop{position:static;display:block;background:transparent;box-shadow:none;border:0;padding:0 0 0 16px;opacity:1;pointer-events:auto;transform:none;}
+  .ra-nav__links .ra-drop a{padding:10px 4px;font-size:14px;opacity:0.75;}
+  .ra-nav__logo{order:1;flex:0 1 auto;}
+  .ra-nav__right{order:2;display:flex !important;margin-left:auto;}
+  .ra-nav__hamburger{display:flex !important;order:3;margin:0 0 0 4px;}
+  .ra-nav__cta{display:none !important;}
+  .ra-nav__cta-mobile{display:inline-flex !important;padding:10px 14px !important;font-size:12px !important;}
+  .faq-hero{padding:120px 0 56px;min-height:0;}
+  .faq-hero__title{font-size:clamp(32px,9vw,52px);}
+  .faq-body{padding:64px 0;}
+  .faq-body__wrap{grid-template-columns:1fr !important;gap:36px !important;}
+  .faq-body__side{position:static;}
+  .faq-item__q{padding:18px 18px !important;font-size:14.5px !important;gap:10px !important;}
+  .faq-item__q-num{font-size:11px !important;margin-right:8px !important;min-width:22px !important;}
+  .faq-item__a-inner{padding:0 18px 20px 48px !important;font-size:14px !important;}
+  .faq-insights{padding:64px 0;}
+  .faq-insights__grid{grid-template-columns:1fr !important;gap:14px !important;}
+  .faq-cta{padding:64px 0;}
+  .faq-cta__buttons{flex-direction:column;align-items:center;}
+  .ra-footer{padding:60px 0 0;}
+  .ra-footer__inner{grid-template-columns:1fr !important;gap:40px !important;}
+  .ra-footer__bottom{flex-direction:column;gap:10px;text-align:center;}
+
+  /* NAV-3L-MOBILE */
+  .ra-nav__links .ra-drop--l2{position:static;display:block;background:transparent;box-shadow:none;border:0;padding:0 0 0 12px;opacity:1;pointer-events:auto;transform:none;min-width:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a{padding:10px 4px !important;font-size:14px !important;opacity:0.85;display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{transition:transform .2s;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > a .ra-drop__arrow{transform:rotate(90deg);color:var(--red);}
+  .ra-nav__links .ra-drop--l3{position:static;display:none;background:transparent;box-shadow:none;border:0;padding:0 0 8px 14px;opacity:1;pointer-events:auto;transform:none;min-width:0;margin:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3{display:block;}
+  .ra-nav__links .ra-drop--l3 a{padding:9px 4px;font-size:13px;opacity:0.75;white-space:normal;display:block;}
+
+}
+
+/* RA-WAVE1-GLOBAL-CSS-START */
+/* ===== Go-to-top button ===== */
+.ra-goto-top{
+  position:fixed;right:20px;bottom:20px;z-index:990;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red,#ED1C24);color:#fff;border:0;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
+  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  font-size:16px;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+}
+.ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
+@media (max-width:720px){
+  .ra-goto-top{right:14px;bottom:14px;width:44px;height:44px;}
+}
+@media print{.ra-goto-top{display:none !important;}}
+
+/* ===== Mobile-menu V2: bigger hit target + scrollable overflow ===== */
+@media (max-width:768px){
+  /* Hide the inline chevron icon embedded inside the L1 link text on
+     mobile — we use the dedicated toggle button as the only chevron. */
+  .ra-nav__links .has-drop > a > .fa-chevron-down{display:none !important;}
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow{display:none !important;}
+
+  /* Make the toggle button a generous full-row-height tap target on the
+     right side. The flex parent lets the link take the left side and
+     the button stretches down the right with internal padding. */
+  .ra-nav__services-toggle,
+  .ra-nav__l2-toggle{
+    align-self:stretch !important;
+    min-width:56px !important;
+    min-height:48px !important;
+    padding:12px 18px !important;
+    font-size:18px !important;
+  }
+
+  /* Make the open mobile menu panel scrollable so deeply nested
+     submenus never clip below the viewport edge. */
+  .ra-nav.is-open .ra-nav__links{
+    max-height:calc(100vh - 92px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior:contain !important;
+    padding-bottom:32px !important;
+  }
+}
+
+/* ===== Footer mini-form ===== */
+.ra-footer__miniform{margin-bottom:16px;}
+.ra-footer__miniform-title{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row{
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input{
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus{
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn{
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status{
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error{color:#ff8888;}
+/* RA-WAVE1-GLOBAL-CSS-END */
+
+/* RA-NAV-MEGAMENU-CSS-START — canonical mega-menu styles, do not hand-edit */
+/* === Desktop nav hide-by-default for mobile-only elements ===
+   Without these, .ra-nav__cta-mobile renders as a 2nd CTA on desktop
+   and .ra-nav__services-toggle / .ra-nav__l2-toggle render as visible
+   extra chevron buttons next to each dropdown parent. */
+.ra-nav__hamburger { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+.ra-nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal, #2B2B2B); transition: transform .25s, opacity .2s; border-radius: 2px; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* === Desktop mega-menu — Premium mega-menu v2 (site-wide) ===
+   Higher specificity selectors so per-page nav overrides cannot undo
+   the centered transform on hover or the 3-column grid layout. */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal, #2B2B2B);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+
+/* Services / Portfolio mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title (Strategy / Creative / Marketing) — red caps */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head, 'Orbitron', sans-serif);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal, #2B2B2B) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline inside the mega-menu */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #2B2B2B !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: #D72532 !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red, #D72532) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+
+/* NAV-REBUILD-GLOBAL — toggle buttons hidden on desktop */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+/* === Mobile (<=768px) — hamburger drawer + accordion submenus === */
+@media (max-width: 768px){
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column !important; padding: 16px 20px; gap: 4px !important; border-top: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; z-index: 1001; }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; max-height: calc(100vh - 92px) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important; padding-bottom: 32px !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 16px; opacity: 1; pointer-events: auto; transform: none; }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; }
+
+  /* Hide inline chevron icons on mobile (toggle button takes over) */
+  .ra-nav__links .has-drop > a > .fa-chevron-down { display: none !important; }
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow { display: none !important; }
+
+  /* L2 + L3 stack as accordion on mobile */
+  .ra-nav__links .ra-drop--l2 { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 12px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; grid-template-columns: 1fr; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a { padding: 10px 4px !important; font-size: 14px !important; opacity: 0.85; display: flex !important; align-items: center; justify-content: space-between; gap: 14px; color: var(--charcoal, #2B2B2B) !important; background: transparent !important; border-bottom: 0 !important; letter-spacing: 0.02em !important; text-transform: none !important; font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l3 { position: static; display: none; background: transparent; box-shadow: none; border: 0; padding: 0 0 8px 14px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; margin: 0; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3 { display: block; }
+  .ra-nav__links .ra-drop--l3 a { padding: 9px 4px; font-size: 13px; opacity: 0.75; white-space: normal; display: block; }
+
+  /* Toggle buttons surface on mobile */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    background: transparent; border: 0; color: var(--charcoal, #2B2B2B);
+    padding: 12px 18px; font-size: 18px; line-height: 1; cursor: pointer;
+    flex: 0 0 auto !important; min-width: 56px; min-height: 48px;
+    align-self: stretch !important;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+
+  /* Accordion animation on mobile */
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important; overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important; pointer-events: auto !important;
+    display: block !important; position: static !important;
+    background: transparent !important; box-shadow: none !important;
+    border: 0 !important; transform: none !important; min-width: 0 !important;
+    padding: 0 !important; margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+}
+/* RA-NAV-MEGAMENU-CSS-END */
+
+/* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
+.ra-footer {
+  background: var(--black);
+  padding: 80px 0 0;
+}
+.ra-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ra-footer__brand {}
+.ra-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+.ra-footer__logo img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+.ra-footer__brand p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.ra-footer__tagline {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+.ra-footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.ra-footer__social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {
+  align-self: start;
+  background: rgba(237,28,36,0.08);
+  border: 1px solid rgba(237,28,36,0.15);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+.ra-footer__cta h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ra-footer__cta p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.ra-footer__bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ra-footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+@media (max-width: 768px) {
+h1, h2, h3, h4, h5, h6,
+  .display-1, .display-2, .display-3,
+  .ra-hero__title, .ra-hero__tagline,
+  .ra-problem__title, .ra-founder__sig,
+  .ra-process__step-num, .ra-sprint__fw-title,
+  .ra-sprint__stat-num, .ra-footer__tagline,
+  .ra-system__col h3, .ra-problem__card h3,
+  .ra-work__item-title, .ra-cta__title,
+  .eyebrow, .eyebrow--white {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif !important;
+    font-feature-settings: normal;
+  }
+.ra-hero__inner,
+  .ra-problem__grid,
+  .ra-work__grid,
+  .ra-process__steps,
+  .ra-system__cols,
+  .ra-form__grid,
+  .ra-contact__inner,
+  .ra-footer__inner,
+  [class*="__grid"],
+  [class*="__cols"],
+  [class*="__columns"],
+  [class*="__row"] {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+.ra-hero__inner > *,
+  .ra-problem__grid > *,
+  .ra-work__grid > *,
+  .ra-process__steps > *,
+  .ra-system__cols > *,
+  .ra-form__grid > *,
+  .ra-contact__inner > *,
+  .ra-footer__inner > *,
+  [class*="__grid"] > *,
+  [class*="__cols"] > *,
+  [class*="__columns"] > *,
+  [class*="__row"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: 1 / -1 !important;
+  }
+.ra-footer { padding: 60px 0 0; }
+.ra-footer__inner { gap: 40px !important; padding-bottom: 40px; }
+.ra-footer__brand,
+  .ra-footer__nav,
+  .ra-footer__cta { width: 100%; }
+.ra-footer__logo {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    width: auto;
+  }
+.ra-footer__logo img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+.ra-footer__nav ul { padding: 0; margin: 0; list-style: none; }
+.ra-footer__nav a { word-break: break-word; }
+.ra-footer__cta .btn { width: 100%; justify-content: center; }
+}
+.ra-footer__miniform {margin-bottom:16px;}
+.ra-footer__miniform-title {
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row {
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input {
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus {
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn {
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status {
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error {color:#ff8888;}
+/* RA-FOOTER-CANONICAL-CSS-END */
+</style>
+</head>
+
+<body>
+
+<!-- RA-NAV-CANONICAL-START -->
+<nav class="ra-nav" id="ra-nav">
+  <div class="ra-nav__inner">
+    <a href="index.html" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="assets/revelation-logo.png" alt="Revelation Agency">
+    </a>
+
+    <ul class="ra-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-drop">
+        <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="services/strategy/index.html">Strategy <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="services/creative/index.html">Creative <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/creative/branding.html">Branding</a></li>
+              <li><a href="services/creative/website-development.html">Website Development</a></li>
+              <li><a href="services/creative/app-development.html">App Development</a></li>
+              <li><a href="services/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="services/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="services/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="the-reveal/index.html">The Reveal</a></li>
+      <li class="has-drop">
+        <a href="portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="portfolio/strategy.html">Strategy Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="portfolio/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="portfolio/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="portfolio/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="portfolio/creative.html">Creative Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/creative/branding.html">Branding</a></li>
+              <li><a href="portfolio/creative/website-development.html">Website Development</a></li>
+              <li><a href="portfolio/creative/app-development.html">App Development</a></li>
+              <li><a href="portfolio/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="portfolio/marketing/social-media.html">Social Media</a></li>
+              <li><a href="portfolio/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="portfolio/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="ra-nav__right">
+      <a href="booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Book a Call</a>
+    </div>
+
+    <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<!-- RA-NAV-CANONICAL-END -->
+
+<section class="faq-hero">
+  <div class="faq-hero__grid" aria-hidden="true"></div>
+  <div class="faq-hero__glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="faq-hero__inner">
+      <div class="faq-hero__tagline fade-up">Frequently Asked</div>
+      <h1 class="faq-hero__title fade-up fade-up-d1">Questions Worth <em>Asking.</em></h1>
+      <p class="faq-hero__desc fade-up fade-up-d2">The real ones — about how engagements work, what things cost, who owns what, and why we build growth machines instead of selling campaigns.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-body">
+  <div class="container">
+    <div class="faq-body__wrap">
+      <aside class="faq-body__side fade-up">
+        <div class="faq-body__side-title">About Working Together</div>
+        <h3>Straight answers.<br>No fine print.</h3>
+        <p>If something's missing here, ask us directly — we'd rather have the conversation than hide it in a PDF.</p>
+        <div class="faq-body__side-cats">
+          <div class="faq-body__side-cat">Engagements &amp; Pricing</div>
+          <div class="faq-body__side-cat">What We Do (and Don't)</div>
+          <div class="faq-body__side-cat">Timelines &amp; Results</div>
+          <div class="faq-body__side-cat">Ownership &amp; Process</div>
+        </div>
+        <a href="contact.html" class="btn btn--outline" style="padding:12px 22px;font-size:12px;">Ask a Question <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </aside>
+
+      <div class="faq-list">
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">01</span>
+            <span style="flex:1;">How long does a typical engagement run?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Most client relationships run <strong>six to twelve months</strong>. The first 90 days install the growth machine — strategy, creative foundation, and marketing infrastructure. After that, the engagement compounds: we run, measure, refine, and expand. Short one-off projects (a brand identity, a single landing page) are possible, but the real leverage shows up over quarters.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">02</span>
+            <span style="flex:1;">How is pricing structured?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Engagements are scoped monthly — not hourly. A typical growth machine retainer ranges from <strong>$8K to $30K/month</strong> depending on channel mix, creative volume, and paid media footprint. Project-based work (a brand identity sprint, a site build) is quoted as a flat fee against a defined deliverable.</p>
+              <p>Ad spend and third-party platform costs (hosting, GHL, software licenses) sit outside the retainer and pass through at cost.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">03</span>
+            <span style="flex:1;">What actually makes Revelation different?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Most agencies sell a service. We build a <strong>system</strong>. Strategy, creative, and marketing are engineered as one machine — so the copy matches the ads, the ads match the site, the site matches the sales process, and every dollar compounds instead of leaking.</p>
+              <p>The other piece: we're honest about fit. We'll tell you when a campaign is the wrong investment, when a rebrand isn't the fix, and when the real problem lives inside the offer — not the marketing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">04</span>
+            <span style="flex:1;">What industries do you work with?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>We're industry-agnostic by design, but the pattern is consistent: <strong>businesses doing $1M–$50M in revenue</strong> that have stalled, plateaued, or never built their growth infrastructure properly. Professional services, B2B SaaS, home services, health &amp; wellness, and DTC brands make up most of the roster.</p>
+              <p>Regulated industries (finance, healthcare, legal) are welcome — we've built compliant funnels before.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">05</span>
+            <span style="flex:1;">Do you replace an in-house marketing team?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>We can — that's what the <a href="services/marketing/outsource-marketing.html">Outsourced Marketing</a> track is for. A fractional CMO plus the full delivery bench (strategy, design, media buying, content, analytics) for roughly the cost of a single senior hire.</p>
+              <p>More often we <strong>augment</strong> in-house teams — running strategy and creative while their team handles product marketing or internal comms. Either works. We scope to the gap.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">06</span>
+            <span style="flex:1;">How quickly can I expect results?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Paid media can move the pipeline inside <strong>30 days</strong>. Organic channels (SEO, AEO, content, social) compound on a 90–180 day curve. Brand and positioning shifts show up in close rates and deal size — typically visible by month three.</p>
+              <p>If anyone promises overnight results on a tight growth channel, they're selling a lottery ticket. We build the machine so the compounding actually happens.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">07</span>
+            <span style="flex:1;">How does reporting work?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>You get a live dashboard covering spend, pipeline, conversion, creative performance, and revenue attribution — not a monthly PDF nobody reads. We run a <strong>weekly 30-minute operating rhythm</strong> call to review numbers, decide next moves, and unblock anything on your end.</p>
+              <p>Quarterly, we deliver a strategic review — what's working, what's not, and what changes for the next 90 days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">08</span>
+            <span style="flex:1;">Do you sign NDAs?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Yes — mutual NDAs are standard before any deep strategic work begins. Our MSA includes confidentiality provisions by default, and we're happy to sign your paper if your legal team prefers it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">09</span>
+            <span style="flex:1;">What happens after I book a strategy session?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>You get a 30-minute call with a principal — <strong>not a sales rep</strong>. We diagnose the actual growth bottleneck, sketch a 90-day plan, and tell you honestly whether we're the right team for it.</p>
+              <p>If we're a fit, a scoped proposal lands in your inbox within 72 hours. If we're not, we'll tell you who is. Either way, you walk away with a plan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">10</span>
+            <span style="flex:1;">Who owns the deliverables?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p><strong>You do.</strong> Every asset we produce — brand files, copy, creative, site code, ad accounts, CRM builds — is yours. We work inside your ad accounts, your GHL instance, your hosting. Nothing is hostage to the relationship.</p>
+              <p>If the engagement ends, you walk away with a functioning system, full documentation, and clean handoff to whoever comes next.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">11</span>
+            <span style="flex:1;">What's the difference between SEO and AEO?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p><strong>SEO</strong> ranks your site inside Google, Bing, and YouTube — the traditional search stack. <strong>AEO</strong> (Answer Engine Optimization) optimizes for the surfaces where LLMs generate answers: ChatGPT, Perplexity, Claude, Gemini, and Google's AI Overviews.</p>
+              <p>A third of searches now end without a click. If you only optimize for SEO, you're invisible to that traffic. Our <a href="services/marketing/search-rankings.html">Search &amp; AI Rankings</a> track runs both in parallel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">12</span>
+            <span style="flex:1;">Do you work with clients outside North America?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>We work globally, but operate on Pacific Time. Most of our roster sits in North America; we also run engagements in the UK, EU, and Australia. Language support is English-first — localization partners handle multi-language creative when needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">13</span>
+            <span style="flex:1;">Can we start with one project before committing to a retainer?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Yes. A lot of our long-term relationships start with a <strong>Growth Machine Blueprint</strong> — a 30-day strategic sprint that maps positioning, offer, funnel, and growth plan. From there, you can take it to any team, or we roll into build-and-run.</p>
+              <p>Brand identity sprints, site builds, and creative production runs can also stand alone.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">14</span>
+            <span style="flex:1;">Do you do AI automation and workflow work?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>Yes — the <a href="services/strategy/ai-automation.html">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It's a core part of the growth machine for most clients.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item fade-up">
+          <button class="faq-item__q" aria-expanded="false">
+            <span class="faq-item__q-num">15</span>
+            <span style="flex:1;">What if we already have an agency we partially like?</span>
+            <span class="faq-item__q-ico"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">
+              <p>That's common. We'll run the parts they can't — strategy, creative systems, paid media scaling, AEO — and coexist with the parts they do well. Our job is to install what's missing, not to displace what's working.</p>
+              <p>If the current agency turns out to be the bottleneck, we'll tell you that too. Straight.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-insights">
+  <div class="container">
+    <div class="faq-insights__header fade-up">
+      <div class="eyebrow">Insights</div>
+      <h2>The <em>thinking behind</em> the work.</h2>
+      <p>Short reads on the patterns we see inside engagements — where growth actually compounds and where it leaks.</p>
+    </div>
+    <div class="faq-insights__grid">
+      <a href="the-reveal/your-brand-isnt-what-you-say-it-is.html" class="faq-insight fade-up" style="display:block;text-decoration:none;color:inherit;">
+        <div class="faq-insight__tag">Strategy</div>
+        <h3 class="faq-insight__title">Your Brand Isn't What You Say It Is — It's What You Prove</h3>
+        <p>Positioning lives in the space between the claim and the proof. The companies that win are the ones whose every touchpoint reinforces the same story.</p>
+        <div class="faq-insight__meta">
+          <span>Read on The Reveal <i class="fa-solid fa-arrow-right" style="font-size:10px;margin-left:4px;"></i></span>
+          <span class="faq-insight__meta-read">6 min read</span>
+        </div>
+      </a>
+      <a href="the-reveal/why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="faq-insight fade-up fade-up-d1" style="display:block;text-decoration:none;color:inherit;">
+        <div class="faq-insight__tag">Marketing</div>
+        <h3 class="faq-insight__title">Why AI Answer Engines Are Rewriting the SEO Playbook</h3>
+        <p>Traditional search still drives pipeline. But a third of queries now end inside an AI answer. Both surfaces need to be owned — not just one.</p>
+        <div class="faq-insight__meta">
+          <span>Read on The Reveal <i class="fa-solid fa-arrow-right" style="font-size:10px;margin-left:4px;"></i></span>
+          <span class="faq-insight__meta-read">8 min read</span>
+        </div>
+      </a>
+      <a href="the-reveal/what-gohighlevel-actually-does.html" class="faq-insight fade-up fade-up-d2" style="display:block;text-decoration:none;color:inherit;">
+        <div class="faq-insight__tag">Systems</div>
+        <h3 class="faq-insight__title">What GoHighLevel Actually Does — And Why Most Businesses Are Barely Using It</h3>
+        <p>GHL isn't just a CRM — it's the operating layer underneath a modern growth machine. Here's what it actually runs, and why most setups leave 80% on the table.</p>
+        <div class="faq-insight__meta">
+          <span>Read on The Reveal <i class="fa-solid fa-arrow-right" style="font-size:10px;margin-left:4px;"></i></span>
+          <span class="faq-insight__meta-read">10 min read</span>
+        </div>
+      </a>
+    </div>
+    <div class="faq-insights__note">More pieces on <a href="the-reveal/index.html">The Reveal</a> — our field notes from inside growth engagements.</div>
+  </div>
+</section>
+
+<section class="faq-cta">
+  <div class="faq-cta__glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="faq-cta__inner">
+      <div class="eyebrow eyebrow--white fade-up">Still Have a Question?</div>
+      <h2 class="fade-up fade-up-d1">Ask us <em>directly.</em></h2>
+      <p class="fade-up fade-up-d2">Thirty minutes on the phone answers more than any FAQ ever will. No pitch, no deck — just the plan.</p>
+      <div class="faq-cta__buttons fade-up fade-up-d3">
+        <a href="booking.html" class="btn btn--primary">Book a Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+        <a href="contact.html" class="btn btn--ghost-dark">Send a Brief <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RA-FOOTER-CANONICAL-START -->
+<footer class="ra-footer">
+  <div class="container">
+    <div class="ra-footer__inner">
+      <div class="ra-footer__brand">
+        <div class="ra-footer__logo">
+          <img src="assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
+        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <div class="ra-footer__social">
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <!-- FOOTER-ADDRESS -->
+        <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
+          <div style="color:rgba(255,255,255,0.72); font-weight:600; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; margin-bottom:6px;">Revelation Agency</div>
+          <div>55 Shaw Ave. #201</div>
+          <div>Clovis, CA 93612</div>
+          <div style="margin-top:6px; font-style:italic; color:rgba(255,255,255,0.55);">We work remotely across the globe.</div>
+        </address>
+      </div>
+
+      <div class="ra-footer__nav ra-footer__nav--services">
+        <style>
+          .ra-footer__nav--services .ra-footer__svc{list-style:none;margin:0;padding:0;}
+          .ra-footer__nav--services .ra-footer__svc-group{margin-bottom:4px;}
+          .ra-footer__nav--services .ra-footer__svc-group:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-parent{display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 0;cursor:pointer;transition:color .2s;line-height:1.2;}
+          .ra-footer__nav--services .ra-footer__svc-parent:hover{color:var(--red);}
+          .ra-footer__nav--services .ra-footer__svc-caret{font-size:11px;color:rgba(255,255,255,0.45);transition:transform .28s ease,color .2s;margin-left:8px;flex-shrink:0;display:inline-block;}
+          .ra-footer__nav--services .ra-footer__svc-children{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .32s ease,opacity .22s ease,margin-top .22s ease;margin-top:0;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-children,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-caret,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-caret{transform:rotate(180deg);color:#fff;}
+          .ra-footer__nav--services .ra-footer__svc-children li{margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-children li:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-children a{font-size:13px;color:rgba(255,255,255,0.5);padding-left:2px;display:block;transition:color .2s;}
+          .ra-footer__nav--services .ra-footer__svc-children a:hover{color:#fff;}
+          @media (max-width:720px){
+            .ra-footer__nav--services .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;}
+            .ra-footer__nav--services .ra-footer__svc-caret{display:none;}
+          }
+        </style>
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
+        <ul class="ra-footer__svc">
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/strategy/">Strategy<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/creative/branding.html">Branding</a></li>
+              <li><a href="services/creative/video-production.html">Video Production</a></li>
+              <li><a href="services/creative/website-development.html">Website Development</a></li>
+              <li><a href="services/creative/app-development.html">App Development</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="services/marketing/search-rankings.html">Search Rankings</a></li>
+              <li><a href="services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ra-footer__nav">
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
+        <ul>
+          <li><a href="the-reveal/index.html">The Reveal</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="tel:+15592017039">(559) 201-7039</a></li>
+          <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
+        </ul>
+      </div><div class="ra-footer__cta">
+<!-- RA-FOOTER-MINIFORM-START -->
+        <form class="ra-footer__miniform" data-booking-url="booking.html" novalidate>
+          <h5 class="ra-footer__miniform-title">Let's Connect</h5>
+          <div class="ra-footer__miniform-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          </div>
+          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <div class="ra-footer__miniform-status" aria-live="polite"></div>
+        </form>
+        <script>(function(){
+          var forms=document.querySelectorAll('.ra-footer__miniform');
+          forms.forEach(function(f){
+            if(f.dataset.bound==='1')return;f.dataset.bound='1';
+            var status=f.querySelector('.ra-footer__miniform-status');
+            f.addEventListener('submit',function(ev){
+              ev.preventDefault();
+              var name=(f.name && f.name.value || '').trim();
+              var phone=(f.phone && f.phone.value || '').trim();
+              if(!name||!phone){if(status){status.textContent='Add a name and phone so we can prefill your booking.';status.classList.add('is-error');}return;}
+              try{
+                sessionStorage.setItem('ra_lead_name',name);
+                sessionStorage.setItem('ra_lead_phone',phone);
+                sessionStorage.setItem('ra_lead_source','footer-miniform');
+              }catch(e){}
+              var base=f.getAttribute('data-booking-url')||'booking.html';
+              var url=base+(base.indexOf('?')===-1?'?':'&')+'name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&src=footer-miniform';
+              window.location.href=url;
+            });
+          });
+        })();</script>
+<!-- RA-FOOTER-MINIFORM-END -->
+        <div class="ra-footer__cta-map" data-ra-footer-map="1" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+          <iframe src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&output=embed" width="100%" height="120" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing Revelation Agency office in Clovis, CA" title="Revelation Agency — Clovis, CA"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-footer__bottom">
+      <p class="ra-footer__copyright">&copy; 2026 <a href="index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+    </div>
+  </div>
+</footer>
+<!-- RA-FOOTER-CANONICAL-END -->
+
+<script>
+(function(){
+  const nav = document.getElementById('ra-nav');
+  const ham = document.getElementById('ra-nav-hamburger');
+  if (ham && nav) ham.addEventListener('click', () => { const o = nav.classList.toggle('is-open'); ham.setAttribute('aria-expanded', o); });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+  document.querySelectorAll('.faq-item__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const panel = item.querySelector('.faq-item__a');
+      const isOpen = item.classList.contains('is-open');
+      if (isOpen) {
+        panel.style.maxHeight = '0px';
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  /* NAV-3L-JS */
+  document.querySelectorAll('.has-drop-l3 > a').forEach(function(anchor){
+    anchor.addEventListener('click', function(ev){
+      if (window.innerWidth > 768) return;
+      var li = anchor.parentElement;
+      if (!li.querySelector('.ra-drop--l3')) return;
+      if (!li.classList.contains('is-open')) {
+        ev.preventDefault();
+        var parentUl = li.parentElement;
+        if (parentUl) parentUl.querySelectorAll('.has-drop-l3.is-open').forEach(function(x){ if (x !== li) x.classList.remove('is-open'); });
+        li.classList.add('is-open');
+      }
+    });
+  });
+})();
+</script>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="67db6de80d1911ef2ab3e790"></script>
+
+<!-- RA-GOTO-TOP-START -->
+<button class="ra-goto-top" type="button" aria-label="Back to top" id="ra-goto-top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>(function(){
+  var btn=document.getElementById('ra-goto-top');if(!btn)return;
+  var threshold=400,ticking=false;
+  function update(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>threshold){btn.classList.add('is-visible');}else{btn.classList.remove('is-visible');}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  btn.addEventListener('click',function(){
+    try{window.scrollTo({top:0,behavior:'smooth'});}
+    catch(e){window.scrollTo(0,0);}
+  });
+  update();
+})();</script>
+<!-- RA-GOTO-TOP-END -->
+</body>
+</html>

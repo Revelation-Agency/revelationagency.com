@@ -1,0 +1,2601 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <!-- RA-PWA-HEAD:start -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Revelation">
+  <meta name="theme-color" content="#D72532">
+  <!-- RA-PWA-HEAD:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D72532">
+<title>Services — Revelation Agency</title>
+<meta name="description" content="Three systems. One growth machine. Strategy, Creative, and Marketing — each a focused discipline, or connected into one integrated growth system.">
+
+<link rel="canonical" href="https://revelationagency.com/services">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revelation Agency">
+<meta property="og:title" content="Services — Revelation Agency">
+<meta property="og:description" content="Three systems. One growth machine. Strategy, Creative, and Marketing — each a focused discipline, or connected into one integrated growth system.">
+<meta property="og:url" content="https://revelationagency.com/services">
+<meta property="og:image" content="https://revelationagency.com/assets/images/generated/revelation-agency-strategic-business-planning.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts — identical to homepage/about: self-hosted Orbitron + Google Fonts Bebas Neue -->
+<link rel="preload" as="font" type="font/woff2" href="assets/webfonts/Orbitron-VF.woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/portfolio-cards-v3.css">
+
+<style>
+@font-face {
+  font-family: 'Orbitron';
+  src: url('assets/webfonts/Orbitron-VF.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================
+   TOKENS — shared with homepage/about
+   ============================================= */
+:root {
+  --red:        #D72532;
+  --red-deep:   #AD1C24;
+  --red-dark:   #840D11;
+  --charcoal:   #2B2B2B;
+  --black:      #181818;
+  --off-black:  #1E1E1E;
+  --grey-light: #F7F7F5;
+  --grey-mid:   #EDECE9;
+  --white:      #FFFFFF;
+  --text-muted: rgba(255,255,255,0.55);
+  --text-sub:   #888;
+
+  --font-head: 'Bebas Neue', 'Orbitron', sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --btn-radius: 45px 0 45px 45px;
+  --section-pad: 110px 0;
+  --section-pad-sm: 70px 0;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.container--wide { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.eyebrow--white { color: rgba(255,255,255,0.5); }
+.eyebrow--muted { color: var(--text-sub); }
+
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.display-1 { font-size: clamp(40px, 5.5vw, 72px); letter-spacing: 0.05em; }
+.display-2 { font-size: clamp(32px, 4vw, 54px); letter-spacing: 0.04em; }
+.display-3 { font-size: clamp(24px, 3vw, 38px); letter-spacing: 0.04em; }
+
+.highlight { color: var(--red); }
+
+.body-lead { font-size: 17px; line-height: 1.75; color: #555; }
+.body-lead--white { color: rgba(255,255,255,0.7); }
+
+/* =============================================
+   BUTTONS — identical to homepage/about
+   ============================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), background 0.25s var(--ease-out), color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s var(--ease-out);
+  pointer-events: none;
+}
+.btn:hover::before { left: 130%; }
+.btn .btn-arrow { display: inline-block; transition: transform 0.25s var(--ease-out); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+.btn:active { transform: translateY(1px) scale(0.98); }
+
+.btn--primary { background: var(--red); color: var(--white); }
+.btn--primary:hover {
+  background: var(--red-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(215,37,50,0.40);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid rgba(43,43,43,0.3);
+}
+.btn--outline:hover {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(43,43,43,0.2);
+}
+.btn--white { background: var(--white); color: var(--charcoal); }
+.btn--white:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.15); }
+
+/* =============================================
+   NAV — identical structure/behavior to homepage/about
+   ============================================= */
+.ra-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+.ra-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+  padding: 0 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+  transition: height 0.3s ease;
+}
+.ra-nav.scrolled .ra-nav__inner { height: 88px; }
+.ra-nav__logo { display: flex; align-items: center; text-decoration: none; }
+.ra-nav__logo img { height: 76px; width: auto; display: block; transition: height 0.3s ease; }
+.ra-nav.scrolled .ra-nav__logo img { height: 68px; }
+.ra-nav__links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.ra-nav__links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  position: relative;
+}
+.ra-nav__links a:hover,
+.ra-nav__links a.is-current { opacity: 1; }
+.ra-nav__links a.is-current::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+}
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-drop {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 160px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  z-index: 1002;
+}
+.has-drop:hover .ra-drop { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.ra-drop a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal);
+}
+/* 3-Level Flyout Nav */
+.ra-drop--l2{min-width:220px;}
+.ra-drop--l2 > li{position:relative;}
+.ra-drop--l2 .has-drop-l3 > a{display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+.ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{font-size:9px;opacity:0.35;transition:opacity .2s ease-out,transform .2s ease-out;}
+.ra-drop--l2 .has-drop-l3:hover > a{background:var(--grey-light);}
+.ra-drop--l2 .has-drop-l3:hover > a .ra-drop__arrow{opacity:1;transform:translateX(3px);color:var(--red);}
+.ra-drop--l3{position:absolute;top:-8px;left:calc(100% + 6px);transform:translateX(-6px);background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:12px;padding:8px;min-width:230px;list-style:none;opacity:0;pointer-events:none;transition:opacity .2s ease-out,transform .2s ease-out;box-shadow:0 12px 40px rgba(0,0,0,0.12);z-index:1003;}
+.has-drop-l3:hover > .ra-drop--l3{opacity:1;pointer-events:auto;transform:translateX(0);}
+.ra-drop--l3 a{display:block;padding:9px 14px;font-size:13px;border-radius:7px;opacity:1;color:var(--charcoal);white-space:nowrap;}
+.ra-drop--l3 a:hover{background:var(--grey-light);color:var(--red);}
+.ra-drop--l3 a.is-current{background:rgba(215,37,50,0.08);color:var(--red);font-weight:600;}
+.ra-drop--l3 a::after{display:none !important;}
+
+.ra-drop a:hover { background: var(--grey-light); }
+.ra-drop a::after { display: none !important; }
+.ra-nav__right { display: flex; align-items: center; gap: 16px; }
+
+.ra-nav__hamburger {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+}
+.ra-nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  border-radius: 2px;
+}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* =============================================
+   SERVICES HERO (light) — mirrors .ra-about-hero
+   ============================================= */
+.ra-services-hero {
+  min-height: 82vh;
+  padding: 180px 0 110px;
+  background: linear-gradient(155deg, #fafafa 0%, #ffffff 50%, #f4f4f2 100%);
+  position: relative;
+  overflow: hidden;
+}
+.ra-services-hero__glow {
+  position: absolute;
+  top: -140px;
+  right: -160px;
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(237,28,36,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ra-services-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(215,37,50,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215,37,50,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 80% at 80% 50%, black 20%, transparent 100%);
+}
+.ra-services-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+}
+.ra-services-hero__tagline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.ra-services-hero__tagline::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+}
+.ra-services-hero__title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+.ra-services-hero__title em { font-style: normal; color: var(--red); }
+.ra-services-hero__desc {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+.ra-services-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* =============================================
+   HOW IT WORKS (light, 3-column)
+   ============================================= */
+.ra-services-system {
+  padding: var(--section-pad);
+  background: var(--white);
+  position: relative;
+}
+.ra-services-system__header {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ra-services-system__header h2 {
+  font-size: clamp(32px, 4vw, 54px);
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+}
+.ra-services-system__header p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+}
+.ra-services-system__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.ra-services-system__card {
+  background: var(--white);
+  border: 1px solid rgba(43,43,43,0.08);
+  border-radius: 16px;
+  padding: 38px 32px 34px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+.ra-services-system__card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 32px; right: 32px;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+.ra-services-system__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+  border-color: rgba(215,37,50,0.22);
+}
+.ra-services-system__card:hover::after { transform: scaleX(1); }
+.ra-services-system__num {
+  font-family: var(--font-head);
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  margin-bottom: 18px;
+}
+.ra-services-system__card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+.ra-services-system__card p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #666;
+}
+
+/* =============================================
+   SERVICE STACKS (dark) — choose entry point
+   ============================================= */
+.ra-services-stacks {
+  padding: var(--section-pad);
+  background: var(--off-black);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.ra-services-stacks__grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 20%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+.ra-services-stacks__header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ra-services-stacks__header .eyebrow { color: rgba(255,255,255,0.5); }
+.ra-services-stacks__header h2 {
+  font-size: clamp(32px, 4vw, 54px);
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.05;
+}
+.ra-services-stacks__header p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+}
+.ra-services-stacks__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ra-stack {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 36px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s var(--ease-out), border-color 0.25s, background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.ra-stack::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+.ra-stack:hover {
+  transform: translateY(-4px);
+  border-color: rgba(215,37,50,0.35);
+  background: rgba(215,37,50,0.05);
+}
+.ra-stack:hover::after { transform: scaleX(1); }
+.ra-stack__num {
+  font-family: var(--font-head);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.ra-stack__name {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.05;
+}
+.ra-stack__tagline {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 24px;
+}
+.ra-stack__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  flex: 1;
+}
+.ra-stack__list li {
+  padding: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+}
+.ra-stack__list li:last-child { border-bottom: none; }
+.ra-stack__list li a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 2px;
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  transition: color .22s var(--ease-out), transform .22s var(--ease-out), padding-left .22s var(--ease-out);
+  position: relative;
+  z-index: 1;
+}
+.ra-stack__list li a:hover,
+.ra-stack__list li a:focus-visible {
+  color: #fff;
+  padding-left: 6px;
+  outline: none;
+}
+.ra-stack__list li a:hover i {
+  transform: translateX(2px);
+}
+.ra-stack__list li i {
+  font-size: 10px;
+  color: var(--red);
+  transition: transform .22s var(--ease-out);
+}
+
+/* Mouse-reactive red flares inside the Service Stacks section (mirrors home page sprint section) */
+.ra-services-stacks__glow-l {
+  position: absolute;
+  left: var(--glow-x, 25%);
+  top: var(--glow-y, 50%);
+  transform: translate(-50%, -50%);
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(237,28,36,var(--glow-i, 0.16)) 0%, transparent 65%);
+  pointer-events: none;
+  transition: background 0.3s ease;
+  filter: blur(6px);
+  z-index: 0;
+}
+.ra-services-stacks__glow-r {
+  position: absolute;
+  left: var(--glow2-x, 80%);
+  top: var(--glow2-y, 40%);
+  transform: translate(-50%, -50%);
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(237,28,36,var(--glow2-i, 0.08)) 0%, transparent 60%);
+  pointer-events: none;
+  filter: blur(8px);
+  z-index: 0;
+}
+.ra-stack__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  align-self: flex-start;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  transition: color 0.25s, border-color 0.25s, gap 0.25s var(--ease-out);
+}
+.ra-stack__cta i { font-size: 11px; transition: transform 0.25s var(--ease-out); }
+.ra-stack:hover .ra-stack__cta {
+  color: var(--red);
+  border-color: var(--red);
+}
+.ra-stack:hover .ra-stack__cta i { transform: translateX(4px); }
+
+/* =============================================
+   STANDALONE VS INTEGRATED (light, two-column)
+   ============================================= */
+.ra-services-engage {
+  padding: var(--section-pad);
+  background: var(--grey-light);
+}
+.ra-services-engage__header {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ra-services-engage__header h2 {
+  font-size: clamp(32px, 4vw, 54px);
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+}
+.ra-services-engage__header p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+}
+.ra-services-engage__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.ra-services-engage__col {
+  padding: 44px 38px;
+  border-radius: 16px;
+  border: 1px solid rgba(43,43,43,0.10);
+  background: var(--white);
+  position: relative;
+}
+.ra-services-engage__col--integrated {
+  border-color: rgba(215,37,50,0.25);
+  background: rgba(215,37,50,0.03);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background .35s ease;
+}
+.ra-services-engage__col--integrated:hover {
+  transform: translateY(-4px);
+  border-color: rgba(215,37,50,0.55);
+  background: rgba(215,37,50,0.06);
+  box-shadow: 0 18px 44px rgba(215,37,50,0.18);
+}
+.ra-services-engage__col--integrated::before {
+  content: "Preferred";
+  position: absolute;
+  top: -11px;
+  right: 20px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.ra-services-engage__col h3 {
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ra-services-engage__col--integrated h3 .ra-services-engage__badge { color: var(--red); }
+.ra-services-engage__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(43,43,43,0.06);
+  font-size: 13px;
+  color: var(--charcoal);
+  flex-shrink: 0;
+}
+.ra-services-engage__col--integrated .ra-services-engage__badge {
+  background: rgba(215,37,50,0.14);
+}
+.ra-services-engage__col p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* =============================================
+   CTA CLOSE (red band) — identical to homepage/about
+   ============================================= */
+.ra-cta {
+  padding: 120px 0;
+  background: var(--red);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.ra-cta__noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+.ra-cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.ra-cta__title {
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.05;
+}
+.ra-cta__desc {
+  font-size: 17px;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* =============================================
+   FOOTER — identical to homepage/about
+   ============================================= */
+.ra-footer { background: var(--black); padding: 80px 0 0; }
+.ra-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ra-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+.ra-footer__logo img { height: 68px; width: auto; display: block; }
+.ra-footer__brand p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.ra-footer__tagline {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+.ra-footer__social { display: flex; gap: 10px; margin-top: 24px; }
+.ra-footer__social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {
+  align-self: start;
+  background: rgba(237,28,36,0.08);
+  border: 1px solid rgba(237,28,36,0.15);
+  border-radius: 16px;
+  padding: 32px 28px;
+}
+.ra-footer__cta h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ra-footer__cta p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.ra-footer__bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ra-footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+
+/* =============================================
+   SCROLL ANIMATIONS
+   ============================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up-d1 { transition-delay: 0.08s; }
+.fade-up-d2 { transition-delay: 0.16s; }
+.fade-up-d3 { transition-delay: 0.24s; }
+.fade-up-d4 { transition-delay: 0.32s; }
+
+
+/* =============================================
+   NAV DROPDOWN — Premium mega-menu v2 (site-wide)
+   Higher specificity selectors so per-page nav
+   overrides (e.g. The Reveal's bare .ra-drop rules)
+   cannot undo the center transform on hover.
+   ============================================= */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+
+/* Services mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--charcoal) !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: var(--red) !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; transition: none; }
+}
+
+/* =============================================
+   MOBILE — ≤768px
+   ============================================= */
+/* NAV-REBUILD-GLOBAL */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+@media (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6,
+  .display-1, .display-2, .display-3,
+  .ra-services-hero__title,
+  .ra-services-system__header h2,
+  .ra-services-stacks__header h2,
+  .ra-services-engage__header h2,
+  .ra-cta__title,
+  .eyebrow, .eyebrow--white,
+  .ra-stack__name {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif !important;
+    font-feature-settings: normal;
+  }
+
+  h1, h2, h3, h4,
+  .display-1, .display-2, .display-3,
+  .ra-services-hero__title, .ra-cta__title {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: manual !important;
+  }
+
+  .container, .container--wide { padding: 0 20px !important; }
+
+  .btn {
+    padding: 12px 20px !important;
+    font-size: 12px !important;
+    letter-spacing: 0.05em !important;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  .btn .btn-arrow { margin-left: 8px; }
+
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    flex-direction: column !important;
+    padding: 16px 20px;
+    gap: 4px !important;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    list-style: none;
+    margin: 0;
+    z-index: 1001;
+  }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop {
+    position: static;
+    display: block;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    padding: 0 0 0 16px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; align-items: center; gap: 8px; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; white-space: nowrap; }
+
+  /* Sections: reduce padding */
+  .ra-services-hero { padding: 120px 0 64px; min-height: 0; }
+  .ra-services-hero__glow { width: 420px; height: 420px; top: -80px; right: -120px; }
+  .ra-services-hero__inner { max-width: 100%; }
+  .ra-services-hero__title { font-size: clamp(32px, 9vw, 46px); }
+  .ra-services-hero__desc { font-size: 15px; }
+  .ra-services-hero__actions { justify-content: flex-start; }
+
+  .ra-services-system { padding: 64px 0; }
+  .ra-services-system__header { margin-bottom: 36px; }
+  .ra-services-system__grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .ra-services-system__card { padding: 28px 24px; }
+  .ra-services-system__card h3 { font-size: 20px; }
+
+  .ra-services-stacks { padding: 72px 0; }
+  .ra-services-stacks__header { margin-bottom: 40px; }
+  .ra-services-stacks__grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .ra-stack { padding: 28px 24px 24px; }
+  .ra-stack__name { font-size: 26px; }
+  .ra-stack__list li { font-size: 13px; }
+
+  .ra-services-engage { padding: 64px 0; }
+  .ra-services-engage__header { margin-bottom: 32px; }
+  .ra-services-engage__grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .ra-services-engage__col { padding: 28px 22px; }
+  .ra-services-engage__col h3 { font-size: 18px; }
+
+  .ra-cta { padding: 56px 0 !important; }
+  .ra-cta__title { font-size: clamp(1.5rem, 7vw, 2.25rem) !important; line-height: 1.1; }
+  .ra-cta__desc { font-size: 14px !important; }
+
+  .ra-footer { padding: 60px 0 0; }
+  .ra-footer__inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-bottom: 40px;
+  }
+  .ra-footer__cta .btn { width: 100%; justify-content: center; }
+  .ra-footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* NAV-3L-MOBILE */
+  .ra-nav__links .ra-drop--l2{position:static;display:block;background:transparent;box-shadow:none;border:0;padding:0 0 0 12px;opacity:1;pointer-events:auto;transform:none;min-width:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a{padding:10px 4px !important;font-size:14px !important;opacity:0.85;display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow{transition:transform .2s;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > a .ra-drop__arrow{transform:rotate(90deg);color:var(--red);}
+  .ra-nav__links .ra-drop--l3{position:static;display:none;background:transparent;box-shadow:none;border:0;padding:0 0 8px 14px;opacity:1;pointer-events:auto;transform:none;min-width:0;margin:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3{display:block;}
+  .ra-nav__links .ra-drop--l3 a{padding:9px 4px;font-size:13px;opacity:0.75;white-space:normal;display:block;}
+
+
+  /* LOGO-MOBILE-FIRM */
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+
+  /* NAV-3L-HIERARCHY */
+  .ra-nav__links .has-drop > a { font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l2 { padding-left: 16px !important; }
+  .ra-nav__links .ra-drop--l2 > li > a { font-weight: 500 !important; }
+  .ra-nav__links .ra-drop--l3 { padding-left: 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
+  .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
+
+  /* NAV-REBUILD-MOBILE */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: var(--charcoal, #2b2b2b);
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    flex: 0 0 auto !important;
+    min-width: 44px;
+    min-height: 44px;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red); }
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    transform: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .has-drop > a { font-weight: 600 !important; }
+  .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+  .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
+  .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
+}
+
+/* Tablet tuning — 769px–1024px */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .ra-services-system__grid { grid-template-columns: repeat(2, 1fr); }
+  .ra-services-system__grid > :nth-child(3) { grid-column: 1 / -1; }
+  .ra-services-stacks__grid { grid-template-columns: repeat(2, 1fr); }
+  .ra-services-stacks__grid > :nth-child(3) { grid-column: 1 / -1; }
+}
+
+/* =============================================
+   PREMIUM EFFECTS SYSTEM — reusable site-wide toolkit
+   ============================================= */
+.fx-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+.fx-glow {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+.fx-glow--tl { background: radial-gradient(ellipse at 15% 20%, rgba(237,28,36,0.12) 0%, transparent 55%); }
+.fx-glow--tr { background: radial-gradient(ellipse at 85% 25%, rgba(237,28,36,0.12) 0%, transparent 55%); }
+.fx-glow--bl { background: radial-gradient(ellipse at 10% 80%, rgba(237,28,36,0.10) 0%, transparent 55%); }
+.fx-glow--center { background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.14) 0%, transparent 60%); }
+.fx-shimmer {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg,
+    transparent 0%, transparent 40%,
+    rgba(237,28,36,0.06) 50%,
+    transparent 60%, transparent 100%);
+  background-size: 220% 100%;
+  animation: fx-shimmer 11s linear infinite;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+@keyframes fx-shimmer {
+  0%   { background-position: -110% 0; }
+  100% { background-position: 110% 0; }
+}
+.fx-line-pulse {
+  position: relative;
+  height: 1px;
+  background: rgba(215,37,50,0.14);
+  margin: 56px auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+.fx-line-pulse::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -25%;
+  width: 25%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(237,28,36,0.9), transparent);
+  box-shadow: 0 0 10px rgba(237,28,36,0.55);
+  animation: fx-line-pulse 4.5s linear infinite;
+}
+@keyframes fx-line-pulse {
+  0%   { left: -25%; }
+  100% { left: 100%; }
+}
+.fx-micro-dots {
+  position: absolute; inset: 0; pointer-events: none;
+  overflow: hidden; z-index: 0;
+}
+.fx-micro-dots::before,
+.fx-micro-dots::after {
+  content: '';
+  position: absolute;
+  width: 2px; height: 2px; border-radius: 50%;
+  background: rgba(215,37,50,0.30);
+  box-shadow:
+    120px 80px 0 rgba(43,43,43,0.20),
+    240px 160px 0 rgba(215,37,50,0.22),
+    340px 40px 0 rgba(43,43,43,0.14),
+    420px 240px 0 rgba(215,37,50,0.20),
+    540px 100px 0 rgba(43,43,43,0.16),
+    640px 280px 0 rgba(215,37,50,0.18),
+    720px 60px 0 rgba(43,43,43,0.18),
+    820px 200px 0 rgba(215,37,50,0.24),
+    920px 140px 0 rgba(43,43,43,0.12),
+    1020px 320px 0 rgba(215,37,50,0.16),
+    1140px 80px 0 rgba(43,43,43,0.14),
+    80px 360px 0 rgba(215,37,50,0.18),
+    260px 400px 0 rgba(43,43,43,0.12),
+    460px 380px 0 rgba(215,37,50,0.14),
+    680px 420px 0 rgba(43,43,43,0.14);
+  top: 20px; left: 20px;
+  animation: fx-float-a 14s ease-in-out infinite;
+}
+.fx-micro-dots::after {
+  top: 60px; left: 80px;
+  background: rgba(43,43,43,0.22);
+  animation: fx-float-b 18s ease-in-out infinite;
+  animation-delay: -4s;
+}
+@keyframes fx-float-a {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(12px, -18px); }
+}
+@keyframes fx-float-b {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-16px, 14px); }
+}
+.fx-grid-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(215,37,50,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215,37,50,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%);
+  z-index: 0;
+}
+.fx-grid-lines--dark {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+}
+.fx-noise {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.45;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+.ra-services-hero__canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+.ra-services-system__header,
+.ra-services-system__grid,
+.ra-services-stacks__header,
+.ra-services-stacks__grid,
+.ra-services-engage__header,
+.ra-services-engage__grid,
+.ra-cta__content {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-shimmer,
+  .fx-line-pulse::after,
+  .fx-micro-dots::before,
+  .fx-micro-dots::after { animation: none; }
+}
+@media (max-width: 768px) {
+  .fx-micro-dots { display: none; }
+  .fx-line-pulse { margin: 36px auto; }
+  .fx-grid-lines { background-size: 50px 50px; }
+}
+
+/* RA-WAVE1-GLOBAL-CSS-START */
+/* ===== Go-to-top button ===== */
+.ra-goto-top{
+  position:fixed;right:20px;bottom:20px;z-index:990;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red,#ED1C24);color:#fff;border:0;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
+  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  font-size:16px;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+}
+.ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
+@media (max-width:720px){
+  .ra-goto-top{right:14px;bottom:14px;width:44px;height:44px;}
+}
+@media print{.ra-goto-top{display:none !important;}}
+
+/* ===== Mobile-menu V2: bigger hit target + scrollable overflow ===== */
+@media (max-width:768px){
+  /* Hide the inline chevron icon embedded inside the L1 link text on
+     mobile — we use the dedicated toggle button as the only chevron. */
+  .ra-nav__links .has-drop > a > .fa-chevron-down{display:none !important;}
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow{display:none !important;}
+
+  /* Make the toggle button a generous full-row-height tap target on the
+     right side. The flex parent lets the link take the left side and
+     the button stretches down the right with internal padding. */
+  .ra-nav__services-toggle,
+  .ra-nav__l2-toggle{
+    align-self:stretch !important;
+    min-width:56px !important;
+    min-height:48px !important;
+    padding:12px 18px !important;
+    font-size:18px !important;
+  }
+
+  /* Make the open mobile menu panel scrollable so deeply nested
+     submenus never clip below the viewport edge. */
+  .ra-nav.is-open .ra-nav__links{
+    max-height:calc(100vh - 92px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior:contain !important;
+    padding-bottom:32px !important;
+  }
+}
+
+/* ===== Footer mini-form ===== */
+.ra-footer__miniform{margin-bottom:16px;}
+.ra-footer__miniform-title{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row{
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input{
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus{
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn{
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status{
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error{color:#ff8888;}
+/* RA-WAVE1-GLOBAL-CSS-END */
+
+/* RA-NAV-MEGAMENU-CSS-START — canonical mega-menu styles, do not hand-edit */
+/* === Desktop nav hide-by-default for mobile-only elements ===
+   Without these, .ra-nav__cta-mobile renders as a 2nd CTA on desktop
+   and .ra-nav__services-toggle / .ra-nav__l2-toggle render as visible
+   extra chevron buttons next to each dropdown parent. */
+.ra-nav__hamburger { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+.ra-nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal, #2B2B2B); transition: transform .25s, opacity .2s; border-radius: 2px; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* === Desktop mega-menu — Premium mega-menu v2 (site-wide) ===
+   Higher specificity selectors so per-page nav overrides cannot undo
+   the centered transform on hover or the 3-column grid layout. */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal, #2B2B2B);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+
+/* Services / Portfolio mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title (Strategy / Creative / Marketing) — red caps */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head, 'Orbitron', sans-serif);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal, #2B2B2B) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline inside the mega-menu */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #2B2B2B !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: #D72532 !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red, #D72532) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+
+/* NAV-REBUILD-GLOBAL — toggle buttons hidden on desktop */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+/* === Mobile (<=768px) — hamburger drawer + accordion submenus === */
+@media (max-width: 768px){
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column !important; padding: 16px 20px; gap: 4px !important; border-top: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; z-index: 1001; }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; max-height: calc(100vh - 92px) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important; padding-bottom: 32px !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 16px; opacity: 1; pointer-events: auto; transform: none; }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; }
+
+  /* Hide inline chevron icons on mobile (toggle button takes over) */
+  .ra-nav__links .has-drop > a > .fa-chevron-down { display: none !important; }
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow { display: none !important; }
+
+  /* L2 + L3 stack as accordion on mobile */
+  .ra-nav__links .ra-drop--l2 { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 12px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; grid-template-columns: 1fr; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a { padding: 10px 4px !important; font-size: 14px !important; opacity: 0.85; display: flex !important; align-items: center; justify-content: space-between; gap: 14px; color: var(--charcoal, #2B2B2B) !important; background: transparent !important; border-bottom: 0 !important; letter-spacing: 0.02em !important; text-transform: none !important; font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l3 { position: static; display: none; background: transparent; box-shadow: none; border: 0; padding: 0 0 8px 14px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; margin: 0; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3 { display: block; }
+  .ra-nav__links .ra-drop--l3 a { padding: 9px 4px; font-size: 13px; opacity: 0.75; white-space: normal; display: block; }
+
+  /* Toggle buttons surface on mobile */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    background: transparent; border: 0; color: var(--charcoal, #2B2B2B);
+    padding: 12px 18px; font-size: 18px; line-height: 1; cursor: pointer;
+    flex: 0 0 auto !important; min-width: 56px; min-height: 48px;
+    align-self: stretch !important;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+
+  /* Accordion animation on mobile */
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important; overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important; pointer-events: auto !important;
+    display: block !important; position: static !important;
+    background: transparent !important; box-shadow: none !important;
+    border: 0 !important; transform: none !important; min-width: 0 !important;
+    padding: 0 !important; margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+}
+/* RA-NAV-MEGAMENU-CSS-END */
+
+/* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
+.ra-footer {
+  background: var(--black);
+  padding: 80px 0 0;
+}
+.ra-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ra-footer__brand {}
+.ra-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+.ra-footer__logo img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+.ra-footer__brand p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.ra-footer__tagline {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+.ra-footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.ra-footer__social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {
+  align-self: start;
+  background: rgba(237,28,36,0.08);
+  border: 1px solid rgba(237,28,36,0.15);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+.ra-footer__cta h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ra-footer__cta p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.ra-footer__bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ra-footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+@media (max-width: 768px) {
+h1, h2, h3, h4, h5, h6,
+  .display-1, .display-2, .display-3,
+  .ra-hero__title, .ra-hero__tagline,
+  .ra-problem__title, .ra-founder__sig,
+  .ra-process__step-num, .ra-sprint__fw-title,
+  .ra-sprint__stat-num, .ra-footer__tagline,
+  .ra-system__col h3, .ra-problem__card h3,
+  .ra-work__item-title, .ra-cta__title,
+  .eyebrow, .eyebrow--white {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif !important;
+    font-feature-settings: normal;
+  }
+.ra-hero__inner,
+  .ra-problem__grid,
+  .ra-work__grid,
+  .ra-process__steps,
+  .ra-system__cols,
+  .ra-form__grid,
+  .ra-contact__inner,
+  .ra-footer__inner,
+  [class*="__grid"],
+  [class*="__cols"],
+  [class*="__columns"],
+  [class*="__row"] {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+.ra-hero__inner > *,
+  .ra-problem__grid > *,
+  .ra-work__grid > *,
+  .ra-process__steps > *,
+  .ra-system__cols > *,
+  .ra-form__grid > *,
+  .ra-contact__inner > *,
+  .ra-footer__inner > *,
+  [class*="__grid"] > *,
+  [class*="__cols"] > *,
+  [class*="__columns"] > *,
+  [class*="__row"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: 1 / -1 !important;
+  }
+.ra-footer { padding: 60px 0 0; }
+.ra-footer__inner { gap: 40px !important; padding-bottom: 40px; }
+.ra-footer__brand,
+  .ra-footer__nav,
+  .ra-footer__cta { width: 100%; }
+.ra-footer__logo {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    width: auto;
+  }
+.ra-footer__logo img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+.ra-footer__nav ul { padding: 0; margin: 0; list-style: none; }
+.ra-footer__nav a { word-break: break-word; }
+.ra-footer__cta .btn { width: 100%; justify-content: center; }
+}
+.ra-footer__miniform {margin-bottom:16px;}
+.ra-footer__miniform-title {
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row {
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input {
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus {
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn {
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status {
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error {color:#ff8888;}
+/* RA-FOOTER-CANONICAL-CSS-END */
+</style>
+</head>
+
+<body>
+
+<!-- ==================== NAV ==================== -->
+<!-- RA-NAV-CANONICAL-START -->
+<nav class="ra-nav" id="ra-nav">
+  <div class="ra-nav__inner">
+    <a href="index.html" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="assets/revelation-logo.png" alt="Revelation Agency">
+    </a>
+
+    <ul class="ra-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-drop">
+        <a href="services.html" class="is-current">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="services/strategy/index.html">Strategy <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="services/creative/index.html">Creative <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/creative/branding.html">Branding</a></li>
+              <li><a href="services/creative/website-development.html">Website Development</a></li>
+              <li><a href="services/creative/app-development.html">App Development</a></li>
+              <li><a href="services/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="services/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="services/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="the-reveal/index.html">The Reveal</a></li>
+      <li class="has-drop">
+        <a href="portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="portfolio/strategy.html">Strategy Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="portfolio/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="portfolio/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="portfolio/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="portfolio/creative.html">Creative Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/creative/branding.html">Branding</a></li>
+              <li><a href="portfolio/creative/website-development.html">Website Development</a></li>
+              <li><a href="portfolio/creative/app-development.html">App Development</a></li>
+              <li><a href="portfolio/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="portfolio/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="portfolio/marketing/social-media.html">Social Media</a></li>
+              <li><a href="portfolio/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="portfolio/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="ra-nav__right">
+      <a href="booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Book a Call</a>
+    </div>
+
+    <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<!-- RA-NAV-CANONICAL-END -->
+
+
+<!-- ==================== 1. HERO ==================== -->
+<section class="ra-services-hero">
+  <canvas class="ra-services-hero__canvas" id="services-hero-network" aria-hidden="true"></canvas>
+  <div class="ra-services-hero__glow" aria-hidden="true"></div>
+  <div class="ra-services-hero__grid" aria-hidden="true"></div>
+  <div class="fx-glow fx-glow--tr" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ra-services-hero__inner">
+      <div class="ra-services-hero__tagline fade-up">Our Services</div>
+      <h1 class="ra-services-hero__title fade-up fade-up-d1">Three Systems.<br>One <em>Growth Machine</em>.</h1>
+      <p class="ra-services-hero__desc fade-up fade-up-d2">Revelation operates across three disciplines — Strategy, Creative, and Marketing. Each service can stand alone as a focused engagement, or connect into one integrated growth system. You choose the entry point. We build the machine.</p>
+      <div class="ra-services-hero__actions fade-up fade-up-d3">
+        <a href="booking.html" class="btn btn--primary">Book a Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 2. HOW IT WORKS ==================== -->
+<section class="ra-services-system">
+  <div class="container">
+    <div class="ra-services-system__header fade-up">
+      <span class="eyebrow">The System</span>
+      <h2>Each Layer Has a Role</h2>
+      <p>Strategy defines the plan. Creative builds the assets. Marketing activates the audience. When all three run together, results compound.</p>
+    </div>
+
+    <div class="fx-line-pulse" aria-hidden="true"></div>
+
+    <div class="ra-services-system__grid">
+      <a href="services/strategy/index.html" class="ra-services-system__card fade-up fade-up-d1" data-ra-system-link="1" style="color:inherit;text-decoration:none;display:block;">
+        <div class="ra-services-system__num">01 / STRATEGY</div>
+        <h3>The Foundation</h3>
+        <p>We define your positioning, infrastructure, and growth blueprint before a single asset is created.</p>
+        <span class="ra-services-system__arrow" aria-hidden="true" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--red);">Explore Strategy <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="services/creative/index.html" class="ra-services-system__card fade-up fade-up-d2" data-ra-system-link="1" style="color:inherit;text-decoration:none;display:block;">
+        <div class="ra-services-system__num">02 / CREATIVE</div>
+        <h3>The Build</h3>
+        <p>We create the identity, digital presence, and content systems that make strategy visible.</p>
+        <span class="ra-services-system__arrow" aria-hidden="true" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--red);">Explore Creative <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="services/marketing/index.html" class="ra-services-system__card fade-up fade-up-d3" data-ra-system-link="1" style="color:inherit;text-decoration:none;display:block;">
+        <div class="ra-services-system__num">03 / MARKETING</div>
+        <h3>The Activation</h3>
+        <p>We deploy and operate the channels, campaigns, and systems that drive pipeline and revenue.</p>
+        <span class="ra-services-system__arrow" aria-hidden="true" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--red);">Explore Marketing <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 3. SERVICE STACKS (dark) ==================== -->
+<section class="ra-services-stacks">
+  <div class="ra-services-stacks__grid-lines" aria-hidden="true"></div>
+  <div class="fx-shimmer" aria-hidden="true"></div>
+  <div class="ra-services-stacks__glow-l" aria-hidden="true"></div>
+  <div class="ra-services-stacks__glow-r" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ra-services-stacks__header fade-up">
+      <span class="eyebrow eyebrow--white">Explore by Category</span>
+      <h2>Choose Your <span class="highlight">Entry Point</span></h2>
+      <p>Each stack is a focused discipline. Engage one. Stack them all. Either way, we build with systems thinking from day one.</p>
+    </div>
+
+    <div class="ra-services-stacks__grid">
+      <!-- Strategy Stack -->
+      <article class="ra-stack fade-up fade-up-d1">
+        <a href="services/strategy/index.html" class="ra-stack__headline-link" style="color:inherit;text-decoration:none;display:block;">
+          <div class="ra-stack__num">01</div>
+          <div class="ra-stack__name">Strategy</div>
+          <div class="ra-stack__tagline">Foundation &amp; Direction</div>
+        </a>
+        <ul class="ra-stack__list">
+          <li><a href="services/strategy/brand-strategy.html"><i class="fa-solid fa-chevron-right"></i><span>Brand Strategy</span></a></li>
+          <li><a href="services/strategy/sales-infrastructure.html"><i class="fa-solid fa-chevron-right"></i><span>Sales Infrastructure</span></a></li>
+          <li><a href="services/strategy/digital-presence.html"><i class="fa-solid fa-chevron-right"></i><span>Digital Presence</span></a></li>
+          <li><a href="services/strategy/ai-automation.html"><i class="fa-solid fa-chevron-right"></i><span>AI &amp; Automation</span></a></li>
+        </ul>
+        <a href="services/strategy/index.html" class="ra-stack__cta">Explore Strategy <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <!-- Creative Stack -->
+      <article class="ra-stack fade-up fade-up-d2">
+        <a href="services/creative/index.html" class="ra-stack__headline-link" style="color:inherit;text-decoration:none;display:block;">
+          <div class="ra-stack__num">02</div>
+          <div class="ra-stack__name">Creative</div>
+          <div class="ra-stack__tagline">Identity &amp; Build</div>
+        </a>
+        <ul class="ra-stack__list">
+          <li><a href="services/creative/branding.html"><i class="fa-solid fa-chevron-right"></i><span>Branding</span></a></li>
+          <li><a href="services/creative/website-development.html"><i class="fa-solid fa-chevron-right"></i><span>Website Development</span></a></li>
+          <li><a href="services/creative/app-development.html"><i class="fa-solid fa-chevron-right"></i><span>App Development</span></a></li>
+          <li><a href="services/creative/video-production.html"><i class="fa-solid fa-chevron-right"></i><span>Video Production</span></a></li>
+        </ul>
+        <a href="services/creative/index.html" class="ra-stack__cta">Explore Creative <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <!-- Marketing Stack -->
+      <article class="ra-stack fade-up fade-up-d3">
+        <a href="services/marketing/index.html" class="ra-stack__headline-link" style="color:inherit;text-decoration:none;display:block;">
+          <div class="ra-stack__num">03</div>
+          <div class="ra-stack__name">Marketing</div>
+          <div class="ra-stack__tagline">Growth &amp; Reach</div>
+        </a>
+        <ul class="ra-stack__list">
+          <li><a href="services/marketing/digital-ads.html"><i class="fa-solid fa-chevron-right"></i><span>Digital Ads</span></a></li>
+          <li><a href="services/marketing/social-media.html"><i class="fa-solid fa-chevron-right"></i><span>Social Media</span></a></li>
+          <li><a href="services/marketing/search-rankings.html"><i class="fa-solid fa-chevron-right"></i><span>Search &amp; AI Rankings</span></a></li>
+          <li><a href="services/marketing/outsource-marketing.html"><i class="fa-solid fa-chevron-right"></i><span>Outsource Marketing</span></a></li>
+        </ul>
+        <a href="services/marketing/index.html" class="ra-stack__cta">Explore Marketing <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 4. STANDALONE VS INTEGRATED ==================== -->
+<section class="ra-services-engage">
+  <div class="fx-micro-dots" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ra-services-engage__header fade-up">
+      <span class="eyebrow">How Engagements Work</span>
+      <h2>One-Off or All-In.<br>Built Either Way.</h2>
+    </div>
+
+    <div class="ra-services-engage__grid">
+      <div class="ra-services-engage__col fade-up fade-up-d1">
+        <h3><span class="ra-services-engage__badge"><i class="fa-solid fa-cube"></i></span> Standalone Service</h3>
+        <p>Pick the exact capability you need. Every engagement is scoped for results, not retainers. We operate with precision even as a one-off.</p>
+      </div>
+
+      <div class="ra-services-engage__col ra-services-engage__col--integrated fade-up fade-up-d2">
+        <h3><span class="ra-services-engage__badge"><i class="fa-solid fa-diagram-project"></i></span> Integrated System</h3>
+        <p>When strategy, creative, and marketing run together, compounding results become possible. This is how we build growth machines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 4.5 FEATURED WORK ==================== -->
+<section class="ra-services-featured" style="padding:88px 0 96px;background:var(--grey-light,#f5f4f1);">
+  <div class="container">
+    <div class="ra-services-featured__header fade-up" style="text-align:center;max-width:680px;margin:0 auto 48px;">
+      <span class="eyebrow">Featured Work</span>
+      <h2 style="font-family:var(--font-head);font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:0.04em;text-transform:uppercase;margin-top:12px;">See it in <span class="highlight">action.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.7;color:#555;">Real engagements where strategy, creative, and marketing run as one system. Click any to see the deep-dive case study.</p>
+    </div>
+    <div class="pf-grid" id="services-featured-grid" style="max-width:1280px;margin:0 auto;">
+      <a class="pf-card fade-up" data-cat="strategy-brand-strategy" href="portfolio/case-studies/ivory-pools.html">
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/ivory-pools/thumbnail.png') center/cover no-repeat;opacity:1;"></div>
+        <span class="pf-card__label">Brand Strategy &middot; Website &middot; Bilingual Video</span>
+        <span class="pf-card__status">Live Case</span>
+        <div class="pf-card__body">
+          <h3 class="pf-card__title">Ivory Pool Services</h3>
+          <p class="pf-card__desc">Stock logo &rarr; complete brand system &mdash; positioning, identity, custom website, bilingual brand video, apparel, and signage for Central Valley pool operators.</p>
+        </div>
+      </a>
+      <a class="pf-card fade-up" data-cat="strategy-creative-marketing" href="portfolio/case-studies/net-metering-systems.html">
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/net-metering-systems/thumbnail.png') center/cover no-repeat;opacity:1;"></div>
+        <span class="pf-card__label">Strategy &middot; Creative &middot; Marketing &middot; SEO &middot; Social</span>
+        <span class="pf-card__status">Live Case</span>
+        <div class="pf-card__body">
+          <h3 class="pf-card__title">Net Metering Systems</h3>
+          <p class="pf-card__desc">Full-stack growth system for a Clovis solar company &mdash; custom site, 11 video productions, $50/lead paid social, daily social management, GHL automation, and programmatic SEO with 150 listing pages.</p>
+        </div>
+      </a>
+      <a class="pf-card fade-up" data-cat="creative-marketing" href="portfolio/case-studies/infinite-roofing-solutions.html">
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/infinite-roofing-solutions/thumbnail.png') center/cover no-repeat;opacity:1;"></div>
+        <span class="pf-card__label">Website &middot; Video &middot; Paid Ads &middot; GHL</span>
+        <span class="pf-card__status">Live Case</span>
+        <div class="pf-card__body">
+          <h3 class="pf-card__title">Infinite Roofing Solutions</h3>
+          <p class="pf-card__desc">Residential roofing growth machine &mdash; custom lead-gen website at InfRoofing.com, 23+ brand &amp; education videos, Google + Meta damage-event ad campaigns, and full GHL automation pipeline.</p>
+        </div>
+      </a>
+      <a class="pf-card fade-up" data-cat="creative-marketing-strategy" href="portfolio/case-studies/trust-energy.html">
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/trust-energy/thumbnail.png') center/cover no-repeat;opacity:1;"></div>
+        <span class="pf-card__label">Brand &middot; Video &middot; Paid Ads &middot; Social &middot; GHL</span>
+        <span class="pf-card__status">Live Case</span>
+        <div class="pf-card__body">
+          <h3 class="pf-card__title">Trust Energy</h3>
+          <p class="pf-card__desc">4-year flagship solar engagement &mdash; brand identity, multi-year video output, $25/lead Facebook acquisition (vs. $40-$50 industry CPL), GHL follow-up + rep delegation, training portal, and call center build.</p>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="portfolio.html" class="btn btn--outline">See full portfolio <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 5. CTA CLOSE ==================== -->
+<section class="ra-cta">
+  <div class="ra-cta__noise" aria-hidden="true"></div>
+  <div class="fx-glow fx-glow--center" aria-hidden="true"></div>
+  <div class="container">
+    <div class="ra-cta__content fade-up">
+      <h2 class="ra-cta__title">Not sure where to start?</h2>
+      <p class="ra-cta__desc">Book a free strategy session. We'll map the right entry point for your business.</p>
+      <a href="booking.html" class="btn btn--white">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<!-- RA-FOOTER-CANONICAL-START -->
+<footer class="ra-footer">
+  <div class="container">
+    <div class="ra-footer__inner">
+      <div class="ra-footer__brand">
+        <div class="ra-footer__logo">
+          <img src="assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
+        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <div class="ra-footer__social">
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <!-- FOOTER-ADDRESS -->
+        <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
+          <div style="color:rgba(255,255,255,0.72); font-weight:600; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; margin-bottom:6px;">Revelation Agency</div>
+          <div>55 Shaw Ave. #201</div>
+          <div>Clovis, CA 93612</div>
+          <div style="margin-top:6px; font-style:italic; color:rgba(255,255,255,0.55);">We work remotely across the globe.</div>
+        </address>
+      </div>
+
+      <div class="ra-footer__nav ra-footer__nav--services">
+        <style>
+          .ra-footer__nav--services .ra-footer__svc{list-style:none;margin:0;padding:0;}
+          .ra-footer__nav--services .ra-footer__svc-group{margin-bottom:4px;}
+          .ra-footer__nav--services .ra-footer__svc-group:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-parent{display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 0;cursor:pointer;transition:color .2s;line-height:1.2;}
+          .ra-footer__nav--services .ra-footer__svc-parent:hover{color:var(--red);}
+          .ra-footer__nav--services .ra-footer__svc-caret{font-size:11px;color:rgba(255,255,255,0.45);transition:transform .28s ease,color .2s;margin-left:8px;flex-shrink:0;display:inline-block;}
+          .ra-footer__nav--services .ra-footer__svc-children{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .32s ease,opacity .22s ease,margin-top .22s ease;margin-top:0;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-children,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-caret,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-caret{transform:rotate(180deg);color:#fff;}
+          .ra-footer__nav--services .ra-footer__svc-children li{margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-children li:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-children a{font-size:13px;color:rgba(255,255,255,0.5);padding-left:2px;display:block;transition:color .2s;}
+          .ra-footer__nav--services .ra-footer__svc-children a:hover{color:#fff;}
+          @media (max-width:720px){
+            .ra-footer__nav--services .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;}
+            .ra-footer__nav--services .ra-footer__svc-caret{display:none;}
+          }
+        </style>
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
+        <ul class="ra-footer__svc">
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/strategy/">Strategy<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/creative/branding.html">Branding</a></li>
+              <li><a href="services/creative/video-production.html">Video Production</a></li>
+              <li><a href="services/creative/website-development.html">Website Development</a></li>
+              <li><a href="services/creative/app-development.html">App Development</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="services/marketing/search-rankings.html">Search Rankings</a></li>
+              <li><a href="services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ra-footer__nav">
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
+        <ul>
+          <li><a href="the-reveal/index.html">The Reveal</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="tel:+15592017039">(559) 201-7039</a></li>
+          <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
+        </ul>
+      </div><div class="ra-footer__cta">
+<!-- RA-FOOTER-MINIFORM-START -->
+        <form class="ra-footer__miniform" data-booking-url="booking.html" novalidate>
+          <h5 class="ra-footer__miniform-title">Let's Connect</h5>
+          <div class="ra-footer__miniform-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          </div>
+          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <div class="ra-footer__miniform-status" aria-live="polite"></div>
+        </form>
+        <script>(function(){
+          var forms=document.querySelectorAll('.ra-footer__miniform');
+          forms.forEach(function(f){
+            if(f.dataset.bound==='1')return;f.dataset.bound='1';
+            var status=f.querySelector('.ra-footer__miniform-status');
+            f.addEventListener('submit',function(ev){
+              ev.preventDefault();
+              var name=(f.name && f.name.value || '').trim();
+              var phone=(f.phone && f.phone.value || '').trim();
+              if(!name||!phone){if(status){status.textContent='Add a name and phone so we can prefill your booking.';status.classList.add('is-error');}return;}
+              try{
+                sessionStorage.setItem('ra_lead_name',name);
+                sessionStorage.setItem('ra_lead_phone',phone);
+                sessionStorage.setItem('ra_lead_source','footer-miniform');
+              }catch(e){}
+              var base=f.getAttribute('data-booking-url')||'booking.html';
+              var url=base+(base.indexOf('?')===-1?'?':'&')+'name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&src=footer-miniform';
+              window.location.href=url;
+            });
+          });
+        })();</script>
+<!-- RA-FOOTER-MINIFORM-END -->
+        <div class="ra-footer__cta-map" data-ra-footer-map="1" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+          <iframe src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&output=embed" width="100%" height="120" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing Revelation Agency office in Clovis, CA" title="Revelation Agency — Clovis, CA"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-footer__bottom">
+      <p class="ra-footer__copyright">&copy; 2026 <a href="index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+    </div>
+  </div>
+</footer>
+<!-- RA-FOOTER-CANONICAL-END -->
+
+
+<script>
+// Nav: sticky scroll state + hamburger toggle
+(function(){
+  var nav = document.getElementById('ra-nav');
+  if (nav) {
+    var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 10); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  var btn = document.getElementById('ra-nav-hamburger');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+      }
+
+  /* NAV-3L-JS */
+  document.querySelectorAll('.has-drop-l3 > a').forEach(function(anchor){
+    anchor.addEventListener('click', function(ev){
+      if (window.innerWidth > 768) return;
+      var li = anchor.parentElement;
+      if (!li.querySelector('.ra-drop--l3')) return;
+      if (!li.classList.contains('is-open')) {
+        ev.preventDefault();
+        var parentUl = li.parentElement;
+        if (parentUl) parentUl.querySelectorAll('.has-drop-l3.is-open').forEach(function(x){ if (x !== li) x.classList.remove('is-open'); });
+        li.classList.add('is-open');
+      }
+    });
+  });
+})();
+
+  /* NAV-REBUILD-JS */
+  (function(){
+    var navEl = document.getElementById('ra-nav');
+    var hamBtn = document.getElementById('ra-nav-hamburger');
+    if (!navEl) return;
+    // L1 toggle (Services)
+    document.querySelectorAll('.ra-nav__services-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l2');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        // Close other L1 drops
+        document.querySelectorAll('.has-drop > .ra-drop--l2.open').forEach(function(s){
+          if (s !== sub) {
+            s.classList.remove('open');
+            var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__services-toggle');
+            if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            s.querySelectorAll('.ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+            s.querySelectorAll('.ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+          }
+        });
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    // L2 toggle (Strategy/Creative/Marketing)
+    document.querySelectorAll('.ra-nav__l2-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop-l3');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l3');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        var parentUl = li.parentElement;
+        if (parentUl) {
+          parentUl.querySelectorAll(':scope > .has-drop-l3 > .ra-drop--l3.open').forEach(function(s){
+            if (s !== sub) {
+              s.classList.remove('open');
+              var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__l2-toggle');
+              if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            }
+          });
+        }
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    // Link click closes the entire nav + resets accordion
+    navEl.querySelectorAll('.ra-nav__links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('is-open');
+        if (hamBtn) hamBtn.setAttribute('aria-expanded', 'false');
+        navEl.querySelectorAll('.ra-nav__services-toggle.open, .ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+        navEl.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+      });
+    });
+  })();
+
+
+// Fade-up on scroll — same pattern as homepage/about
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+})();
+
+// Reusable node network — structured/grid-biased variant for the Services hero.
+function initNodeNetwork(canvasId, opts) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  var section = canvas.parentElement;
+  var ctx = canvas.getContext('2d');
+  var CFG = Object.assign({
+    count: 48, connectDist: 140, cursorDist: 160, speed: 0.22,
+    nodeRadius: 4, redCount: 3,
+    dotOpacity: 0.16, dotOpacityRed: 0.40,
+    lineOpacity: 0.18, cursorOpacity: 0.26,
+    colorNeutral: '43,43,43', colorRed: '215,37,50',
+    gridBias: 0
+  }, opts || {});
+  if (window.innerWidth <= 768) CFG.count = Math.floor(CFG.count * 0.5);
+  var W, H, nodes = [], mouse = { x: -999, y: -999 };
+  var redSet = new Set(), raf;
+  function resize() {
+    var r = section.getBoundingClientRect();
+    W = canvas.width = r.width; H = canvas.height = r.height;
+  }
+  function makeNode(i) {
+    var a = Math.random() * Math.PI * 2;
+    var s = (0.5 + Math.random() * 0.5) * CFG.speed;
+    var x = Math.random() * W, y = Math.random() * H;
+    if (CFG.gridBias > 0) {
+      var cols = Math.max(3, Math.ceil(Math.sqrt(CFG.count * (W / Math.max(H,1)))));
+      var rows = Math.ceil(CFG.count / cols);
+      var cx = (i % cols) * (W / cols) + (W / cols) / 2;
+      var cy = Math.floor(i / cols) * (H / rows) + (H / rows) / 2;
+      x = cx + (Math.random() - 0.5) * (W / cols) * (1 - CFG.gridBias);
+      y = cy + (Math.random() - 0.5) * (H / rows) * (1 - CFG.gridBias);
+    }
+    return { x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s };
+  }
+  function init() {
+    resize();
+    nodes = [];
+    for (var i = 0; i < CFG.count; i++) nodes.push(makeNode(i));
+    redSet.clear();
+    var step = Math.max(1, Math.floor(CFG.count / Math.max(CFG.redCount,1)));
+    for (var r = 0; r < CFG.redCount; r++) {
+      redSet.add(r * step + Math.floor(Math.random() * Math.max(step - 1, 1)));
+    }
+  }
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < -20) n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    }
+    for (var a = 0; a < nodes.length; a++) {
+      var na = nodes[a];
+      for (var b = a + 1; b < nodes.length; b++) {
+        var nb = nodes[b];
+        var dx = na.x - nb.x, dy = na.y - nb.y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d > CFG.connectDist) continue;
+        var fade = 1 - d / CFG.connectDist;
+        var isRed = redSet.has(a) || redSet.has(b);
+        var col = isRed ? CFG.colorRed : CFG.colorNeutral;
+        var alpha = (isRed ? CFG.lineOpacity * 1.6 : CFG.lineOpacity) * fade;
+        ctx.beginPath();
+        ctx.moveTo(na.x, na.y); ctx.lineTo(nb.x, nb.y);
+        ctx.strokeStyle = 'rgba(' + col + ',' + alpha.toFixed(3) + ')';
+        ctx.lineWidth = isRed ? 1.8 : 1.2;
+        ctx.stroke();
+      }
+    }
+    for (var c = 0; c < nodes.length; c++) {
+      var nc = nodes[c];
+      var dxm = nc.x - mouse.x, dym = nc.y - mouse.y;
+      var dm = Math.sqrt(dxm*dxm + dym*dym);
+      if (dm > CFG.cursorDist) continue;
+      var f = 1 - dm / CFG.cursorDist;
+      var isR = redSet.has(c);
+      var cc = isR ? CFG.colorRed : CFG.colorNeutral;
+      var ac = CFG.cursorOpacity * f * (isR ? 1.8 : 1);
+      ctx.beginPath();
+      ctx.moveTo(nc.x, nc.y); ctx.lineTo(mouse.x, mouse.y);
+      ctx.strokeStyle = 'rgba(' + cc + ',' + ac.toFixed(3) + ')';
+      ctx.lineWidth = isR ? 2.0 : 1.4;
+      ctx.stroke();
+    }
+    for (var k = 0; k < nodes.length; k++) {
+      var nk = nodes[k], isR2 = redSet.has(k);
+      var cc2 = isR2 ? CFG.colorRed : CFG.colorNeutral;
+      var ac2 = isR2 ? CFG.dotOpacityRed : CFG.dotOpacity;
+      var rr = isR2 ? CFG.nodeRadius + 0.5 : CFG.nodeRadius;
+      ctx.beginPath();
+      ctx.arc(nk.x, nk.y, rr, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + cc2 + ',' + ac2 + ')';
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  section.addEventListener('mousemove', function(e) {
+    var r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  });
+  section.addEventListener('mouseleave', function() { mouse.x = -999; mouse.y = -999; });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { if (!raf) tick(); }
+      else { cancelAnimationFrame(raf); raf = null; }
+    });
+  }, { threshold: 0.01 });
+  obs.observe(section);
+  var rt;
+  window.addEventListener('resize', function() {
+    clearTimeout(rt);
+    rt = setTimeout(function() { resize(); init(); }, 200);
+  });
+  init();
+  tick();
+}
+
+// Services hero — structured/grid-biased, slightly denser, brand-red accents
+initNodeNetwork('services-hero-network', {
+  count: 48, connectDist: 135, speed: 0.20,
+  redCount: 3, dotOpacity: 0.16, lineOpacity: 0.18,
+  cursorOpacity: 0.26, gridBias: 0.55
+});
+
+// =============================================
+// SERVICE STACKS — mouse-reactive red glow (mirrors home page Sprint section)
+// =============================================
+(function() {
+  var section = document.querySelector('.ra-services-stacks');
+  if (!section) return;
+  var glowL = section.querySelector('.ra-services-stacks__glow-l');
+  var glowR = section.querySelector('.ra-services-stacks__glow-r');
+  if (!glowL) return;
+
+  var target = { x: 0.25, y: 0.5 };
+  var cur    = { x: 0.25, y: 0.5 };
+  var inside = false;
+  var intensity  = 0.16;
+  var intensity2 = 0.08;
+  var running = false;
+  var raf;
+
+  function loop() {
+    cur.x += (target.x - cur.x) * 0.06;
+    cur.y += (target.y - cur.y) * 0.06;
+
+    var targetI  = inside ? 0.34 : 0.15;
+    var targetI2 = inside ? 0.16 : 0.07;
+    intensity  += (targetI  - intensity)  * 0.05;
+    intensity2 += (targetI2 - intensity2) * 0.05;
+
+    glowL.style.setProperty('--glow-x', (cur.x * 100) + '%');
+    glowL.style.setProperty('--glow-y', (cur.y * 100) + '%');
+    glowL.style.setProperty('--glow-i', intensity.toFixed(3));
+
+    if (glowR) {
+      var cx = (1 - cur.x) * 100;
+      var cy = (1 - cur.y) * 100;
+      glowR.style.setProperty('--glow2-x', cx + '%');
+      glowR.style.setProperty('--glow2-y', cy + '%');
+      glowR.style.setProperty('--glow2-i', intensity2.toFixed(3));
+    }
+
+    raf = requestAnimationFrame(loop);
+  }
+
+  section.addEventListener('mousemove', function(e) {
+    var rect = section.getBoundingClientRect();
+    target.x = (e.clientX - rect.left) / rect.width;
+    target.y = (e.clientY - rect.top) / rect.height;
+    inside = true;
+  });
+  section.addEventListener('mouseleave', function() {
+    inside = false;
+    target.x = 0.2; target.y = 0.5;
+  });
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !running) {
+        running = true;
+        if (!raf) raf = requestAnimationFrame(loop);
+      } else if (!e.isIntersecting) {
+        running = false;
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    });
+  }, { threshold: 0.01 });
+  obs.observe(section);
+})();
+</script>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="67db6de80d1911ef2ab3e790"></script>
+
+<!-- RA-GOTO-TOP-START -->
+<button class="ra-goto-top" type="button" aria-label="Back to top" id="ra-goto-top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>(function(){
+  var btn=document.getElementById('ra-goto-top');if(!btn)return;
+  var threshold=400,ticking=false;
+  function update(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>threshold){btn.classList.add('is-visible');}else{btn.classList.remove('is-visible');}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  btn.addEventListener('click',function(){
+    try{window.scrollTo({top:0,behavior:'smooth'});}
+    catch(e){window.scrollTo(0,0);}
+  });
+  update();
+})();</script>
+<!-- RA-GOTO-TOP-END -->
+</body>
+</html>

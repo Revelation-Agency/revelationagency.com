@@ -1,0 +1,1486 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- RA-PWA-HEAD:start -->
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Revelation">
+  <meta name="theme-color" content="#D72532">
+  <!-- RA-PWA-HEAD:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>The Reveal — Revelation Agency</title>
+<meta name="description" content="Strategy, insights, and announcements from Revelation Agency. We don't just do the work — we explain how it works.">
+<link rel="canonical" href="https://revelationagency.com/the-reveal/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revelation Agency">
+<meta property="og:title" content="The Reveal — Revelation Agency">
+<meta property="og:description" content="Strategy, insights, and announcements from Revelation Agency. We don't just do the work — we explain how it works.">
+<meta property="og:url" content="https://revelationagency.com/the-reveal/">
+<meta property="og:image" content="https://revelationagency.com/assets/images/generated/revelation-agency-strategic-business-planning.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/revelation-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --red:#D72532; --red-deep:#AD1C24;
+  --charcoal:#2B2B2B; --black:#181818; --off-black:#1E1E1E;
+  --grey-light:#F7F7F5; --grey-mid:#8A8A8A;
+  --font-head:'Bebas Neue','Orbitron',sans-serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --btn-radius:45px 0 45px 45px;
+  --section-pad:110px 0;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--charcoal);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;font-family:var(--font-head);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;border-radius:var(--btn-radius);transition:all .35s var(--ease-out);white-space:nowrap;}
+.btn--primary{background:var(--red);color:#fff;}
+.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(215,37,50,0.35);}
+.btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35);}
+.btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+
+/* nav */
+.ra-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,0.05);transition:all .3s ease;}
+.ra-nav.scrolled{background:#fff;box-shadow:0 4px 24px rgba(0,0,0,0.06);}
+.ra-nav__inner{display:flex;align-items:center;gap:40px;justify-content:space-between;max-width:1360px;margin:0 auto;padding:16px 32px;height:96px;transition:height .3s ease;}
+.ra-nav.scrolled .ra-nav__inner{height:88px;}
+.ra-nav__logo{display:flex;align-items:center;}
+.ra-nav__logo img{height:76px;width:auto;display:block;transition:height .3s ease;}
+.ra-nav.scrolled .ra-nav__logo img{height:68px;}
+.ra-nav__links{display:flex;align-items:center;gap:28px;list-style:none;margin:0 auto;}
+.ra-nav__links a{font-size:14px;font-weight:500;color:var(--charcoal);letter-spacing:0.01em;transition:opacity .2s;opacity:0.82;position:relative;padding:6px 0;}
+.ra-nav__links a:hover{opacity:1;}
+.ra-nav__links a.is-current{color:var(--red);opacity:1;}
+.ra-nav__right{display:flex;align-items:center;gap:16px;}
+.ra-nav__links .has-drop{position:relative;}
+.ra-nav__links .has-drop>a{cursor:pointer;}
+.ra-drop{position:absolute;top:calc(100% + 10px);left:-16px;background:#fff;min-width:220px;padding:10px 0;box-shadow:0 20px 60px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.05);border-radius:8px;list-style:none;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .25s ease;}
+.ra-nav__links .has-drop:hover>.ra-drop,.ra-nav__links .has-drop:focus-within>.ra-drop{opacity:1;pointer-events:auto;transform:translateY(0);}
+.ra-drop li{width:100%;}
+.ra-drop a{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;font-size:14px;opacity:0.85;border-radius:4px;}
+.ra-drop a:hover{background:rgba(215,37,50,0.06);color:var(--red);opacity:1;}
+.ra-drop--l2{min-width:220px;}
+.ra-drop--l3{position:absolute;top:-10px;left:calc(100% + 2px);min-width:230px;}
+.ra-drop--l2 .has-drop-l3:hover>.ra-drop--l3,.ra-drop--l2 .has-drop-l3:focus-within>.ra-drop--l3{opacity:1;pointer-events:auto;transform:translateY(0);}
+.ra-drop__arrow{font-size:10px;opacity:0.5;}
+.ra-nav__cta-mobile{display:none;}
+.ra-nav__hamburger{display:none;background:transparent;border:0;cursor:pointer;width:32px;height:32px;flex-direction:column;justify-content:center;align-items:center;gap:5px;}
+.ra-nav__hamburger span{display:block;width:22px;height:2px;background:var(--charcoal);transition:all .3s ease;}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2){opacity:0;}
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* hero */
+.rv-hero{position:relative;background:var(--black);color:#fff;padding:200px 0 120px;overflow:hidden;}
+.rv-hero__canvas{position:absolute;inset:0;opacity:0.55;pointer-events:auto;cursor:crosshair;}
+.rv-hero__glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(215,37,50,0.22) 0%,transparent 65%);pointer-events:none;}
+.rv-hero__inner{position:relative;z-index:2;max-width:960px;}
+.rv-hero__eyebrow{font-family:var(--font-head);font-size:13px;letter-spacing:0.22em;color:var(--red);margin-bottom:20px;}
+.rv-hero__title{font-family:var(--font-head);font-size:clamp(48px,8.5vw,120px);line-height:0.98;letter-spacing:0.04em;margin-bottom:28px;text-transform:uppercase;}
+.rv-hero__sub{font-size:18px;line-height:1.6;color:rgba(255,255,255,0.75);max-width:640px;margin-bottom:32px;}
+.rv-hero__chips{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:2;}
+.rv-hero__chip{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(215,37,50,0.45);background:rgba(215,37,50,0.08);color:#fff;border-radius:45px 0 45px 45px;cursor:pointer;transition:all .25s ease;}
+.rv-hero__chip:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px);}
+.rv-hero__chip--pulse{animation:rvChipPulse 3.6s ease-in-out infinite;}
+.rv-hero__chip--pulse:nth-child(2){animation-delay:0.6s;}
+.rv-hero__chip--pulse:nth-child(3){animation-delay:1.2s;}
+.rv-hero__chip--pulse:nth-child(4){animation-delay:1.8s;}
+.rv-hero__chip--pulse:nth-child(5){animation-delay:2.4s;}
+@keyframes rvChipPulse{0%,100%{box-shadow:0 0 0 0 rgba(215,37,50,0);}50%{box-shadow:0 0 0 6px rgba(215,37,50,0.12);}}
+.rv-hero__hint{position:absolute;bottom:24px;right:28px;font-family:var(--font-head);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);z-index:2;pointer-events:none;}
+@media (max-width:768px){.rv-hero__hint{display:none;}}
+
+/* filter tabs */
+.rv-filter{background:#fff;padding:32px 0;border-bottom:1px solid rgba(0,0,0,0.06);position:sticky;top:96px;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,0.94);}
+.rv-filter__inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.rv-filter__btn{font-family:var(--font-head);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;padding:10px 22px;border:1.5px solid rgba(43,43,43,0.18);background:transparent;color:var(--charcoal);cursor:pointer;border-radius:45px 0 45px 45px;transition:all .25s ease;}
+.rv-filter__btn:hover{border-color:var(--red);color:var(--red);}
+.rv-filter__btn.is-active{background:var(--red);border-color:var(--red);color:#fff;}
+
+/* feed */
+.rv-feed{padding:80px 0 110px;background:var(--grey-light);position:relative;}
+.rv-feed__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+
+.rv-card{display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,0.05);transition:all .35s var(--ease-out);border-top:3px solid var(--red);position:relative;}
+.rv-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,0.12);}
+.rv-card__img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#2B2B2B 0%,#1E1E1E 100%);position:relative;overflow:hidden;}
+.rv-card__img--red{background:linear-gradient(135deg,var(--red-deep) 0%,var(--red) 100%);}
+.rv-card__img--dark{background:linear-gradient(135deg,#181818 0%,#2B2B2B 100%);}
+.rv-card__img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(215,37,50,0.25) 0%,transparent 55%);}
+.rv-card__body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1;}
+.rv-card__tag{display:inline-block;font-family:var(--font-head);font-size:11px;letter-spacing:0.18em;color:var(--red);margin-bottom:14px;text-transform:uppercase;}
+.rv-card__title{font-family:var(--font-head);font-size:24px;line-height:1.1;letter-spacing:0.02em;margin-bottom:12px;color:var(--charcoal);text-transform:uppercase;}
+.rv-card__excerpt{font-size:14.5px;line-height:1.65;color:#5a5a5a;margin-bottom:20px;flex:1;}
+.rv-card__link{font-family:var(--font-head);font-size:12px;letter-spacing:0.18em;color:var(--red);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;}
+.rv-card__link i{transition:transform .25s ease;}
+.rv-card:hover .rv-card__link i{transform:translateX(4px);}
+
+.rv-card.is-hidden{display:none;}
+
+/* CTA strip */
+.rv-cta{background:var(--red-deep);padding:70px 0;color:#fff;text-align:center;position:relative;overflow:hidden;}
+.rv-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.08) 0%,transparent 60%);}
+.rv-cta__inner{position:relative;z-index:2;}
+.rv-cta__title{font-family:var(--font-head);font-size:clamp(32px,4.5vw,54px);letter-spacing:0.03em;margin-bottom:22px;text-transform:uppercase;}
+.rv-cta__sub{font-size:17px;opacity:0.88;margin-bottom:30px;max-width:620px;margin-left:auto;margin-right:auto;}
+
+/* footer */
+.ra-footer{background:var(--off-black);color:#fff;padding:80px 0 40px;}
+.ra-footer__inner{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr 1fr;gap:50px;max-width:1280px;margin:0 auto;padding:0 32px 60px;}
+.ra-footer__logo img{height:60px;margin-bottom:22px;}
+.ra-footer__brand p{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+.ra-footer__tagline{font-family:var(--font-head);font-size:13px;letter-spacing:0.24em;color:var(--red);margin-bottom:22px;}
+.ra-footer__social{display:flex;gap:12px;}
+.ra-footer__social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);transition:all .25s ease;}
+.ra-footer__social a:hover{background:var(--red);color:#fff;}
+.ra-footer__nav h5{font-family:var(--font-head);font-size:13px;letter-spacing:0.22em;color:#fff;margin-bottom:22px;text-transform:uppercase;}
+.ra-footer__nav ul{list-style:none;}
+.ra-footer__nav ul li{margin-bottom:12px;}
+.ra-footer__nav ul a{font-size:14px;color:rgba(255,255,255,0.6);transition:color .2s;}
+.ra-footer__nav ul a:hover{color:#fff;}
+.ra-footer__address{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7;}
+.ra-footer__address strong{display:block;font-family:var(--font-head);font-size:13px;letter-spacing:0.18em;color:#fff;margin-bottom:10px;text-transform:uppercase;}
+.ra-footer__address em{display:block;margin-top:12px;font-style:italic;opacity:0.75;font-size:13.5px;}
+.ra-footer__cta h4{font-family:var(--font-head);font-size:22px;letter-spacing:0.04em;color:#fff;margin-bottom:12px;text-transform:uppercase;}
+.ra-footer__cta p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;line-height:1.6;}
+.ra-footer__bottom{border-top:1px solid rgba(255,255,255,0.08);padding:26px 32px 0;max-width:1280px;margin:0 auto;}
+.ra-footer__copyright{font-size:13px;color:rgba(255,255,255,0.4);}
+.ra-footer__copyright a{color:rgba(255,255,255,0.4);}
+
+
+/* =============================================
+   NAV DROPDOWN — Premium mega-menu v2 (site-wide)
+   Higher specificity selectors so per-page nav
+   overrides (e.g. The Reveal's bare .ra-drop rules)
+   cannot undo the center transform on hover.
+   ============================================= */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+
+/* Services mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--charcoal) !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: var(--red) !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+@media (max-width: 1024px){
+  .rv-feed__grid{grid-template-columns:repeat(2,1fr);}
+  .ra-footer__inner{grid-template-columns:1fr 1fr;gap:40px;}
+}
+
+/* NAV-REBUILD-GLOBAL */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+@media (max-width: 768px){
+  .ra-nav__inner,.ra-nav.scrolled .ra-nav__inner{gap:10px;padding:14px 16px !important;height:auto !important;}
+  .ra-nav__links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:20px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+  .ra-nav.is-open .ra-nav__links{display:flex !important;}
+  .ra-nav__links li{width:100%;}
+  .ra-nav__links a{display:block;padding:12px 4px;font-size:15px;}
+  .ra-nav__links .ra-drop{position:static;display:block;background:transparent;box-shadow:none;border:0;padding:0 0 0 12px;opacity:1;pointer-events:auto;transform:none;min-width:0;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3>a{padding:10px 4px !important;font-size:14px !important;opacity:0.85;display:flex !important;align-items:center;justify-content:space-between;gap:14px;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open>a .ra-drop__arrow{transform:rotate(90deg);color:var(--red);}
+  .ra-nav__links .ra-drop--l3{display:none;padding:0 0 8px 14px;}
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open>.ra-drop--l3{display:block;}
+  .ra-nav__links .ra-drop--l3 a{padding:9px 4px;font-size:13px;opacity:0.75;}
+  .ra-nav__logo{order:1;flex:0 1 auto;}
+  .ra-nav__right{order:2;display:flex !important;align-items:center;gap:8px;margin-left:auto;}
+  .ra-nav__hamburger{display:flex !important;order:3;margin:0 0 0 4px;}
+  .ra-nav__cta{display:none !important;}
+  .ra-nav__cta-mobile{display:inline-flex !important;padding:10px 14px !important;font-size:12px !important;white-space:nowrap;}
+  .ra-nav__logo img,.ra-nav.scrolled .ra-nav__logo img{height:48px !important;max-height:48px !important;width:auto !important;max-width:180px;object-fit:contain;display:block;}
+
+  .rv-hero{padding:150px 0 80px;}
+  .rv-filter{top:78px;padding:22px 0;}
+  .rv-filter__inner{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 16px;}
+  .rv-filter__btn{white-space:nowrap;flex-shrink:0;padding:9px 18px;font-size:11px;}
+  .rv-feed{padding:50px 0 80px;}
+  .rv-feed__grid{grid-template-columns:1fr;gap:24px;}
+  .ra-footer__inner{grid-template-columns:1fr;gap:36px;padding-bottom:40px;}
+
+  /* NAV-REBUILD-MOBILE */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: var(--charcoal, #2b2b2b);
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    flex: 0 0 auto !important;
+    min-width: 44px;
+    min-height: 44px;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red); }
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    transform: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .has-drop > a { font-weight: 600 !important; }
+  .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+  .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
+  .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
+}
+
+/* fade-up */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out);}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up-d1{transition-delay:.08s;} .fade-up-d2{transition-delay:.16s;} .fade-up-d3{transition-delay:.24s;}
+
+/* RA-WAVE1-GLOBAL-CSS-START */
+/* ===== Go-to-top button ===== */
+.ra-goto-top{
+  position:fixed;right:20px;bottom:20px;z-index:990;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red,#ED1C24);color:#fff;border:0;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
+  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  font-size:16px;line-height:1;
+  -webkit-tap-highlight-color:transparent;
+}
+.ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
+.ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
+@media (max-width:720px){
+  .ra-goto-top{right:14px;bottom:14px;width:44px;height:44px;}
+}
+@media print{.ra-goto-top{display:none !important;}}
+
+/* ===== Mobile-menu V2: bigger hit target + scrollable overflow ===== */
+@media (max-width:768px){
+  /* Hide the inline chevron icon embedded inside the L1 link text on
+     mobile — we use the dedicated toggle button as the only chevron. */
+  .ra-nav__links .has-drop > a > .fa-chevron-down{display:none !important;}
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow{display:none !important;}
+
+  /* Make the toggle button a generous full-row-height tap target on the
+     right side. The flex parent lets the link take the left side and
+     the button stretches down the right with internal padding. */
+  .ra-nav__services-toggle,
+  .ra-nav__l2-toggle{
+    align-self:stretch !important;
+    min-width:56px !important;
+    min-height:48px !important;
+    padding:12px 18px !important;
+    font-size:18px !important;
+  }
+
+  /* Make the open mobile menu panel scrollable so deeply nested
+     submenus never clip below the viewport edge. */
+  .ra-nav.is-open .ra-nav__links{
+    max-height:calc(100vh - 92px) !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    overscroll-behavior:contain !important;
+    padding-bottom:32px !important;
+  }
+}
+
+/* ===== Footer mini-form ===== */
+.ra-footer__miniform{margin-bottom:16px;}
+.ra-footer__miniform-title{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row{
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input{
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus{
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn{
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status{
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error{color:#ff8888;}
+/* RA-WAVE1-GLOBAL-CSS-END */
+
+/* RA-NAV-MEGAMENU-CSS-START — canonical mega-menu styles, do not hand-edit */
+/* === Desktop nav hide-by-default for mobile-only elements ===
+   Without these, .ra-nav__cta-mobile renders as a 2nd CTA on desktop
+   and .ra-nav__services-toggle / .ra-nav__l2-toggle render as visible
+   extra chevron buttons next to each dropdown parent. */
+.ra-nav__hamburger { display: none; background: transparent; border: 0; padding: 8px; cursor: pointer; flex-direction: column; gap: 5px; width: 36px; height: 36px; align-items: center; justify-content: center; }
+.ra-nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal, #2B2B2B); transition: transform .25s, opacity .2s; border-radius: 2px; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(2) { opacity: 0; }
+.ra-nav.is-open .ra-nav__hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.ra-nav__cta-mobile { display: none; }
+
+/* === Desktop mega-menu — Premium mega-menu v2 (site-wide) ===
+   Higher specificity selectors so per-page nav overrides cannot undo
+   the centered transform on hover or the 3-column grid layout. */
+.ra-nav__links .has-drop { position: relative; }
+.ra-nav__links .has-drop > a { cursor: pointer; }
+.ra-nav__links .ra-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 14px 8px 10px;
+  min-width: 200px;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1002;
+}
+.ra-nav__links .has-drop:hover > .ra-drop,
+.ra-nav__links .has-drop:focus-within > .ra-drop {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+.ra-nav__links .ra-drop a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 7px;
+  opacity: 1;
+  color: var(--charcoal, #2B2B2B);
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+
+/* Services / Portfolio mega-menu: 3-column flat layout */
+.ra-nav__links .ra-drop--l2 {
+  min-width: 640px;
+  max-width: 720px;
+  padding: 26px 10px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  position: static;
+  padding: 0 14px;
+  border-left: 1px solid rgba(0,0,0,0.06);
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child { border-left: 0; }
+
+/* Category title (Strategy / Creative / Marketing) — red caps */
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+  display: block !important;
+  padding: 0 10px 12px !important;
+  font-family: var(--font-head, 'Orbitron', sans-serif);
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #ED1C24 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover {
+  color: var(--charcoal, #2B2B2B) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
+
+/* L3 list — always visible inline inside the mega-menu */
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: inherit !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  top: auto !important;
+  left: auto !important;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+  display: block !important;
+  padding: 8px 10px !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: #2B2B2B !important;
+  background: transparent !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  border-radius: 7px;
+  transition: background .15s, color .15s, transform .15s;
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
+  background: rgba(215,37,50,0.06) !important;
+  color: #D72532 !important;
+  transform: translateX(3px);
+}
+.ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+  background: rgba(215,37,50,0.08) !important;
+  color: var(--red, #D72532) !important;
+  font-weight: 600 !important;
+}
+.ra-nav__links .ra-drop--l3 a::after { display: none !important; }
+
+/* NAV-REBUILD-GLOBAL — toggle buttons hidden on desktop */
+.ra-nav__services-toggle, .ra-nav__l2-toggle { display: none; background: transparent; border: 0; padding: 0; margin: 0; color: inherit; cursor: pointer; font: inherit; }
+
+/* === Mobile (<=768px) — hamburger drawer + accordion submenus === */
+@media (max-width: 768px){
+  .ra-nav__inner { height: 72px !important; padding: 0 16px !important; }
+  .ra-nav__logo img { height: 56px !important; }
+  .ra-nav__links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column !important; padding: 16px 20px; gap: 4px !important; border-top: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 24px rgba(0,0,0,0.08); list-style: none; margin: 0; z-index: 1001; }
+  .ra-nav.is-open .ra-nav__links { display: flex !important; max-height: calc(100vh - 92px) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important; padding-bottom: 32px !important; }
+  .ra-nav__links li { width: 100%; }
+  .ra-nav__links a { display: block; padding: 12px 4px; font-size: 15px; }
+  .ra-nav__links .ra-drop { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 16px; opacity: 1; pointer-events: auto; transform: none; }
+  .ra-nav__links .ra-drop a { padding: 10px 4px; font-size: 14px; opacity: 0.75; }
+  .ra-nav__logo { order: 1; flex: 0 1 auto; }
+  .ra-nav__right { order: 2; display: flex !important; margin-left: auto; }
+  .ra-nav__hamburger { display: flex !important; order: 3; margin: 0 0 0 4px; }
+  .ra-nav__cta { display: none !important; }
+  .ra-nav__cta-mobile { display: inline-flex !important; padding: 10px 14px !important; font-size: 12px !important; }
+
+  /* Hide inline chevron icons on mobile (toggle button takes over) */
+  .ra-nav__links .has-drop > a > .fa-chevron-down { display: none !important; }
+  .ra-nav__links .has-drop-l3 > a > .ra-drop__arrow { display: none !important; }
+
+  /* L2 + L3 stack as accordion on mobile */
+  .ra-nav__links .ra-drop--l2 { position: static; display: block; background: transparent; box-shadow: none; border: 0; padding: 0 0 0 12px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; grid-template-columns: 1fr; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3 > a { padding: 10px 4px !important; font-size: 14px !important; opacity: 0.85; display: flex !important; align-items: center; justify-content: space-between; gap: 14px; color: var(--charcoal, #2B2B2B) !important; background: transparent !important; border-bottom: 0 !important; letter-spacing: 0.02em !important; text-transform: none !important; font-weight: 600 !important; }
+  .ra-nav__links .ra-drop--l3 { position: static; display: none; background: transparent; box-shadow: none; border: 0; padding: 0 0 8px 14px; opacity: 1; pointer-events: auto; transform: none; min-width: 0; margin: 0; }
+  .ra-nav__links .ra-drop--l2 .has-drop-l3.is-open > .ra-drop--l3 { display: block; }
+  .ra-nav__links .ra-drop--l3 a { padding: 9px 4px; font-size: 13px; opacity: 0.75; white-space: normal; display: block; }
+
+  /* Toggle buttons surface on mobile */
+  .has-drop, .has-drop-l3 { display: flex !important; flex-wrap: wrap !important; align-items: center !important; width: 100% !important; }
+  .has-drop > a, .has-drop-l3 > a { flex: 1 1 auto !important; }
+  .has-drop > .ra-drop, .has-drop-l3 > .ra-drop { flex: 1 0 100% !important; }
+  .ra-nav__services-toggle, .ra-nav__l2-toggle {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    background: transparent; border: 0; color: var(--charcoal, #2B2B2B);
+    padding: 12px 18px; font-size: 18px; line-height: 1; cursor: pointer;
+    flex: 0 0 auto !important; min-width: 56px; min-height: 48px;
+    align-self: stretch !important;
+    transition: transform 0.3s ease, color 0.2s ease;
+  }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+
+  /* Accordion animation on mobile */
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-height: 0 !important; overflow: hidden !important;
+    transition: max-height 0.3s ease, padding 0.3s ease !important;
+    opacity: 1 !important; pointer-events: auto !important;
+    display: block !important; position: static !important;
+    background: transparent !important; box-shadow: none !important;
+    border: 0 !important; transform: none !important; min-width: 0 !important;
+    padding: 0 !important; margin: 0 !important;
+  }
+  .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
+}
+/* RA-NAV-MEGAMENU-CSS-END */
+
+/* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
+.ra-footer {
+  background: var(--black);
+  padding: 80px 0 0;
+}
+.ra-footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ra-footer__brand {}
+.ra-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+.ra-footer__logo img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+.ra-footer__brand p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 12px;
+}
+.ra-footer__tagline {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+}
+.ra-footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.ra-footer__social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.ra-footer__social a:hover { background: var(--red); color: white; }
+.ra-footer__nav h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.ra-footer__nav ul { list-style: none; }
+.ra-footer__nav ul li { margin-bottom: 12px; }
+.ra-footer__nav ul a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.ra-footer__nav ul a:hover { color: white; }
+.ra-footer__cta {
+  align-self: start;
+  background: rgba(237,28,36,0.08);
+  border: 1px solid rgba(237,28,36,0.15);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+.ra-footer__cta h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.ra-footer__cta p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.ra-footer__bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ra-footer__copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+.ra-footer__copyright a { color: rgba(255,255,255,0.35); }
+.ra-footer__copyright a:hover { color: white; }
+@media (max-width: 768px) {
+h1, h2, h3, h4, h5, h6,
+  .display-1, .display-2, .display-3,
+  .ra-hero__title, .ra-hero__tagline,
+  .ra-problem__title, .ra-founder__sig,
+  .ra-process__step-num, .ra-sprint__fw-title,
+  .ra-sprint__stat-num, .ra-footer__tagline,
+  .ra-system__col h3, .ra-problem__card h3,
+  .ra-work__item-title, .ra-cta__title,
+  .eyebrow, .eyebrow--white {
+    font-family: 'Bebas Neue', 'Orbitron', sans-serif !important;
+    font-feature-settings: normal;
+  }
+.ra-hero__inner,
+  .ra-problem__grid,
+  .ra-work__grid,
+  .ra-process__steps,
+  .ra-system__cols,
+  .ra-form__grid,
+  .ra-contact__inner,
+  .ra-footer__inner,
+  [class*="__grid"],
+  [class*="__cols"],
+  [class*="__columns"],
+  [class*="__row"] {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+.ra-hero__inner > *,
+  .ra-problem__grid > *,
+  .ra-work__grid > *,
+  .ra-process__steps > *,
+  .ra-system__cols > *,
+  .ra-form__grid > *,
+  .ra-contact__inner > *,
+  .ra-footer__inner > *,
+  [class*="__grid"] > *,
+  [class*="__cols"] > *,
+  [class*="__columns"] > *,
+  [class*="__row"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: 1 / -1 !important;
+  }
+.ra-footer { padding: 60px 0 0; }
+.ra-footer__inner { gap: 40px !important; padding-bottom: 40px; }
+.ra-footer__brand,
+  .ra-footer__nav,
+  .ra-footer__cta { width: 100%; }
+.ra-footer__logo {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    width: auto;
+  }
+.ra-footer__logo img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+.ra-footer__nav ul { padding: 0; margin: 0; list-style: none; }
+.ra-footer__nav a { word-break: break-word; }
+.ra-footer__cta .btn { width: 100%; justify-content: center; }
+}
+.ra-footer__miniform {margin-bottom:16px;}
+.ra-footer__miniform-title {
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:#fff;margin:0 0 10px;line-height:1.2;
+}
+.ra-footer__miniform-row {
+  display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+}
+.ra-footer__miniform input {
+  width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+  border-radius:8px;padding:10px 12px;color:#fff;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .15s ease,background .15s ease;
+}
+.ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
+.ra-footer__miniform input:focus {
+  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+}
+.ra-footer__miniform-btn {
+  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .15s ease;
+  font-family:inherit;
+}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-status {
+  font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
+}
+.ra-footer__miniform-status.is-error {color:#ff8888;}
+/* RA-FOOTER-CANONICAL-CSS-END */
+</style>
+</head>
+<body>
+
+<!-- RA-NAV-CANONICAL-START -->
+<nav class="ra-nav" id="ra-nav">
+  <div class="ra-nav__inner">
+    <a href="../index.html" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+    </a>
+
+    <ul class="ra-nav__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li class="has-drop">
+        <a href="../services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="../services/strategy/index.html">Strategy <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="../services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../services/creative/index.html">Creative <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../services/creative/branding.html">Branding</a></li>
+              <li><a href="../services/creative/website-development.html">Website Development</a></li>
+              <li><a href="../services/creative/app-development.html">App Development</a></li>
+              <li><a href="../services/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../services/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="../services/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../the-reveal/index.html" class="is-current">The Reveal</a></li>
+      <li class="has-drop">
+        <a href="../portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
+        <ul class="ra-drop ra-drop--l2">
+          <li class="has-drop-l3">
+            <a href="../portfolio/strategy.html">Strategy Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Strategy Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../portfolio/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../portfolio/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="../portfolio/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../portfolio/strategy/ai-automation.html">AI &amp; Automation</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../portfolio/creative.html">Creative Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../portfolio/creative/branding.html">Branding</a></li>
+              <li><a href="../portfolio/creative/website-development.html">Website Development</a></li>
+              <li><a href="../portfolio/creative/app-development.html">App Development</a></li>
+              <li><a href="../portfolio/creative/video-production.html">Video Production</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="../portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing Work menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="../portfolio/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../portfolio/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../portfolio/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
+              <li><a href="../portfolio/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+
+    <div class="ra-nav__right">
+      <a href="../booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="../booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Book a Call</a>
+    </div>
+
+    <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<!-- RA-NAV-CANONICAL-END -->
+
+<section class="rv-hero" data-ra-reveal-hero="interactive">
+  <canvas class="rv-hero__canvas" id="rv-hero-canvas"></canvas>
+  <div class="rv-hero__glow"></div>
+  <div class="container">
+    <div class="rv-hero__inner">
+      <div class="rv-hero__eyebrow fade-up">REVELATION AGENCY</div>
+      <h1 class="rv-hero__title fade-up fade-up-d1">THE REVEAL</h1>
+      <p class="rv-hero__sub fade-up fade-up-d2">Strategy. Insights. Announcements. We don't just do the work &mdash; we explain how it works.</p>
+      <div class="rv-hero__chips fade-up fade-up-d3" role="tablist" aria-label="Jump to category">
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="strategy">Strategy</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="creative">Creative</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="marketing">Marketing</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="announcements">Announcements</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="faq">FAQ</button>
+      </div>
+    </div>
+  </div>
+  <div class="rv-hero__hint">Move your cursor</div>
+</section>
+
+<div class="rv-filter">
+  <div class="container">
+    <div class="rv-filter__inner" role="tablist">
+      <button class="rv-filter__btn is-active" data-filter="all">All</button>
+      <button class="rv-filter__btn" data-filter="strategy">Strategy</button>
+      <button class="rv-filter__btn" data-filter="creative">Creative</button>
+      <button class="rv-filter__btn" data-filter="marketing">Marketing</button>
+      <button class="rv-filter__btn" data-filter="announcements">Announcements</button>
+      <button class="rv-filter__btn" data-filter="faq">FAQ</button>
+    </div>
+  </div>
+</div>
+
+<section class="rv-feed">
+  <div class="container">
+    <div class="rv-feed__grid" id="rv-feed-grid">
+
+      <article class="rv-card fade-up" data-cat="faq">
+        <a href="straight-answers.html" class="rv-card__img rv-card__img--red" aria-hidden="true"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">FAQ</span>
+          <h3 class="rv-card__title">Straight Answers</h3>
+          <p class="rv-card__excerpt">Every question we hear before someone says yes &mdash; answered without the runaround.</p>
+          <a href="straight-answers.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d1" data-cat="announcements">
+        <a href="revelation-agency-is-now-live.html" class="rv-card__img rv-card__img--dark" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Announcements</span>
+          <h3 class="rv-card__title">Revelation Agency Is Now Live &mdash; And We're Not Here to Play Small</h3>
+          <p class="rv-card__excerpt">This isn't a press release. It's a declaration of intent. Revelation Agency exists because too many businesses are getting sold marketing theater when they need a partner who actually knows how to move the needle.</p>
+          <a href="revelation-agency-is-now-live.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d2" data-cat="strategy">
+        <a href="why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Strategy</span>
+          <h3 class="rv-card__title">Why AI Answer Engines Are Rewriting the SEO Playbook</h3>
+          <p class="rv-card__excerpt">The search game changed while most brands were still running the old plays. AI answer engines don't show ten blue links &mdash; they give one answer, and either your brand is in it or it isn't.</p>
+          <a href="why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up" data-cat="creative">
+        <a href="video-is-no-longer-optional-its-infrastructure.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1574717024453-354056afd6fc?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Creative</span>
+          <h3 class="rv-card__title">Video Is No Longer Optional &mdash; It's Infrastructure</h3>
+          <p class="rv-card__excerpt">Brands that treat video as a campaign deliverable are playing a different game than brands that treat it as infrastructure. The gap between those two approaches is widening fast.</p>
+          <a href="video-is-no-longer-optional-its-infrastructure.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
+        <a href="the-paid-ads-playbook-is-dead.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Marketing</span>
+          <h3 class="rv-card__title">The Paid Ads Playbook Is Dead. Here's What Replaced It.</h3>
+          <p class="rv-card__excerpt">The old approach &mdash; pick an interest audience, run a polished ad, let the algorithm sort it out &mdash; stopped working. What replaced it is more demanding and more rewarding.</p>
+          <a href="the-paid-ads-playbook-is-dead.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d2" data-cat="strategy">
+        <a href="your-brand-isnt-what-you-say-it-is.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Strategy</span>
+          <h3 class="rv-card__title">Your Brand Isn't What You Say It Is &mdash; It's What You Prove</h3>
+          <p class="rv-card__excerpt">You can spend six figures on a brand refresh and still lose to a competitor whose website is full of real results and honest case studies. In 2026, proof is the positioning.</p>
+          <a href="your-brand-isnt-what-you-say-it-is.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up" data-cat="creative">
+        <a href="the-website-is-still-your-most-important-real-estate.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Creative</span>
+          <h3 class="rv-card__title">The Website Is Still the Most Important Real Estate You Own</h3>
+          <p class="rv-card__excerpt">Social platforms own the relationship with your audience. Your website is the only digital asset you actually control &mdash; and in an AI-search world, it's also the most important citation source you have.</p>
+          <a href="the-website-is-still-your-most-important-real-estate.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
+        <a href="why-social-media-reach-is-a-vanity-metric.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Marketing</span>
+          <h3 class="rv-card__title">Why Social Media Reach Is a Vanity Metric (And What to Measure Instead)</h3>
+          <p class="rv-card__excerpt">A brand with 5,000 followers and an 8% engagement rate will outperform a brand with 100,000 followers and 0.5% engagement. The algorithm already knows this. Most marketing reports don't.</p>
+          <a href="why-social-media-reach-is-a-vanity-metric.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d2" data-cat="creative">
+        <a href="what-gohighlevel-actually-does.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Creative</span>
+          <h3 class="rv-card__title">What GoHighLevel Actually Does (And Why Most Businesses Are Barely Using It)</h3>
+          <p class="rv-card__excerpt">Most businesses using GoHighLevel are running it like a basic contact database with some email sequences. A fully-built GHL system is something entirely different &mdash; and the gap between the two is where revenue lives.</p>
+          <a href="what-gohighlevel-actually-does.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up" data-cat="strategy">
+        <a href="outsourcing-your-marketing-isnt-a-shortcut.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Strategy</span>
+          <h3 class="rv-card__title">Outsourcing Your Marketing Isn't a Shortcut &mdash; It's a Strategy</h3>
+          <p class="rv-card__excerpt">The narrative that outsourcing is a budget compromise has it exactly backwards. The best-run companies outsource to access specialists who don't exist on any org chart.</p>
+          <a href="outsourcing-your-marketing-isnt-a-shortcut.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
+        <a href="the-ai-content-trap.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Marketing</span>
+          <h3 class="rv-card__title">The AI Content Trap: Why Most AI-Generated Marketing Falls Flat</h3>
+          <p class="rv-card__excerpt">AI didn't create the mediocre content problem &mdash; it scaled it. The brands winning with AI-assisted content understand something the rest don't: the model writes what you tell it to write, and most people aren't telling it much.</p>
+          <a href="the-ai-content-trap.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="rv-cta">
+  <div class="rv-cta__inner container">
+    <h2 class="rv-cta__title">Ready to talk strategy? Let's go.</h2>
+    <p class="rv-cta__sub">Thirty minutes. Real strategy. No pitch. Walk away with clarity on what's broken, what matters, and what to do next.</p>
+    <a href="../booking.html" class="btn btn--primary" style="background:#fff;color:var(--red-deep);">Book a Free Strategy Session <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- RA-FOOTER-CANONICAL-START -->
+<footer class="ra-footer">
+  <div class="container">
+    <div class="ra-footer__inner">
+      <div class="ra-footer__brand">
+        <div class="ra-footer__logo">
+          <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
+        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <div class="ra-footer__social">
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <!-- FOOTER-ADDRESS -->
+        <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
+          <div style="color:rgba(255,255,255,0.72); font-weight:600; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; margin-bottom:6px;">Revelation Agency</div>
+          <div>55 Shaw Ave. #201</div>
+          <div>Clovis, CA 93612</div>
+          <div style="margin-top:6px; font-style:italic; color:rgba(255,255,255,0.55);">We work remotely across the globe.</div>
+        </address>
+      </div>
+
+      <div class="ra-footer__nav ra-footer__nav--services">
+        <style>
+          .ra-footer__nav--services .ra-footer__svc{list-style:none;margin:0;padding:0;}
+          .ra-footer__nav--services .ra-footer__svc-group{margin-bottom:4px;}
+          .ra-footer__nav--services .ra-footer__svc-group:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-parent{display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 0;cursor:pointer;transition:color .2s;line-height:1.2;}
+          .ra-footer__nav--services .ra-footer__svc-parent:hover{color:var(--red);}
+          .ra-footer__nav--services .ra-footer__svc-caret{font-size:11px;color:rgba(255,255,255,0.45);transition:transform .28s ease,color .2s;margin-left:8px;flex-shrink:0;display:inline-block;}
+          .ra-footer__nav--services .ra-footer__svc-children{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .32s ease,opacity .22s ease,margin-top .22s ease;margin-top:0;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-children,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-caret,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-caret{transform:rotate(180deg);color:#fff;}
+          .ra-footer__nav--services .ra-footer__svc-children li{margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-children li:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-children a{font-size:13px;color:rgba(255,255,255,0.5);padding-left:2px;display:block;transition:color .2s;}
+          .ra-footer__nav--services .ra-footer__svc-children a:hover{color:#fff;}
+          @media (max-width:720px){
+            .ra-footer__nav--services .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;}
+            .ra-footer__nav--services .ra-footer__svc-caret{display:none;}
+          }
+        </style>
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
+        <ul class="ra-footer__svc">
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../services/strategy/">Strategy<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="../services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="../services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="../services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../services/creative/branding.html">Branding</a></li>
+              <li><a href="../services/creative/video-production.html">Video Production</a></li>
+              <li><a href="../services/creative/website-development.html">Website Development</a></li>
+              <li><a href="../services/creative/app-development.html">App Development</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="../services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="../services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="../services/marketing/search-rankings.html">Search Rankings</a></li>
+              <li><a href="../services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ra-footer__nav">
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
+        <ul>
+          <li><a href="../the-reveal/index.html">The Reveal</a></li>
+          <li><a href="../portfolio.html">Portfolio</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="tel:+15592017039">(559) 201-7039</a></li>
+          <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
+        </ul>
+      </div><div class="ra-footer__cta">
+<!-- RA-FOOTER-MINIFORM-START -->
+        <form class="ra-footer__miniform" data-booking-url="../booking.html" novalidate>
+          <h5 class="ra-footer__miniform-title">Let's Connect</h5>
+          <div class="ra-footer__miniform-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          </div>
+          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <div class="ra-footer__miniform-status" aria-live="polite"></div>
+        </form>
+        <script>(function(){
+          var forms=document.querySelectorAll('.ra-footer__miniform');
+          forms.forEach(function(f){
+            if(f.dataset.bound==='1')return;f.dataset.bound='1';
+            var status=f.querySelector('.ra-footer__miniform-status');
+            f.addEventListener('submit',function(ev){
+              ev.preventDefault();
+              var name=(f.name && f.name.value || '').trim();
+              var phone=(f.phone && f.phone.value || '').trim();
+              if(!name||!phone){if(status){status.textContent='Add a name and phone so we can prefill your booking.';status.classList.add('is-error');}return;}
+              try{
+                sessionStorage.setItem('ra_lead_name',name);
+                sessionStorage.setItem('ra_lead_phone',phone);
+                sessionStorage.setItem('ra_lead_source','footer-miniform');
+              }catch(e){}
+              var base=f.getAttribute('data-booking-url')||'booking.html';
+              var url=base+(base.indexOf('?')===-1?'?':'&')+'name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&src=footer-miniform';
+              window.location.href=url;
+            });
+          });
+        })();</script>
+<!-- RA-FOOTER-MINIFORM-END -->
+        <div class="ra-footer__cta-map" data-ra-footer-map="1" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+          <iframe src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&output=embed" width="100%" height="120" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing Revelation Agency office in Clovis, CA" title="Revelation Agency — Clovis, CA"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="ra-footer__bottom">
+      <p class="ra-footer__copyright">&copy; 2026 <a href="../index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+    </div>
+  </div>
+</footer>
+<!-- RA-FOOTER-CANONICAL-END -->
+
+<script>
+(function(){
+  // nav toggle
+  var btn = document.getElementById('ra-nav-hamburger');
+  var nav = document.getElementById('ra-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+      }
+
+  // scroll state
+  window.addEventListener('scroll', function(){
+    nav && nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // mobile tap-drill
+  document.querySelectorAll('.has-drop-l3 > a').forEach(function(anchor){
+    anchor.addEventListener('click', function(ev){
+      if (window.innerWidth > 768) return;
+      var li = anchor.parentElement;
+      if (!li.querySelector('.ra-drop--l3')) return;
+      if (!li.classList.contains('is-open')) {
+        ev.preventDefault();
+        var parentUl = li.parentElement;
+        if (parentUl) parentUl.querySelectorAll('.has-drop-l3.is-open').forEach(function(x){ if (x !== li) x.classList.remove('is-open'); });
+        li.classList.add('is-open');
+      }
+    });
+  });
+
+  // filter tabs
+  var buttons = document.querySelectorAll('.rv-filter__btn');
+  var cards = document.querySelectorAll('#rv-feed-grid .rv-card');
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      buttons.forEach(function(x){ x.classList.remove('is-active'); });
+      b.classList.add('is-active');
+      var f = b.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if (f === 'all' || c.getAttribute('data-cat') === f) c.classList.remove('is-hidden');
+        else c.classList.add('is-hidden');
+      });
+    });
+  });
+
+  // fade-up on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+
+  // hero canvas: sparse node network w/ mouse attraction
+  var cv = document.getElementById('rv-hero-canvas');
+  if (cv) {
+    var ctx = cv.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    var dots = [];
+    var mouse = { x: -9999, y: -9999, active: false };
+    function resize(){
+      cv.width = cv.offsetWidth * dpr;
+      cv.height = cv.offsetHeight * dpr;
+    }
+    function init(){
+      dots = [];
+      var count = Math.floor(cv.offsetWidth / 22);
+      for (var i = 0; i < count; i++) {
+        dots.push({
+          x: Math.random() * cv.width,
+          y: Math.random() * cv.height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          baseR: 1.2 + Math.random() * 1.1
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,cv.width,cv.height);
+      var pullRadius = 160 * dpr;
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i];
+        // cursor attraction
+        if (mouse.active) {
+          var mdx = mouse.x - d.x, mdy = mouse.y - d.y;
+          var mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+          if (mdist < pullRadius && mdist > 1) {
+            var pull = (1 - mdist/pullRadius) * 0.6;
+            d.vx += (mdx / mdist) * pull * 0.04;
+            d.vy += (mdy / mdist) * pull * 0.04;
+          }
+        }
+        // velocity damping so clusters don't explode
+        d.vx *= 0.985; d.vy *= 0.985;
+        // restore baseline drift if too slow
+        if (Math.abs(d.vx) < 0.08) d.vx += (Math.random() - 0.5) * 0.05;
+        if (Math.abs(d.vy) < 0.08) d.vy += (Math.random() - 0.5) * 0.05;
+        d.x += d.vx; d.y += d.vy;
+        if (d.x < 0 || d.x > cv.width) d.vx *= -1;
+        if (d.y < 0 || d.y > cv.height) d.vy *= -1;
+        // node
+        var glow = 0.55;
+        if (mouse.active) {
+          var mx2 = mouse.x - d.x, my2 = mouse.y - d.y;
+          var m2 = Math.sqrt(mx2*mx2 + my2*my2);
+          if (m2 < pullRadius) glow = 0.55 + (1 - m2/pullRadius) * 0.45;
+        }
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.baseR * dpr, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(215,37,50,' + glow + ')';
+        ctx.fill();
+        for (var j = i + 1; j < dots.length; j++) {
+          var dx = d.x - dots[j].x, dy = d.y - dots[j].y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          var linkMax = 150 * dpr;
+          if (dist < linkMax) {
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = 'rgba(215,37,50,' + (0.22 * (1 - dist/linkMax)) + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    resize(); init(); draw();
+    window.addEventListener('resize', function(){ resize(); init(); });
+    cv.addEventListener('mousemove', function(ev){
+      var r = cv.getBoundingClientRect();
+      mouse.x = (ev.clientX - r.left) * dpr;
+      mouse.y = (ev.clientY - r.top) * dpr;
+      mouse.active = true;
+    });
+    cv.addEventListener('mouseleave', function(){ mouse.active = false; });
+  }
+
+  // hero chips -> filter tabs
+  document.querySelectorAll('.rv-hero__chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var f = chip.getAttribute('data-chip-filter');
+      var target = document.querySelector('.rv-filter__btn[data-filter="' + f + '"]');
+      if (target) {
+        target.click();
+        var feed = document.querySelector('.rv-filter');
+        if (feed) feed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+
+/* NAV-REBUILD-JS */
+  (function(){
+    var navEl = document.getElementById('ra-nav');
+    var hamBtn = document.getElementById('ra-nav-hamburger');
+    if (!navEl) return;
+    document.querySelectorAll('.ra-nav__services-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l2');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        document.querySelectorAll('.has-drop > .ra-drop--l2.open').forEach(function(s){
+          if (s !== sub) {
+            s.classList.remove('open');
+            var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__services-toggle');
+            if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            s.querySelectorAll('.ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+            s.querySelectorAll('.ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+          }
+        });
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    document.querySelectorAll('.ra-nav__l2-toggle').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault(); e.stopPropagation();
+        var li = b.closest('.has-drop-l3');
+        if (!li) return;
+        var sub = li.querySelector(':scope > .ra-drop--l3');
+        if (!sub) return;
+        var willOpen = !sub.classList.contains('open');
+        var parentUl = li.parentElement;
+        if (parentUl) {
+          parentUl.querySelectorAll(':scope > .has-drop-l3 > .ra-drop--l3.open').forEach(function(s){
+            if (s !== sub) {
+              s.classList.remove('open');
+              var sibBtn = s.parentElement.querySelector(':scope > .ra-nav__l2-toggle');
+              if (sibBtn) { sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            }
+          });
+        }
+        sub.classList.toggle('open', willOpen);
+        b.classList.toggle('open', willOpen);
+        b.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+    navEl.querySelectorAll('.ra-nav__links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('is-open');
+        if (hamBtn) hamBtn.setAttribute('aria-expanded', 'false');
+        navEl.querySelectorAll('.ra-nav__services-toggle.open, .ra-nav__l2-toggle.open').forEach(function(x){ x.classList.remove('open'); x.setAttribute('aria-expanded','false'); });
+        navEl.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(x){ x.classList.remove('open'); });
+      });
+    });
+  })();
+
+</script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="67db6de80d1911ef2ab3e790"></script>
+
+<!-- RA-GOTO-TOP-START -->
+<button class="ra-goto-top" type="button" aria-label="Back to top" id="ra-goto-top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>(function(){
+  var btn=document.getElementById('ra-goto-top');if(!btn)return;
+  var threshold=400,ticking=false;
+  function update(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>threshold){btn.classList.add('is-visible');}else{btn.classList.remove('is-visible');}
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(update);ticking=true;}
+  },{passive:true});
+  btn.addEventListener('click',function(){
+    try{window.scrollTo({top:0,behavior:'smooth'});}
+    catch(e){window.scrollTo(0,0);}
+  });
+  update();
+})();</script>
+<!-- RA-GOTO-TOP-END -->
+</body>
+</html>

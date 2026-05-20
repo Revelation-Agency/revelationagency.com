@@ -1,0 +1,15 @@
+{
+  "name": "Revelation Agency",
+  "short_name": "Revelation",
+  "description": "Revelation Agency — Your Strategic Growth Partner. We design, build, and operate the strategy, creative, and marketing infrastructure behind your next stage of growth.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#D72532",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

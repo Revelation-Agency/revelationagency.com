@@ -1,0 +1,30 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (for the scripts/ directory)
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment / secrets (none should ever live here)
+.env
+.env.*
+*.secret
+
+# Build / cache
+.vercel/
+.next/
+node_modules/
+
+# Audit/debug outputs
+*.log
+.audit-*/

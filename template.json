@@ -1,0 +1,8 @@
+{
+  "name": "smart",
+  "type": "html",
+  "status": "ready",
+  "entry": "index.html",
+  "tags": ["modern"],
+  "notes": "Imported template. Actual site root is templates/Smart/smart (nested inside a vendor bundle that also contains a Documentation folder)."
+}
