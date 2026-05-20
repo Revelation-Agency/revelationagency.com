@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/g/bill",        "destination": "/sales-growth-engine/index.html?ref=bill-gerard" },
+    { "source": "/partners/bill", "destination": "/sales-growth-engine/index.html?ref=bill-gerard" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Sales Growth Engine — Revelation Agency</title>
+<meta name="description" content="Fill the pipeline. Close the pipeline. One custom-built system that takes your reps from 20% selling to 80% selling — without adding headcount. Built by Revelation Agency.">
+<link rel="canonical" href="https://revelationagency.com/sales-growth-engine">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://revelationagency.com/sales-growth-engine">
+<meta property="og:title" content="Sales Growth Engine — Revelation Agency">
+<meta property="og:description" content="One engine. Two jobs. Fill the pipeline. Close the pipeline. Senior-level sales support for a fraction of the cost.">
+<meta property="og:image" content="https://proposals.revelationagency.com/assets/proposal-og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Revelation Agency">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Growth Engine — Revelation Agency">
+<meta name="twitter:description" content="Fill the pipeline. Close the pipeline. One system.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   REVELATION DESIGN SYSTEM v1.0 — TOKENS
+   (same system as /sales-intelligence)
+   =========================================== */
+:root {
+    --red: #D72532;
+    --red-deep: #AD1C24;
+    --red-dark: #840D11;
+    --charcoal: #2B2B2B;
+    --off-black: #1E1E1E;
+    --grey-light: #F7F7F5;
+    --grey-mid: #C9C9C5;
+    --grey-line-dark: rgba(255,255,255,0.10);
+    --grey-line-light: rgba(0,0,0,0.10);
+    --white: #FFFFFF;
+
+    --font-display: 'Orbitron', 'Saira Condensed', sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --display-1: clamp(2.2rem, 6.4vw, 5.4rem);
+    --display-2: clamp(1.6rem, 3.6vw, 3rem);
+    --display-3: clamp(1.2rem, 2.4vw, 1.9rem);
+    --eyebrow:   clamp(0.62rem, 0.78vw, 0.78rem);
+    --body:      clamp(0.82rem, 0.95vw, 1rem);
+    --body-sm:   clamp(0.7rem, 0.82vw, 0.85rem);
+
+    --slide-padding: clamp(1.4rem, 3.2vw, 2.8rem);
+    --content-gap: clamp(0.9rem, 1.8vw, 1.6rem);
+    --grid-gap: clamp(1rem, 2.2vw, 1.8rem);
+
+    --radius-asym: 45px 0 45px 45px;
+    --radius-card: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+    height: 100%; width: 100%; overflow: hidden;
+    background: var(--off-black); color: var(--white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+/* DECK + SLIDE */
+.deck { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; }
+.slide {
+    position: absolute; inset: 0; width: 100vw; height: 100vh; height: 100dvh;
+    display: flex; flex-direction: column; overflow: hidden;
+    opacity: 0; pointer-events: none; transform-origin: top left;
+}
+.slide.is-active { opacity: 1; pointer-events: auto; z-index: 2; }
+.slide.dark   { background: var(--off-black); color: var(--white); }
+.slide.light  { background: var(--grey-light); color: var(--off-black); }
+.slide.red    { background: var(--red); color: var(--white); }
+
+/* CHROME — header + footer */
+.slide-header, .slide-footer {
+    flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+    padding: clamp(0.8rem, 1.4vw, 1.2rem) var(--slide-padding);
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; gap: 1rem; white-space: nowrap;
+}
+.slide-header { position: relative; }
+.slide-header::after {
+    content: ''; position: absolute; left: var(--slide-padding); right: var(--slide-padding); bottom: 0;
+    height: 1px; background: var(--grey-line-dark);
+}
+.slide-footer { position: relative; margin-top: auto; }
+.slide-footer::before {
+    content: ''; position: absolute; left: var(--slide-padding); right: var(--slide-padding); top: 0;
+    height: 1px; background: var(--grey-line-dark);
+}
+.slide.light .slide-header::after, .slide.light .slide-footer::before { background: var(--grey-line-light); }
+.slide.red .slide-header::after, .slide.red .slide-footer::before { background: rgba(255,255,255,0.18); }
+.slide-header__left, .slide-header__right { display: flex; align-items: center; gap: 1em; }
+.slide-header__doc-sep { display: inline-block; width: clamp(40px, 6vw, 80px); height: 1px; background: currentColor; opacity: 0.6; }
+
+.brand-wordmark {
+    display: inline-flex; align-items: baseline; gap: 0.45em;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(0.72rem, 0.95vw, 0.9rem); letter-spacing: 0.18em; line-height: 1;
+}
+.brand-wordmark .bw-2 { color: var(--red); font-weight: 700; }
+.slide.red .brand-wordmark .bw-2 { color: var(--off-black); }
+.brand-logo-wrap { display: inline-flex; align-items: center; gap: 0.85em; }
+.brand-logo-img {
+    height: clamp(48px, 5.6vw, 78px);
+    width: auto; display: block;
+    background: var(--white);
+    padding: clamp(7px, 0.9vw, 13px) clamp(12px, 1.4vw, 20px);
+    border-radius: clamp(10px, 1.2vw, 14px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.slide.light .brand-logo-img { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.slide.red   .brand-logo-img { background: var(--white); box-shadow: 0 4px 14px rgba(0,0,0,0.35); }
+
+/* Brackets */
+.slide.has-brackets > .bracket {
+    position: absolute; width: clamp(16px, 1.6vw, 24px); height: clamp(16px, 1.6vw, 24px);
+    border-color: var(--red); border-style: solid; z-index: 5; pointer-events: none;
+}
+.slide.has-brackets > .bracket.tl { top: clamp(14px, 1.4vw, 22px); left: clamp(14px, 1.4vw, 22px); border-width: 2px 0 0 2px; }
+.slide.has-brackets > .bracket.tr { top: clamp(14px, 1.4vw, 22px); right: clamp(14px, 1.4vw, 22px); border-width: 2px 2px 0 0; }
+.slide.has-brackets > .bracket.bl { bottom: clamp(14px, 1.4vw, 22px); left: clamp(14px, 1.4vw, 22px); border-width: 0 0 2px 2px; }
+.slide.has-brackets > .bracket.br { bottom: clamp(14px, 1.4vw, 22px); right: clamp(14px, 1.4vw, 22px); border-width: 0 2px 2px 0; }
+.slide.has-brackets .slide-header {
+    padding-top: clamp(3.2rem, 4.4vw, 4.2rem); padding-bottom: clamp(0.9rem, 1.4vw, 1.2rem);
+    padding-left: clamp(3.4rem, 5vw, 4.8rem); padding-right: clamp(3.4rem, 5vw, 4.8rem);
+}
+.slide.has-brackets .slide-footer {
+    padding-top: clamp(0.9rem, 1.4vw, 1.2rem); padding-bottom: clamp(3.2rem, 4.4vw, 4.2rem);
+    padding-left: clamp(3.4rem, 5vw, 4.8rem); padding-right: clamp(3.4rem, 5vw, 4.8rem);
+}
+.slide.has-brackets .slide-header::after,
+.slide.has-brackets .slide-footer::before {
+    left: clamp(3.4rem, 5vw, 4.8rem); right: clamp(3.4rem, 5vw, 4.8rem);
+}
+
+/* SLIDE BODY */
+.slide-body {
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(1rem, 2.2vw, 2.2rem) var(--slide-padding);
+    gap: var(--content-gap); overflow: hidden; min-height: 0; position: relative;
+}
+.slide-body--top { justify-content: flex-start; padding-top: clamp(1.4rem, 2.6vw, 2.4rem); }
+
+/* TYPOGRAPHY */
+.eyebrow {
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 0.8em;
+}
+.eyebrow::before { content: ''; width: clamp(20px, 2.4vw, 36px); height: 1px; background: currentColor; opacity: 0.6; }
+.eyebrow .num { color: var(--red); }
+.slide.red .eyebrow .num { color: var(--off-black); }
+
+.display-1 { font-family: var(--font-display); font-weight: 900; font-size: var(--display-1); line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; }
+.display-2 { font-family: var(--font-display); font-weight: 800; font-size: var(--display-2); line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; }
+.display-3 { font-family: var(--font-display); font-weight: 700; font-size: var(--display-3); line-height: 1.08; text-transform: uppercase; }
+.lede {
+    font-family: var(--font-body); font-weight: 400;
+    font-size: clamp(0.9rem, 1.05vw, 1.1rem); line-height: 1.5;
+    max-width: 60ch; color: var(--grey-mid);
+}
+.slide.light .lede { color: var(--charcoal); }
+.slide.red .lede   { color: rgba(255,255,255,0.92); }
+.body-text { font-family: var(--font-body); font-size: var(--body); line-height: 1.55; color: var(--grey-mid); }
+.slide.light .body-text { color: var(--charcoal); }
+.text-red   { color: var(--red); }
+.text-white { color: var(--white); }
+.text-black { color: var(--off-black); }
+
+.closing-line {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.78rem, 0.98vw, 0.94rem); line-height: 1.55;
+    color: var(--grey-mid);
+    margin-top: clamp(0.6rem, 1.2vw, 1.1rem);
+    margin-bottom: clamp(0.4rem, 0.8vw, 0.8rem);
+    max-width: 80ch; opacity: 0.92;
+    position: static !important; flex-shrink: 0;
+}
+.slide.light .closing-line { color: var(--charcoal); opacity: 0.82; }
+.slide.red .closing-line { color: rgba(255,255,255,0.92); }
+
+.reveal { opacity: 0; will-change: opacity, transform; }
+
+/* COVER */
+.cover-grid {
+    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+    padding: clamp(1.4rem, 2.8vw, 2.6rem) var(--slide-padding) clamp(1.2rem, 2.2vw, 2rem);
+    gap: clamp(1.2rem, 2.6vw, 2.2rem);
+    min-height: 0; position: relative; z-index: 1;
+}
+.cover-hero { display: flex; flex-direction: column; justify-content: center; gap: clamp(0.8rem, 1.6vw, 1.4rem); position: relative; flex: 1; }
+.cover-headline {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(2.4rem, 9vw, 7.6rem);
+    line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase;
+}
+.cover-subline {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.95rem, 1.9vw, 1.5rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--grey-mid);
+    line-height: 1.35;
+    max-width: 42ch;
+}
+.cover-subline .accent { color: var(--white); }
+.cover-subline .dot { color: var(--red); }
+.cover-subline .line { display: block; }
+
+.meta-block {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    padding-top: clamp(1rem, 1.8vw, 1.4rem);
+    border-top: 1px solid var(--grey-line-dark);
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--grey-mid);
+    position: static !important; flex-shrink: 0;
+}
+.meta-block .sep { color: var(--red); opacity: 0.7; }
+
+/* SPLIT GRID + BULLETS + LABELED BULLETS */
+.split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 3.6vw, 3.6rem); align-items: center; flex: 1; min-height: 0; }
+.split-grid--6-6 { grid-template-columns: 6fr 6fr; }
+.split-grid--5-7 { grid-template-columns: 5fr 7fr; }
+.split-grid--7-5 { grid-template-columns: 7fr 5fr; }
+.split-left, .split-right { display: flex; flex-direction: column; gap: clamp(0.7rem, 1.4vw, 1.2rem); justify-content: center; min-width: 0; }
+
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.bullet-item {
+    display: grid; grid-template-columns: clamp(18px, 1.8vw, 24px) 1fr;
+    gap: clamp(0.5rem, 0.9vw, 0.85rem); align-items: baseline;
+}
+.bullet-item::before {
+    content: ''; width: clamp(14px, 1.4vw, 20px); height: 2px;
+    background: var(--red); margin-top: 0.6em;
+}
+.bullet-item p { font-family: var(--font-body); font-size: var(--body); line-height: 1.55; }
+.slide.dark .bullet-item p { color: rgba(255,255,255,0.88); }
+.slide.light .bullet-item p { color: var(--charcoal); }
+.slide.red .bullet-item p { color: rgba(255,255,255,0.94); }
+.slide.red .bullet-item::before { background: var(--off-black); }
+
+.labeled-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.labeled-bullet { display: flex; flex-direction: column; gap: 0.3em; }
+.labeled-bullet__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.labeled-bullet__body {
+    font-family: var(--font-body); font-size: var(--body); line-height: 1.5; color: var(--grey-mid);
+}
+.slide.light .labeled-bullet__body { color: var(--charcoal); }
+.slide.red .labeled-bullet__body { color: rgba(255,255,255,0.92); }
+
+/* PARTICLE FIELD */
+.particle-canvas, .close-particles {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+}
+
+/* THREE CARDS */
+.three-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.85rem, 2vw, 1.6rem); align-content: center;
+}
+.three-cards.value-cards--two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px; margin-left: auto; margin-right: auto;
+    gap: clamp(1.2rem, 2.4vw, 2rem);
+}
+.card {
+    border: 1px solid var(--grey-line-dark);
+    padding: clamp(1rem, 2vw, 1.6rem);
+    display: flex; flex-direction: column; gap: clamp(0.55rem, 1.1vw, 0.9rem);
+    position: relative; background: rgba(255,255,255,0.015);
+    transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+    border-radius: 2px;
+}
+.slide.light .card { border-color: var(--grey-line-light); background: rgba(0,0,0,0.015); }
+.card:hover { border-color: var(--red); transform: translateY(-3px); }
+.card__num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--eyebrow); letter-spacing: 0.18em; color: var(--red);
+}
+.card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+    letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.08;
+}
+.card__price {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    line-height: 1; color: var(--white); letter-spacing: -0.01em;
+}
+.slide.light .card__price { color: var(--off-black); }
+.card__price .text-red { font-size: 0.55em; font-weight: 700; letter-spacing: 0.04em; }
+.card__body { font-family: var(--font-body); font-size: var(--body); line-height: 1.5; color: var(--grey-mid); }
+.slide.light .card__body { color: var(--charcoal); }
+
+/* Two-half engine cards (Slide 03) — emphasize each half */
+.engine-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2.2vw, 1.8rem);
+    align-items: stretch;
+}
+.engine-card {
+    position: relative;
+    border: 1px solid var(--grey-line-dark);
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--radius-card);
+    padding: clamp(1.1rem, 2vw, 1.6rem);
+    display: flex; flex-direction: column;
+    gap: clamp(0.55rem, 1.1vw, 0.9rem);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.engine-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--red);
+}
+.engine-card:hover { border-color: var(--red); transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
+.engine-card__tag {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.62rem, 0.78vw, 0.78rem);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--red); margin-top: 0.2em;
+}
+.engine-card__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.05;
+    color: var(--white);
+}
+.engine-card__role {
+    font-family: var(--font-body); font-weight: 500;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    color: var(--grey-mid); line-height: 1.4;
+}
+.engine-card__body {
+    font-family: var(--font-body);
+    font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+    line-height: 1.55; color: rgba(255,255,255,0.86);
+}
+
+.engine-divider {
+    text-align: center;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.72rem, 0.95vw, 0.88rem);
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--red);
+    margin: clamp(0.6rem, 1.1vw, 1rem) 0 clamp(0.2rem, 0.5vw, 0.4rem);
+    display: flex; align-items: center; gap: 0.85em; justify-content: center;
+}
+.engine-divider::before, .engine-divider::after {
+    content: ''; height: 1px; flex: 1; max-width: 200px;
+    background: rgba(255,255,255,0.18);
+}
+
+/* Pillar trio (Slide 04 — Intelligence / Automation / Infrastructure) */
+.pillar-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.95rem, 2vw, 1.6rem);
+    align-items: stretch;
+}
+.pillar {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.025);
+    padding: clamp(1rem, 2vw, 1.5rem);
+    display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 0.8rem);
+    border-radius: 2px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.pillar:hover { border-color: var(--red); transform: translateY(-3px); }
+.pillar__icon {
+    width: clamp(38px, 4.4vw, 52px); height: clamp(38px, 4.4vw, 52px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red);
+}
+.pillar__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pillar__num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--eyebrow); letter-spacing: 0.22em; color: var(--red);
+}
+.pillar__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.92rem, 1.35vw, 1.18rem);
+    letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.1;
+}
+.pillar__body {
+    font-family: var(--font-body);
+    font-size: clamp(0.78rem, 0.92vw, 0.92rem);
+    line-height: 1.5; color: rgba(255,255,255,0.85);
+}
+
+/* 20% → 80% transformation visual (Slide 05) */
+.shift-stage {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: clamp(0.8rem, 1.8vw, 1.6rem);
+    align-items: center; width: 100%;
+    margin-top: clamp(0.4rem, 1vw, 0.8rem);
+}
+.shift-col { display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vw, 1rem); align-items: center; text-align: center; }
+.shift-col__tag {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--eyebrow); letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--grey-mid);
+}
+.shift-col--after .shift-col__tag { color: var(--red); }
+.shift-pct {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(3.2rem, 9vw, 6.4rem);
+    line-height: 1; letter-spacing: -0.03em;
+    color: var(--white);
+}
+.shift-col--before .shift-pct { color: var(--grey-mid); opacity: 0.55; }
+.shift-col--after  .shift-pct { color: var(--white); text-shadow: 0 0 22px rgba(215,37,50,0.35); }
+.shift-col__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.78rem, 1vw, 0.95rem);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--grey-mid);
+}
+.shift-col--after .shift-col__label { color: var(--white); }
+.shift-arrow {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--red);
+    line-height: 1;
+}
+.shift-bars { width: 100%; max-width: 220px; height: clamp(10px, 1.5vw, 14px); background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; position: relative; }
+.shift-bars__fill { position: absolute; inset: 0; background: var(--red); border-radius: inherit; width: 0; transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.shift-bars--before .shift-bars__fill { background: rgba(255,255,255,0.3); }
+.shift-bars.is-animated .shift-bars__fill { width: var(--target, 0%); }
+
+@media (max-width: 768px) {
+    .shift-stage { grid-template-columns: 1fr; gap: clamp(0.6rem, 2vw, 1rem); }
+    .shift-arrow { transform: rotate(90deg); margin: 0.3rem auto; }
+}
+
+/* CROSSED-OUT ICONS (Slide 06) */
+.cross-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(0.9rem, 1.8vw, 1.5rem);
+    align-content: center;
+    width: 100%; max-width: 520px; margin: 0 auto;
+}
+.cross-card {
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(0.45rem, 0.9vw, 0.75rem);
+    padding: clamp(0.95rem, 1.8vw, 1.4rem);
+    border: 1px solid var(--grey-line-dark);
+    border-radius: var(--radius-card);
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.3s ease;
+    position: relative;
+}
+.cross-card:hover { border-color: var(--red); }
+.cross-card:hover .cross-card__x line { stroke-width: 3; }
+.cross-card__icon {
+    width: clamp(46px, 5.4vw, 64px);
+    height: clamp(46px, 5.4vw, 64px);
+    position: relative;
+}
+.cross-card__icon svg { width: 100%; height: 100%; }
+.cross-card__icon .icon-base { stroke: rgba(255,255,255,0.55); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cross-card__x { position: absolute; inset: -6%; pointer-events: none; }
+.cross-card__x line { stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; transition: stroke-width 0.25s ease; }
+.cross-card__label {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); text-align: center; line-height: 1.2;
+}
+
+/* Value-stack list (Slide 07) */
+.value-stack {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(1.1rem, 2.2vw, 1.8rem);
+}
+.value-row {
+    border: 1px solid var(--grey-line-dark);
+    background: rgba(255,255,255,0.02);
+    padding: clamp(1rem, 1.9vw, 1.5rem);
+    border-radius: 2px;
+    display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vw, 0.6rem);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.value-row:hover { border-color: var(--red); transform: translateY(-3px); }
+.value-row--highlight {
+    border-color: var(--red);
+    background: linear-gradient(135deg, rgba(215,37,50,0.08), rgba(215,37,50,0.02));
+}
+.value-row__role {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--eyebrow); letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--red);
+}
+.value-row__price {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+    line-height: 1; letter-spacing: -0.01em; color: var(--white);
+}
+.value-row__price .small { font-size: 0.55em; font-weight: 600; letter-spacing: 0.05em; color: var(--grey-mid); }
+.value-row__body {
+    font-family: var(--font-body);
+    font-size: clamp(0.82rem, 0.95vw, 0.95rem);
+    line-height: 1.5; color: rgba(255,255,255,0.85);
+}
+
+@media (max-width: 768px) {
+    .pillar-grid, .engine-grid, .value-stack, .three-cards { grid-template-columns: 1fr !important; }
+    .cross-grid { grid-template-columns: 1fr 1fr; max-width: 320px; }
+}
+
+/* CLOSE SLIDE */
+.close-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: center;
+    position: relative; z-index: 1;
+    width: 100%;
+}
+.close-stack__left, .close-stack__right {
+    display: flex; flex-direction: column;
+    gap: clamp(0.55rem, 1.1vw, 0.95rem);
+    align-items: flex-start;
+    min-width: 0;
+}
+.close-stack__right { align-items: stretch; justify-content: center; }
+@media (max-width: 900px) {
+    .close-stack { grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.6rem); }
+}
+.close-contact-bar {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 1rem) clamp(1.8rem, 3.4vw, 3rem);
+    width: 100%;
+    margin-top: clamp(0.4rem, 0.8vw, 0.7rem);
+    padding: clamp(0.7rem, 1.3vw, 1rem) 0;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.contact-item {
+    display: flex; flex-direction: column;
+    gap: clamp(0.15rem, 0.3vw, 0.25rem);
+    text-decoration: none;
+    color: var(--white);
+    transition: color 0.2s ease, transform 0.2s ease;
+    min-width: 0;
+}
+.contact-item--link:hover { transform: translateY(-2px); }
+.contact-item--link:hover .contact-item__val { color: var(--red); }
+.contact-item__key {
+    font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--red); line-height: 1;
+}
+.contact-item__val {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--white);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+.contact-item--email .contact-item__val {
+    text-transform: none; letter-spacing: 0.02em;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+    max-width: 100%;
+}
+@media (max-width: 900px) {
+    .close-contact-bar { gap: 0.6rem 1.4rem; }
+    .contact-item--email .contact-item__val { white-space: normal; overflow-wrap: anywhere; }
+}
+.close-cta-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.8em;
+    padding: clamp(0.95rem, 1.7vw, 1.25rem) clamp(1.6rem, 2.8vw, 2.4rem);
+    background: var(--red); color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    border-radius: var(--radius-asym);
+    box-shadow: 0 10px 28px rgba(215,37,50,0.4);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+    text-align: center;
+}
+.close-cta-btn:hover {
+    background: var(--red-deep); transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(215,37,50,0.55);
+}
+.close-cta-btn__arrow { font-weight: 900; transition: transform 0.25s ease; }
+.close-cta-btn:hover .close-cta-btn__arrow { transform: translateX(5px); }
+
+.referred-by {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.74rem, 0.88vw, 0.86rem);
+    color: rgba(255,255,255,0.6);
+    margin-top: clamp(0.5rem, 1vw, 0.85rem);
+    text-align: center;
+    position: static !important; flex-shrink: 0;
+}
+
+/* KEYBOARD HINT */
+.kbd-hint {
+    position: fixed; bottom: clamp(80px, 12vh, 110px); left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body); font-size: var(--eyebrow);
+    font-weight: 700; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+    z-index: 199; pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.kbd-hint.fade { opacity: 0; }
+@media (max-width: 540px) { .kbd-hint { display: none; } }
+
+/* OVERVIEW */
+.deck.overview { background: #0a0a0a; overflow: auto; }
+.deck.overview .slide {
+    opacity: 1 !important; pointer-events: auto !important; cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08); z-index: 1;
+}
+.deck.overview .slide.is-active, .deck.overview .slide:hover {
+    box-shadow: 0 0 0 2px var(--red), 0 12px 40px rgba(0,0,0,0.5); z-index: 3;
+}
+.deck.overview .slide .reveal { opacity: 1 !important; }
+.overview-label {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-body); font-size: var(--eyebrow); font-weight: 700;
+    letter-spacing: 0.2em; color: var(--white); text-transform: uppercase;
+    z-index: 300; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.deck.overview ~ .overview-label { opacity: 1; }
+
+/* BOTTOM NAVIGATION RIBBON */
+.deck-ribbon {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px clamp(12px, 3vw, 32px);
+    background: linear-gradient(180deg, rgba(30,30,30,0.85) 0%, rgba(30,30,30,0.98) 100%);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.3); gap: 12px;
+}
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .deck-ribbon { padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+}
+.deck-ribbon__btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--red); color: #fff; border: none;
+    padding: 11px 18px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 800; font-size: 12px;
+    letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
+    min-height: 44px; min-width: 100px;
+    user-select: none; -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 2px 8px rgba(215,37,50,0.35);
+}
+.deck-ribbon__btn:hover:not([disabled]) { background: var(--red-deep); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(215,37,50,0.5); }
+.deck-ribbon__btn:active:not([disabled]) { transform: translateY(0); }
+.deck-ribbon__btn[disabled] { background: rgba(215,37,50,0.25); color: rgba(255,255,255,0.4); cursor: default; box-shadow: none; }
+.deck-ribbon__progress {
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; padding: 9px 16px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 700; font-size: 12px;
+    letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
+}
+.deck-ribbon__progress:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.35); }
+.deck-ribbon__current { color: var(--red); }
+.deck-ribbon__sep { opacity: 0.4; margin: 0 0.3em; }
+.slide { padding-bottom: 82px !important; }
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .slide { padding-bottom: calc(82px + env(safe-area-inset-bottom)) !important; }
+}
+@media (max-width: 540px) {
+    .deck-ribbon { padding: 9px 12px; gap: 8px; }
+    .deck-ribbon__btn { padding: 10px 14px; font-size: 11px; min-width: 86px; min-height: 42px; }
+    .deck-ribbon__progress { font-size: 11px; padding: 8px 12px; }
+}
+@media print {
+    .deck-ribbon { display: none !important; }
+    .slide { padding-bottom: var(--slide-padding, 2rem) !important; }
+}
+
+/* RESPONSIVE */
+@media (max-height: 820px) {
+    :root {
+        --slide-padding: clamp(0.9rem, 2.3vw, 2rem);
+        --content-gap: clamp(0.7rem, 1.5vw, 1.2rem);
+        --display-1: clamp(2rem, 6vw, 4.6rem);
+        --display-2: clamp(1.4rem, 3.2vw, 2.5rem);
+        --display-3: clamp(1.05rem, 2.1vw, 1.6rem);
+    }
+}
+@media (max-height: 760px) {
+    :root {
+        --slide-padding: clamp(0.85rem, 2.1vw, 1.8rem);
+        --content-gap: clamp(0.6rem, 1.4vw, 1.05rem);
+        --display-1: clamp(1.9rem, 5.6vw, 4.2rem);
+        --display-2: clamp(1.3rem, 3vw, 2.3rem);
+    }
+}
+@media (max-height: 720px) {
+    :root {
+        --slide-padding: clamp(0.8rem, 2vw, 1.6rem);
+        --content-gap: clamp(0.55rem, 1.2vw, 0.95rem);
+        --display-1: clamp(1.7rem, 5.2vw, 3.8rem);
+        --display-2: clamp(1.2rem, 2.8vw, 2.1rem);
+    }
+    .shift-pct { font-size: clamp(2.8rem, 7.5vw, 5rem); }
+}
+@media (max-height: 640px) {
+    :root {
+        --display-1: clamp(1.5rem, 4.8vw, 3.2rem);
+        --display-2: clamp(1.1rem, 2.6vw, 1.9rem);
+    }
+    .slide-header, .slide-footer { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+}
+@media (max-width: 900px) {
+    .split-grid { grid-template-columns: 1fr !important; gap: clamp(0.8rem, 2vw, 1.4rem); }
+}
+@media (max-width: 768px) {
+    :root {
+        --slide-padding: clamp(0.85rem, 3.6vw, 1.4rem);
+        --display-1: clamp(1.9rem, 8vw, 3rem);
+        --display-2: clamp(1.3rem, 5.6vw, 2rem);
+        --display-3: clamp(1rem, 4.2vw, 1.4rem);
+    }
+    .slide-header__right { display: none; }
+    .slide-header { padding: 0.6rem 0.9rem; }
+    .slide-footer { padding: 0.55rem 0.9rem; font-size: 0.54rem; }
+    .cover-headline { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+    .cover-subline { font-size: clamp(0.85rem, 4vw, 1.1rem); }
+}
+
+/* PRINT */
+@media print {
+    html, body { background: white !important; height: auto !important; overflow: visible !important; }
+    .deck { position: relative !important; height: auto !important; overflow: visible !important; }
+    .slide {
+        position: relative !important; inset: auto !important;
+        opacity: 1 !important; transform: none !important; pointer-events: auto !important;
+        page-break-after: always; page-break-inside: avoid;
+        height: 100vh !important; max-height: 100vh !important;
+        padding-bottom: var(--slide-padding) !important;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .kbd-hint, .overview-label { display: none !important; }
+    .particle-canvas, .close-particles { display: none !important; }
+    .shift-bars .shift-bars__fill { width: var(--target, 0%) !important; transition: none !important; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; }
+    .shift-bars .shift-bars__fill { width: var(--target, 0%) !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+<!-- =========================================
+     SLIDE 01 — COVER
+     ========================================= -->
+<section class="slide dark has-brackets" data-title="Cover" data-particles="true">
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+    <canvas class="particle-canvas"></canvas>
+
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <div class="slide-header__right">
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+    </header>
+
+    <div class="cover-grid">
+        <div class="cover-hero">
+            <span class="eyebrow reveal"><span class="num">—</span> REVELATION AGENCY · CAPABILITIES DECK</span>
+            <h1 class="cover-headline reveal">SALES<br>GROWTH<br>ENGINE<span class="text-red">.</span></h1>
+            <p class="cover-subline reveal">
+                <span class="line"><span class="accent">Fill the pipeline</span><span class="dot">.</span></span>
+                <span class="line"><span class="accent">Close the pipeline</span><span class="dot">.</span></span>
+                <span class="line">One system<span class="dot">.</span></span>
+            </p>
+        </div>
+
+        <div class="meta-block reveal">
+            <span>BUILT BY REVELATION AGENCY</span>
+            <span class="sep">·</span>
+            <span>REVELATIONAGENCY.COM</span>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>01 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 02 — THE PROBLEM
+     ========================================= -->
+<section class="slide light" data-title="The Problem">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>02 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">01</span> THE PROBLEM</span>
+        <h2 class="display-2 reveal">YOUR BEST PEOPLE <span class="text-red">AREN'T SELLING.</span></h2>
+        <p class="lede reveal">The people you hired to grow your business spend most of their day on everything except growing your business. Admin, CRM updates, follow-up that should've gone out yesterday, deals that quietly went cold. Your team is selling at 20% capacity — and you can't see it until the month closes short.</p>
+
+        <ul class="bullet-list reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem); max-width: 78ch;">
+            <li class="bullet-item"><p>Reps spend 70% of their time on admin, follow-up, and CRM — not talking to customers.</p></li>
+            <li class="bullet-item"><p>Leads go cold because nobody follows up fast enough — or consistently enough.</p></li>
+            <li class="bullet-item"><p>Owners can't see what's actually happening until a deal's already lost.</p></li>
+            <li class="bullet-item"><p>The math: your team is selling at 20% capacity. Every month.</p></li>
+        </ul>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>02 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 03 — THE TWO HALVES
+     ========================================= -->
+<section class="slide dark" data-title="The Two Halves">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>03 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">02</span> THE SYSTEM</span>
+        <h2 class="display-2 reveal">ONE ENGINE. <span class="text-red">TWO JOBS.</span></h2>
+        <p class="lede reveal">Most sales tools fix one slice of the problem and leave the rest broken. The Sales Growth Engine is two purpose-built halves that work together — one fills the pipeline, the other closes it.</p>
+
+        <div class="engine-grid reveal" style="margin-top:clamp(0.5rem,1vw,0.9rem);">
+            <article class="engine-card">
+                <span class="engine-card__tag">Half One</span>
+                <h3 class="engine-card__title">Smart Acquisition Engine</h3>
+                <p class="engine-card__role">Finds your perfect prospects. Researches each one. Reaches out personally. Books meetings in your calendar.</p>
+                <p class="engine-card__body">No spray-and-pray templates. No burned-out lists. Every outreach is researched and written for the person receiving it — at a volume no human team could match.</p>
+            </article>
+            <article class="engine-card">
+                <span class="engine-card__tag">Half Two</span>
+                <h3 class="engine-card__title">Sales Performance Engine</h3>
+                <p class="engine-card__role">Listens to every call. Coaches every rep. Drafts every follow-up. Surfaces every stuck deal.</p>
+                <p class="engine-card__body">You finally see what's actually happening in your sales motion — what's working, what's stalling, what each rep needs to get better — without sitting through hundreds of calls yourself.</p>
+            </article>
+        </div>
+
+        <div class="engine-divider reveal">Together = Sales Growth Engine</div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>03 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 04 — MORE THAN AI
+     ========================================= -->
+<section class="slide dark" data-title="More Than AI">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>04 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">03</span> THE DIFFERENCE</span>
+        <h2 class="display-2 reveal">INTELLIGENCE TELLS YOU WHAT TO DO. <span class="text-red">OUR ENGINES DO IT.</span></h2>
+        <p class="lede reveal">This isn't a chatbot that hands you answers. It's a custom-built system, engineered around your business — three layers that work together so the work actually gets done, not just suggested.</p>
+
+        <div class="pillar-grid reveal" style="margin-top:clamp(0.5rem,1vw,0.9rem);">
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+                </div>
+                <span class="pillar__num">01 · INTELLIGENCE</span>
+                <h3 class="pillar__title">Premium Intelligence Layer</h3>
+                <p class="pillar__body">Frontier-grade AI tuned for sales work — knows your offer, your buyer, your objections. The fuel that powers everything else.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 12c0-4.4 3.6-8 8-8 2.5 0 4.7 1.1 6.2 2.9"/><path d="M20 12c0 4.4-3.6 8-8 8-2.5 0-4.7-1.1-6.2-2.9"/><path d="M16 3v4h4M8 21v-4H4"/></svg>
+                </div>
+                <span class="pillar__num">02 · AUTOMATION</span>
+                <h3 class="pillar__title">Workflow Automation</h3>
+                <p class="pillar__body">Not just AI talking — automated execution. Outreach goes out, calls get logged, follow-ups get drafted, pipeline updates itself. The work happens.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><circle cx="7" cy="17" r="0.6" fill="currentColor"/></svg>
+                </div>
+                <span class="pillar__num">03 · INFRASTRUCTURE</span>
+                <h3 class="pillar__title">Dedicated Infrastructure</h3>
+                <p class="pillar__body">Custom database, sending reputation, CRM integrations — built and owned, not borrowed. The engine runs reliably because it's actually engineered.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>04 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 05 — 20% TO 80%
+     ========================================= -->
+<section class="slide light" data-title="20 to 80">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>05 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">04</span> THE SHIFT</span>
+        <h2 class="display-2 reveal">FROM 20% SELLING TO <span class="text-red">80% SELLING.</span></h2>
+        <p class="lede reveal">Your reps don't need to be smarter. They need the rest of their day back. When the engine handles outreach, follow-up, CRM hygiene, and the prep work — your team does the one thing only they can do. Talk to customers.</p>
+
+        <div class="shift-stage reveal">
+            <div class="shift-col shift-col--before">
+                <span class="shift-col__tag">Today</span>
+                <div class="shift-pct">20<span style="font-size:0.55em;">%</span></div>
+                <span class="shift-col__label">Of time selling</span>
+                <div class="shift-bars shift-bars--before" data-target="20%"><div class="shift-bars__fill"></div></div>
+            </div>
+            <div class="shift-arrow" aria-hidden="true">→</div>
+            <div class="shift-col shift-col--after">
+                <span class="shift-col__tag">With the Engine</span>
+                <div class="shift-pct">80<span style="font-size:0.55em;">%</span></div>
+                <span class="shift-col__label">Of time selling</span>
+                <div class="shift-bars" data-target="80%"><div class="shift-bars__fill"></div></div>
+            </div>
+        </div>
+
+        <p class="closing-line reveal" style="text-align:center; max-width: 70ch; margin-left:auto; margin-right:auto;">That's 4x more selling time — without hiring a single new person.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>05 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 06 — WHY THIS IS DIFFERENT (objection framing)
+     ========================================= -->
+<section class="slide dark" data-title="Why This Is Different">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>06 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">05</span> POSITIONING</span>
+        <h2 class="display-2 reveal">WHY THIS ISN'T LIKE THE OTHER <span class="text-red">AI YOU'VE SEEN.</span></h2>
+        <p class="lede reveal">You've probably been pitched something that sounded like this before. It wasn't this. Here's what we're not.</p>
+
+        <div class="split-grid split-grid--5-7 reveal" style="margin-top:clamp(0.4rem,0.9vw,0.7rem);">
+            <div class="split-left" style="justify-content:center;">
+                <div class="cross-grid">
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64"><rect class="icon-base" x="10" y="16" width="44" height="32" rx="3"/><path class="icon-base" d="M14 24h36M14 32h28M14 40h32"/></svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64"><line x1="8" y1="8" x2="56" y2="56"/><line x1="56" y1="8" x2="8" y2="56"/></svg>
+                        </div>
+                        <span class="cross-card__label">$150 Spray Tools</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64"><path class="icon-base" d="M12 50V28l20-14 20 14v22M12 50h40M22 50V38h20v12"/></svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64"><line x1="8" y1="8" x2="56" y2="56"/><line x1="56" y1="8" x2="8" y2="56"/></svg>
+                        </div>
+                        <span class="cross-card__label">Garage Operators</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64"><circle class="icon-base" cx="32" cy="22" r="10"/><path class="icon-base" d="M14 52c0-10 8-18 18-18s18 8 18 18"/></svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64"><line x1="8" y1="8" x2="56" y2="56"/><line x1="56" y1="8" x2="8" y2="56"/></svg>
+                        </div>
+                        <span class="cross-card__label">Generic Chatbots</span>
+                    </div>
+                    <div class="cross-card">
+                        <div class="cross-card__icon">
+                            <svg viewBox="0 0 64 64"><path class="icon-base" d="M12 44l12-12 8 8 20-20M44 20h8v8"/></svg>
+                            <svg class="cross-card__x" viewBox="0 0 64 64"><line x1="8" y1="8" x2="56" y2="56"/><line x1="56" y1="8" x2="8" y2="56"/></svg>
+                        </div>
+                        <span class="cross-card__label">Setup & Vanish</span>
+                    </div>
+                </div>
+            </div>
+            <div class="split-right" style="justify-content:center;">
+                <ul class="labeled-list">
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">CUSTOM-BUILT PER BUSINESS</span>
+                        <span class="labeled-bullet__body">Not a template. Not a SaaS login. Engineered around your offer, your buyer, your voice — so it sounds like you, not like every other AI.</span>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">RUN BY AN OPERATOR, NOT A LOGO</span>
+                        <span class="labeled-bullet__body">An accountable human owns the engine — tunes it, monitors it, answers when something needs adjusting. You have a phone number, not a ticket queue.</span>
+                    </li>
+                    <li class="labeled-bullet">
+                        <span class="labeled-bullet__label">BUILT ON REAL INFRASTRUCTURE</span>
+                        <span class="labeled-bullet__body">The same systems running real businesses today. Not a side project, not a hobby — production-grade tools you can stake a year of revenue on.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>06 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 07 — THE VALUE
+     ========================================= -->
+<section class="slide light" data-title="The Value">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>07 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">06</span> THE VALUE</span>
+        <h2 class="display-2 reveal">SENIOR-LEVEL SALES SUPPORT. <span class="text-red">PENNIES ON THE DOLLAR.</span></h2>
+        <p class="lede reveal">Compare what it would actually cost to staff this role across your team — and what it costs to have a system that does it instead.</p>
+
+        <div class="value-stack reveal" style="margin-top:clamp(0.4rem,0.9vw,0.7rem);">
+            <div class="value-row">
+                <span class="value-row__role">Hire One: Operations Manager</span>
+                <div class="value-row__price">$150K–$250K <span class="small">/ year</span></div>
+                <p class="value-row__body">One person, full-time, fully loaded — to oversee the pipeline, audit calls, surface stuck deals, and coach reps. If you can even find one who actually does it well.</p>
+            </div>
+            <div class="value-row">
+                <span class="value-row__role">Hire Many: An Assistant Per Rep</span>
+                <div class="value-row__price">$50K–$80K <span class="small">/ per rep, per year</span></div>
+                <p class="value-row__body">A real executive assistant for each rep — answering, scheduling, drafting follow-up, keeping the CRM clean. Multiply by your headcount.</p>
+            </div>
+            <div class="value-row value-row--highlight" style="grid-column: 1 / -1;">
+                <span class="value-row__role">Or: The Sales Growth Engine</span>
+                <div class="value-row__price">A fraction of either <span class="small">— and it covers both jobs</span></div>
+                <p class="value-row__body">Same senior-level support, every rep, every day, without the overhead. You keep the team you have. They just get superpowers.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>07 / 08</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 08 — CLOSE
+     ========================================= -->
+<section class="slide dark has-brackets" data-title="Close" data-particles="true">
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <span>08 / 08</span>
+    </header>
+
+    <div class="slide-body">
+        <canvas class="close-particles"></canvas>
+
+        <div class="close-stack reveal">
+            <div class="close-stack__left">
+                <span class="eyebrow"><span class="num">—</span> READY WHEN YOU ARE</span>
+                <h2 class="display-2">LET'S <span class="text-red">TALK.</span></h2>
+                <p class="lede">One 30-minute conversation tells us if this is a fit. I'll ask about your team, your pipeline, and what's eating your reps' time. You'll ask whatever you need to ask. No canned demo, no pressure.</p>
+
+                <div class="close-contact-bar">
+                    <a class="contact-item contact-item--link" href="tel:+15598000095">
+                        <span class="contact-item__key">Phone</span>
+                        <span class="contact-item__val">559-800-0095</span>
+                    </a>
+                    <a class="contact-item contact-item--link contact-item--email" href="mailto:blaine@revelationagency.com">
+                        <span class="contact-item__key">Email</span>
+                        <span class="contact-item__val">blaine@revelationagency.com</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="close-stack__right">
+                <a class="close-cta-btn" id="bookingCta"
+                   href="https://api.leadconnectorhq.com/widget/booking/xbsXZ260ceuKPHPn7zb6"
+                   target="_blank" rel="noopener noreferrer">
+                    <span class="close-cta-btn__label">Book a Strategy Session</span>
+                    <span class="close-cta-btn__arrow">→</span>
+                </a>
+
+                <p class="referred-by" id="referredBy">Referred by a trusted partner.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slide-footer">
+        <span>BLAINE McKENZIE · REVELATION AGENCY</span>
+        <span>08 / 08</span>
+    </footer>
+</section>
+
+</div><!-- /.deck -->
+
+<nav class="deck-ribbon" aria-label="Slide navigation" id="deckRibbon">
+    <button class="deck-ribbon__btn deck-ribbon__btn--prev" id="ribbonPrev" aria-label="Previous slide" disabled>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="deck-ribbon__btn-label">PREV</span>
+    </button>
+    <button class="deck-ribbon__progress" id="ribbonProgress" aria-label="Open slide overview">
+        <span class="deck-ribbon__current">01</span>
+        <span class="deck-ribbon__sep">/</span>
+        <span class="deck-ribbon__total">08</span>
+    </button>
+    <button class="deck-ribbon__btn deck-ribbon__btn--next" id="ribbonNext" aria-label="Next slide">
+        <span class="deck-ribbon__btn-label">NEXT</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</nav>
+
+<div class="kbd-hint" id="kbdHint">PRESS → OR TAP TO ADVANCE · ESC FOR OVERVIEW</div>
+<div class="overview-label">OVERVIEW — CLICK A SLIDE TO RESUME · ESC TO CLOSE</div>
+
+<script type="module">
+import { animate } from "https://cdn.jsdelivr.net/npm/motion@12/+esm";
+
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1];
+
+/* =========================================
+   REFERRAL ATTRIBUTION
+   - Captures ?ref=<partner-slug> from URL
+   - Propagates to booking link as ?ref + UTM params
+   - Updates "Referred by" footer copy when a known partner is detected
+   - Generic asset: still works without ?ref (drops to "trusted partner")
+   ========================================= */
+function applyReferralAttribution() {
+    const params = new URLSearchParams(window.location.search);
+    const ref = (params.get('ref') || '').trim().toLowerCase();
+
+    // Map of recognized partner slugs → display name for the footer line.
+    // Any unmapped slug still flows through to the booking link as utm_source;
+    // it just doesn't get a named display.
+    const partners = {
+        'bill-gerard': 'Bill Gerard',
+        'bill': 'Bill Gerard'
+    };
+
+    const cta = document.getElementById('bookingCta');
+    if (cta) {
+        try {
+            const u = new URL(cta.href);
+            if (ref) {
+                u.searchParams.set('ref', ref);
+                u.searchParams.set('utm_source', ref);
+                u.searchParams.set('utm_medium', 'referral');
+                u.searchParams.set('utm_campaign', 'sales-growth-engine');
+                // GHL booking widgets accept arbitrary query params and surface
+                // them as hidden fields / contact custom fields when configured.
+                u.searchParams.set('referred_by', ref);
+            }
+            cta.href = u.toString();
+        } catch (_) { /* no-op if URL constructor fails */ }
+    }
+
+    const footer = document.getElementById('referredBy');
+    if (footer && ref) {
+        const display = partners[ref];
+        footer.textContent = display
+            ? `Referred by ${display}.`
+            : 'Referred by a trusted partner.';
+    }
+}
+
+/* =========================================
+   PARTICLE FIELD
+   ========================================= */
+class ParticleField {
+    constructor(canvas, hostEl, opts = {}) {
+        this.canvas = canvas;
+        this.host = hostEl || canvas.parentElement;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.mouseX = 0; this.mouseY = 0;
+        this.parallaxX = 0; this.parallaxY = 0;
+        this.running = false; this.rafId = null;
+        this.dpr = window.devicePixelRatio || 1;
+        this.dotColor = opts.dotColor || 'rgba(201, 201, 197, 0.42)';
+        this.lineColor = opts.lineColor || 'rgba(201, 201, 197, ';
+        this.count = opts.count || 36;
+        this._onMove = this.onMouseMove.bind(this);
+        this._onResize = this.resize.bind(this);
+        this.resize();
+        this.init();
+        window.addEventListener('resize', this._onResize);
+        this.host.addEventListener('mousemove', this._onMove);
+    }
+    resize() {
+        const rect = this.canvas.getBoundingClientRect();
+        if (rect.width === 0) return;
+        this.w = rect.width; this.h = rect.height;
+        this.canvas.width = this.w * this.dpr;
+        this.canvas.height = this.h * this.dpr;
+        this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    }
+    init() {
+        const COUNT = this.count, RED = 3;
+        this.particles = [];
+        for (let i = 0; i < COUNT; i++) {
+            this.particles.push({
+                x: Math.random() * (this.w || 800),
+                y: Math.random() * (this.h || 600),
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: (Math.random() - 0.5) * 0.18,
+                r: 1.3 + Math.random() * 0.9,
+                red: i < RED
+            });
+        }
+    }
+    onMouseMove(e) {
+        const rect = this.host.getBoundingClientRect();
+        this.mouseX = e.clientX - rect.left - this.w / 2;
+        this.mouseY = e.clientY - rect.top - this.h / 2;
+    }
+    start() {
+        if (this.running) return;
+        this.resize();
+        if (this.particles.length === 0 || this.w === 0) this.init();
+        this.running = true;
+        this.loop();
+    }
+    stop() {
+        this.running = false;
+        if (this.rafId) cancelAnimationFrame(this.rafId);
+    }
+    loop() {
+        if (!this.running) return;
+        this.update(); this.draw();
+        this.rafId = requestAnimationFrame(() => this.loop());
+    }
+    update() {
+        this.parallaxX += (this.mouseX * 0.025 - this.parallaxX) * 0.04;
+        this.parallaxY += (this.mouseY * 0.025 - this.parallaxY) * 0.04;
+        for (const p of this.particles) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < -20) p.x = this.w + 20;
+            if (p.x > this.w + 20) p.x = -20;
+            if (p.y < -20) p.y = this.h + 20;
+            if (p.y > this.h + 20) p.y = -20;
+        }
+    }
+    draw() {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, this.w, this.h);
+        ctx.save();
+        ctx.translate(this.parallaxX, this.parallaxY);
+        const CONNECT = 110;
+        ctx.lineWidth = 1;
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const a = this.particles[i], b = this.particles[j];
+                const dx = a.x - b.x, dy = a.y - b.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECT) {
+                    const alpha = (1 - dist / CONNECT) * 0.18;
+                    ctx.strokeStyle = `${this.lineColor}${alpha})`;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        for (const p of this.particles) {
+            ctx.beginPath();
+            ctx.fillStyle = p.red ? 'rgba(215, 37, 50, 0.9)' : this.dotColor;
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+}
+
+class PresenterDeck {
+    constructor() {
+        this.deck = document.getElementById('deck');
+        this.slides = Array.from(this.deck.querySelectorAll('.slide'));
+        this.currentSlide = 0;
+        this.inOverview = false;
+        this.particleFields = new Map();
+        this.slideReveals = this.slides.map(slide => Array.from(slide.querySelectorAll('.reveal')));
+
+        this.setupRibbon();
+        this.setupKeyboard();
+        this.setupClicks();
+        this.setupTouch();
+        this.setupParticles();
+        this.setupKbdHint();
+
+        this.slides[0].classList.add('is-active');
+        this.render();
+    }
+
+    setupRibbon() {
+        this._rPrev = document.getElementById('ribbonPrev');
+        this._rNext = document.getElementById('ribbonNext');
+        const rProgress = document.getElementById('ribbonProgress');
+        this._rCurrent = rProgress?.querySelector('.deck-ribbon__current');
+        this._rTotal   = rProgress?.querySelector('.deck-ribbon__total');
+        if (this._rPrev) this._rPrev.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+        if (this._rNext) this._rNext.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+        if (rProgress)   rProgress.addEventListener('click',  (e) => { e.stopPropagation(); this.toggleOverview(); });
+    }
+
+    setupKeyboard() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (this.inOverview) {
+                if (e.key === 'Escape') { e.preventDefault(); this.toggleOverview(); }
+                return;
+            }
+            switch (e.key) {
+                case 'ArrowRight': case 'ArrowDown': case ' ': case 'PageDown':
+                    e.preventDefault(); this.next(); break;
+                case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                    e.preventDefault(); this.prev(); break;
+                case 'Home':
+                    e.preventDefault(); this.goTo(0); break;
+                case 'End':
+                    e.preventDefault(); this.goTo(this.slides.length - 1); break;
+                case 'Escape':
+                    e.preventDefault(); this.toggleOverview(); break;
+                case 'f': case 'F': this.toggleFullscreen(); break;
+                case 'p': case 'P': window.print(); break;
+            }
+        });
+    }
+
+    setupClicks() {
+        this.deck.addEventListener('click', (e) => {
+            if (this.inOverview) {
+                const slide = e.target.closest('.slide');
+                if (slide) {
+                    const idx = this.slides.indexOf(slide);
+                    if (idx > -1) { this.goTo(idx); this.toggleOverview(); }
+                }
+                return;
+            }
+            if (e.target.closest('button, a, input, textarea, .deck-ribbon')) return;
+            this.next();
+        });
+    }
+
+    setupTouch() {
+        let startX = 0, startY = 0;
+        this.deck.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+            startY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        this.deck.addEventListener('touchend', (e) => {
+            if (this.inOverview) return;
+            const dx = e.changedTouches[0].screenX - startX;
+            const dy = e.changedTouches[0].screenY - startY;
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+                if (dx < 0) this.next(); else this.prev();
+            }
+        }, { passive: true });
+    }
+
+    setupParticles() {
+        this.slides.forEach((slide, i) => {
+            if (slide.dataset.particles === 'true') {
+                const canvas = slide.querySelector('canvas.particle-canvas, canvas.close-particles');
+                if (canvas) {
+                    const field = new ParticleField(canvas, canvas.parentElement, {
+                        dotColor: 'rgba(201, 201, 197, 0.42)',
+                        lineColor: 'rgba(201, 201, 197, ',
+                        count: 36
+                    });
+                    this.particleFields.set(i, field);
+                }
+            }
+        });
+        if (this.particleFields.has(0)) {
+            requestAnimationFrame(() => this.particleFields.get(0).start());
+        }
+    }
+
+    setupKbdHint() {
+        this.kbdHint = document.getElementById('kbdHint');
+        const hide = () => this.kbdHint && this.kbdHint.classList.add('fade');
+        setTimeout(hide, 6000);
+        document.addEventListener('keydown', hide, { once: true });
+        this.deck.addEventListener('click', hide, { once: true });
+    }
+
+    next() { if (this.currentSlide < this.slides.length - 1) this.transitionToSlide(this.currentSlide + 1, 'forward'); }
+    prev() { if (this.currentSlide > 0) this.transitionToSlide(this.currentSlide - 1, 'backward'); }
+    goTo(slideIdx) {
+        slideIdx = Math.max(0, Math.min(this.slides.length - 1, slideIdx));
+        if (slideIdx === this.currentSlide) return;
+        this.transitionToSlide(slideIdx, 'jump');
+    }
+
+    transitionToSlide(newIdx, direction) {
+        const oldSlide = this.slides[this.currentSlide];
+        const newSlide = this.slides[newIdx];
+        const oldIdx = this.currentSlide;
+
+        if (this.particleFields.has(oldIdx)) this.particleFields.get(oldIdx).stop();
+        this.slideReveals[oldIdx].forEach(r => animate(r, { opacity: 0, y: 10 }, { duration: 0 }));
+        oldSlide.querySelectorAll('.shift-bars').forEach(b => b.classList.remove('is-animated'));
+
+        const dir = direction === 'backward' ? -1 : 1;
+        animate(oldSlide, { opacity: 0, x: -20 * dir }, { duration: 0.18, ease: 'linear' })
+            .then(() => oldSlide.classList.remove('is-active'));
+        newSlide.classList.add('is-active');
+        animate(newSlide, { opacity: [0, 1], x: [20 * dir, 0] }, { duration: 0.28, ease: EASE_OUT_EXPO });
+
+        this.currentSlide = newIdx;
+        this.slideReveals[newIdx].forEach(r => animate(r, { opacity: 0, y: 10 }, { duration: 0 }));
+
+        if (this.particleFields.has(newIdx)) {
+            requestAnimationFrame(() => this.particleFields.get(newIdx).start());
+        }
+        this.render();
+    }
+
+    render() {
+        const reveals = this.slideReveals[this.currentSlide];
+        reveals.forEach((el, i) => {
+            const delay = 0.12 + i * 0.06;
+            animate(el, { opacity: [0, 1], y: [10, 0] }, { duration: 0.55, ease: EASE_OUT_EXPO, delay });
+        });
+        // Animate shift-bars (Slide 05) when active
+        const activeSlide = this.slides[this.currentSlide];
+        const shiftBars = activeSlide.querySelectorAll('.shift-bars');
+        if (shiftBars.length) {
+            shiftBars.forEach((bar, i) => {
+                const target = bar.dataset.target || '0%';
+                bar.style.setProperty('--target', target);
+                setTimeout(() => bar.classList.add('is-animated'), 600 + i * 150);
+            });
+        }
+        this.updateControls();
+    }
+
+    updateControls() {
+        if (this._rCurrent) {
+            const cur = this.currentSlide + 1;
+            const tot = this.slides.length;
+            this._rCurrent.textContent = String(cur).padStart(2, '0');
+            this._rTotal.textContent   = String(tot).padStart(2, '0');
+            this._rPrev.disabled = (this.currentSlide === 0);
+            this._rNext.disabled = (this.currentSlide === this.slides.length - 1);
+        }
+    }
+
+    toggleOverview() {
+        this.inOverview = !this.inOverview;
+        if (this.inOverview) this.enterOverview();
+        else this.exitOverview();
+    }
+    enterOverview() {
+        this.particleFields.forEach(f => f.stop());
+        const vw = window.innerWidth, vh = window.innerHeight;
+        const cols = 4, rows = 2, pad = 50, gap = 28;
+        const targetW = vw - pad * 2;
+        const slideW = (targetW - gap * (cols - 1)) / cols;
+        const scale = slideW / vw;
+        const slideH = vh * scale;
+        const totalH = slideH * rows + gap * (rows - 1);
+        const startY = (vh - totalH) / 2;
+        this.slides.forEach((slide, i) => {
+            const col = i % cols, row = Math.floor(i / cols);
+            const ox = pad + col * (slideW + gap);
+            const oy = startY + row * (slideH + gap);
+            slide.style.transform = `translate(${ox}px, ${oy}px) scale(${scale})`;
+        });
+        this.deck.classList.add('overview');
+    }
+    exitOverview() {
+        this.slides.forEach((slide) => { slide.style.transform = ''; });
+        this.deck.classList.remove('overview');
+        if (this.particleFields.has(this.currentSlide)) {
+            requestAnimationFrame(() => this.particleFields.get(this.currentSlide).start());
+        }
+    }
+
+    toggleFullscreen() {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+        else document.exitFullscreen?.();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    applyReferralAttribution();
+    new PresenterDeck();
+});
+</script>
+
+</body>
+</html>
