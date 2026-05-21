@@ -26,7 +26,6 @@
 <style>
 /* ===========================================
    REVELATION DESIGN SYSTEM v1.0 — TOKENS
-   (parity with /sales-intelligence)
    =========================================== */
 :root {
     --red: #D72532;
@@ -165,8 +164,8 @@ html, body {
 .display-3 { font-family: var(--font-display); font-weight: 700; font-size: var(--display-3); line-height: 1.08; text-transform: uppercase; }
 .lede {
     font-family: var(--font-body); font-weight: 400;
-    font-size: clamp(0.9rem, 1.05vw, 1.1rem); line-height: 1.5;
-    max-width: 60ch; color: var(--grey-mid);
+    font-size: clamp(0.92rem, 1.08vw, 1.13rem); line-height: 1.5;
+    max-width: 62ch; color: var(--grey-mid);
 }
 .slide.light .lede { color: var(--charcoal); }
 .slide.red .lede   { color: rgba(255,255,255,0.92); }
@@ -179,14 +178,13 @@ html, body {
 .closing-line {
     font-family: var(--font-body); font-style: italic;
     font-size: clamp(0.78rem, 0.98vw, 0.94rem); line-height: 1.55;
-    color: var(--grey-mid);
     margin-top: clamp(0.5rem, 1vw, 0.9rem);
-    max-width: 80ch; opacity: 0.92;
+    max-width: 80ch; opacity: 0.95;
     position: static !important; flex-shrink: 0;
 }
-.slide.dark .closing-line { color: rgba(255,255,255,0.78); }
-.slide.light .closing-line { color: var(--charcoal); opacity: 0.82; }
-.slide.red .closing-line { color: rgba(255,255,255,0.92); }
+.slide.dark .closing-line { color: rgba(255,255,255,0.82); }
+.slide.light .closing-line { color: var(--charcoal); opacity: 0.85; }
+.slide.red .closing-line { color: rgba(255,255,255,0.94); }
 
 .reveal { opacity: 0; will-change: opacity, transform; }
 
@@ -232,9 +230,10 @@ html, body {
 .split-grid--6-6 { grid-template-columns: 6fr 6fr; }
 .split-grid--5-7 { grid-template-columns: 5fr 7fr; }
 .split-grid--7-5 { grid-template-columns: 7fr 5fr; }
+.split-grid--4-6 { grid-template-columns: 4fr 6fr; }
 .split-left, .split-right { display: flex; flex-direction: column; gap: clamp(0.7rem, 1.4vw, 1.2rem); justify-content: center; min-width: 0; }
 
-.bullet-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.55rem, 1vw, 0.9rem); }
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.6rem, 1.1vw, 1rem); }
 .bullet-item {
     display: grid; grid-template-columns: clamp(18px, 1.8vw, 24px) 1fr;
     gap: clamp(0.5rem, 0.9vw, 0.85rem); align-items: baseline;
@@ -243,8 +242,8 @@ html, body {
     content: ''; width: clamp(14px, 1.4vw, 20px); height: 2px;
     background: var(--red); margin-top: 0.6em;
 }
-.bullet-item p { font-family: var(--font-body); font-size: var(--body); line-height: 1.5; }
-.slide.dark .bullet-item p { color: rgba(255,255,255,0.88); }
+.bullet-item p { font-family: var(--font-body); font-size: clamp(0.86rem, 1vw, 1.02rem); line-height: 1.5; }
+.slide.dark .bullet-item p { color: rgba(255,255,255,0.9); }
 .slide.light .bullet-item p { color: var(--charcoal); }
 .slide.red .bullet-item p { color: rgba(255,255,255,0.94); }
 .slide.red .bullet-item::before { background: var(--off-black); }
@@ -270,38 +269,51 @@ html, body {
 }
 
 /* ===========================================
-   PROBLEM STACK BARS (Slide 2 — animated)
+   PROBLEM SLIDE — BIGGER ANIMATED STACK BARS (20/80)
    =========================================== */
 .problem-stack {
     display: flex; flex-direction: column;
-    gap: clamp(0.55rem, 1.1vw, 0.95rem);
+    gap: clamp(0.85rem, 1.6vw, 1.3rem);
     width: 100%;
 }
 .problem-stack__head {
-    font-family: var(--font-body); font-weight: 700;
-    font-size: var(--eyebrow); letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    margin-bottom: clamp(0.25rem, 0.5vw, 0.45rem);
-    opacity: 0.78;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.78rem, 1vw, 0.95rem);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--off-black);
+    margin-bottom: clamp(0.1rem, 0.3vw, 0.25rem);
+}
+.problem-stack__sub {
+    font-family: var(--font-body); font-weight: 500;
+    font-size: clamp(0.78rem, 0.9vw, 0.92rem);
+    color: var(--charcoal); opacity: 0.85;
+    line-height: 1.45;
+    margin-top: clamp(0.2rem, 0.4vw, 0.35rem);
+}
+.problem-stack__sub strong { color: var(--red); font-weight: 700; }
+.problem-bar-row {
+    display: grid;
+    grid-template-columns: 1fr clamp(3.2em, 5vw, 4.2em);
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+    align-items: center;
 }
 .problem-bar {
     position: relative;
-    height: clamp(44px, 5.4vw, 58px);
+    height: clamp(54px, 6.6vw, 76px);
     background: rgba(43,43,43,0.08);
     border-radius: 45px 0 45px 45px;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.3s ease;
 }
-.problem-bar:hover { transform: translateX(4px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+.problem-bar:hover { transform: translateX(4px); box-shadow: 0 12px 30px rgba(0,0,0,0.14); }
 .problem-bar__fill {
     position: absolute; top: 0; bottom: 0; left: 0;
     width: 0;
     border-radius: inherit;
     display: flex; align-items: center;
-    padding-left: clamp(0.9rem, 1.6vw, 1.3rem);
+    padding-left: clamp(1rem, 1.8vw, 1.4rem);
     overflow: hidden;
-    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: width;
     background: var(--bar-color, var(--red));
 }
@@ -321,153 +333,50 @@ html, body {
 @keyframes problemEdgePulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
 .problem-bar__label {
     font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(0.74rem, 1vw, 0.95rem);
+    font-size: clamp(0.82rem, 1.1vw, 1.05rem);
     letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--white); white-space: nowrap; line-height: 1;
 }
-.problem-bar-row {
-    display: grid;
-    grid-template-columns: 1fr clamp(2.6em, 4.2vw, 3.5em);
-    gap: clamp(0.55rem, 1vw, 0.9rem);
-    align-items: center;
-}
 .problem-bar-row__pct {
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(1rem, 1.4vw, 1.25rem);
-    letter-spacing: 0.02em;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
+    letter-spacing: 0.01em;
     color: var(--off-black);
     line-height: 1; text-align: left;
 }
 
-/* ===========================================
-   PIPELINE FLOW (Slide 3 right column — vertical pipe)
-   =========================================== */
-.pipeline-flow {
-    display: flex; flex-direction: column;
-    align-items: center;
-    gap: 0; width: 100%;
-    max-width: 280px; margin: 0 auto;
-}
-.pipe-node {
-    width: 100%;
-    padding: clamp(0.45rem, 0.9vw, 0.7rem) clamp(0.7rem, 1.2vw, 1rem);
-    border: 1px solid var(--grey-line-dark);
-    background: rgba(255,255,255,0.04);
-    border-radius: 4px;
-    font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(0.62rem, 0.78vw, 0.78rem);
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    text-align: center;
-    line-height: 1.15;
-}
-.pipe-node--source {
-    color: var(--grey-mid);
-    border-style: dashed;
-    background: transparent;
-}
-.pipe-node--engine {
-    background: linear-gradient(135deg, rgba(215,37,50,0.22), rgba(215,37,50,0.06));
-    border-color: var(--red);
-    color: var(--white);
-    font-weight: 800;
-    padding: clamp(0.55rem, 1.1vw, 0.85rem) clamp(0.7rem, 1.2vw, 1rem);
-    box-shadow: 0 8px 22px rgba(215,37,50,0.18);
-}
-.pipe-node--win {
-    background: var(--red);
-    border-color: var(--red);
-    color: var(--white);
-    font-weight: 900;
-}
-.pipe-link {
-    width: 2px;
-    height: clamp(16px, 2.6vh, 26px);
-    background: rgba(215,37,50,0.35);
-    position: relative;
-    overflow: hidden;
-}
-.pipe-link__dot {
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--white);
-    box-shadow: 0 0 10px rgba(215,37,50,1);
-    animation: pipeFlow 2.4s linear infinite;
-    animation-delay: calc(var(--i, 0) * -0.6s);
-}
-@keyframes pipeFlow {
-    0%   { top: -8px; opacity: 0; }
-    15%  { opacity: 1; }
-    85%  { opacity: 1; }
-    100% { top: calc(100% + 4px); opacity: 0; }
-}
-
-/* ===========================================
-   ENGINE OVERVIEW CARDS (Slide 3 left column — compact)
-   =========================================== */
-.engine-stack {
-    display: flex; flex-direction: column;
-    gap: clamp(0.7rem, 1.4vw, 1.1rem);
-}
-.engine-card {
-    position: relative;
-    border: 1px solid var(--grey-line-dark);
-    background: rgba(255,255,255,0.025);
-    border-radius: var(--radius-card);
-    padding: clamp(0.85rem, 1.6vw, 1.2rem);
-    display: flex; flex-direction: column;
-    gap: clamp(0.4rem, 0.8vw, 0.6rem);
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-.engine-card::before {
-    content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
-    background: var(--red);
-}
-.engine-card:hover { border-color: var(--red); transform: translateX(4px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
-.engine-card__tag {
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(0.6rem, 0.74vw, 0.72rem);
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--red);
-}
-.engine-card__title {
-    font-family: var(--font-display); font-weight: 900;
-    font-size: clamp(0.98rem, 1.45vw, 1.25rem);
-    letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.05;
-    color: var(--white);
-}
-.engine-card__role {
-    font-family: var(--font-body); font-weight: 500;
-    font-size: clamp(0.78rem, 0.92vw, 0.9rem);
-    color: rgba(255,255,255,0.85); line-height: 1.45;
-}
-
-.engine-divider {
-    text-align: center;
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(0.7rem, 0.88vw, 0.82rem);
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--red);
+/* Hours-of-the-day mini visualization below bars */
+.day-hours {
+    display: flex; align-items: center;
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
     margin-top: clamp(0.3rem, 0.7vw, 0.55rem);
-    display: flex; align-items: center; gap: 0.85em; justify-content: center;
 }
-.engine-divider::before, .engine-divider::after {
-    content: ''; height: 1px; flex: 1; max-width: 80px;
-    background: rgba(255,255,255,0.18);
+.day-hours__cells {
+    display: grid; grid-template-columns: repeat(8, 1fr);
+    gap: clamp(2px, 0.3vw, 4px);
+    flex: 1;
+}
+.day-hours__cell {
+    aspect-ratio: 1 / 1.4;
+    background: rgba(43,43,43,0.12);
+    border-radius: 2px;
+    max-height: clamp(20px, 2.6vw, 28px);
+}
+.day-hours__cell--sell { background: var(--red); }
+.day-hours__label {
+    font-family: var(--font-body); font-style: italic;
+    font-size: clamp(0.7rem, 0.85vw, 0.82rem);
+    color: var(--charcoal); opacity: 0.85;
+    white-space: nowrap;
 }
 
 /* ===========================================
-   STEP FLOW (Slides 4 + 5 — horizontal pipeline)
+   STEP FLOW (Smart Acquisition + Sales Performance siblings)
    =========================================== */
 .step-flow {
     display: grid;
     grid-template-columns: repeat(var(--steps, 4), 1fr);
-    gap: clamp(1.6rem, 3vw, 2.4rem);
+    gap: clamp(1.4rem, 2.8vw, 2.2rem);
     align-items: stretch;
     position: relative;
     width: 100%;
@@ -475,10 +384,10 @@ html, body {
 .step-card {
     position: relative;
     border: 1px solid var(--grey-line-dark);
-    background: linear-gradient(155deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-    padding: clamp(0.7rem, 1.4vw, 1.1rem);
+    background: linear-gradient(155deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    padding: clamp(0.7rem, 1.3vw, 1.05rem);
     display: flex; flex-direction: column;
-    gap: clamp(0.35rem, 0.7vw, 0.55rem);
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
     border-radius: 4px;
     transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     min-width: 0;
@@ -486,15 +395,15 @@ html, body {
 .step-card:hover { border-color: var(--red); transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
 .step-card::before {
     content: ''; position: absolute; top: 50%;
-    right: calc(-1 * clamp(1.6rem, 3vw, 2.4rem));
-    width: clamp(1.6rem, 3vw, 2.4rem); height: 2px;
+    right: calc(-1 * clamp(1.4rem, 2.8vw, 2.2rem));
+    width: clamp(1.4rem, 2.8vw, 2.2rem); height: 2px;
     background: var(--red);
     transform: translateY(-50%);
     z-index: 0;
 }
 .step-card::after {
     content: ''; position: absolute; top: 50%;
-    right: calc(-1 * clamp(1.6rem, 3vw, 2.4rem));
+    right: calc(-1 * clamp(1.4rem, 2.8vw, 2.2rem));
     width: 8px; height: 8px;
     border-radius: 50%;
     background: var(--white);
@@ -507,18 +416,18 @@ html, body {
 }
 .step-card:last-child::before, .step-card:last-child::after { display: none; }
 @keyframes stepFlow {
-    0%   { right: calc(-1 * clamp(1.6rem, 3vw, 2.4rem)); opacity: 0; }
+    0%   { right: calc(-1 * clamp(1.4rem, 2.8vw, 2.2rem)); opacity: 0; }
     15%  { opacity: 1; }
     85%  { opacity: 1; }
     100% { right: -8px; opacity: 0; }
 }
 .step-card__num {
     font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(0.6rem, 0.74vw, 0.72rem);
+    font-size: clamp(0.58rem, 0.72vw, 0.7rem);
     letter-spacing: 0.22em; color: var(--red);
 }
 .step-card__icon {
-    width: clamp(28px, 3.6vw, 40px); height: clamp(28px, 3.6vw, 40px);
+    width: clamp(28px, 3.4vw, 38px); height: clamp(28px, 3.4vw, 38px);
     color: var(--red); margin-top: clamp(0.1rem, 0.3vw, 0.25rem);
 }
 .step-card__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -530,75 +439,207 @@ html, body {
 }
 .step-card__body {
     font-family: var(--font-body);
-    font-size: clamp(0.72rem, 0.85vw, 0.84rem);
-    line-height: 1.4; color: rgba(255,255,255,0.85);
+    font-size: clamp(0.7rem, 0.83vw, 0.82rem);
+    line-height: 1.42; color: rgba(255,255,255,0.85);
 }
 
 /* ===========================================
-   LAYER STACK (Slide 6 — three layers stacked)
+   DUAL-TRACK (Sales Performance: Rep + Owner interconnected)
    =========================================== */
-.layer-stack {
-    display: flex; flex-direction: column;
-    gap: 0;
-    width: 100%; max-width: 640px;
-    margin: 0 auto;
-    flex-shrink: 0;
+.dual-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.55rem, 1.1vw, 0.95rem) clamp(0.7rem, 1.4vw, 1.15rem);
+    align-items: stretch;
+    width: 100%;
 }
-.layer {
-    position: relative;
+.dual-track__label {
+    grid-column: 1 / -1;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.64rem, 0.8vw, 0.76rem);
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--red);
+    display: flex; align-items: center; gap: 0.9em;
+}
+.dual-track__label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(215,37,50,0.55), rgba(215,37,50,0));
+}
+.dual-card {
     border: 1px solid var(--grey-line-dark);
     background: linear-gradient(155deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-    padding: clamp(0.8rem, 1.5vw, 1.15rem) clamp(1rem, 2vw, 1.6rem);
-    display: grid; grid-template-columns: clamp(38px, 4.2vw, 52px) 1fr;
-    gap: clamp(0.7rem, 1.4vw, 1.2rem);
-    align-items: center;
-    border-radius: 6px;
+    padding: clamp(0.6rem, 1.2vw, 0.95rem);
+    border-radius: 4px;
+    display: flex; flex-direction: column;
+    gap: clamp(0.25rem, 0.5vw, 0.4rem);
+    min-width: 0;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
-.layer:hover { border-color: var(--red); transform: translateX(4px); }
-.layer__icon {
-    width: 100%; aspect-ratio: 1; color: var(--red);
-    display: flex; align-items: center; justify-content: center;
-}
-.layer__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.layer__meta { display: flex; flex-direction: column; gap: 0.18em; min-width: 0; }
-.layer__num {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(0.6rem, 0.74vw, 0.72rem);
-    letter-spacing: 0.22em;
-    color: var(--red);
-}
-.layer__title {
+.dual-card:hover { border-color: var(--red); transform: translateY(-3px); }
+.dual-card__icon { width: clamp(22px, 2.8vw, 30px); height: clamp(22px, 2.8vw, 30px); color: var(--red); }
+.dual-card__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dual-card__title {
     font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
-    letter-spacing: 0.04em; text-transform: uppercase;
+    font-size: clamp(0.7rem, 0.9vw, 0.86rem);
+    letter-spacing: 0.05em; text-transform: uppercase;
     color: var(--white); line-height: 1.1;
 }
-.layer__body {
+.dual-card__body {
     font-family: var(--font-body);
-    font-size: clamp(0.78rem, 0.9vw, 0.88rem);
-    line-height: 1.45; color: rgba(255,255,255,0.88);
-    margin-top: 0.1em;
+    font-size: clamp(0.66rem, 0.78vw, 0.77rem);
+    line-height: 1.4; color: rgba(255,255,255,0.82);
 }
-.layer-link {
-    width: 2px; height: clamp(16px, 2.6vh, 28px);
-    background: rgba(215,37,50,0.35);
-    margin: 0 auto;
+.dual-link {
+    height: clamp(20px, 2.8vh, 30px);
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+}
+.dual-link__line {
+    width: 2px; height: 100%;
+    background: rgba(215,37,50,0.4);
     position: relative;
     overflow: hidden;
 }
-.layer-link__bolt {
-    position: absolute; left: 50%;
+.dual-link__bolt {
+    position: absolute; top: -6px; left: 50%;
     transform: translateX(-50%);
-    top: -8px;
-    width: 8px; height: 8px;
-    background: var(--white);
+    width: 6px; height: 6px;
     border-radius: 50%;
-    box-shadow: 0 0 14px var(--red);
-    animation: layerBolt 2.4s linear infinite;
-    animation-delay: calc(var(--i, 0) * -0.8s);
+    background: var(--white);
+    box-shadow: 0 0 8px var(--red);
+    animation: dualBolt 2.4s linear infinite;
+    animation-delay: calc(var(--i, 0) * -0.6s);
 }
-@keyframes layerBolt {
+@keyframes dualBolt {
+    0%   { top: -6px; opacity: 0; }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { top: calc(100% + 4px); opacity: 0; }
+}
+
+/* ===========================================
+   TWO JOBS SYNTHESIS — engine cards + pipeline + handoff
+   =========================================== */
+.engine-stack {
+    display: flex; flex-direction: column;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+.engine-card {
+    position: relative;
+    border: 1px solid var(--grey-line-dark);
+    background: rgba(255,255,255,0.025);
+    border-radius: var(--radius-card);
+    padding: clamp(0.7rem, 1.4vw, 1.05rem) clamp(0.85rem, 1.6vw, 1.2rem);
+    display: flex; flex-direction: column;
+    gap: clamp(0.3rem, 0.6vw, 0.5rem);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.engine-card::before {
+    content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+    background: var(--red);
+}
+.engine-card:hover { border-color: var(--red); transform: translateX(4px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
+.engine-card__tag {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.58rem, 0.74vw, 0.72rem);
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--red);
+}
+.engine-card__title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(0.95rem, 1.4vw, 1.22rem);
+    letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.05;
+    color: var(--white);
+}
+.engine-card__role {
+    font-family: var(--font-body); font-weight: 500;
+    font-size: clamp(0.76rem, 0.9vw, 0.88rem);
+    color: rgba(255,255,255,0.85); line-height: 1.45;
+}
+.engine-divider {
+    text-align: center;
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--red);
+    margin-top: clamp(0.4rem, 0.9vw, 0.7rem);
+    display: flex; align-items: center; gap: 0.85em; justify-content: center;
+}
+.engine-divider::before, .engine-divider::after {
+    content: ''; height: 1px; flex: 1; max-width: 80px;
+    background: rgba(255,255,255,0.18);
+}
+
+.handoff-callout {
+    border-left: 3px solid var(--red);
+    padding: clamp(0.55rem, 1.1vw, 0.9rem) clamp(0.85rem, 1.6vw, 1.2rem);
+    background: rgba(215,37,50,0.06);
+    border-radius: 0 4px 4px 0;
+    grid-column: 1 / -1;
+}
+.handoff-callout__lead {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: clamp(0.85rem, 1vw, 0.98rem);
+    color: var(--white); line-height: 1.45;
+    margin-bottom: clamp(0.3rem, 0.6vw, 0.5rem);
+}
+.handoff-callout__list {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.4rem, 0.9vw, 0.7rem) clamp(0.9rem, 1.8vw, 1.4rem);
+    font-family: var(--font-body); font-size: clamp(0.74rem, 0.86vw, 0.86rem);
+    color: rgba(255,255,255,0.85); line-height: 1.4;
+}
+.handoff-callout__list li::before {
+    content: '→ ';
+    color: var(--red); font-weight: 700; margin-right: 0.15em;
+}
+.handoff-callout em { color: var(--white); font-style: normal; font-weight: 600; }
+
+/* Pipeline flow (used as small visual on Two Jobs slide) */
+.pipeline-flow {
+    display: flex; flex-direction: column;
+    align-items: center;
+    gap: 0; width: 100%;
+    max-width: 260px; margin: 0 auto;
+}
+.pipe-node {
+    width: 100%;
+    padding: clamp(0.4rem, 0.85vw, 0.65rem) clamp(0.7rem, 1.2vw, 1rem);
+    border: 1px solid var(--grey-line-dark);
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.6rem, 0.74vw, 0.74rem);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    line-height: 1.15;
+}
+.pipe-node--source { color: var(--grey-mid); border-style: dashed; background: transparent; }
+.pipe-node--engine {
+    background: linear-gradient(135deg, rgba(215,37,50,0.22), rgba(215,37,50,0.06));
+    border-color: var(--red); color: var(--white); font-weight: 800;
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.7rem, 1.2vw, 1rem);
+    box-shadow: 0 8px 22px rgba(215,37,50,0.18);
+}
+.pipe-node--win { background: var(--red); border-color: var(--red); color: var(--white); font-weight: 900; }
+.pipe-link {
+    width: 2px;
+    height: clamp(14px, 2.2vh, 22px);
+    background: rgba(215,37,50,0.35);
+    position: relative;
+    overflow: hidden;
+}
+.pipe-link__dot {
+    position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--white); box-shadow: 0 0 10px rgba(215,37,50,1);
+    animation: pipeFlow 2.4s linear infinite;
+    animation-delay: calc(var(--i, 0) * -0.6s);
+}
+@keyframes pipeFlow {
     0%   { top: -8px; opacity: 0; }
     15%  { opacity: 1; }
     85%  { opacity: 1; }
@@ -606,7 +647,129 @@ html, body {
 }
 
 /* ===========================================
-   20% → 80% SHIFT (Slide 7)
+   INTELLIGENCE HUB (4 elements + central engine core)
+   =========================================== */
+.hub-graphic {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr clamp(150px, 22vw, 230px) 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: clamp(0.7rem, 1.5vw, 1.2rem) clamp(0.85rem, 1.8vw, 1.4rem);
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    align-items: stretch;
+    justify-items: stretch;
+    flex: 1; min-height: 0;
+}
+.hub-graphic::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; height: 80%;
+    background: radial-gradient(ellipse at center, rgba(215,37,50,0.15) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hub-card {
+    position: relative;
+    border: 1px solid var(--grey-line-dark);
+    background: linear-gradient(155deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+    padding: clamp(0.65rem, 1.3vw, 1rem) clamp(0.85rem, 1.6vw, 1.2rem);
+    border-radius: 6px;
+    display: grid; grid-template-columns: clamp(28px, 3.2vw, 36px) 1fr;
+    gap: clamp(0.55rem, 1.1vw, 0.9rem);
+    align-items: center;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+    min-width: 0;
+}
+.hub-card:hover { border-color: var(--red); transform: scale(1.025); }
+.hub-card__icon { width: 100%; aspect-ratio: 1; color: var(--red); display: flex; align-items: center; justify-content: center; }
+.hub-card__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hub-card__meta { display: flex; flex-direction: column; gap: 0.15em; min-width: 0; }
+.hub-card__num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(0.56rem, 0.7vw, 0.66rem);
+    letter-spacing: 0.22em; color: var(--red);
+}
+.hub-card__title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.78rem, 1vw, 0.95rem);
+    letter-spacing: 0.03em; text-transform: uppercase;
+    color: var(--white); line-height: 1.05;
+}
+.hub-card__body {
+    font-family: var(--font-body);
+    font-size: clamp(0.68rem, 0.8vw, 0.8rem);
+    line-height: 1.42; color: rgba(255,255,255,0.86);
+    margin-top: 0.18em;
+}
+.hub-card--tl { grid-column: 1; grid-row: 1; }
+.hub-card--tr { grid-column: 3; grid-row: 1; }
+.hub-card--bl { grid-column: 1; grid-row: 2; }
+.hub-card--br { grid-column: 3; grid-row: 2; }
+.hub-core {
+    grid-column: 2; grid-row: 1 / -1;
+    align-self: center; justify-self: center;
+    width: 100%; max-width: clamp(150px, 20vw, 220px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--red), var(--red-deep));
+    box-shadow: 0 0 28px rgba(215,37,50,0.55), 0 0 70px rgba(215,37,50,0.18);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--white); text-align: center;
+    z-index: 2;
+    animation: corePulse 3.2s ease-in-out infinite;
+    padding: clamp(0.6rem, 1.2vw, 1rem);
+}
+@keyframes corePulse {
+    0%, 100% { box-shadow: 0 0 28px rgba(215,37,50,0.55), 0 0 70px rgba(215,37,50,0.18); transform: scale(1); }
+    50%      { box-shadow: 0 0 40px rgba(215,37,50,0.78), 0 0 90px rgba(215,37,50,0.32); transform: scale(1.03); }
+}
+.hub-core__label {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(0.88rem, 1.3vw, 1.15rem);
+    letter-spacing: 0.14em; line-height: 1;
+}
+.hub-core__sub {
+    font-family: var(--font-body); font-weight: 600;
+    font-size: clamp(0.56rem, 0.72vw, 0.68rem);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    margin-top: clamp(0.3rem, 0.6vw, 0.45rem);
+    line-height: 1.2;
+    max-width: 14ch;
+}
+/* Connector arrows from each card pointing toward center */
+.hub-card::after {
+    content: '';
+    position: absolute; top: 50%;
+    width: clamp(0.6rem, 1.4vw, 1.1rem); height: 2px;
+    background: linear-gradient(var(--dir, 90deg), var(--red), rgba(215,37,50,0));
+    transform: translateY(-50%);
+    z-index: 0;
+}
+.hub-card--tl::after, .hub-card--bl::after { right: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: 90deg; background: linear-gradient(90deg, rgba(215,37,50,0), var(--red)); }
+.hub-card--tr::after, .hub-card--br::after { left: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: -90deg; background: linear-gradient(90deg, var(--red), rgba(215,37,50,0)); }
+
+@media (max-width: 900px) {
+    .hub-graphic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto clamp(120px, 24vw, 180px) auto;
+        gap: clamp(0.6rem, 1.4vw, 1rem);
+    }
+    .hub-card--tl { grid-column: 1; grid-row: 1; }
+    .hub-card--tr { grid-column: 2; grid-row: 1; }
+    .hub-card--bl { grid-column: 1; grid-row: 3; }
+    .hub-card--br { grid-column: 2; grid-row: 3; }
+    .hub-core    { grid-column: 1 / -1; grid-row: 2; max-width: clamp(110px, 22vw, 170px); }
+    .hub-card::after { display: none; }
+}
+
+/* ===========================================
+   20% → 80% SHIFT — with phone vs computer figures
    =========================================== */
 .shift-stage {
     display: grid; grid-template-columns: 1fr auto 1fr;
@@ -614,27 +777,34 @@ html, body {
     align-items: center; width: 100%;
     margin-top: clamp(0.4rem, 1vw, 0.8rem);
 }
-.shift-col { display: flex; flex-direction: column; gap: clamp(0.55rem, 1.1vw, 0.95rem); align-items: center; text-align: center; }
+.shift-col { display: flex; flex-direction: column; gap: clamp(0.45rem, 0.95vw, 0.8rem); align-items: center; text-align: center; }
 .shift-col__tag {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: var(--eyebrow); letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--charcoal); opacity: 0.7;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(0.66rem, 0.85vw, 0.78rem); letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--charcoal);
 }
-.shift-col--after .shift-col__tag { color: var(--red); opacity: 1; }
+.shift-col--after .shift-col__tag { color: var(--red); }
+.shift-col__figure {
+    width: clamp(56px, 7vw, 84px); height: clamp(56px, 7vw, 84px);
+    color: var(--charcoal); opacity: 0.55;
+}
+.shift-col--after .shift-col__figure { color: var(--red); opacity: 1; }
+.shift-col__figure svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .shift-pct {
     font-family: var(--font-display); font-weight: 900;
     font-size: clamp(3.2rem, 9vw, 6.4rem);
     line-height: 1; letter-spacing: -0.03em;
     color: var(--off-black);
 }
-.shift-col--before .shift-pct { color: var(--charcoal); opacity: 0.4; }
-.shift-col--after  .shift-pct { color: var(--red); text-shadow: 0 0 22px rgba(215,37,50,0.25); }
+.shift-col--before .shift-pct { color: var(--charcoal); opacity: 0.45; }
+.shift-col--after  .shift-pct { color: var(--red); text-shadow: 0 0 22px rgba(215,37,50,0.22); }
 .shift-col__label {
     font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(0.76rem, 0.95vw, 0.9rem);
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
     letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--charcoal); opacity: 0.85;
+    color: var(--off-black);
 }
+.shift-col--before .shift-col__label { color: var(--charcoal); opacity: 0.85; }
 .shift-col--after .shift-col__label { color: var(--off-black); opacity: 1; }
 .shift-arrow {
     font-family: var(--font-display); font-weight: 900;
@@ -644,16 +814,17 @@ html, body {
 }
 .shift-bars { width: 100%; max-width: 220px; height: clamp(10px, 1.5vw, 14px); background: rgba(43,43,43,0.12); border-radius: 999px; overflow: hidden; position: relative; }
 .shift-bars__fill { position: absolute; inset: 0; background: var(--red); border-radius: inherit; width: 0; transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.shift-bars--before .shift-bars__fill { background: rgba(43,43,43,0.35); }
+.shift-bars--before .shift-bars__fill { background: rgba(43,43,43,0.45); }
 .shift-bars.is-animated .shift-bars__fill { width: var(--target, 0%); }
 
 @media (max-width: 768px) {
-    .shift-stage { grid-template-columns: 1fr; gap: clamp(0.5rem, 1.8vw, 0.9rem); }
+    .shift-stage { grid-template-columns: 1fr; gap: clamp(0.4rem, 1.4vw, 0.8rem); }
     .shift-arrow { transform: rotate(90deg); margin: 0.2rem auto; }
+    .shift-col__figure { width: clamp(48px, 12vw, 72px); height: clamp(48px, 12vw, 72px); }
 }
 
 /* ===========================================
-   CROSSED-OUT ICONS + LABELED LIST (Slide 8 — Why Different)
+   CROSSED-OUT ICONS + LABELED LIST (Why Different)
    =========================================== */
 .cross-grid {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -690,7 +861,7 @@ html, body {
 }
 
 /* ===========================================
-   VALUE STACK (Slide 9 — dark cards inverted on LIGHT slide)
+   VALUE STACK (LIGHT slide, dark cards)
    =========================================== */
 .value-stack {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -733,12 +904,14 @@ html, body {
 .value-row--highlight .value-row__body { color: rgba(255,255,255,0.95); }
 
 @media (max-width: 768px) {
-    .step-flow { grid-template-columns: 1fr; gap: clamp(0.55rem, 2vw, 0.85rem); }
+    .step-flow { grid-template-columns: 1fr; gap: clamp(0.5rem, 2vw, 0.8rem); }
     .step-card::before, .step-card::after { display: none; }
-    .engine-grid, .value-stack, .pillar-grid { grid-template-columns: 1fr !important; }
+    .dual-track { grid-template-columns: 1fr; }
+    .dual-link { display: none; }
+    .value-stack { grid-template-columns: 1fr !important; }
     .cross-grid { grid-template-columns: 1fr 1fr; max-width: 320px; }
     .value-row--highlight { grid-column: auto; }
-    .layer { grid-template-columns: clamp(36px, 10vw, 44px) 1fr; }
+    .handoff-callout__list { grid-template-columns: 1fr; }
 }
 
 /* ===========================================
@@ -807,69 +980,46 @@ html, body {
     .contact-item--email .contact-item__val { white-space: normal; overflow-wrap: anywhere; }
 }
 
-/* Calendar graphic */
 .cal-graphic {
-    width: 100%;
-    max-width: clamp(180px, 22vw, 240px);
-    aspect-ratio: 1.25 / 1;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100%; max-width: clamp(180px, 22vw, 240px);
+    aspect-ratio: 1.25 / 1; margin: 0 auto;
+    border-radius: 10px; overflow: hidden;
     box-shadow: 0 14px 32px rgba(0,0,0,0.45);
-    background: var(--white);
-    color: var(--off-black);
+    background: var(--white); color: var(--off-black);
     display: flex; flex-direction: column;
-    position: relative;
-    flex-shrink: 0;
+    position: relative; flex-shrink: 0;
 }
 .cal-graphic__header {
-    background: var(--red);
-    color: var(--white);
+    background: var(--red); color: var(--white);
     padding: clamp(0.35rem, 0.85vw, 0.6rem);
     font-family: var(--font-display); font-weight: 800;
     font-size: clamp(0.58rem, 0.78vw, 0.7rem);
     letter-spacing: 0.16em; text-transform: uppercase;
-    text-align: center;
-    line-height: 1;
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 0.5em;
+    text-align: center; line-height: 1;
+    display: flex; justify-content: space-between; align-items: center; gap: 0.5em;
 }
-.cal-graphic__header-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-}
+.cal-graphic__header-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.5); }
 .cal-graphic__grid {
     flex: 1;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    display: grid; grid-template-columns: repeat(7, 1fr);
     padding: clamp(0.35rem, 0.7vw, 0.55rem);
     gap: clamp(2px, 0.35vw, 4px);
     align-content: center;
 }
-.cal-graphic__day-header,
-.cal-graphic__day {
+.cal-graphic__day-header, .cal-graphic__day {
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display); font-weight: 700;
     font-size: clamp(0.52rem, 0.72vw, 0.66rem);
-    color: var(--charcoal);
-    border-radius: 3px;
-    aspect-ratio: 1;
-    line-height: 1;
+    color: var(--charcoal); border-radius: 3px;
+    aspect-ratio: 1; line-height: 1;
 }
-.cal-graphic__day-header {
-    color: var(--red);
-    font-size: clamp(0.48rem, 0.62vw, 0.58rem);
-    letter-spacing: 0.06em;
-    opacity: 0.8;
-}
+.cal-graphic__day-header { color: var(--red); font-size: clamp(0.48rem, 0.62vw, 0.58rem); letter-spacing: 0.06em; opacity: 0.8; }
 .cal-graphic__day { color: rgba(43,43,43,0.55); }
 .cal-graphic__day--past { color: rgba(43,43,43,0.28); text-decoration: line-through; }
 .cal-graphic__day--focus {
-    background: var(--red);
-    color: var(--white) !important;
-    position: relative;
+    background: var(--red); color: var(--white) !important;
+    position: relative; font-weight: 900;
     animation: calPulse 2.4s ease-in-out infinite;
-    font-weight: 900;
 }
 @keyframes calPulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(215,37,50,0.55); }
@@ -879,27 +1029,22 @@ html, body {
 .close-cta-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.8em;
     padding: clamp(0.9rem, 1.6vw, 1.2rem) clamp(1.4rem, 2.6vw, 2.2rem);
-    background: var(--red); color: var(--white);
-    text-decoration: none;
+    background: var(--red); color: var(--white); text-decoration: none;
     font-family: var(--font-display); font-weight: 800;
     font-size: clamp(0.88rem, 1.15vw, 1.05rem);
     letter-spacing: 0.18em; text-transform: uppercase;
     border-radius: var(--radius-asym);
     box-shadow: 0 10px 28px rgba(215,37,50,0.4);
     transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-    width: 100%;
-    text-align: center;
+    width: 100%; text-align: center;
     margin-top: clamp(0.5rem, 1vw, 0.85rem);
 }
-.close-cta-btn:hover {
-    background: var(--red-deep); transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(215,37,50,0.55);
-}
+.close-cta-btn:hover { background: var(--red-deep); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(215,37,50,0.55); }
 .close-cta-btn__arrow { font-weight: 900; transition: transform 0.25s ease; }
 .close-cta-btn:hover .close-cta-btn__arrow { transform: translateX(5px); }
 
 .referred-by {
-    display: none; /* hidden by default; JS reveals when ref param exists */
+    display: none;
     font-family: var(--font-body); font-style: italic;
     font-size: clamp(0.74rem, 0.88vw, 0.86rem);
     color: rgba(255,255,255,0.7);
@@ -992,6 +1137,9 @@ html, body {
 }
 
 /* RESPONSIVE — viewport heights */
+@media (max-height: 900px) {
+    .problem-bar { height: clamp(46px, 5.6vw, 64px); }
+}
 @media (max-height: 820px) {
     :root {
         --slide-padding: clamp(0.9rem, 2.3vw, 2rem);
@@ -1000,7 +1148,8 @@ html, body {
         --display-2: clamp(1.4rem, 3.2vw, 2.5rem);
         --display-3: clamp(1.05rem, 2.1vw, 1.6rem);
     }
-    .problem-bar { height: clamp(38px, 4.6vw, 50px); }
+    .problem-bar { height: clamp(42px, 5vw, 56px); }
+    .shift-col__figure { width: clamp(50px, 6vw, 70px); height: clamp(50px, 6vw, 70px); }
 }
 @media (max-height: 760px) {
     :root {
@@ -1009,10 +1158,10 @@ html, body {
         --display-1: clamp(1.9rem, 5.6vw, 4.2rem);
         --display-2: clamp(1.3rem, 3vw, 2.3rem);
     }
-    .problem-bar { height: clamp(34px, 4.2vw, 46px); }
+    .problem-bar { height: clamp(38px, 4.6vw, 50px); }
     .shift-pct { font-size: clamp(2.8rem, 7.5vw, 5rem); }
-    .layer { padding: clamp(0.6rem, 1.2vw, 0.9rem) clamp(0.85rem, 1.7vw, 1.3rem); }
-    .layer-link { height: clamp(12px, 2vh, 22px); }
+    .hub-core { max-width: clamp(120px, 16vw, 180px); }
+    .shift-col__figure { width: clamp(44px, 5.4vw, 60px); height: clamp(44px, 5.4vw, 60px); }
 }
 @media (max-height: 720px) {
     :root {
@@ -1021,9 +1170,9 @@ html, body {
         --display-1: clamp(1.7rem, 5.2vw, 3.8rem);
         --display-2: clamp(1.2rem, 2.8vw, 2.1rem);
     }
-    .problem-bar { height: clamp(32px, 4vw, 42px); }
+    .problem-bar { height: clamp(34px, 4vw, 44px); }
     .shift-pct { font-size: clamp(2.5rem, 7vw, 4.5rem); }
-    .layer-link { height: clamp(10px, 1.6vh, 18px); }
+    .hub-core { max-width: clamp(110px, 15vw, 160px); }
 }
 @media (max-height: 640px) {
     :root {
@@ -1031,16 +1180,19 @@ html, body {
         --display-2: clamp(1.1rem, 2.6vw, 1.9rem);
     }
     .slide-header, .slide-footer { padding-top: 0.45rem; padding-bottom: 0.45rem; }
-    .problem-bar { height: clamp(28px, 3.6vw, 36px); }
+    .problem-bar { height: clamp(30px, 3.6vw, 38px); }
 }
 @media (max-height: 568px) {
     .lede { font-size: clamp(0.78rem, 0.92vw, 0.88rem); }
     .closing-line { font-size: clamp(0.7rem, 0.88vw, 0.82rem); }
-    .layer__body, .step-card__body, .engine-card__role { font-size: clamp(0.7rem, 0.82vw, 0.8rem); }
+    .dual-card__body, .step-card__body, .hub-card__body, .engine-card__role { font-size: clamp(0.66rem, 0.78vw, 0.76rem); }
+    .hub-core { max-width: clamp(90px, 13vw, 130px); }
+    .hub-core__sub { display: none; }
 }
 
 @media (max-width: 900px) {
     .split-grid { grid-template-columns: 1fr !important; gap: clamp(0.7rem, 2vw, 1.2rem); }
+    .handoff-callout__list { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
     :root {
@@ -1130,7 +1282,7 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 02 — THE PROBLEM (animated stack bars)
+     SLIDE 02 — THE PROBLEM (20/80, balanced graphic)
      ========================================= -->
 <section class="slide light" data-title="The Problem">
     <header class="slide-header">
@@ -1145,10 +1297,10 @@ html, body {
     <div class="slide-body">
         <span class="eyebrow reveal"><span class="num">01</span> THE PROBLEM</span>
         <h2 class="display-2 reveal">YOUR BEST PEOPLE <span class="text-red">AREN'T SELLING.</span></h2>
-        <p class="lede reveal">The people you hired to grow your business spend most of their day on everything except growing your business. Your team is selling at 20% capacity — and you can't see it until the month closes short.</p>
 
-        <div class="split-grid split-grid--5-7 reveal" style="margin-top:clamp(0.3rem,0.7vw,0.6rem);">
-            <div class="split-left" style="justify-content:flex-start;">
+        <div class="split-grid split-grid--4-6 reveal" style="margin-top:clamp(0.2rem,0.5vw,0.4rem);">
+            <div class="split-left" style="justify-content:center;">
+                <p class="lede" style="margin-bottom:clamp(0.4rem,0.8vw,0.7rem);">The people you hired to grow your business spend most of their day on everything except growing it. Your team is selling at <strong style="color:var(--red);font-weight:700;">20% capacity</strong> — and you can't see it until the month closes short.</p>
                 <ul class="bullet-list">
                     <li class="bullet-item"><p>Reps drown in admin, CRM updates, and scheduling — not customer conversations.</p></li>
                     <li class="bullet-item"><p>Leads go cold because follow-up is inconsistent — or doesn't happen at all.</p></li>
@@ -1159,17 +1311,30 @@ html, body {
                 <div class="problem-stack">
                     <div class="problem-stack__head">Where the day actually goes</div>
                     <div class="problem-bar-row">
-                        <div class="problem-bar" style="--target-pct:30%; --bar-color:var(--red);">
+                        <div class="problem-bar" style="--target-pct:20%; --bar-color:var(--red);">
                             <div class="problem-bar__fill"><span class="problem-bar__label">Selling</span></div>
                         </div>
-                        <span class="problem-bar-row__pct">30%</span>
+                        <span class="problem-bar-row__pct" data-target="20">0%</span>
                     </div>
                     <div class="problem-bar-row">
-                        <div class="problem-bar" style="--target-pct:100%; --bar-color:var(--charcoal);">
+                        <div class="problem-bar" style="--target-pct:80%; --bar-color:var(--charcoal);">
                             <div class="problem-bar__fill"><span class="problem-bar__label">Admin · CRM · Follow-up</span></div>
                         </div>
-                        <span class="problem-bar-row__pct">70%</span>
+                        <span class="problem-bar-row__pct" data-target="80">0%</span>
                     </div>
+                    <div class="day-hours" aria-hidden="true">
+                        <div class="day-hours__cells">
+                            <div class="day-hours__cell day-hours__cell--sell"></div>
+                            <div class="day-hours__cell day-hours__cell--sell"></div>
+                            <div class="day-hours__cell"></div>
+                            <div class="day-hours__cell"></div>
+                            <div class="day-hours__cell"></div>
+                            <div class="day-hours__cell"></div>
+                            <div class="day-hours__cell"></div>
+                            <div class="day-hours__cell"></div>
+                        </div>
+                    </div>
+                    <p class="problem-stack__sub">Out of an 8-hour day: <strong>~1.6 hours</strong> selling, <strong>~6.4 hours</strong> on everything else.</p>
                 </div>
             </div>
         </div>
@@ -1182,9 +1347,9 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 03 — ONE ENGINE TWO JOBS (2-col, pipeline graphic right)
+     SLIDE 03 — SMART ACQUISITION ENGINE (5-step flow)
      ========================================= -->
-<section class="slide dark" data-title="Two Halves">
+<section class="slide dark" data-title="Smart Acquisition Engine">
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
             <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
@@ -1195,7 +1360,173 @@ html, body {
     </header>
 
     <div class="slide-body">
-        <span class="eyebrow reveal"><span class="num">02</span> THE SYSTEM</span>
+        <span class="eyebrow reveal"><span class="num">02</span> HALF ONE · FILL THE PIPELINE</span>
+        <h2 class="display-2 reveal">SMART ACQUISITION <span class="text-red">ENGINE.</span></h2>
+        <p class="lede reveal">A full outbound team's output — researched, personal, at a volume no human team can match.</p>
+
+        <div class="step-flow reveal" style="--steps: 5; margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="step-card" style="--i: 0;">
+                <span class="step-card__num">01 · FIND</span>
+                <div class="step-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/><circle cx="11" cy="11" r="2.5"/></svg>
+                </div>
+                <h3 class="step-card__title">Ideal Prospects</h3>
+                <p class="step-card__body">Pulls your ideal prospects from public records and verified sources. Not a bought list — precision-targeted to your exact ICP.</p>
+            </div>
+            <div class="step-card" style="--i: 1;">
+                <span class="step-card__num">02 · RESEARCH</span>
+                <div class="step-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+                </div>
+                <h3 class="step-card__title">Studied Before Touch</h3>
+                <p class="step-card__body">Reads each prospect's background, role, and signals. Knows who they are before a word is written.</p>
+            </div>
+            <div class="step-card" style="--i: 2;">
+                <span class="step-card__num">03 · WRITE</span>
+                <div class="step-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7H12v-3z"/><path d="M18 13l-1.5-1.5M2 12V4a2 2 0 0 1 2-2h8M3 18l4-2 4 2"/></svg>
+                </div>
+                <h3 class="step-card__title">Custom Outreach</h3>
+                <p class="step-card__body">Personal per prospect, referencing their specifics. Not a template with a name dropped in.</p>
+            </div>
+            <div class="step-card" style="--i: 3;">
+                <span class="step-card__num">04 · NURTURE</span>
+                <div class="step-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 1 8 8M20 12l3-3M20 12l3 3"/><path d="M12 20a8 8 0 0 1-8-8M4 12l-3 3M4 12l-3-3"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3 class="step-card__title">Sequence Until Booked</h3>
+                <p class="step-card__body">Multi-touch follow-up until they book or bow out. Nobody falls through the cracks.</p>
+            </div>
+            <div class="step-card" style="--i: 4;">
+                <span class="step-card__num">05 · BOOK</span>
+                <div class="step-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4M9 14l2 2 4-4"/></svg>
+                </div>
+                <h3 class="step-card__title">Calendar Filled</h3>
+                <p class="step-card__body">Qualified meetings land on your calendar. You show up — the engine did the hunting.</p>
+            </div>
+        </div>
+
+        <p class="closing-line reveal">Your team stops chasing. They start closing what's already booked.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>03 / 10</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 04 — SALES PERFORMANCE ENGINE (Rep + Owner interconnected)
+     ========================================= -->
+<section class="slide dark" data-title="Sales Performance Engine">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>04 / 10</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">03</span> HALF TWO · CLOSE THE PIPELINE</span>
+        <h2 class="display-2 reveal">SALES PERFORMANCE <span class="text-red">ENGINE.</span></h2>
+        <p class="lede reveal">Same data feeds both halves of your sales floor — the rep gets a wingman, the owner gets visibility. Without anyone listening to hundreds of calls.</p>
+
+        <div class="dual-track reveal" style="margin-top:clamp(0.4rem,0.8vw,0.7rem);">
+            <div class="dual-track__label">FOR THE REP</div>
+
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+                </div>
+                <h3 class="dual-card__title">Pre-Call Brief</h3>
+                <p class="dual-card__body">Walks in knowing the prospect cold — Acquisition's research becomes the brief.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg>
+                </div>
+                <h3 class="dual-card__title">Call Captured</h3>
+                <p class="dual-card__body">No manual notes — every call recorded, transcribed, analyzed.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="1.5"/></svg>
+                </div>
+                <h3 class="dual-card__title">Follow-up Drafted</h3>
+                <p class="dual-card__body">Written before they hang up. Rep approves and sends — same hour.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2zM9 21h6M10 17v4M14 17v4"/></svg>
+                </div>
+                <h3 class="dual-card__title">Daily Coaching</h3>
+                <p class="dual-card__body">Sharper every week — surfaced moments and patterns, no babysitting.</p>
+            </div>
+
+            <div class="dual-link" style="--i: 0;"><div class="dual-link__line"><div class="dual-link__bolt"></div></div></div>
+            <div class="dual-link" style="--i: 1;"><div class="dual-link__line"><div class="dual-link__bolt"></div></div></div>
+            <div class="dual-link" style="--i: 2;"><div class="dual-link__line"><div class="dual-link__bolt"></div></div></div>
+            <div class="dual-link" style="--i: 3;"><div class="dual-link__line"><div class="dual-link__bolt"></div></div></div>
+
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3 class="dual-card__title">Full Visibility</h3>
+                <p class="dual-card__body">Every call analyzed. Full picture without listening to hundreds.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
+                </div>
+                <h3 class="dual-card__title">Pipeline Health</h3>
+                <p class="dual-card__body">Stuck deals surfaced before they die. Stage-by-stage temperature.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M3 21V5l6 4 6-6 6 4v14"/><path d="M3 21h18"/></svg>
+                </div>
+                <h3 class="dual-card__title">Pattern Recognition</h3>
+                <p class="dual-card__body">What's working across the team. What to repeat. What to kill.</p>
+            </div>
+            <div class="dual-card">
+                <div class="dual-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+                </div>
+                <h3 class="dual-card__title">Accountability</h3>
+                <p class="dual-card__body">Standards held automatically — no chasing reps for CRM updates.</p>
+            </div>
+
+            <div class="dual-track__label">FOR THE OWNER</div>
+        </div>
+
+        <p class="closing-line reveal">Every rep gets a senior-level wingman. Every deal gets the same attention.</p>
+    </div>
+
+    <footer class="slide-footer">
+        <span>REVELATION AGENCY</span>
+        <span>04 / 10</span>
+    </footer>
+</section>
+
+<!-- =========================================
+     SLIDE 05 — ONE ENGINE. TWO JOBS. (synthesis + handoff)
+     ========================================= -->
+<section class="slide dark" data-title="Two Halves">
+    <header class="slide-header">
+        <div class="slide-header__left brand-logo-wrap">
+            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
+            <span class="slide-header__doc-sep"></span>
+            <span>SALES GROWTH ENGINE</span>
+        </div>
+        <span>05 / 10</span>
+    </header>
+
+    <div class="slide-body">
+        <span class="eyebrow reveal"><span class="num">04</span> THE SYNTHESIS</span>
         <h2 class="display-2 reveal">ONE ENGINE. <span class="text-red">TWO JOBS.</span></h2>
 
         <div class="split-grid split-grid--7-5 reveal" style="margin-top:clamp(0.2rem,0.5vw,0.4rem);">
@@ -1204,19 +1535,19 @@ html, body {
                     <article class="engine-card">
                         <span class="engine-card__tag">Half One · Fills the pipeline</span>
                         <h3 class="engine-card__title">Smart Acquisition Engine</h3>
-                        <p class="engine-card__role">Finds your perfect prospects. Researches each one. Reaches out personally. Books meetings on your calendar.</p>
+                        <p class="engine-card__role">Finds, researches, writes, nurtures, books — qualified meetings on your calendar.</p>
                     </article>
                     <article class="engine-card">
                         <span class="engine-card__tag">Half Two · Closes the pipeline</span>
                         <h3 class="engine-card__title">Sales Performance Engine</h3>
-                        <p class="engine-card__role">Listens to every call. Coaches every rep. Drafts every follow-up. Surfaces every stuck deal.</p>
+                        <p class="engine-card__role">Briefs reps, captures calls, drafts follow-up, surfaces stuck deals — both rep and owner served.</p>
                     </article>
                 </div>
                 <div class="engine-divider">Together = Sales Growth Engine</div>
             </div>
             <div class="split-right" style="justify-content:center; align-items:center;">
                 <div class="pipeline-flow" aria-hidden="true">
-                    <div class="pipe-node pipe-node--source">Prospects</div>
+                    <div class="pipe-node pipe-node--source">Cold prospect</div>
                     <div class="pipe-link" style="--i: 0;"><div class="pipe-link__dot"></div></div>
                     <div class="pipe-node pipe-node--engine">Smart Acquisition</div>
                     <div class="pipe-link" style="--i: 1;"><div class="pipe-link__dot"></div></div>
@@ -1228,138 +1559,15 @@ html, body {
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="slide-footer">
-        <span>REVELATION AGENCY</span>
-        <span>03 / 10</span>
-    </footer>
-</section>
-
-<!-- =========================================
-     SLIDE 04 — SMART ACQUISITION ENGINE (deep-dive, 4-step flow)
-     ========================================= -->
-<section class="slide dark" data-title="Smart Acquisition Engine">
-    <header class="slide-header">
-        <div class="slide-header__left brand-logo-wrap">
-            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
-            <span class="slide-header__doc-sep"></span>
-            <span>SALES GROWTH ENGINE</span>
+        <div class="handoff-callout reveal">
+            <p class="handoff-callout__lead">One CRM. One prospect record. One end-to-end flow — no hand-off gap where deals die.</p>
+            <ul class="handoff-callout__list">
+                <li>Acquisition's research becomes the rep's <em>pre-call brief</em>.</li>
+                <li>Every captured call feeds both <em>rep coaching</em> and <em>owner visibility</em>.</li>
+                <li>Stalled deals route back to Acquisition's <em>re-engagement sequence</em>.</li>
+            </ul>
         </div>
-        <span>04 / 10</span>
-    </header>
-
-    <div class="slide-body">
-        <span class="eyebrow reveal"><span class="num">03</span> HALF ONE · FILL THE PIPELINE</span>
-        <h2 class="display-2 reveal">SMART ACQUISITION <span class="text-red">ENGINE.</span></h2>
-        <p class="lede reveal">How the first half fills your pipeline — researched, personalized outreach at a volume no human team could match, with quality that doesn't feel like a template.</p>
-
-        <div class="step-flow reveal" style="--steps: 4; margin-top:clamp(0.4rem,0.9vw,0.7rem);">
-            <div class="step-card" style="--i: 0;">
-                <span class="step-card__num">01 · FIND</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/><circle cx="11" cy="11" r="2.5"/></svg>
-                </div>
-                <h3 class="step-card__title">Target Prospects</h3>
-                <p class="step-card__body">Builds a list of your perfect-fit leads. Industry, role, signals — whatever defines "qualified" for you.</p>
-            </div>
-            <div class="step-card" style="--i: 1;">
-                <span class="step-card__num">02 · RESEARCH</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-                </div>
-                <h3 class="step-card__title">Each One Studied</h3>
-                <p class="step-card__body">Every name researched — company, role, recent news, what they likely care about. Real context, not guesses.</p>
-            </div>
-            <div class="step-card" style="--i: 2;">
-                <span class="step-card__num">03 · REACH OUT</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                </div>
-                <h3 class="step-card__title">Personal Outreach</h3>
-                <p class="step-card__body">Outreach tuned to your voice and your offer. Sounds like you. Scales like a system.</p>
-            </div>
-            <div class="step-card" style="--i: 3;">
-                <span class="step-card__num">04 · BOOK</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4M9 14l2 2 4-4"/></svg>
-                </div>
-                <h3 class="step-card__title">Qualified Meetings</h3>
-                <p class="step-card__body">Meetings hit your calendar with context already in hand. Your team walks in ready to sell.</p>
-            </div>
-        </div>
-
-        <p class="closing-line reveal">Your team stops chasing. They start closing what's already booked.</p>
-    </div>
-
-    <footer class="slide-footer">
-        <span>REVELATION AGENCY</span>
-        <span>04 / 10</span>
-    </footer>
-</section>
-
-<!-- =========================================
-     SLIDE 05 — SALES PERFORMANCE ENGINE (deep-dive, 5-step flow)
-     ========================================= -->
-<section class="slide dark" data-title="Sales Performance Engine">
-    <header class="slide-header">
-        <div class="slide-header__left brand-logo-wrap">
-            <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
-            <span class="slide-header__doc-sep"></span>
-            <span>SALES GROWTH ENGINE</span>
-        </div>
-        <span>05 / 10</span>
-    </header>
-
-    <div class="slide-body">
-        <span class="eyebrow reveal"><span class="num">04</span> HALF TWO · CLOSE THE PIPELINE</span>
-        <h2 class="display-2 reveal">SALES PERFORMANCE <span class="text-red">ENGINE.</span></h2>
-        <p class="lede reveal">How the second half makes every rep more effective — without you sitting through hundreds of calls or babysitting the CRM.</p>
-
-        <div class="step-flow reveal" style="--steps: 5; margin-top:clamp(0.4rem,0.9vw,0.7rem);">
-            <div class="step-card" style="--i: 0;">
-                <span class="step-card__num">01 · CAPTURE</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg>
-                </div>
-                <h3 class="step-card__title">Every Call Recorded</h3>
-                <p class="step-card__body">Recorded, transcribed, and tied to the right deal automatically.</p>
-            </div>
-            <div class="step-card" style="--i: 1;">
-                <span class="step-card__num">02 · ANALYZE</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
-                </div>
-                <h3 class="step-card__title">AI Listens</h3>
-                <p class="step-card__body">Catches what worked, what stalled, what each rep needs to get better.</p>
-            </div>
-            <div class="step-card" style="--i: 2;">
-                <span class="step-card__num">03 · COACH</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg>
-                </div>
-                <h3 class="step-card__title">Coaching Surfaced</h3>
-                <p class="step-card__body">Specific moments by rep, by stage, by deal type — ready to share.</p>
-            </div>
-            <div class="step-card" style="--i: 3;">
-                <span class="step-card__num">04 · DRAFT</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7H12v-3z"/><path d="M18 13l-1.5-1.5M2 12V4a2 2 0 0 1 2-2h8"/><path d="M3 18l4-2 4 2"/></svg>
-                </div>
-                <h3 class="step-card__title">Follow-up Written</h3>
-                <p class="step-card__body">Drafted before they hang up. Your rep approves and sends.</p>
-            </div>
-            <div class="step-card" style="--i: 4;">
-                <span class="step-card__num">05 · FLAG</span>
-                <div class="step-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 22V4M4 4h13l-2 4 2 4H4"/></svg>
-                </div>
-                <h3 class="step-card__title">Stuck Deals Flagged</h3>
-                <p class="step-card__body">Owner sees what needs intervention — before it goes cold.</p>
-            </div>
-        </div>
-
-        <p class="closing-line reveal">Every rep gets a senior-level wingman. Every deal gets the same attention.</p>
     </div>
 
     <footer class="slide-footer">
@@ -1369,9 +1577,9 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 06 — MORE THAN AI (3-layer animated stack)
+     SLIDE 06 — INTELLIGENCE / 4 ELEMENTS + CENTRAL ENGINE
      ========================================= -->
-<section class="slide dark" data-title="Three Layers">
+<section class="slide dark" data-title="One Configured System">
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
             <span class="brand-wordmark"><span class="bw-1">REVELATION</span><span class="bw-2">AGENCY</span></span>
@@ -1384,39 +1592,51 @@ html, body {
     <div class="slide-body">
         <span class="eyebrow reveal"><span class="num">05</span> THE DIFFERENCE</span>
         <h2 class="display-2 reveal">INTELLIGENCE TELLS YOU WHAT TO DO. <span class="text-red">OUR ENGINES DO IT.</span></h2>
-        <p class="lede reveal">This isn't a chatbot. It's a custom-built system, engineered around your business — three layers that work together so the work actually gets done, not just suggested.</p>
+        <p class="lede reveal">A custom software system — four parts configured together to do one job. Not a chatbot. Not a stack of subscriptions. One machine, engineered around your business.</p>
 
-        <div class="layer-stack reveal" style="margin-top:clamp(0.3rem,0.7vw,0.6rem);">
-            <div class="layer">
-                <div class="layer__icon" aria-hidden="true">
+        <div class="hub-graphic reveal" style="margin-top:clamp(0.3rem,0.6vw,0.5rem);">
+            <div class="hub-card hub-card--tl">
+                <div class="hub-card__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
                 </div>
-                <div class="layer__meta">
-                    <span class="layer__num">01 · INTELLIGENCE</span>
-                    <h3 class="layer__title">Premium Intelligence Layer</h3>
-                    <p class="layer__body">Frontier-grade AI tuned for sales work — knows your offer, your buyer, your objections. The fuel that powers everything else.</p>
+                <div class="hub-card__meta">
+                    <span class="hub-card__num">01 · INTELLIGENCE</span>
+                    <h3 class="hub-card__title">Premium AI Layer</h3>
+                    <p class="hub-card__body">Frontier-grade models tuned for sales — knows your offer, your buyer, your objections.</p>
                 </div>
             </div>
-            <div class="layer-link" aria-hidden="true" style="--i: 0;"><div class="layer-link__bolt"></div></div>
-            <div class="layer">
-                <div class="layer__icon" aria-hidden="true">
+            <div class="hub-card hub-card--tr">
+                <div class="hub-card__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><path d="M4 12c0-4.4 3.6-8 8-8 2.5 0 4.7 1.1 6.2 2.9"/><path d="M20 12c0 4.4-3.6 8-8 8-2.5 0-4.7-1.1-6.2-2.9"/><path d="M16 3v4h4M8 21v-4H4"/></svg>
                 </div>
-                <div class="layer__meta">
-                    <span class="layer__num">02 · AUTOMATION</span>
-                    <h3 class="layer__title">Workflow Automation</h3>
-                    <p class="layer__body">Not just AI talking — automated execution. Outreach sends. Calls get logged. Follow-ups get drafted. CRM updates itself.</p>
+                <div class="hub-card__meta">
+                    <span class="hub-card__num">02 · AUTOMATION</span>
+                    <h3 class="hub-card__title">Workflow Execution</h3>
+                    <p class="hub-card__body">Outreach sends. Calls log. Follow-ups draft. CRM updates itself — the work actually gets done.</p>
                 </div>
             </div>
-            <div class="layer-link" aria-hidden="true" style="--i: 1;"><div class="layer-link__bolt"></div></div>
-            <div class="layer">
-                <div class="layer__icon" aria-hidden="true">
+            <div class="hub-core" aria-hidden="true">
+                <span class="hub-core__label">ENGINE</span>
+                <span class="hub-core__sub">Configured as one system</span>
+            </div>
+            <div class="hub-card hub-card--bl">
+                <div class="hub-card__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><circle cx="7" cy="17" r="0.6" fill="currentColor"/></svg>
                 </div>
-                <div class="layer__meta">
-                    <span class="layer__num">03 · INFRASTRUCTURE</span>
-                    <h3 class="layer__title">Dedicated Infrastructure</h3>
-                    <p class="layer__body">Custom database, sending reputation, CRM integrations — built and owned, not borrowed. Production-grade, not a side project.</p>
+                <div class="hub-card__meta">
+                    <span class="hub-card__num">03 · INFRASTRUCTURE</span>
+                    <h3 class="hub-card__title">Custom Backbone</h3>
+                    <p class="hub-card__body">Dedicated database, sending reputation, CRM integrations — built and owned, not borrowed.</p>
+                </div>
+            </div>
+            <div class="hub-card hub-card--br">
+                <div class="hub-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg>
+                </div>
+                <div class="hub-card__meta">
+                    <span class="hub-card__num">04 · CHANNELS & DATA</span>
+                    <h3 class="hub-card__title">Wired-In Reach</h3>
+                    <p class="hub-card__body">Email, SMS, social, paid, enrichment, public-records sourcing — every channel wired into one system, not bolted on.</p>
                 </div>
             </div>
         </div>
@@ -1429,7 +1649,7 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 07 — 20% TO 80%
+     SLIDE 07 — 20% TO 80% (phone vs computer figures)
      ========================================= -->
 <section class="slide light" data-title="20 to 80">
     <header class="slide-header">
@@ -1444,20 +1664,46 @@ html, body {
     <div class="slide-body">
         <span class="eyebrow reveal"><span class="num">06</span> THE SHIFT</span>
         <h2 class="display-2 reveal">FROM 20% SELLING TO <span class="text-red">80% SELLING.</span></h2>
-        <p class="lede reveal">Your reps don't need to be smarter. They need the rest of their day back. When the engine handles outreach, follow-up, CRM hygiene, and the prep work — your team does the one thing only they can do. Talk to customers.</p>
+        <p class="lede reveal">Your reps don't need to be smarter. They need the rest of their day back. When the engine handles outreach, follow-up, CRM hygiene, and the prep work — your team does the one thing only they can do.</p>
 
         <div class="shift-stage reveal">
             <div class="shift-col shift-col--before">
                 <span class="shift-col__tag">Today</span>
+                <div class="shift-col__figure" aria-hidden="true">
+                    <svg viewBox="0 0 80 80">
+                        <!-- person hunched at laptop -->
+                        <circle cx="32" cy="22" r="6"/>
+                        <path d="M32 28 C 30 36 33 40 36 42"/>
+                        <path d="M28 38 L 22 44 M 36 38 L 44 44"/>
+                        <rect x="18" y="44" width="32" height="18" rx="1.5"/>
+                        <line x1="18" y1="62" x2="50" y2="62"/>
+                        <line x1="20" y1="48" x2="48" y2="48"/>
+                        <!-- stress squiggles -->
+                        <path d="M50 16 L 54 20 M 56 12 L 60 14"/>
+                    </svg>
+                </div>
                 <div class="shift-pct">20<span style="font-size:0.55em;">%</span></div>
-                <span class="shift-col__label">Of time selling</span>
+                <span class="shift-col__label">Time selling</span>
                 <div class="shift-bars shift-bars--before" data-target="20%"><div class="shift-bars__fill"></div></div>
             </div>
             <div class="shift-arrow" aria-hidden="true">→</div>
             <div class="shift-col shift-col--after">
                 <span class="shift-col__tag">With the Engine</span>
+                <div class="shift-col__figure" aria-hidden="true">
+                    <svg viewBox="0 0 80 80">
+                        <!-- person upright on phone -->
+                        <circle cx="40" cy="20" r="6"/>
+                        <path d="M40 26 L 40 50"/>
+                        <path d="M40 32 L 50 24 L 56 18 L 52 14"/>
+                        <path d="M40 36 L 28 32"/>
+                        <path d="M40 50 L 34 66 M 40 50 L 46 66"/>
+                        <!-- speech waves -->
+                        <path d="M60 14 Q 64 18 60 22"/>
+                        <path d="M66 12 Q 72 18 66 24"/>
+                    </svg>
+                </div>
                 <div class="shift-pct">80<span style="font-size:0.55em;">%</span></div>
-                <span class="shift-col__label">Of time selling</span>
+                <span class="shift-col__label">Time selling</span>
                 <div class="shift-bars" data-target="80%"><div class="shift-bars__fill"></div></div>
             </div>
         </div>
@@ -1472,7 +1718,7 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 08 — WHY THIS IS DIFFERENT
+     SLIDE 08 — WHY THIS IS DIFFERENT (unchanged)
      ========================================= -->
 <section class="slide dark" data-title="Why This Is Different">
     <header class="slide-header">
@@ -1548,7 +1794,7 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 09 — THE VALUE (LIGHT slide, dark cards — contrast fixed)
+     SLIDE 09 — VALUE (unchanged: dark cards on light)
      ========================================= -->
 <section class="slide light" data-title="The Value">
     <header class="slide-header">
@@ -1591,7 +1837,7 @@ html, body {
 </section>
 
 <!-- =========================================
-     SLIDE 10 — CLOSE (calendar graphic + dynamic referral)
+     SLIDE 10 — CLOSE (calendar + dynamic referral)
      ========================================= -->
 <section class="slide dark has-brackets" data-title="Close" data-particles="true">
     <span class="bracket tl"></span><span class="bracket tr"></span>
@@ -1707,27 +1953,16 @@ import { animate } from "https://cdn.jsdelivr.net/npm/motion@12/+esm";
 
 const EASE_OUT_EXPO = [0.16, 1, 0.3, 1];
 
-/* =========================================
-   DYNAMIC REFERRAL ATTRIBUTION
-   - Captures ?ref=<any-slug> from URL
-   - Propagates to booking link as ?ref + UTM params + referred_by field
-   - Updates "Referred by" footer with formatted name (kebab-case → Title Case)
-   - HIDES the referred-by line entirely when no ?ref param is present
-   - Works for ANY referrer slug — fully variable, not hardcoded
-   ========================================= */
+/* ===== Dynamic referral attribution ===== */
 function formatRefName(slug) {
     if (!slug) return '';
-    return slug
-        .split(/[-_\s]+/)
-        .filter(Boolean)
+    return slug.split(/[-_\s]+/).filter(Boolean)
         .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
         .join(' ');
 }
-
 function applyReferralAttribution() {
     const params = new URLSearchParams(window.location.search);
     const ref = (params.get('ref') || '').trim();
-
     const cta = document.getElementById('bookingCta');
     if (cta && ref) {
         try {
@@ -1736,29 +1971,37 @@ function applyReferralAttribution() {
             u.searchParams.set('utm_source', ref);
             u.searchParams.set('utm_medium', 'referral');
             u.searchParams.set('utm_campaign', 'sales-growth-engine');
-            // GHL booking widgets accept arbitrary query params and surface
-            // them as custom fields when configured.
             u.searchParams.set('referred_by', ref);
             cta.href = u.toString();
-        } catch (_) { /* no-op */ }
+        } catch (_) {}
     }
-
-    const footer  = document.getElementById('referredBy');
-    const nameEl  = document.getElementById('refName');
+    const footer = document.getElementById('referredBy');
+    const nameEl = document.getElementById('refName');
     if (footer && nameEl) {
         if (ref) {
             nameEl.textContent = formatRefName(ref);
             footer.classList.add('is-visible');
         } else {
-            // No ref param — keep the line hidden entirely
             footer.classList.remove('is-visible');
         }
     }
 }
 
-/* =========================================
-   PARTICLE FIELD
-   ========================================= */
+/* ===== Count-up animation for problem-bar pct ===== */
+function countUp(el, target, duration = 1400) {
+    const start = performance.now();
+    function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * eased);
+        el.textContent = current + '%';
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+/* ===== Particle field ===== */
 class ParticleField {
     constructor(canvas, hostEl, opts = {}) {
         this.canvas = canvas;
@@ -1774,8 +2017,7 @@ class ParticleField {
         this.count = opts.count || 36;
         this._onMove = this.onMouseMove.bind(this);
         this._onResize = this.resize.bind(this);
-        this.resize();
-        this.init();
+        this.resize(); this.init();
         window.addEventListener('resize', this._onResize);
         this.host.addEventListener('mousemove', this._onMove);
     }
@@ -1810,8 +2052,7 @@ class ParticleField {
         if (this.running) return;
         this.resize();
         if (this.particles.length === 0 || this.w === 0) this.init();
-        this.running = true;
-        this.loop();
+        this.running = true; this.loop();
     }
     stop() { this.running = false; if (this.rafId) cancelAnimationFrame(this.rafId); }
     loop() { if (!this.running) return; this.update(); this.draw(); this.rafId = requestAnimationFrame(() => this.loop()); }
@@ -1831,8 +2072,7 @@ class ParticleField {
         ctx.clearRect(0, 0, this.w, this.h);
         ctx.save();
         ctx.translate(this.parallaxX, this.parallaxY);
-        const CONNECT = 110;
-        ctx.lineWidth = 1;
+        const CONNECT = 110; ctx.lineWidth = 1;
         for (let i = 0; i < this.particles.length; i++) {
             for (let j = i + 1; j < this.particles.length; j++) {
                 const a = this.particles[i], b = this.particles[j];
@@ -1866,17 +2106,12 @@ class PresenterDeck {
         this.particleFields = new Map();
         this.slideReveals = this.slides.map(slide => Array.from(slide.querySelectorAll('.reveal')));
 
-        this.setupRibbon();
-        this.setupKeyboard();
-        this.setupClicks();
-        this.setupTouch();
-        this.setupParticles();
-        this.setupKbdHint();
+        this.setupRibbon(); this.setupKeyboard(); this.setupClicks();
+        this.setupTouch(); this.setupParticles(); this.setupKbdHint();
 
         this.slides[0].classList.add('is-active');
         this.render();
     }
-
     setupRibbon() {
         this._rPrev = document.getElementById('ribbonPrev');
         this._rNext = document.getElementById('ribbonNext');
@@ -1887,7 +2122,6 @@ class PresenterDeck {
         if (this._rNext) this._rNext.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
         if (rProgress)   rProgress.addEventListener('click',  (e) => { e.stopPropagation(); this.toggleOverview(); });
     }
-
     setupKeyboard() {
         document.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -1900,18 +2134,14 @@ class PresenterDeck {
                     e.preventDefault(); this.next(); break;
                 case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
                     e.preventDefault(); this.prev(); break;
-                case 'Home':
-                    e.preventDefault(); this.goTo(0); break;
-                case 'End':
-                    e.preventDefault(); this.goTo(this.slides.length - 1); break;
-                case 'Escape':
-                    e.preventDefault(); this.toggleOverview(); break;
+                case 'Home': e.preventDefault(); this.goTo(0); break;
+                case 'End':  e.preventDefault(); this.goTo(this.slides.length - 1); break;
+                case 'Escape': e.preventDefault(); this.toggleOverview(); break;
                 case 'f': case 'F': this.toggleFullscreen(); break;
                 case 'p': case 'P': window.print(); break;
             }
         });
     }
-
     setupClicks() {
         this.deck.addEventListener('click', (e) => {
             if (this.inOverview) {
@@ -1926,7 +2156,6 @@ class PresenterDeck {
             this.next();
         });
     }
-
     setupTouch() {
         let startX = 0, startY = 0;
         this.deck.addEventListener('touchstart', (e) => {
@@ -1942,7 +2171,6 @@ class PresenterDeck {
             }
         }, { passive: true });
     }
-
     setupParticles() {
         this.slides.forEach((slide, i) => {
             if (slide.dataset.particles === 'true') {
@@ -1961,7 +2189,6 @@ class PresenterDeck {
             requestAnimationFrame(() => this.particleFields.get(0).start());
         }
     }
-
     setupKbdHint() {
         this.kbdHint = document.getElementById('kbdHint');
         const hide = () => this.kbdHint && this.kbdHint.classList.add('fade');
@@ -1969,7 +2196,6 @@ class PresenterDeck {
         document.addEventListener('keydown', hide, { once: true });
         this.deck.addEventListener('click', hide, { once: true });
     }
-
     next() { if (this.currentSlide < this.slides.length - 1) this.transitionToSlide(this.currentSlide + 1, 'forward'); }
     prev() { if (this.currentSlide > 0) this.transitionToSlide(this.currentSlide - 1, 'backward'); }
     goTo(slideIdx) {
@@ -1977,7 +2203,6 @@ class PresenterDeck {
         if (slideIdx === this.currentSlide) return;
         this.transitionToSlide(slideIdx, 'jump');
     }
-
     transitionToSlide(newIdx, direction) {
         const oldSlide = this.slides[this.currentSlide];
         const newSlide = this.slides[newIdx];
@@ -1985,8 +2210,10 @@ class PresenterDeck {
 
         if (this.particleFields.has(oldIdx)) this.particleFields.get(oldIdx).stop();
         this.slideReveals[oldIdx].forEach(r => animate(r, { opacity: 0, y: 10 }, { duration: 0 }));
-        // Reset animated stack/shift bars on the outgoing slide
+        // Reset animated bars on the outgoing slide
         oldSlide.querySelectorAll('.problem-bar, .shift-bars').forEach(b => b.classList.remove('is-animated'));
+        // Reset pct counters
+        oldSlide.querySelectorAll('.problem-bar-row__pct').forEach(el => { el.textContent = '0%'; });
 
         const dir = direction === 'backward' ? -1 : 1;
         animate(oldSlide, { opacity: 0, x: -20 * dir }, { duration: 0.18, ease: 'linear' })
@@ -2002,7 +2229,6 @@ class PresenterDeck {
         }
         this.render();
     }
-
     render() {
         const reveals = this.slideReveals[this.currentSlide];
         reveals.forEach((el, i) => {
@@ -2011,15 +2237,22 @@ class PresenterDeck {
         });
         const activeSlide = this.slides[this.currentSlide];
 
-        // Problem stack bars (Slide 2)
+        // Problem stack bars + count-up pct
         const problemBars = activeSlide.querySelectorAll('.problem-bar');
         if (problemBars.length) {
             problemBars.forEach((bar, i) => {
                 setTimeout(() => bar.classList.add('is-animated'), 400 + i * 200);
             });
         }
+        const pctEls = activeSlide.querySelectorAll('.problem-bar-row__pct');
+        if (pctEls.length) {
+            pctEls.forEach((el, i) => {
+                const target = parseInt(el.dataset.target || '0', 10);
+                setTimeout(() => countUp(el, target), 600 + i * 200);
+            });
+        }
 
-        // Shift bars (Slide 7)
+        // Shift bars
         const shiftBars = activeSlide.querySelectorAll('.shift-bars');
         if (shiftBars.length) {
             shiftBars.forEach((bar, i) => {
@@ -2028,10 +2261,8 @@ class PresenterDeck {
                 setTimeout(() => bar.classList.add('is-animated'), 600 + i * 150);
             });
         }
-
         this.updateControls();
     }
-
     updateControls() {
         if (this._rCurrent) {
             const cur = this.currentSlide + 1;
@@ -2042,11 +2273,9 @@ class PresenterDeck {
             this._rNext.disabled = (this.currentSlide === this.slides.length - 1);
         }
     }
-
     toggleOverview() {
         this.inOverview = !this.inOverview;
-        if (this.inOverview) this.enterOverview();
-        else this.exitOverview();
+        if (this.inOverview) this.enterOverview(); else this.exitOverview();
     }
     enterOverview() {
         this.particleFields.forEach(f => f.stop());
@@ -2073,7 +2302,6 @@ class PresenterDeck {
             requestAnimationFrame(() => this.particleFields.get(this.currentSlide).start());
         }
     }
-
     toggleFullscreen() {
         if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
         else document.exitFullscreen?.();
