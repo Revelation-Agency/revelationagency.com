@@ -775,6 +775,78 @@ a.sub-portfolio__card { text-decoration: none; color: inherit; display: block; }
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
 }
 /* RA-NAV-MEGAMENU-CSS-END */
+/* RA-MOBILE-NAV-FIX-START — v1, do not hand-edit */
+@media (max-width: 768px) {
+  /* L3 link text MUST wrap on mobile — overrides desktop white-space:nowrap rule.
+     Without this, items like "Sales Infrastructure" / "Search & AI Rankings"
+     push the open menu wider than the viewport. */
+  .ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
+  .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.4 !important;
+    padding: 11px 10px !important;
+    font-size: 14px !important;
+    opacity: 1 !important;
+    color: var(--charcoal, #2B2B2B) !important;
+    min-height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* L2 mega-menu: stack to single column on mobile, no min-width, no grid. */
+  .ra-nav__links .ra-drop--l2 {
+    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 0 0 0 12px !important;
+    gap: 0 !important;
+  }
+
+  /* Drop desktop column dividers when stacked. */
+  .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+    border-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Category title (Strategy / Creative / Marketing) — keep red caps, tighten
+     padding so it reads as the accordion header on mobile. */
+  .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+    padding: 12px 4px !important;
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  /* L2 + L3 link opacity = full (the existing mobile rule used 0.75 which
+     made the menu look disabled). */
+  .ra-nav__links .ra-drop a { opacity: 1 !important; }
+
+  /* Top-level menu rows hit the 44px iOS tap-target minimum. */
+  .ra-nav__links > li > a {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Width discipline: nothing inside the nav drawer can exceed its container. */
+  .ra-nav__links,
+  .ra-nav__links li,
+  .ra-nav__links .ra-drop,
+  .ra-nav__links .ra-drop--l2,
+  .ra-nav__links .ra-drop--l3 {
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Accordion toggle chevrons stay visible + tappable. */
+  .ra-nav__services-toggle,
+  .ra-nav__l2-toggle {
+    color: var(--charcoal, #2B2B2B) !important;
+    opacity: 1 !important;
+  }
+}
+/* RA-MOBILE-NAV-FIX-END */
 
 /* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
 .ra-footer {
