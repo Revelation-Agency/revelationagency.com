@@ -509,6 +509,87 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.1;font-weight:700;letter-
   }
 }
 /* RA-MOBILE-NAV-FIX-END */
+/* RA-MOBILE-GRID-FIX-START — v1, do not hand-edit */
+@media (max-width: 767px) {
+  /* Wildcard collapse — every BEM-named grid/cols/columns container becomes
+     single-column on mobile. Covers __grid, __cols, __columns site-wide. */
+  [class*="__grid"],
+  [class*="__cols"],
+  [class*="__columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Specific non-BEM grid classes used on portfolio + section layouts. */
+  .pf-grid,
+  .three-cards,
+  .four-cards,
+  .six-cards,
+  .cross-grid,
+  .ask-grid,
+  .timeline-grid,
+  .timeline-grid--4,
+  .ra-work__grid,
+  .ra-work__grid--preview,
+  .cover-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Controlled inline-style override — collapses any element with an inline
+     grid-template-columns:* to a single column on mobile. This is the only
+     thing that kills the case-study video pages that hard-coded
+     repeat(2,1fr) / repeat(3,1fr) in style attributes. */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Children of grids: full-width, no shrink, no overflowing the cell. */
+  [class*="__grid"] > *,
+  [class*="__cols"] > *,
+  [class*="__columns"] > *,
+  .pf-grid > *,
+  .cross-grid > *,
+  .ask-grid > * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Gallery items that span 2 cols on desktop must reset on mobile. */
+  .cs-gallery__item--wide {
+    grid-column: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  /* Card/tile width discipline — anything in a portfolio/grid context that
+     was sized rigidly by inline styles still fits the viewport. */
+  .pf-card,
+  .cs-service-card,
+  .cs-cross__card,
+  .cs-metric,
+  .sub-portfolio__card,
+  .cr-portfolio__card,
+  .mk-portfolio__card,
+  .strat-work__card,
+  .ra-problem__card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Embedded media (videos, maps) must fit the column they're in. */
+  iframe,
+  video,
+  embed,
+  object {
+    max-width: 100% !important;
+  }
+
+  /* Horizontal overflow guard — last-line defense. If any descendant
+     overflows, body still clips so the page doesn't horizontally scroll. */
+  html, body {
+    overflow-x: hidden !important;
+  }
+}
+/* RA-MOBILE-GRID-FIX-END */
 
 /* RA-FOOTER-CANONICAL-CSS-START — sourced from index.html, do not hand-edit */
 .ra-footer {
