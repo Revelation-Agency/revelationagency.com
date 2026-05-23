@@ -23,9 +23,18 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-OPEN  = '/* RA-MOBILE-NAV-FIX-START — v1, do not hand-edit */'
+OPEN  = '/* RA-MOBILE-NAV-FIX-START — v2, do not hand-edit */'
 CLOSE = '/* RA-MOBILE-NAV-FIX-END */'
 MARKER_NAV_END = '/* RA-NAV-MEGAMENU-CSS-END */'
+
+# v2 changes from v1:
+#  - L2 category labels (STRATEGY / CREATIVE / MARKETING) get bumped from 12px
+#    to 15px, font-weight: 700, explicit color, letter-spacing, text-transform
+#    uppercase. v1's 12px Bebas Neue rendered as a too-faint label on some
+#    devices (user reported empty-looking rows). v2 forces high-contrast
+#    legibility regardless of font loading order.
+#  - Explicit Inter fallback in front of Bebas Neue + Orbitron so the labels
+#    never disappear if the display font fails to load.
 
 CSS_BLOCK = '''
 @media (max-width: 768px) {
@@ -39,6 +48,9 @@ CSS_BLOCK = '''
     line-height: 1.4 !important;
     padding: 11px 10px !important;
     font-size: 14px !important;
+    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
     opacity: 1 !important;
     color: var(--charcoal, #2B2B2B) !important;
     min-height: 40px !important;
@@ -61,13 +73,23 @@ CSS_BLOCK = '''
     padding: 0 !important;
   }
 
-  /* Category title (Strategy / Creative / Marketing) — keep red caps, tighten
-     padding so it reads as the accordion header on mobile. */
+  /* Category title (Strategy / Creative / Marketing) — high-contrast,
+     guaranteed-legible header for the accordion. */
   .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
-    padding: 12px 4px !important;
-    font-size: 12px !important;
+    padding: 14px 8px !important;
+    font-size: 15px !important;
+    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--charcoal, #1A1A1A) !important;
+    opacity: 1 !important;
     margin-bottom: 0 !important;
     border-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 48px !important;
   }
 
   /* L2 + L3 link opacity = full (the existing mobile rule used 0.75 which
@@ -96,22 +118,34 @@ CSS_BLOCK = '''
   .ra-nav__l2-toggle {
     color: var(--charcoal, #2B2B2B) !important;
     opacity: 1 !important;
+    font-size: 20px !important;
   }
 }
 '''.strip()
 
 CANONICAL = OPEN + '\n' + CSS_BLOCK + '\n' + CLOSE
-PATTERN = re.compile(re.escape(OPEN) + r'.*?' + re.escape(CLOSE), re.DOTALL)
+# Match ANY version of the marker (v1, v2, future v3…) so re-runs collapse to
+# a single block instead of stacking. The earlier OPEN constant was specific
+# to v1 — this version-agnostic pattern is what the script should have shipped
+# with from the start.
+PATTERN = re.compile(
+    r'/\* RA-MOBILE-NAV-FIX-START.*?/\* RA-MOBILE-NAV-FIX-END \*/',
+    re.DOTALL,
+)
 
 
 def inject(text):
-    if PATTERN.search(text):
-        return PATTERN.sub(lambda _m: CANONICAL, text), 'updated'
+    # Strip EVERY existing mobile-nav-fix block (handles stacked duplicates from
+    # earlier marker-name churn). Each iteration removes one block; loop until
+    # none remain.
+    while PATTERN.search(text):
+        text = PATTERN.sub('', text, count=1)
+    # Insert one canonical block after the nav megamenu CSS marker.
     pos = text.find(MARKER_NAV_END)
     if pos < 0:
         return text, 'skip-no-marker'
     insert_at = pos + len(MARKER_NAV_END)
-    return text[:insert_at] + '\n' + CANONICAL + text[insert_at:], 'injected'
+    return text[:insert_at] + '\n' + CANONICAL + text[insert_at:], 'rewritten'
 
 
 def main():

@@ -717,7 +717,7 @@ a.sub-port__card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rg
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
 }
 /* RA-NAV-MEGAMENU-CSS-END */
-/* RA-MOBILE-NAV-FIX-START — v1, do not hand-edit */
+/* RA-MOBILE-NAV-FIX-START — v2, do not hand-edit */
 @media (max-width: 768px) {
   /* L3 link text MUST wrap on mobile — overrides desktop white-space:nowrap rule.
      Without this, items like "Sales Infrastructure" / "Search & AI Rankings"
@@ -729,6 +729,9 @@ a.sub-port__card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rg
     line-height: 1.4 !important;
     padding: 11px 10px !important;
     font-size: 14px !important;
+    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
     opacity: 1 !important;
     color: var(--charcoal, #2B2B2B) !important;
     min-height: 40px !important;
@@ -751,13 +754,23 @@ a.sub-port__card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rg
     padding: 0 !important;
   }
 
-  /* Category title (Strategy / Creative / Marketing) — keep red caps, tighten
-     padding so it reads as the accordion header on mobile. */
+  /* Category title (Strategy / Creative / Marketing) — high-contrast,
+     guaranteed-legible header for the accordion. */
   .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
-    padding: 12px 4px !important;
-    font-size: 12px !important;
+    padding: 14px 8px !important;
+    font-size: 15px !important;
+    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--charcoal, #1A1A1A) !important;
+    opacity: 1 !important;
     margin-bottom: 0 !important;
     border-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 48px !important;
   }
 
   /* L2 + L3 link opacity = full (the existing mobile rule used 0.75 which
@@ -786,9 +799,12 @@ a.sub-port__card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rg
   .ra-nav__l2-toggle {
     color: var(--charcoal, #2B2B2B) !important;
     opacity: 1 !important;
+    font-size: 20px !important;
   }
 }
 /* RA-MOBILE-NAV-FIX-END */
+
+
 /* RA-MOBILE-GRID-FIX-START — v1, do not hand-edit */
 @media (max-width: 767px) {
   /* Wildcard collapse — every BEM-named grid/cols/columns container becomes
