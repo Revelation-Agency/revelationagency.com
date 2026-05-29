@@ -120,8 +120,143 @@ CSS_BLOCK = '''
     opacity: 1 !important;
     font-size: 20px !important;
   }
+
+  /* Belt-and-suspenders: the original Handler 1 sets .is-open on the <li>
+     but the original CSS only respects .open on the .ra-drop--l3. Without
+     this rule, tapping the category LINK (not the chevron) did nothing
+     visible. Honor both class names so neither handler's outcome is silent. */
+  .ra-nav__links .has-drop-l3.is-open > .ra-drop--l3 {
+    max-height: 600px !important;
+    padding: 4px 0 8px 18px !important;
+    border-left: 2px solid rgba(215,37,50,0.35) !important;
+    margin-left: 4px !important;
+  }
+  .ra-nav__links .has-drop.is-open > .ra-drop--l2 {
+    max-height: 1200px !important;
+    padding: 4px 0 4px 16px !important;
+  }
 }
 '''.strip()
+
+# ---------------------------------------------------------------------------
+# JS injection — fixes the "menu items intermittently invisible" bug caused
+# by three conflicting click handlers in the page's inline nav script:
+#   Handler 1 (.has-drop-l3 > a):     sets .is-open on the <li>
+#   Handler 2 (.ra-nav__l2-toggle):   sets .open on the .ra-drop--l3 <ul>
+#   Handler 3 (.ra-nav__links a):     closes the WHOLE drawer on any <a> click
+#
+# Sequence when user taps the category text "Strategy":
+#   Handler 1 fires → adds .is-open to li (which CSS doesn't honor)
+#   Handler 3 fires → removes is-open from navEl → drawer collapses
+#   User sees: menu briefly flashed and now drawer is closed.
+#
+# The fix is a capturing-phase listener attached to .ra-nav. It intercepts
+# clicks on category rows BEFORE existing handlers fire, calls
+# stopImmediatePropagation, and runs unified toggle logic. Leaf-link clicks
+# (Brand Strategy, Sales Infrastructure, etc.) are NOT intercepted so the
+# existing close-drawer-on-leaf-navigate behavior still works.
+# ---------------------------------------------------------------------------
+
+JS_OPEN = '<!-- RA-MOBILE-NAV-JS-FIX-START — v1 -->'
+JS_CLOSE = '<!-- RA-MOBILE-NAV-JS-FIX-END -->'
+JS_PATTERN = re.compile(
+    r'<!-- RA-MOBILE-NAV-JS-FIX-START.*?<!-- RA-MOBILE-NAV-JS-FIX-END -->',
+    re.DOTALL,
+)
+BODY_CLOSE = '</body>'
+
+JS_BLOCK = r'''
+<script>
+(function(){
+  var nav = document.getElementById('ra-nav');
+  if (!nav) return;
+
+  // Run in capturing phase so we win over the page's existing bubble-phase
+  // handlers. stopImmediatePropagation prevents the original Handler 1 / 2 / 3
+  // from firing for category-row clicks.
+  function handle(ev){
+    if (window.innerWidth > 768) return;
+    var t = ev.target;
+    if (!t || !t.closest) return;
+
+    // L2 category row inside an open L2 menu (Strategy / Creative / Marketing
+    // inside Services; Strategy Work / Creative Work / Marketing Work inside
+    // Portfolio). Either the link text OR the chevron toggles the L3.
+    var catContext = t.closest('.has-drop-l3');
+    if (catContext && (t.closest('.has-drop-l3 > a') === catContext.querySelector(':scope > a') ||
+                       t.closest('.ra-nav__l2-toggle'))){
+      var l3 = catContext.querySelector(':scope > .ra-drop--l3');
+      if (l3){
+        ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
+        var willOpen = !(l3.classList.contains('open') || catContext.classList.contains('is-open'));
+        // Close siblings inside the same L2 for clean accordion behavior
+        var parentUl = catContext.parentElement;
+        if (parentUl){
+          parentUl.querySelectorAll(':scope > .has-drop-l3').forEach(function(sib){
+            if (sib !== catContext){
+              sib.classList.remove('is-open');
+              var sibL3 = sib.querySelector(':scope > .ra-drop--l3');
+              if (sibL3) sibL3.classList.remove('open');
+              var sibBtn = sib.querySelector(':scope > .ra-nav__l2-toggle');
+              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            }
+          });
+        }
+        l3.classList.toggle('open', willOpen);
+        catContext.classList.toggle('is-open', willOpen);
+        var btn = catContext.querySelector(':scope > .ra-nav__l2-toggle');
+        if (btn){ btn.classList.toggle('open', willOpen); btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
+        return;
+      }
+    }
+
+    // Top-level Services / Portfolio row — link text OR chevron toggles L2.
+    var topLi = t.closest('.ra-nav__links > li.has-drop');
+    if (topLi){
+      var isTopLink = t.closest('.ra-nav__links > li.has-drop > a') === topLi.querySelector(':scope > a');
+      var isTopChevron = !!t.closest('.ra-nav__services-toggle');
+      if (isTopLink || isTopChevron){
+        var l2 = topLi.querySelector(':scope > .ra-drop--l2');
+        if (l2){
+          ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
+          var willOpen2 = !(l2.classList.contains('open') || topLi.classList.contains('is-open'));
+          // Close OTHER top-level dropdowns
+          nav.querySelectorAll('.ra-nav__links > li.has-drop').forEach(function(sib){
+            if (sib !== topLi){
+              sib.classList.remove('is-open');
+              var sibL2 = sib.querySelector(':scope > .ra-drop--l2');
+              if (sibL2) sibL2.classList.remove('open');
+              var sibBtn = sib.querySelector(':scope > .ra-nav__services-toggle');
+              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
+            }
+          });
+          l2.classList.toggle('open', willOpen2);
+          topLi.classList.toggle('is-open', willOpen2);
+          var btn2 = topLi.querySelector(':scope > .ra-nav__services-toggle');
+          if (btn2){ btn2.classList.toggle('open', willOpen2); btn2.setAttribute('aria-expanded', willOpen2 ? 'true' : 'false'); }
+          return;
+        }
+      }
+    }
+    // Otherwise (leaf link, hamburger, etc) — let existing handlers run.
+  }
+
+  nav.addEventListener('click', handle, true);
+  nav.addEventListener('touchend', handle, true);
+})();
+</script>
+'''.strip()
+
+JS_CANONICAL = JS_OPEN + '\n' + JS_BLOCK + '\n' + JS_CLOSE
+
+
+def inject_js(text):
+    while JS_PATTERN.search(text):
+        text = JS_PATTERN.sub('', text, count=1)
+    pos = text.rfind(BODY_CLOSE)
+    if pos < 0:
+        return text, 'skip-no-body'
+    return text[:pos] + JS_CANONICAL + '\n' + text[pos:], 'js-rewritten'
 
 CANONICAL = OPEN + '\n' + CSS_BLOCK + '\n' + CLOSE
 # Match ANY version of the marker (v1, v2, future v3…) so re-runs collapse to
@@ -163,12 +298,15 @@ def main():
             full = os.path.join(root, fn)
             with open(full, 'r', encoding='utf-8') as f:
                 text = f.read()
+            # CSS pass (after RA-NAV-MEGAMENU-CSS-END marker)
             new_text, status = inject(text)
             rel = os.path.relpath(full, ROOT).replace(os.sep, '/')
             if status == 'skip-no-marker':
                 skipped += 1
                 skipped_files.append(rel)
                 continue
+            # JS pass (before </body>)
+            new_text, _js_status = inject_js(new_text)
             if new_text != text:
                 with open(full, 'w', encoding='utf-8') as f:
                     f.write(new_text)
