@@ -776,104 +776,167 @@ a.sub-portfolio__card { text-decoration: none; color: inherit; display: block; }
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
 }
 /* RA-NAV-MEGAMENU-CSS-END */
-/* RA-MOBILE-NAV-FIX-START — v2, do not hand-edit */
+/* RA-MOBILE-NAV-FIX-START — v3 deterministic accordion (ID-scoped so it always
+   wins over the older layered rules). Single source of truth for the mobile nav
+   submenu layout + visibility. Do not hand-edit; regenerate via .nav-fix. */
 @media (max-width: 768px) {
-  /* L3 link text MUST wrap on mobile — overrides desktop white-space:nowrap rule.
-     Without this, items like "Sales Infrastructure" / "Search & AI Rankings"
-     push the open menu wider than the viewport. */
-  .ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
-  .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    line-height: 1.4 !important;
-    padding: 11px 10px !important;
-    font-size: 14px !important;
-    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
-    font-weight: 500 !important;
-    text-transform: none !important;
-    opacity: 1 !important;
-    color: var(--charcoal, #2B2B2B) !important;
-    min-height: 40px !important;
+  /* Parent rows (Services / Portfolio and the category rows): the label fills
+     the row and the chevron toggle is pinned to the right on the same line. */
+  #ra-nav .ra-nav__links .has-drop,
+  #ra-nav .ra-nav__links .has-drop-l3 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  /* Label link: flexible + shrinkable. min-width:0 is critical — without it a
+     flex item refuses to shrink below its content width and the text gets
+     shoved off the left edge of the screen (the exact bug being fixed). */
+  #ra-nav .ra-nav__links .has-drop > a,
+  #ra-nav .ra-nav__links .has-drop-l3 > a {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    color: var(--charcoal, #1A1A1A) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-transform: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    position: static !important;
   }
-
-  /* L2 mega-menu: stack to single column on mobile, no min-width, no grid. */
-  .ra-nav__links .ra-drop--l2 {
-    grid-template-columns: 1fr !important;
-    min-width: 0 !important;
+  /* Chevron toggle button: fixed 48px hit target on the right, never grows. */
+  #ra-nav .ra-nav__services-toggle,
+  #ra-nav .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: var(--charcoal, #2B2B2B) !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    transition: transform .25s ease, color .2s ease !important;
+  }
+  #ra-nav .has-drop.is-open > .ra-nav__services-toggle,
+  #ra-nav .has-drop-l3.is-open > .ra-nav__l2-toggle {
+    transform: rotate(180deg) !important;
+    color: var(--red, #D72532) !important;
+  }
+  /* Submenus: full-width, hidden until the parent row is .is-open. Uses
+     display (not max-height) so there is never a clipped / half-open state —
+     this is what made it "appear after a few seconds" or never appear. */
+  #ra-nav .ra-nav__links .ra-drop--l2,
+  #ra-nav .ra-nav__links .ra-drop--l3 {
+    flex: 1 1 100% !important;
+    width: 100% !important;
     max-width: 100% !important;
-    padding: 0 0 0 12px !important;
+    min-width: 0 !important;
+    display: none !important;
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    grid-template-columns: 1fr !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+  }
+  #ra-nav .ra-nav__links .ra-drop--l2 {
+    padding: 2px 0 4px 14px !important;
+    margin: 0 !important;
     gap: 0 !important;
   }
-
-  /* Drop desktop column dividers when stacked. */
-  .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  #ra-nav .ra-nav__links .ra-drop--l3 {
+    padding: 2px 0 8px 14px !important;
+    margin: 2px 0 6px 4px !important;
+    border-left: 2px solid rgba(215,37,50,0.35) !important;
+  }
+  /* Reveal the submenu when its parent row is open. */
+  #ra-nav .has-drop.is-open > .ra-drop--l2,
+  #ra-nav .has-drop-l3.is-open > .ra-drop--l3 {
+    display: block !important;
+  }
+  /* Drop the desktop column dividers/padding on the L2 category cells. */
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
     border-left: 0 !important;
     padding: 0 !important;
   }
-
-  /* Category title (Strategy / Creative / Marketing) — high-contrast,
-     guaranteed-legible header for the accordion. */
-  .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
-    padding: 14px 8px !important;
+  /* Category headers (Strategy / Creative / Marketing): clear, dark, normal
+     case. Desktop renders them as tiny red caps, which is illegible here. */
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+    padding: 12px 4px !important;
+    font-family: Inter, system-ui, -apple-system, sans-serif !important;
     font-size: 15px !important;
-    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
     font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
     color: var(--charcoal, #1A1A1A) !important;
-    opacity: 1 !important;
-    margin-bottom: 0 !important;
     border-bottom: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 48px !important;
+    margin: 0 !important;
   }
-
-  /* L2 + L3 link opacity = full (the existing mobile rule used 0.75 which
-     made the menu look disabled). */
-  .ra-nav__links .ra-drop a { opacity: 1 !important; }
-
-  /* Top-level menu rows hit the 44px iOS tap-target minimum. */
-  .ra-nav__links > li > a {
-    min-height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  /* Width discipline: nothing inside the nav drawer can exceed its container. */
-  .ra-nav__links,
-  .ra-nav__links li,
-  .ra-nav__links .ra-drop,
-  .ra-nav__links .ra-drop--l2,
-  .ra-nav__links .ra-drop--l3 {
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Accordion toggle chevrons stay visible + tappable. */
-  .ra-nav__services-toggle,
-  .ra-nav__l2-toggle {
+  /* Leaf links (Brand Strategy, Website Development, …): visible, wrapping,
+     full-contrast, comfortable tap targets. */
+  #ra-nav .ra-nav__links .ra-drop--l3 a {
+    display: block !important;
+    width: 100% !important;
+    padding: 11px 6px !important;
+    font-family: Inter, system-ui, -apple-system, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
     color: var(--charcoal, #2B2B2B) !important;
     opacity: 1 !important;
-    font-size: 20px !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    text-transform: none !important;
+    background: transparent !important;
+    text-align: left !important;
+    min-height: 40px !important;
   }
-
-  /* Belt-and-suspenders: the original Handler 1 sets .is-open on the <li>
-     but the original CSS only respects .open on the .ra-drop--l3. Without
-     this rule, tapping the category LINK (not the chevron) did nothing
-     visible. Honor both class names so neither handler's outcome is silent. */
-  .ra-nav__links .has-drop-l3.is-open > .ra-drop--l3 {
-    max-height: 600px !important;
-    padding: 4px 0 8px 18px !important;
-    border-left: 2px solid rgba(215,37,50,0.35) !important;
-    margin-left: 4px !important;
+  #ra-nav .ra-nav__links .ra-drop--l3 a:hover,
+  #ra-nav .ra-nav__links .ra-drop--l3 a:active,
+  #ra-nav .ra-nav__links .ra-drop--l3 a.is-current {
+    color: var(--red, #D72532) !important;
   }
-  .ra-nav__links .has-drop.is-open > .ra-drop--l2 {
-    max-height: 1200px !important;
-    padding: 4px 0 4px 16px !important;
+  /* Hide the small decorative chevron icons baked into the label text — the
+     dedicated toggle button is the only chevron shown on mobile. */
+  #ra-nav .ra-nav__links .has-drop > a > .fa-chevron-down,
+  #ra-nav .ra-nav__links .has-drop-l3 > a .ra-drop__arrow,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow {
+    display: none !important;
+  }
+  /* Drawer scrolls if it is taller than the viewport. */
+  #ra-nav.is-open .ra-nav__links {
+    max-height: calc(100vh - 72px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    padding-bottom: 32px !important;
   }
 }
 /* RA-MOBILE-NAV-FIX-END */
@@ -1833,84 +1896,69 @@ h1, h2, h3, h4, h5, h6,
   update();
 })();</script>
 <!-- RA-GOTO-TOP-END -->
-<!-- RA-MOBILE-NAV-JS-FIX-START — v1 -->
+<!-- RA-MOBILE-NAV-JS-FIX-START — v2 single click handler (no touch double-fire) -->
 <script>
 (function(){
   var nav = document.getElementById('ra-nav');
   if (!nav) return;
+  function isMobile(){ return window.innerWidth <= 768; }
 
-  // Run in capturing phase so we win over the page's existing bubble-phase
-  // handlers. stopImmediatePropagation prevents the original Handler 1 / 2 / 3
-  // from firing for category-row clicks.
-  function handle(ev){
-    if (window.innerWidth > 768) return;
+  // Collapse sibling rows so only one branch is open at a time (accordion).
+  function closeSiblings(parent, keep){
+    if (!parent) return;
+    parent.querySelectorAll(':scope > .has-drop.is-open, :scope > .has-drop-l3.is-open').forEach(function(li){
+      if (li === keep) return;
+      li.classList.remove('is-open');
+      var b = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+      // clear any legacy .open state so old CSS can't keep a panel visible
+      li.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(u){ u.classList.remove('open'); });
+    });
+  }
+
+  function toggleRow(li){
+    var willOpen = !li.classList.contains('is-open');
+    closeSiblings(li.parentElement, li);
+    li.classList.toggle('is-open', willOpen);
+    var btn = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
+    if (btn) btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    // keep legacy .open in sync so any leftover rule stays consistent
+    var sub = li.querySelector(':scope > .ra-drop--l2, :scope > .ra-drop--l3');
+    if (sub) sub.classList.toggle('open', willOpen);
+  }
+
+  // ONE handler. Capture phase + stopImmediatePropagation so the older
+  // bubble-phase handlers never fire and double-toggle. Click only — binding
+  // touchend AND click was the bug that made every tap a no-op on the iPhone.
+  nav.addEventListener('click', function(ev){
+    if (!isMobile()) return;            // desktop keeps the hover mega-menu
     var t = ev.target;
     if (!t || !t.closest) return;
 
-    // L2 category row inside an open L2 menu (Strategy / Creative / Marketing
-    // inside Services; Strategy Work / Creative Work / Marketing Work inside
-    // Portfolio). Either the link text OR the chevron toggles the L3.
-    var catContext = t.closest('.has-drop-l3');
-    if (catContext && (t.closest('.has-drop-l3 > a') === catContext.querySelector(':scope > a') ||
-                       t.closest('.ra-nav__l2-toggle'))){
-      var l3 = catContext.querySelector(':scope > .ra-drop--l3');
-      if (l3){
-        ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
-        var willOpen = !(l3.classList.contains('open') || catContext.classList.contains('is-open'));
-        // Close siblings inside the same L2 for clean accordion behavior
-        var parentUl = catContext.parentElement;
-        if (parentUl){
-          parentUl.querySelectorAll(':scope > .has-drop-l3').forEach(function(sib){
-            if (sib !== catContext){
-              sib.classList.remove('is-open');
-              var sibL3 = sib.querySelector(':scope > .ra-drop--l3');
-              if (sibL3) sibL3.classList.remove('open');
-              var sibBtn = sib.querySelector(':scope > .ra-nav__l2-toggle');
-              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
-            }
-          });
-        }
-        l3.classList.toggle('open', willOpen);
-        catContext.classList.toggle('is-open', willOpen);
-        var btn = catContext.querySelector(':scope > .ra-nav__l2-toggle');
-        if (btn){ btn.classList.toggle('open', willOpen); btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
+    // 1) Chevron toggle button (L1 Services/Portfolio or an L2 category).
+    var toggle = t.closest('.ra-nav__services-toggle, .ra-nav__l2-toggle');
+    if (toggle){
+      var liT = toggle.closest('.has-drop, .has-drop-l3');
+      if (liT){ ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(liT); }
+      return;
+    }
+
+    // 2) A parent LABEL that has a submenu: expand/collapse instead of
+    //    navigating, so the child links are actually reachable on mobile.
+    var link = t.closest('a');
+    if (link){
+      var liL = link.closest('.has-drop, .has-drop-l3');
+      if (liL && link === liL.querySelector(':scope > a') &&
+          liL.querySelector(':scope > .ra-drop--l2, :scope > .ra-drop--l3')){
+        ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(liL);
         return;
       }
+      // 3) A leaf link (a real destination): let it navigate, close the drawer.
+      nav.classList.remove('is-open');
+      var ham = document.getElementById('ra-nav-hamburger');
+      if (ham) ham.setAttribute('aria-expanded', 'false');
     }
-
-    // Top-level Services / Portfolio row — link text OR chevron toggles L2.
-    var topLi = t.closest('.ra-nav__links > li.has-drop');
-    if (topLi){
-      var isTopLink = t.closest('.ra-nav__links > li.has-drop > a') === topLi.querySelector(':scope > a');
-      var isTopChevron = !!t.closest('.ra-nav__services-toggle');
-      if (isTopLink || isTopChevron){
-        var l2 = topLi.querySelector(':scope > .ra-drop--l2');
-        if (l2){
-          ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
-          var willOpen2 = !(l2.classList.contains('open') || topLi.classList.contains('is-open'));
-          // Close OTHER top-level dropdowns
-          nav.querySelectorAll('.ra-nav__links > li.has-drop').forEach(function(sib){
-            if (sib !== topLi){
-              sib.classList.remove('is-open');
-              var sibL2 = sib.querySelector(':scope > .ra-drop--l2');
-              if (sibL2) sibL2.classList.remove('open');
-              var sibBtn = sib.querySelector(':scope > .ra-nav__services-toggle');
-              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
-            }
-          });
-          l2.classList.toggle('open', willOpen2);
-          topLi.classList.toggle('is-open', willOpen2);
-          var btn2 = topLi.querySelector(':scope > .ra-nav__services-toggle');
-          if (btn2){ btn2.classList.toggle('open', willOpen2); btn2.setAttribute('aria-expanded', willOpen2 ? 'true' : 'false'); }
-          return;
-        }
-      }
-    }
-    // Otherwise (leaf link, hamburger, etc) — let existing handlers run.
-  }
-
-  nav.addEventListener('click', handle, true);
-  nav.addEventListener('touchend', handle, true);
+  }, true);
 })();
 </script>
 <!-- RA-MOBILE-NAV-JS-FIX-END -->
