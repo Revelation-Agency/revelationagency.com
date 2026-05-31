@@ -1834,7 +1834,7 @@ h1, h2, h3, h4, h5, h6,
   update();
 })();</script>
 <!-- RA-GOTO-TOP-END -->
-<!-- RA-MOBILE-NAV-JS-FIX-START — v2 single click handler (no touch double-fire) -->
+<!-- RA-MOBILE-NAV-JS-FIX-START — v3 chevron toggles submenu, label navigates -->
 <script>
 (function(){
   var nav = document.getElementById('ra-nav');
@@ -1849,7 +1849,6 @@ h1, h2, h3, h4, h5, h6,
       li.classList.remove('is-open');
       var b = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
       if (b) b.setAttribute('aria-expanded', 'false');
-      // clear any legacy .open state so old CSS can't keep a panel visible
       li.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(u){ u.classList.remove('open'); });
     });
   }
@@ -1860,41 +1859,42 @@ h1, h2, h3, h4, h5, h6,
     li.classList.toggle('is-open', willOpen);
     var btn = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
     if (btn) btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-    // keep legacy .open in sync so any leftover rule stays consistent
     var sub = li.querySelector(':scope > .ra-drop--l2, :scope > .ra-drop--l3');
     if (sub) sub.classList.toggle('open', willOpen);
+  }
+
+  function closeDrawer(){
+    nav.classList.remove('is-open');
+    var ham = document.getElementById('ra-nav-hamburger');
+    if (ham) ham.setAttribute('aria-expanded', 'false');
   }
 
   // ONE handler. Capture phase + stopImmediatePropagation so the older
   // bubble-phase handlers never fire and double-toggle. Click only — binding
   // touchend AND click was the bug that made every tap a no-op on the iPhone.
+  //   - Tap the chevron -> expand/collapse the submenu.
+  //   - Tap the label   -> navigate to that page (parents go to their page too).
   nav.addEventListener('click', function(ev){
     if (!isMobile()) return;            // desktop keeps the hover mega-menu
     var t = ev.target;
     if (!t || !t.closest) return;
 
-    // 1) Chevron toggle button (L1 Services/Portfolio or an L2 category).
+    // Chevron toggle button (L1 Services/Portfolio or an L2 category).
     var toggle = t.closest('.ra-nav__services-toggle, .ra-nav__l2-toggle');
     if (toggle){
-      var liT = toggle.closest('.has-drop, .has-drop-l3');
-      if (liT){ ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(liT); }
+      var li = toggle.closest('.has-drop, .has-drop-l3');
+      if (li){ ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(li); }
       return;
     }
 
-    // 2) A parent LABEL that has a submenu: expand/collapse instead of
-    //    navigating, so the child links are actually reachable on mobile.
-    var link = t.closest('a');
+    // Any nav link (parent label OR leaf): allow normal navigation.
+    // stopImmediatePropagation blocks the legacy handlers that used to hijack
+    // a parent-label tap into an expand. We do NOT preventDefault here, so the
+    // browser follows the link's href as expected.
+    var link = t.closest('a[href]');
     if (link){
-      var liL = link.closest('.has-drop, .has-drop-l3');
-      if (liL && link === liL.querySelector(':scope > a') &&
-          liL.querySelector(':scope > .ra-drop--l2, :scope > .ra-drop--l3')){
-        ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(liL);
-        return;
-      }
-      // 3) A leaf link (a real destination): let it navigate, close the drawer.
-      nav.classList.remove('is-open');
-      var ham = document.getElementById('ra-nav-hamburger');
-      if (ham) ham.setAttribute('aria-expanded', 'false');
+      ev.stopImmediatePropagation();
+      closeDrawer();
     }
   }, true);
 })();
