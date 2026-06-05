@@ -652,104 +652,167 @@ a{color:inherit;text-decoration:none;}
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
 }
 /* RA-NAV-MEGAMENU-CSS-END */
-/* RA-MOBILE-NAV-FIX-START — v2, do not hand-edit */
+/* RA-MOBILE-NAV-FIX-START — v3 deterministic accordion (ID-scoped so it always
+   wins over the older layered rules). Single source of truth for the mobile nav
+   submenu layout + visibility. Do not hand-edit; regenerate via .nav-fix. */
 @media (max-width: 768px) {
-  /* L3 link text MUST wrap on mobile — overrides desktop white-space:nowrap rule.
-     Without this, items like "Sales Infrastructure" / "Search & AI Rankings"
-     push the open menu wider than the viewport. */
-  .ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
-  .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    line-height: 1.4 !important;
-    padding: 11px 10px !important;
-    font-size: 14px !important;
-    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
-    font-weight: 500 !important;
-    text-transform: none !important;
-    opacity: 1 !important;
-    color: var(--charcoal, #2B2B2B) !important;
-    min-height: 40px !important;
+  /* Parent rows (Services / Portfolio and the category rows): the label fills
+     the row and the chevron toggle is pinned to the right on the same line. */
+  #ra-nav .ra-nav__links .has-drop,
+  #ra-nav .ra-nav__links .has-drop-l3 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  /* Label link: flexible + shrinkable. min-width:0 is critical — without it a
+     flex item refuses to shrink below its content width and the text gets
+     shoved off the left edge of the screen (the exact bug being fixed). */
+  #ra-nav .ra-nav__links .has-drop > a,
+  #ra-nav .ra-nav__links .has-drop-l3 > a {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    color: var(--charcoal, #1A1A1A) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-transform: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    position: static !important;
   }
-
-  /* L2 mega-menu: stack to single column on mobile, no min-width, no grid. */
-  .ra-nav__links .ra-drop--l2 {
-    grid-template-columns: 1fr !important;
-    min-width: 0 !important;
+  /* Chevron toggle button: fixed 48px hit target on the right, never grows. */
+  #ra-nav .ra-nav__services-toggle,
+  #ra-nav .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    color: var(--charcoal, #2B2B2B) !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    transition: transform .25s ease, color .2s ease !important;
+  }
+  #ra-nav .has-drop.is-open > .ra-nav__services-toggle,
+  #ra-nav .has-drop-l3.is-open > .ra-nav__l2-toggle {
+    transform: rotate(180deg) !important;
+    color: var(--red, #D72532) !important;
+  }
+  /* Submenus: full-width, hidden until the parent row is .is-open. Uses
+     display (not max-height) so there is never a clipped / half-open state —
+     this is what made it "appear after a few seconds" or never appear. */
+  #ra-nav .ra-nav__links .ra-drop--l2,
+  #ra-nav .ra-nav__links .ra-drop--l3 {
+    flex: 1 1 100% !important;
+    width: 100% !important;
     max-width: 100% !important;
-    padding: 0 0 0 12px !important;
+    min-width: 0 !important;
+    display: none !important;
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    grid-template-columns: 1fr !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+  }
+  #ra-nav .ra-nav__links .ra-drop--l2 {
+    padding: 2px 0 4px 14px !important;
+    margin: 0 !important;
     gap: 0 !important;
   }
-
-  /* Drop desktop column dividers when stacked. */
-  .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+  #ra-nav .ra-nav__links .ra-drop--l3 {
+    padding: 2px 0 8px 14px !important;
+    margin: 2px 0 6px 4px !important;
+    border-left: 2px solid rgba(215,37,50,0.35) !important;
+  }
+  /* Reveal the submenu when its parent row is open. */
+  #ra-nav .has-drop.is-open > .ra-drop--l2,
+  #ra-nav .has-drop-l3.is-open > .ra-drop--l3 {
+    display: block !important;
+  }
+  /* Drop the desktop column dividers/padding on the L2 category cells. */
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
     border-left: 0 !important;
     padding: 0 !important;
   }
-
-  /* Category title (Strategy / Creative / Marketing) — high-contrast,
-     guaranteed-legible header for the accordion. */
-  .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
-    padding: 14px 8px !important;
+  /* Category headers (Strategy / Creative / Marketing): clear, dark, normal
+     case. Desktop renders them as tiny red caps, which is illegible here. */
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+    padding: 12px 4px !important;
+    font-family: Inter, system-ui, -apple-system, sans-serif !important;
     font-size: 15px !important;
-    font-family: Inter, "Bebas Neue", Orbitron, system-ui, sans-serif !important;
     font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
     color: var(--charcoal, #1A1A1A) !important;
-    opacity: 1 !important;
-    margin-bottom: 0 !important;
     border-bottom: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 48px !important;
+    margin: 0 !important;
   }
-
-  /* L2 + L3 link opacity = full (the existing mobile rule used 0.75 which
-     made the menu look disabled). */
-  .ra-nav__links .ra-drop a { opacity: 1 !important; }
-
-  /* Top-level menu rows hit the 44px iOS tap-target minimum. */
-  .ra-nav__links > li > a {
-    min-height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  /* Width discipline: nothing inside the nav drawer can exceed its container. */
-  .ra-nav__links,
-  .ra-nav__links li,
-  .ra-nav__links .ra-drop,
-  .ra-nav__links .ra-drop--l2,
-  .ra-nav__links .ra-drop--l3 {
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Accordion toggle chevrons stay visible + tappable. */
-  .ra-nav__services-toggle,
-  .ra-nav__l2-toggle {
+  /* Leaf links (Brand Strategy, Website Development, …): visible, wrapping,
+     full-contrast, comfortable tap targets. */
+  #ra-nav .ra-nav__links .ra-drop--l3 a {
+    display: block !important;
+    width: 100% !important;
+    padding: 11px 6px !important;
+    font-family: Inter, system-ui, -apple-system, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
     color: var(--charcoal, #2B2B2B) !important;
     opacity: 1 !important;
-    font-size: 20px !important;
+    visibility: visible !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    text-transform: none !important;
+    background: transparent !important;
+    text-align: left !important;
+    min-height: 40px !important;
   }
-
-  /* Belt-and-suspenders: the original Handler 1 sets .is-open on the <li>
-     but the original CSS only respects .open on the .ra-drop--l3. Without
-     this rule, tapping the category LINK (not the chevron) did nothing
-     visible. Honor both class names so neither handler's outcome is silent. */
-  .ra-nav__links .has-drop-l3.is-open > .ra-drop--l3 {
-    max-height: 600px !important;
-    padding: 4px 0 8px 18px !important;
-    border-left: 2px solid rgba(215,37,50,0.35) !important;
-    margin-left: 4px !important;
+  #ra-nav .ra-nav__links .ra-drop--l3 a:hover,
+  #ra-nav .ra-nav__links .ra-drop--l3 a:active,
+  #ra-nav .ra-nav__links .ra-drop--l3 a.is-current {
+    color: var(--red, #D72532) !important;
   }
-  .ra-nav__links .has-drop.is-open > .ra-drop--l2 {
-    max-height: 1200px !important;
-    padding: 4px 0 4px 16px !important;
+  /* Hide the small decorative chevron icons baked into the label text — the
+     dedicated toggle button is the only chevron shown on mobile. */
+  #ra-nav .ra-nav__links .has-drop > a > .fa-chevron-down,
+  #ra-nav .ra-nav__links .has-drop-l3 > a .ra-drop__arrow,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow {
+    display: none !important;
+  }
+  /* Drawer scrolls if it is taller than the viewport. */
+  #ra-nav.is-open .ra-nav__links {
+    max-height: calc(100vh - 72px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    padding-bottom: 32px !important;
   }
 }
 /* RA-MOBILE-NAV-FIX-END */
@@ -1040,60 +1103,198 @@ h1, h2, h3, h4, h5, h6,
 
 <style>
 /* RA-LANDING-AGENT-CSS-START */
-.la-page { font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--charcoal, #2B2B2B); }
-.la-container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
-.la-eyebrow { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red, #D72532); display: inline-block; margin-bottom: 18px; }
+:root { --la-red: #D72532; --la-red-deep: #AD1C24; --la-charcoal: #2B2B2B; --la-off-black: #1E1E1E; --la-grey-light: #F7F7F5; --la-grey-mid: #C9C9C5; }
 
-.la-hero { background: #1E1E1E; color: #fff; padding: clamp(72px, 11vw, 140px) 0 clamp(72px, 11vw, 140px); position: relative; overflow: hidden; }
-.la-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 30%, rgba(215,37,50,0.18), transparent 55%); pointer-events: none; }
-.la-hero > .la-container { position: relative; }
-.la-hero .la-eyebrow { color: #ff5a66; }
-.la-h1 { font-family: Orbitron, Inter, system-ui, sans-serif; font-weight: 800; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.08; letter-spacing: -0.01em; color: #fff; margin: 0 0 24px; max-width: 22ch; }
-.la-subhead { font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.55; color: rgba(255,255,255,0.85); max-width: 60ch; margin: 0 0 36px; }
-.la-cta-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--red, #D72532); color: #fff !important; text-decoration: none; font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.04em; padding: 18px 32px; border-radius: 999px; box-shadow: 0 10px 26px rgba(215,37,50,0.32); transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
-.la-cta-primary:hover { background: #AD1C24; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(215,37,50,0.4); }
+.la-page { font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--la-charcoal); }
+.la-container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
+.la-eyebrow { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--la-red); display: inline-block; margin: 0 0 18px; }
+
+/* ---------------- Reveals ---------------- */
+.la-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.la-reveal.is-visible { opacity: 1; transform: none; }
+.la-reveal-delay-1 { transition-delay: 0.08s; }
+.la-reveal-delay-2 { transition-delay: 0.16s; }
+.la-reveal-delay-3 { transition-delay: 0.24s; }
+
+/* ---------------- CTAs ---------------- */
+.la-cta-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--la-red); color: #fff !important; text-decoration: none; font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.04em; padding: 18px 32px; border-radius: 999px; box-shadow: 0 12px 28px rgba(215,37,50,0.34); transition: transform 0.2s, box-shadow 0.2s, background 0.2s; border: 0; cursor: pointer; }
+.la-cta-primary:hover, .la-cta-primary:focus-visible { background: var(--la-red-deep); transform: translateY(-2px); box-shadow: 0 16px 36px rgba(215,37,50,0.44); outline: none; }
 .la-cta-primary .la-cta-arrow { font-weight: 900; transition: transform 0.2s; }
 .la-cta-primary:hover .la-cta-arrow { transform: translateX(4px); }
 .la-cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin: 18px 0 0; }
+.la-cta-row { margin-top: clamp(28px, 4vw, 44px); display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 
-.la-section { padding: clamp(64px, 9vw, 112px) 0; }
-.la-section--light { background: #F7F7F5; color: #2B2B2B; }
-.la-section--dark { background: #1E1E1E; color: #fff; }
+/* ---------------- Sticky CTA bar ---------------- */
+.la-sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px env(safe-area-inset-bottom, 12px); background: rgba(30,30,30,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.10); z-index: 9000; display: flex; align-items: center; justify-content: center; gap: 12px; transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); pointer-events: none; }
+.la-sticky-cta.is-visible { transform: translateY(0); pointer-events: auto; }
+.la-sticky-cta .la-cta-primary { width: 100%; max-width: 480px; justify-content: center; padding: 14px 20px; font-size: 14px; box-shadow: 0 8px 22px rgba(215,37,50,0.5); }
+
+@media (min-width: 900px) {
+  .la-sticky-cta { left: auto; right: 24px; bottom: 24px; padding: 0; background: transparent; backdrop-filter: none; border: 0; }
+  .la-sticky-cta .la-cta-primary { padding: 14px 22px; font-size: 14px; box-shadow: 0 10px 28px rgba(215,37,50,0.5); }
+}
+
+/* ---------------- Hero ---------------- */
+.la-hero { background: var(--la-off-black); color: #fff; padding: clamp(80px, 11vw, 140px) 0 clamp(72px, 10vw, 124px); position: relative; overflow: hidden; }
+.la-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 30%, rgba(215,37,50,0.22), transparent 55%), radial-gradient(circle at 18% 80%, rgba(215,37,50,0.10), transparent 60%); pointer-events: none; }
+.la-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%); pointer-events: none; }
+.la-hero > .la-container { position: relative; display: grid; gap: clamp(36px, 5vw, 64px); align-items: center; }
+@media (min-width: 900px) { .la-hero > .la-container { grid-template-columns: 1.05fr 1fr; } }
+.la-hero .la-eyebrow { color: #ff5a66; }
+.la-h1 { font-family: Orbitron, Inter, system-ui, sans-serif; font-weight: 800; font-size: clamp(2.1rem, 5.4vw, 3.6rem); line-height: 1.06; letter-spacing: -0.01em; color: #fff; margin: 0 0 24px; max-width: 22ch; }
+.la-subhead { font-size: clamp(1rem, 1.35vw, 1.16rem); line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 60ch; margin: 0 0 36px; }
+
+/* ---------------- Hero graphic (shared) ---------------- */
+.la-hero-graphic { position: relative; width: 100%; aspect-ratio: 4 / 3; max-width: 540px; margin: 0 auto; }
+.la-hero-graphic svg { width: 100%; height: 100%; display: block; }
+
+/* Lead Agent: signals → pipeline */
+@keyframes la-pulse { 0%, 100% { opacity: 0.45; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes la-glow { 0%, 100% { filter: drop-shadow(0 0 6px rgba(215,37,50,0.5)); } 50% { filter: drop-shadow(0 0 18px rgba(215,37,50,0.9)); } }
+.la-hero-sig { animation: la-pulse 2.8s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.la-hero-sig:nth-child(2) { animation-delay: 0.4s; }
+.la-hero-sig:nth-child(3) { animation-delay: 0.8s; }
+.la-hero-sig:nth-child(4) { animation-delay: 1.2s; }
+.la-hero-funnel { animation: la-glow 3.2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+/* Sales Agent: follow-up timeline */
+@keyframes la-tl-fill { 0% { stroke-dashoffset: 380; } 60%, 100% { stroke-dashoffset: 0; } }
+@keyframes la-tl-cycle { 0%, 100% { stroke-dashoffset: 380; } 60%, 95% { stroke-dashoffset: 0; } }
+@keyframes la-bubble-in { 0%, 55% { opacity: 0; transform: translateY(8px) scale(0.9); } 65%, 95% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(8px) scale(0.9); } }
+.la-tl-line { stroke-dasharray: 380; animation: la-tl-cycle 5.6s ease-in-out infinite; transform-box: fill-box; }
+.la-tl-fire { animation: la-bubble-in 5.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+/* ---------------- Sections ---------------- */
+.la-section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
+.la-section--light { background: var(--la-grey-light); color: var(--la-charcoal); }
+.la-section--dark { background: var(--la-off-black); color: #fff; }
 .la-section--dark .la-h2 { color: #fff; }
 .la-section--dark .la-body { color: rgba(255,255,255,0.85); }
 .la-section--dark .la-eyebrow { color: #ff5a66; }
-.la-h2 { font-family: Orbitron, Inter, system-ui, sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3.6vw, 2.4rem); line-height: 1.12; letter-spacing: -0.005em; margin: 0 0 24px; max-width: 22ch; }
-.la-body { font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.6; max-width: 62ch; margin: 0; color: #2B2B2B; }
+.la-h2 { font-family: Orbitron, Inter, system-ui, sans-serif; font-weight: 800; font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.12; letter-spacing: -0.005em; margin: 0 0 24px; max-width: 22ch; color: var(--la-off-black); }
+.la-body { font-size: clamp(1rem, 1.25vw, 1.1rem); line-height: 1.6; max-width: 62ch; margin: 0; }
 
-.la-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; max-width: 760px; }
-.la-step { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
-.la-step__num { font-family: Orbitron, sans-serif; font-weight: 800; font-size: 18px; color: var(--red, #D72532); background: rgba(215,37,50,0.10); border-radius: 999px; padding: 8px 14px; min-width: 48px; text-align: center; line-height: 1; align-self: start; }
-.la-section--dark .la-step__num { background: rgba(215,37,50,0.18); color: #ff8a93; }
-.la-step__title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.4; margin: 6px 0 6px; color: inherit; }
-.la-step__body { font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.6; margin: 0; color: inherit; opacity: 0.85; }
+/* ---------------- Steps (scroll-revealed) ---------------- */
+.la-steps { list-style: none; margin: clamp(28px, 4vw, 40px) 0 0; padding: 0; display: grid; gap: clamp(22px, 3vw, 32px); position: relative; max-width: 820px; }
+.la-step { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start; position: relative; }
+.la-step::before { content: ''; position: absolute; left: 24px; top: 50px; bottom: -36px; width: 2px; background: linear-gradient(to bottom, rgba(215,37,50,0.4), rgba(215,37,50,0.04)); }
+.la-step:last-child::before { display: none; }
+.la-step__num { font-family: Orbitron, sans-serif; font-weight: 800; font-size: 16px; color: #fff; background: var(--la-red); border-radius: 50%; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; box-shadow: 0 8px 22px rgba(215,37,50,0.4); position: relative; z-index: 1; transition: transform 0.25s, box-shadow 0.25s; }
+.la-step:hover .la-step__num { transform: scale(1.08); box-shadow: 0 12px 28px rgba(215,37,50,0.55); }
+.la-step__title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.4; margin: 8px 0 6px; color: inherit; }
+.la-step__body { font-size: clamp(0.95rem, 1.15vw, 1.05rem); line-height: 1.6; margin: 0; color: inherit; opacity: 0.86; max-width: 60ch; }
 
-.la-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; max-width: 720px; }
-.la-checks li { display: grid; grid-template-columns: auto 1fr; gap: 14px; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.55; }
-.la-checks li::before { content: ''; display: block; width: 22px; height: 22px; border-radius: 50%; background: var(--red, #D72532); margin-top: 3px; flex-shrink: 0; position: relative; }
-.la-checks li { position: relative; }
-.la-checks li::after { content: ''; position: absolute; left: 6px; top: 9px; width: 10px; height: 5px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); }
+/* ---------------- What you get (checks) ---------------- */
+.la-checks { list-style: none; margin: clamp(28px, 4vw, 40px) 0 0; padding: 0; display: grid; gap: 14px; max-width: 760px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .la-checks { grid-template-columns: 1fr 1fr; } }
+.la-checks li { display: grid; grid-template-columns: auto 1fr; gap: 14px; font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.5; padding: 14px 16px; border-radius: 12px; background: rgba(0,0,0,0.04); }
+.la-section--dark .la-checks li { background: rgba(255,255,255,0.05); }
+.la-checks li::before { content: ''; display: block; width: 22px; height: 22px; border-radius: 50%; background: var(--la-red); margin-top: 2px; flex-shrink: 0; position: relative; }
+.la-checks li::after { content: ''; position: absolute; left: 22px; top: 24px; width: 9px; height: 5px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); }
 
-.la-video-slot { background: rgba(0,0,0,0.05); border: 2px dashed rgba(0,0,0,0.18); border-radius: 18px; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; padding: 24px; max-width: 960px; margin: 0 auto; }
-.la-section--dark .la-video-slot { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
-.la-video-slot__placeholder { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin: 0; text-align: center; }
-.la-section--dark .la-video-slot__placeholder { color: rgba(255,255,255,0.55); }
+/* ---------------- Stats band ---------------- */
+.la-stats { display: grid; gap: clamp(20px, 3vw, 32px); margin-top: clamp(28px, 4vw, 44px); }
+@media (min-width: 720px) { .la-stats { grid-template-columns: repeat(3, 1fr); } }
+.la-stat { background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.06); border-radius: 18px; padding: clamp(22px, 3vw, 30px); }
+.la-section--dark .la-stat { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); }
+.la-stat__num { font-family: Orbitron, sans-serif; font-weight: 800; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; color: var(--la-red); margin: 0; letter-spacing: -0.02em; display: inline-flex; align-items: baseline; gap: 2px; }
+.la-stat__suffix { font-size: 0.62em; opacity: 0.85; }
+.la-stat__label { font-size: clamp(0.95rem, 1.15vw, 1.02rem); line-height: 1.5; margin: 14px 0 12px; color: inherit; }
+.la-stat__src { font-size: 11px; line-height: 1.45; color: rgba(0,0,0,0.55); margin: 0; font-style: italic; }
+.la-section--dark .la-stat__src { color: rgba(255,255,255,0.55); }
 
-.la-section--final { background: linear-gradient(135deg, #D72532 0%, #AD1C24 100%); color: #fff; text-align: center; }
-.la-section--final .la-h2 { color: #fff; max-width: none; margin-left: auto; margin-right: auto; }
-.la-section--final .la-body { color: rgba(255,255,255,0.92); margin-left: auto; margin-right: auto; }
-.la-section--final .la-cta-primary { background: #fff; color: var(--red, #D72532) !important; box-shadow: 0 10px 26px rgba(0,0,0,0.18); margin-top: 28px; }
-.la-section--final .la-cta-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.26); }
+/* ---------------- Compare bars ---------------- */
+.la-compare { margin-top: clamp(36px, 5vw, 56px); max-width: 920px; }
+.la-compare__title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: clamp(1rem, 1.3vw, 1.12rem); margin: 0 0 18px; opacity: 0.9; }
+.la-bar { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 0 0 22px; }
+.la-bar__head { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; font-size: clamp(0.9rem, 1.1vw, 1rem); }
+.la-bar__label { font-weight: 600; }
+.la-bar__pct { font-family: Orbitron, sans-serif; font-weight: 800; color: var(--la-red); }
+.la-bar__track { height: 14px; background: rgba(0,0,0,0.08); border-radius: 999px; overflow: hidden; position: relative; }
+.la-section--dark .la-bar__track { background: rgba(255,255,255,0.10); }
+.la-bar__fill { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, rgba(215,37,50,0.7), var(--la-red)); transition: width 1.6s cubic-bezier(0.22,1,0.36,1); }
+.la-bar--against .la-bar__fill { background: linear-gradient(90deg, rgba(170,170,170,0.6), rgba(120,120,120,0.85)); }
+.la-bar__note { font-size: 12px; line-height: 1.45; color: rgba(0,0,0,0.55); margin: 0; font-style: italic; }
+.la-section--dark .la-bar__note { color: rgba(255,255,255,0.55); }
+
+/* ---------------- Visibility preview (lead-agent: dashboard) ---------------- */
+.la-dashboard { background: #11151c; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 18px; max-width: 560px; box-shadow: 0 30px 80px rgba(0,0,0,0.4); margin: 0; overflow: hidden; }
+.la-dashboard__head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px; }
+.la-dashboard__title { font-family: Inter, system-ui, sans-serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+.la-dashboard__live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #5EEAD4; }
+.la-dashboard__live::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #5EEAD4; box-shadow: 0 0 8px #5EEAD4; animation: la-pulse 1.6s ease-in-out infinite; }
+.la-dashboard__row { display: grid; grid-template-columns: 32px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); opacity: 0; animation: la-row-in 0.6s forwards; }
+.la-dashboard__row:last-child { border-bottom: 0; }
+.la-dashboard__row:nth-child(2) { animation-delay: 0.1s; }
+.la-dashboard__row:nth-child(3) { animation-delay: 0.4s; }
+.la-dashboard__row:nth-child(4) { animation-delay: 0.7s; }
+.la-dashboard__row:nth-child(5) { animation-delay: 1.0s; }
+@keyframes la-row-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.la-dashboard__avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #D72532, #AD1C24); display: flex; align-items: center; justify-content: center; font-family: Orbitron, sans-serif; font-weight: 800; color: #fff; font-size: 12px; }
+.la-dashboard__meta { display: grid; gap: 2px; }
+.la-dashboard__name { font-family: Inter, system-ui, sans-serif; font-weight: 600; color: rgba(255,255,255,0.95); font-size: 13px; }
+.la-dashboard__sub { color: rgba(255,255,255,0.5); font-size: 11px; }
+.la-dashboard__badge { font-family: Inter, system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+.la-dashboard__badge--sent { background: rgba(94, 234, 212, 0.15); color: #5EEAD4; }
+.la-dashboard__badge--reply { background: rgba(255, 215, 0, 0.15); color: #F5C518; }
+.la-dashboard__badge--book { background: rgba(215, 37, 50, 0.20); color: #ff7a86; animation: la-glow 2.2s ease-in-out infinite; }
+
+/* ---------------- Scorecard (sales-agent) ---------------- */
+.la-scorecard { background: #11151c; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; max-width: 560px; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+.la-scorecard__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.la-scorecard__title { font-family: Inter, system-ui, sans-serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+.la-scorecard__count { font-family: Orbitron, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); }
+.la-objection { display: grid; gap: 6px; margin-bottom: 14px; }
+.la-objection__row { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.9); align-items: baseline; }
+.la-objection__count { font-family: Orbitron, sans-serif; font-weight: 700; color: var(--la-red); }
+.la-objection__bar { height: 8px; background: rgba(255,255,255,0.10); border-radius: 999px; overflow: hidden; }
+.la-objection__fill { display: block; height: 100%; background: linear-gradient(90deg, rgba(215,37,50,0.7), var(--la-red)); border-radius: 999px; width: 0; animation: la-objfill 1.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes la-objfill { to { width: var(--pct, 0%); } }
+
+/* ---------------- Before/after toggle (sales-agent) ---------------- */
+.la-toggle { display: grid; gap: 18px; max-width: 760px; margin-top: clamp(28px, 4vw, 40px); }
+.la-toggle__switch { display: inline-flex; padding: 4px; background: rgba(0,0,0,0.08); border-radius: 999px; align-self: start; }
+.la-section--dark .la-toggle__switch { background: rgba(255,255,255,0.10); }
+.la-toggle__switch input { position: absolute; opacity: 0; pointer-events: none; }
+.la-toggle__btn { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 13px; padding: 10px 18px; border-radius: 999px; cursor: pointer; color: inherit; opacity: 0.65; transition: background 0.25s, color 0.25s, opacity 0.25s; }
+.la-toggle__btn.is-active { background: var(--la-red); color: #fff; opacity: 1; box-shadow: 0 4px 14px rgba(215,37,50,0.4); }
+.la-toggle__panels { position: relative; min-height: 200px; }
+.la-toggle__panel { padding: clamp(20px, 3vw, 28px); border-radius: 18px; background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.06); display: none; }
+.la-section--dark .la-toggle__panel { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08); }
+.la-toggle__panel.is-active { display: block; animation: la-fade 0.4s ease-out; }
+@keyframes la-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.la-toggle__panel--slip { border-left: 4px solid rgba(150,150,150,0.7); }
+.la-toggle__panel--save { border-left: 4px solid var(--la-red); }
+.la-toggle__caption { font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.55; margin: 0; }
+.la-toggle__tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
+.la-toggle__panel--slip .la-toggle__tag { background: rgba(120,120,120,0.18); color: rgba(120,120,120,0.95); }
+.la-toggle__panel--save .la-toggle__tag { background: rgba(215,37,50,0.18); color: var(--la-red); }
+
+/* ---------------- Demo video slot ---------------- */
+.la-video-slot { background: rgba(255,255,255,0.05); border: 2px dashed rgba(255,255,255,0.22); border-radius: 18px; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; padding: 24px; max-width: 960px; margin: clamp(28px, 4vw, 40px) auto 0; }
+.la-section--light .la-video-slot { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.18); }
+.la-video-slot__placeholder { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin: 0; text-align: center; }
+.la-section--light .la-video-slot__placeholder { color: rgba(0,0,0,0.55); }
+
+/* ---------------- Final CTA ---------------- */
+.la-section--final { background: linear-gradient(135deg, var(--la-red) 0%, var(--la-red-deep) 100%); color: #fff; text-align: center; }
+.la-section--final .la-h2 { color: #fff; max-width: none; margin: 0 auto 18px; }
+.la-section--final .la-body { color: rgba(255,255,255,0.92); margin: 0 auto; }
+.la-section--final .la-cta-primary { background: #fff; color: var(--la-red) !important; box-shadow: 0 14px 32px rgba(0,0,0,0.22); margin-top: 28px; }
+.la-section--final .la-cta-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 18px 40px rgba(0,0,0,0.28); }
+
+/* ---------------- Two-col layout ---------------- */
+.la-two-col { display: grid; gap: clamp(36px, 5vw, 56px); align-items: center; }
+@media (min-width: 900px) { .la-two-col { grid-template-columns: 1fr 1fr; } }
+.la-two-col--reverse > :first-child { order: 2; }
+@media (max-width: 899px) { .la-two-col--reverse > :first-child { order: 0; } }
 
 @media (max-width: 640px) {
-  .la-h1 { font-size: clamp(2rem, 9vw, 2.4rem); }
-  .la-h2 { font-size: clamp(1.4rem, 7vw, 1.7rem); }
-  .la-step { grid-template-columns: 1fr; gap: 8px; }
-  .la-step__num { justify-self: start; min-width: auto; padding: 6px 12px; }
+  .la-h1 { font-size: clamp(1.9rem, 8.5vw, 2.2rem); }
+  .la-h2 { font-size: clamp(1.45rem, 7vw, 1.7rem); }
+  .la-step { grid-template-columns: 36px 1fr; gap: 14px; }
+  .la-step__num { width: 36px; height: 36px; font-size: 13px; }
+  .la-step::before { left: 17px; }
 }
 /* RA-LANDING-AGENT-CSS-END */
 </style>
@@ -1198,131 +1399,267 @@ h1, h2, h3, h4, h5, h6,
 </nav>
 
 <main class="la-page">
-
-  <!-- ==================== HERO ==================== -->
-  <section class="la-hero">
+<section class="la-hero">
+    <div class="la-hero-grid"></div>
     <div class="la-container">
-      <span class="la-eyebrow">Revelation Sales Agent System</span>
-      <h1 class="la-h1">Never let another ready-to-buy customer slip through the cracks.</h1>
-      <p class="la-subhead">Leads don&#x27;t die because they weren&#x27;t interested. They die in the follow-up gap, the callback nobody made, the quote that sat in an inbox. The Revelation Sales Agent System works every lead the way your best rep would if they had unlimited time, and never forgets one.</p>
-      <a class="la-cta-primary landing-cta" data-cta="hero" data-page="sales-agent" href="../booking">
-        See it for your business <span class="la-cta-arrow">→</span>
-      </a>
-      <p class="la-cta-sub">Plugs into what you already use. No switching, no retraining.</p>
+      <div>
+        <span class="la-eyebrow la-reveal">Revelation Sales Agent System</span>
+        <h1 class="la-h1 la-reveal la-reveal-delay-1">Never let another ready-to-buy customer slip through the cracks.</h1>
+        <p class="la-subhead la-reveal la-reveal-delay-2">Leads don&#x27;t die because they weren&#x27;t interested. They die in the follow-up gap, the callback nobody made, the quote that sat in an inbox. The Revelation Sales Agent System works every lead the way your best rep would if they had unlimited time, and never forgets one.</p>
+        <div class="la-reveal la-reveal-delay-3">
+          <a class="la-cta-primary landing-cta" data-cta="hero" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a>
+          <p class="la-cta-sub">Plugs into what you already use. No switching, no retraining.</p>
+        </div>
+      </div>
+      <div class="la-hero-graphic la-reveal la-reveal-delay-2"><svg viewBox="0 0 540 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="la-tl-line-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D72532"/>
+      <stop offset="1" stop-color="#ff7a86"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Customer avatar with speech bubble -->
+  <g transform="translate(60,80)">
+    <circle cx="0" cy="0" r="28" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+    <g stroke="#FFFFFF" stroke-width="2" fill="none">
+      <circle cx="0" cy="-7" r="6"/>
+      <path d="M-11,4 a11,11 0 0 1 22,0 v10 h-22 z"/>
+    </g>
+    <!-- Speech bubble -->
+    <g transform="translate(48,-22)">
+      <rect width="200" height="52" rx="10" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.25)"/>
+      <text x="14" y="22" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="600">"Call me in a week —</text>
+      <text x="14" y="40" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="600">need to talk to my partner."</text>
+      <polygon points="0,18 -10,26 0,30" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.25)"/>
+    </g>
+  </g>
+
+  <!-- Timeline horizontal axis -->
+  <g transform="translate(60,240)">
+    <line x1="0" y1="0" x2="420" y2="0" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+    <line x1="0" y1="0" x2="420" y2="0" stroke="url(#la-tl-line-grad)" stroke-width="3" class="la-tl-line"/>
+
+    <!-- Day markers -->
+    <g font-family="Inter,sans-serif" font-size="10" letter-spacing="1.2" font-weight="700" fill="rgba(255,255,255,0.65)">
+      <g transform="translate(0,0)">
+        <circle r="6" fill="#1E1E1E" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+        <text y="26" text-anchor="middle">DAY 0</text>
+      </g>
+      <g transform="translate(140,0)">
+        <circle r="6" fill="#1E1E1E" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+        <text y="26" text-anchor="middle">DAY 3</text>
+      </g>
+      <g transform="translate(280,0)">
+        <circle r="6" fill="#1E1E1E" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+        <text y="26" text-anchor="middle">DAY 5</text>
+      </g>
+      <g transform="translate(420,0)">
+        <circle r="8" fill="#D72532" stroke="#fff" stroke-width="2"/>
+        <text y="28" text-anchor="middle" fill="#fff">DAY 7</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Message fires at day 7 -->
+  <g transform="translate(380,160)" class="la-tl-fire">
+    <rect width="148" height="60" rx="10" fill="#D72532"/>
+    <text x="74" y="24" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">FOLLOW-UP SENT</text>
+    <text x="74" y="44" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Inter,sans-serif" font-size="10">"Following up on our chat..."</text>
+    <polygon points="60,60 74,72 88,60" fill="#D72532"/>
+  </g>
+
+  <!-- Label -->
+  <text x="270" y="350" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="11" letter-spacing="2.4" font-weight="700">RIGHT TIME · RIGHT MESSAGE · EVERY TIME</text>
+</svg></div>
     </div>
   </section>
-
-  <!-- ==================== OPENER (Difference / Problem) ==================== -->
-  <section class="la-section la-section--light">
+<section class="la-section la-section--light">
     <div class="la-container">
-      <h2 class="la-h2">The problem</h2>
-      <p class="la-body">Your team is busy. Someone says call me next week, someone&#x27;s waiting to hear from their spouse, someone&#x27;s comparing quotes, and by the time anyone circles back they&#x27;ve gone cold or gone elsewhere.</p>
+      <h2 class="la-h2 la-reveal">The problem</h2>
+      <p class="la-body la-reveal la-reveal-delay-1">Your team is busy. Someone says call me next week, someone&#x27;s waiting to hear from their spouse, someone&#x27;s comparing quotes, and by the time anyone circles back they&#x27;ve gone cold or gone elsewhere.</p>
+      <div class="la-cta-row la-reveal la-reveal-delay-2"><a class="la-cta-primary landing-cta" data-cta="post-opener" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
     </div>
   </section>
-
-  <!-- ==================== HOW IT WORKS ==================== -->
-  <section class="la-section la-section--dark">
+<section class="la-section la-section--dark">
     <div class="la-container">
-      <h2 class="la-h2">How it works</h2>
+      <h2 class="la-h2 la-reveal">How it works</h2>
       <ol class="la-steps">
-      <li class="la-step">
-        <span class="la-step__num">01</span>
-        <div>
-          <h3 class="la-step__title">Works every lead like your best rep,</h3>
-          <p class="la-step__body">with unlimited time and a perfect memory.</p>
-        </div>
-      </li>
-      <li class="la-step">
-        <span class="la-step__num">02</span>
-        <div>
-          <h3 class="la-step__title">Remembers what each customer actually said,</h3>
-          <p class="la-step__body">the objection, the timing, the detail that matters.</p>
-        </div>
-      </li>
-      <li class="la-step">
-        <span class="la-step__num">03</span>
-        <div>
-          <h3 class="la-step__title">Follows up at exactly the right moment,</h3>
-          <p class="la-step__body">with a message built around their situation, not a generic blast.</p>
-        </div>
-      </li>
-      <li class="la-step">
-        <span class="la-step__num">04</span>
-        <div>
-          <h3 class="la-step__title">Sends it itself, or hands your rep the reminder,</h3>
-          <p class="la-step__body">with the full context already prepared.</p>
-        </div>
-      </li>
-      <li class="la-step">
-        <span class="la-step__num">05</span>
-        <div>
-          <h3 class="la-step__title">Plugs into what you already use,</h3>
-          <p class="la-step__body">no switching software, no retraining your team.</p>
-        </div>
-      </li>
-      <li class="la-step">
-        <span class="la-step__num">06</span>
-        <div>
-          <h3 class="la-step__title">Gives managers a clear view,</h3>
-          <p class="la-step__body">which leads are being worked, which objections keep coming up, where each rep needs help.</p>
-        </div>
-      </li>
+    <li class="la-step la-reveal la-reveal-delay-0">
+      <span class="la-step__num">01</span>
+      <div>
+        <h3 class="la-step__title">Works every lead like your best rep,</h3>
+        <p class="la-step__body">with unlimited time and a perfect memory.</p>
+      </div>
+    </li>
+    <li class="la-step la-reveal la-reveal-delay-1">
+      <span class="la-step__num">02</span>
+      <div>
+        <h3 class="la-step__title">Remembers what each customer actually said,</h3>
+        <p class="la-step__body">the objection, the timing, the detail that matters.</p>
+      </div>
+    </li>
+    <li class="la-step la-reveal la-reveal-delay-2">
+      <span class="la-step__num">03</span>
+      <div>
+        <h3 class="la-step__title">Follows up at exactly the right moment,</h3>
+        <p class="la-step__body">with a message built around their situation, not a generic blast.</p>
+      </div>
+    </li>
+    <li class="la-step la-reveal la-reveal-delay-2">
+      <span class="la-step__num">04</span>
+      <div>
+        <h3 class="la-step__title">Sends it itself, or hands your rep the reminder,</h3>
+        <p class="la-step__body">with the full context already prepared.</p>
+      </div>
+    </li>
+    <li class="la-step la-reveal la-reveal-delay-2">
+      <span class="la-step__num">05</span>
+      <div>
+        <h3 class="la-step__title">Plugs into what you already use,</h3>
+        <p class="la-step__body">no switching software, no retraining your team.</p>
+      </div>
+    </li>
+    <li class="la-step la-reveal la-reveal-delay-2">
+      <span class="la-step__num">06</span>
+      <div>
+        <h3 class="la-step__title">Gives managers a clear view,</h3>
+        <p class="la-step__body">which leads are being worked, which objections keep coming up, where each rep needs help.</p>
+      </div>
+    </li>
       </ol>
+      <div class="la-cta-row la-reveal"><a class="la-cta-primary landing-cta" data-cta="post-how-it-works" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
     </div>
   </section>
-
-  <!-- ==================== WHAT YOU GET ==================== -->
-  <section class="la-section la-section--light">
+<section class="la-section la-section--light">
     <div class="la-container">
-      <h2 class="la-h2">What you get</h2>
+      <h2 class="la-h2 la-reveal">Where revenue actually leaks.</h2>
+      <div class="la-stats">
+    <div class="la-stat la-reveal la-reveal-delay-0">
+      <p class="la-stat__num"><span class="la-counter" data-target="44" data-duration="1400">0</span><span class="la-stat__suffix">%</span></p>
+      <p class="la-stat__label">of sales reps give up after one follow-up.</p>
+      <p class="la-stat__src">Source: Brevet Group / Marketing Donut sales statistics.</p>
+    </div>
+    <div class="la-stat la-reveal la-reveal-delay-1">
+      <p class="la-stat__num"><span class="la-counter" data-target="80" data-duration="1400">0</span><span class="la-stat__suffix">%</span></p>
+      <p class="la-stat__label">of sales require five or more follow-ups to close.</p>
+      <p class="la-stat__src">Source: Brevet Group / Marketing Donut sales statistics.</p>
+    </div>
+    <div class="la-stat la-reveal la-reveal-delay-2">
+      <p class="la-stat__num"><span class="la-counter" data-target="21" data-duration="1400">0</span><span class="la-stat__suffix">x</span></p>
+      <p class="la-stat__label">more likely to make contact when you reach a lead within 5 minutes vs. 30 minutes.</p>
+      <p class="la-stat__src">Source: Harvard Business Review, 2011 — Oldroyd / McElheran / Elkington, &quot;The Short Life of Online Sales Leads.&quot;</p>
+    </div>
+      </div>
+  <div class="la-compare">
+    <p class="la-compare__title">Working every lead — without vs. with the system</p>
+    <div class="la-bar la-bar--against la-reveal" data-pct="56">
+      <div class="la-bar__head"><span class="la-bar__label">Reps still following up after attempt 1</span><span class="la-bar__pct">56%</span></div>
+      <div class="la-bar__track"><span class="la-bar__fill"></span></div>
+      <p class="la-bar__note">Brevet Group — 44% give up after the first follow-up.</p>
+    </div>
+    <div class="la-bar la-bar--with la-reveal" data-pct="100">
+      <div class="la-bar__head"><span class="la-bar__label">Every lead worked, every time</span><span class="la-bar__pct">100%</span></div>
+      <div class="la-bar__track"><span class="la-bar__fill"></span></div>
+      <p class="la-bar__note">Illustrative — the system&#x27;s design intent.</p>
+    </div>
+  </div>
+      <div class="la-cta-row la-reveal"><a class="la-cta-primary landing-cta" data-cta="post-stats" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
+    </div>
+  </section>
+<section class="la-section la-section--dark">
+    <div class="la-container">
+      <h2 class="la-h2 la-reveal">What you get</h2>
       <ul class="la-checks">
-      <li>No quote dies in an inbox. No callback gets forgotten.</li>
-      <li>More of the leads you already have turn into booked revenue.</li>
-      <li>A sharper team, without adding a single person.</li>
+    <li class="la-reveal la-reveal-delay-0">No quote dies in an inbox. No callback gets forgotten.</li>
+    <li class="la-reveal la-reveal-delay-1">More of the leads you already have turn into booked revenue.</li>
+    <li class="la-reveal la-reveal-delay-2">A sharper team, without adding a single person.</li>
       </ul>
+      <div class="la-cta-row la-reveal"><a class="la-cta-primary landing-cta" data-cta="post-get" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
     </div>
   </section>
-
-  <!-- ==================== YOU SEE EVERYTHING ==================== -->
-  <section class="la-section la-section--dark">
+<section class="la-section la-section--light">
     <div class="la-container">
-      <h2 class="la-h2">You see everything</h2>
-      <p class="la-body">Every conversation, every follow-up, every outcome, visible in one place in real time. You finally know exactly where every opportunity stands.</p>
-    </div>
-  </section>
-
-  <!-- ==================== BUILT FOR / SIMPLER ==================== -->
-  <section class="la-section la-section--light">
-    <div class="la-container">
-      <h2 class="la-h2">It makes what you have simpler</h2>
-      <p class="la-body">It works inside your current setup and actually makes it easier — your team just works while the assistant handles the remembering and the follow-through.</p>
-    </div>
-  </section>
-
-  <!-- ==================== DEMO VIDEO SLOT ==================== -->
-  <section class="la-section la-section--dark">
-    <div class="la-container">
-      <h2 class="la-h2">See it in action</h2>
-      <div class="la-video-slot" data-video-slot="sales-agent-demo">
-        <p class="la-video-slot__placeholder">DEMO VIDEO — RESERVED SLOT · EMBED COMING NEXT WEEK</p>
-        <!-- TODO(Blaine): replace .la-video-slot innerHTML with the embed
-             when the demo video lands. Recommend <iframe> or <video> with
-             16:9 aspect — slot already enforces aspect-ratio. -->
+      <div class="la-two-col">
+        <div>
+          <h2 class="la-h2 la-reveal">You see everything</h2>
+          <p class="la-body la-reveal la-reveal-delay-1">Every conversation, every follow-up, every outcome, visible in one place in real time. You finally know exactly where every opportunity stands.</p>
+          <div class="la-cta-row la-reveal la-reveal-delay-2"><a class="la-cta-primary landing-cta" data-cta="post-visibility" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
+        </div>
+        <div><div class="la-scorecard la-reveal">
+  <div class="la-scorecard__head">
+    <span class="la-scorecard__title">Recurring Objections — last 30d</span>
+    <span class="la-scorecard__count">Illustrative</span>
+  </div>
+  <div class="la-objection">
+    <div class="la-objection__row"><span>"Need to talk to my partner"</span><span class="la-objection__count">42</span></div>
+    <div class="la-objection__bar"><span class="la-objection__fill" style="--pct:92%"></span></div>
+  </div>
+  <div class="la-objection">
+    <div class="la-objection__row"><span>"Pricing is over budget"</span><span class="la-objection__count">31</span></div>
+    <div class="la-objection__bar"><span class="la-objection__fill" style="--pct:68%"></span></div>
+  </div>
+  <div class="la-objection">
+    <div class="la-objection__row"><span>"Need it after Q3"</span><span class="la-objection__count">24</span></div>
+    <div class="la-objection__bar"><span class="la-objection__fill" style="--pct:52%"></span></div>
+  </div>
+  <div class="la-objection">
+    <div class="la-objection__row"><span>"Comparing two vendors"</span><span class="la-objection__count">18</span></div>
+    <div class="la-objection__bar"><span class="la-objection__fill" style="--pct:38%"></span></div>
+  </div>
+  <div class="la-objection">
+    <div class="la-objection__row"><span>"Already work with someone"</span><span class="la-objection__count">11</span></div>
+    <div class="la-objection__bar"><span class="la-objection__fill" style="--pct:24%"></span></div>
+  </div>
+</div></div>
       </div>
     </div>
   </section>
-
-  <!-- ==================== FINAL CTA ==================== -->
-  <section class="la-section la-section--final">
+<section class="la-section la-section--dark">
     <div class="la-container">
-      <h2 class="la-h2">See what it would do for your pipeline.</h2>
-      <p class="la-body">Book a 15-minute look.</p>
-      <a class="la-cta-primary landing-cta" data-cta="footer" data-page="sales-agent" href="../booking">
-        Book a 15-Minute Look <span class="la-cta-arrow">→</span>
-      </a>
+      <h2 class="la-h2 la-reveal">It makes what you have simpler</h2>
+      <p class="la-body la-reveal la-reveal-delay-1">It works inside your current setup and actually makes it easier — your team just works while the assistant handles the remembering and the follow-through.</p>
+      <div class="la-toggle">
+  <div class="la-toggle__switch" role="tablist">
+    <label class="la-toggle__btn" data-for="slip" role="tab">
+      <input type="radio" name="ba-toggle" value="slip">Without the agent
+    </label>
+    <label class="la-toggle__btn is-active" data-for="save" role="tab">
+      <input type="radio" name="ba-toggle" value="save" checked>With the agent
+    </label>
+  </div>
+  <div class="la-toggle__panels">
+    <div class="la-toggle__panel la-toggle__panel--slip" data-panel="slip">
+      <span class="la-toggle__tag">Deal slips</span>
+      <p class="la-toggle__caption">Customer says "call me in a week." It gets buried under today's calls, then tomorrow's quote requests, then next week's payroll. By Day 7 it's been 9 days and no one remembers the conversation. By Day 14 they're talking to a competitor. The deal didn't die because they weren't interested.</p>
+    </div>
+    <div class="la-toggle__panel la-toggle__panel--save is-active" data-panel="save">
+      <span class="la-toggle__tag">Deal saved</span>
+      <p class="la-toggle__caption">Same customer, same "call me in a week." On Day 7, your rep gets a reminder with the full conversation context — the objection, the timing, the detail that matters. The follow-up message is built around their situation, not a generic blast. The call happens. The deal closes.</p>
+    </div>
+  </div>
+</div>
+      <div class="la-cta-row la-reveal"><a class="la-cta-primary landing-cta" data-cta="post-built" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
     </div>
   </section>
-
+<section class="la-section la-section--light">
+    <div class="la-container">
+      <h2 class="la-h2 la-reveal">See it in action</h2>
+      <div class="la-video-slot la-reveal la-reveal-delay-1" data-video-slot="sales-agent-demo">
+        <p class="la-video-slot__placeholder">DEMO VIDEO — RESERVED SLOT · EMBED COMING NEXT WEEK</p>
+        <!-- TODO(Blaine): replace .la-video-slot innerHTML with embed -->
+      </div>
+      <div class="la-cta-row la-reveal" style="justify-content:center;"><a class="la-cta-primary landing-cta" data-cta="post-video" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
+    </div>
+  </section>
+<section class="la-section la-section--final">
+    <div class="la-container">
+      <h2 class="la-h2 la-reveal">See what it would do for your pipeline.</h2>
+      <p class="la-body la-reveal la-reveal-delay-1">Book a 15-minute look.</p>
+      <div class="la-reveal la-reveal-delay-2"><a class="la-cta-primary landing-cta" data-cta="final" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
+    </div>
+  </section>
+<div class="la-sticky-cta" aria-label="Book a strategy session"><a class="la-cta-primary landing-cta" data-cta="sticky" data-page="sales-agent" href="../booking">Book Your Strategy Session Now <span class="la-cta-arrow">→</span></a></div>
 </main>
 
 <!-- RA-FOOTER-CANONICAL-START -->
@@ -1695,90 +2032,76 @@ h1, h2, h3, h4, h5, h6,
   update();
 })();</script>
 <!-- RA-GOTO-TOP-END -->
-<!-- RA-MOBILE-NAV-JS-FIX-START — v1 -->
+<!-- RA-MOBILE-NAV-JS-FIX-START — v3 chevron toggles submenu, label navigates -->
 <script>
 (function(){
   var nav = document.getElementById('ra-nav');
   if (!nav) return;
+  function isMobile(){ return window.innerWidth <= 768; }
 
-  // Run in capturing phase so we win over the page's existing bubble-phase
-  // handlers. stopImmediatePropagation prevents the original Handler 1 / 2 / 3
-  // from firing for category-row clicks.
-  function handle(ev){
-    if (window.innerWidth > 768) return;
+  // Collapse sibling rows so only one branch is open at a time (accordion).
+  function closeSiblings(parent, keep){
+    if (!parent) return;
+    parent.querySelectorAll(':scope > .has-drop.is-open, :scope > .has-drop-l3.is-open').forEach(function(li){
+      if (li === keep) return;
+      li.classList.remove('is-open');
+      var b = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+      li.querySelectorAll('.ra-drop--l2.open, .ra-drop--l3.open').forEach(function(u){ u.classList.remove('open'); });
+    });
+  }
+
+  function toggleRow(li){
+    var willOpen = !li.classList.contains('is-open');
+    closeSiblings(li.parentElement, li);
+    li.classList.toggle('is-open', willOpen);
+    var btn = li.querySelector(':scope > .ra-nav__services-toggle, :scope > .ra-nav__l2-toggle');
+    if (btn) btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    var sub = li.querySelector(':scope > .ra-drop--l2, :scope > .ra-drop--l3');
+    if (sub) sub.classList.toggle('open', willOpen);
+  }
+
+  function closeDrawer(){
+    nav.classList.remove('is-open');
+    var ham = document.getElementById('ra-nav-hamburger');
+    if (ham) ham.setAttribute('aria-expanded', 'false');
+  }
+
+  // ONE handler. Capture phase + stopImmediatePropagation so the older
+  // bubble-phase handlers never fire and double-toggle. Click only — binding
+  // touchend AND click was the bug that made every tap a no-op on the iPhone.
+  //   - Tap the chevron -> expand/collapse the submenu.
+  //   - Tap the label   -> navigate to that page (parents go to their page too).
+  nav.addEventListener('click', function(ev){
+    if (!isMobile()) return;            // desktop keeps the hover mega-menu
     var t = ev.target;
     if (!t || !t.closest) return;
 
-    // L2 category row inside an open L2 menu (Strategy / Creative / Marketing
-    // inside Services; Strategy Work / Creative Work / Marketing Work inside
-    // Portfolio). Either the link text OR the chevron toggles the L3.
-    var catContext = t.closest('.has-drop-l3');
-    if (catContext && (t.closest('.has-drop-l3 > a') === catContext.querySelector(':scope > a') ||
-                       t.closest('.ra-nav__l2-toggle'))){
-      var l3 = catContext.querySelector(':scope > .ra-drop--l3');
-      if (l3){
-        ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
-        var willOpen = !(l3.classList.contains('open') || catContext.classList.contains('is-open'));
-        // Close siblings inside the same L2 for clean accordion behavior
-        var parentUl = catContext.parentElement;
-        if (parentUl){
-          parentUl.querySelectorAll(':scope > .has-drop-l3').forEach(function(sib){
-            if (sib !== catContext){
-              sib.classList.remove('is-open');
-              var sibL3 = sib.querySelector(':scope > .ra-drop--l3');
-              if (sibL3) sibL3.classList.remove('open');
-              var sibBtn = sib.querySelector(':scope > .ra-nav__l2-toggle');
-              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
-            }
-          });
-        }
-        l3.classList.toggle('open', willOpen);
-        catContext.classList.toggle('is-open', willOpen);
-        var btn = catContext.querySelector(':scope > .ra-nav__l2-toggle');
-        if (btn){ btn.classList.toggle('open', willOpen); btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false'); }
-        return;
-      }
+    // Chevron toggle button (L1 Services/Portfolio or an L2 category).
+    var toggle = t.closest('.ra-nav__services-toggle, .ra-nav__l2-toggle');
+    if (toggle){
+      var li = toggle.closest('.has-drop, .has-drop-l3');
+      if (li){ ev.preventDefault(); ev.stopImmediatePropagation(); toggleRow(li); }
+      return;
     }
 
-    // Top-level Services / Portfolio row — link text OR chevron toggles L2.
-    var topLi = t.closest('.ra-nav__links > li.has-drop');
-    if (topLi){
-      var isTopLink = t.closest('.ra-nav__links > li.has-drop > a') === topLi.querySelector(':scope > a');
-      var isTopChevron = !!t.closest('.ra-nav__services-toggle');
-      if (isTopLink || isTopChevron){
-        var l2 = topLi.querySelector(':scope > .ra-drop--l2');
-        if (l2){
-          ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
-          var willOpen2 = !(l2.classList.contains('open') || topLi.classList.contains('is-open'));
-          // Close OTHER top-level dropdowns
-          nav.querySelectorAll('.ra-nav__links > li.has-drop').forEach(function(sib){
-            if (sib !== topLi){
-              sib.classList.remove('is-open');
-              var sibL2 = sib.querySelector(':scope > .ra-drop--l2');
-              if (sibL2) sibL2.classList.remove('open');
-              var sibBtn = sib.querySelector(':scope > .ra-nav__services-toggle');
-              if (sibBtn){ sibBtn.classList.remove('open'); sibBtn.setAttribute('aria-expanded','false'); }
-            }
-          });
-          l2.classList.toggle('open', willOpen2);
-          topLi.classList.toggle('is-open', willOpen2);
-          var btn2 = topLi.querySelector(':scope > .ra-nav__services-toggle');
-          if (btn2){ btn2.classList.toggle('open', willOpen2); btn2.setAttribute('aria-expanded', willOpen2 ? 'true' : 'false'); }
-          return;
-        }
-      }
+    // Any nav link (parent label OR leaf): allow normal navigation.
+    // stopImmediatePropagation blocks the legacy handlers that used to hijack
+    // a parent-label tap into an expand. We do NOT preventDefault here, so the
+    // browser follows the link's href as expected.
+    var link = t.closest('a[href]');
+    if (link){
+      ev.stopImmediatePropagation();
+      closeDrawer();
     }
-    // Otherwise (leaf link, hamburger, etc) — let existing handlers run.
-  }
-
-  nav.addEventListener('click', handle, true);
-  nav.addEventListener('touchend', handle, true);
+  }, true);
 })();
 </script>
 <!-- RA-MOBILE-NAV-JS-FIX-END -->
 <!-- RA-LANDING-TRACKER-START -->
 <script src="../assets/js/landing-config.js"></script>
 <script src="../assets/js/landing-tracker.js"></script>
+<script src="../assets/js/landing-animations.js"></script>
 <!-- RA-LANDING-TRACKER-END -->
 </body>
 </html>
