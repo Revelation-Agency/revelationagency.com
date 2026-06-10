@@ -1567,26 +1567,67 @@ h1, h2, h3, h4, h5, h6,
           <div class="ra-footer__miniform-status" aria-live="polite"></div>
         </form>
         <script>(function(){
-          var forms=document.querySelectorAll('.ra-footer__miniform');
-          forms.forEach(function(f){
-            if(f.dataset.bound==='1')return;f.dataset.bound='1';
-            var status=f.querySelector('.ra-footer__miniform-status');
-            f.addEventListener('submit',function(ev){
-              ev.preventDefault();
-              var name=(f.name && f.name.value || '').trim();
-              var phone=(f.phone && f.phone.value || '').trim();
-              if(!name||!phone){if(status){status.textContent='Add a name and phone so we can prefill your booking.';status.classList.add('is-error');}return;}
-              try{
-                sessionStorage.setItem('ra_lead_name',name);
-                sessionStorage.setItem('ra_lead_phone',phone);
-                sessionStorage.setItem('ra_lead_source','footer-miniform');
-              }catch(e){}
-              var base=f.getAttribute('data-booking-url')||'booking.html';
-              var url=base+(base.indexOf('?')===-1?'?':'&')+'name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&src=footer-miniform';
-              window.location.href=url;
-            });
-          });
-        })();</script>
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/Jx498vFpyvZUSLnIfT0B/webhook-trigger/c6d7e341-7e3c-4dbb-a9df-ab8df070bbf4';
+  var forms = document.querySelectorAll('.ra-footer__miniform');
+  forms.forEach(function(f){
+    if (f.dataset.bound === '1') return;
+    f.dataset.bound = '1';
+    var status = f.querySelector('.ra-footer__miniform-status');
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var name = (f.name && f.name.value || '').trim();
+      var phone = (f.phone && f.phone.value || '').trim();
+      if (!name || !phone) {
+        if (status) {
+          status.textContent = 'Add a name and phone so we can prefill your booking.';
+          status.classList.add('is-error');
+        }
+        return;
+      }
+      try {
+        sessionStorage.setItem('ra_lead_name', name);
+        sessionStorage.setItem('ra_lead_phone', phone);
+        sessionStorage.setItem('ra_lead_source', 'footer-miniform');
+      } catch(e) {}
+      // Fire the lead at GHL BEFORE redirecting. keepalive: true tells the
+      // browser to keep the request alive through navigation so the lead
+      // is never lost if the user closes the tab or the booking page is
+      // slow to load.
+      var payload = {
+        name: name,
+        phone: phone,
+        source: 'footer-miniform',
+        page: (location.pathname || '/') + (location.search || ''),
+        referrer: document.referrer || '',
+        timestamp: new Date().toISOString(),
+        user_agent: navigator.userAgent || ''
+      };
+      try {
+        fetch(WEBHOOK, {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch(function(err){ console.warn('[ra-footer-miniform] webhook error', err); });
+      } catch(e) {
+        console.warn('[ra-footer-miniform] webhook threw', e);
+      }
+      if (status) {
+        status.textContent = 'Got it — taking you to the calendar...';
+        status.classList.remove('is-error');
+      }
+      var base = f.getAttribute('data-booking-url') || 'booking.html';
+      var url = base + (base.indexOf('?') === -1 ? '?' : '&')
+        + 'name=' + encodeURIComponent(name)
+        + '&phone=' + encodeURIComponent(phone)
+        + '&src=footer-miniform';
+      // 150 ms is enough to push the keepalive request out of the local
+      // stack on every browser tested, but is imperceptible to the user.
+      setTimeout(function(){ window.location.href = url; }, 150);
+    });
+  });
+})();</script>
 <!-- RA-FOOTER-MINIFORM-END -->
         <div class="ra-footer__cta-map" data-ra-footer-map="1" style="margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
           <iframe src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&output=embed" width="100%" height="120" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing Revelation Agency office in Clovis, CA" title="Revelation Agency — Clovis, CA"></iframe>
