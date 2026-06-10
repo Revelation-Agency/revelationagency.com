@@ -214,7 +214,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .ra-footer__bottom { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
 .ra-footer__copyright { font-size: 13px; color: rgba(255,255,255,0.25); }
 .ra-footer__copyright a { color: rgba(255,255,255,0.35); }
-.ra-footer__copyright a:hover { color: white; }
+.ra-footer__copyright a:hover { color: white; }/* RA-FOOTER-LEGAL-NAV-CSS-START */
+.ra-footer__legal { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.ra-footer__legal a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; letter-spacing: 0.02em; }
+.ra-footer__legal a:hover { color: #fff; }
+@media (max-width: 640px) { .ra-footer__bottom { flex-direction: column; gap: 12px; align-items: flex-start; } }
+/* RA-FOOTER-LEGAL-NAV-CSS-END */
 
 .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -1637,6 +1642,11 @@ h1, h2, h3, h4, h5, h6,
 
     <div class="ra-footer__bottom">
       <p class="ra-footer__copyright">&copy; 2026 <a href="../../index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+      <nav class="ra-footer__legal" aria-label="Legal">
+        <a href="../../privacy-policy">Privacy Policy</a>
+        <a href="../../terms">Terms</a>
+        <a href="../../contact">Contact</a>
+      </nav>
     </div>
   </div>
 </footer>
