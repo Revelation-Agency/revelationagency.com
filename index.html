@@ -4167,7 +4167,1106 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
           .ra-founder__video-wrap[role="button"]:focus-visible{outline:3px solid var(--red);outline-offset:4px;}
         </style>
         <script>(function(){
-  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/Jx498vFpyvZUSLnIfT0B/webhook-trigger/c6d7e341-7e3c-4dbb-a9df-ab8df070bbf4';
+          var wrap=document.querySelector('.ra-founder__video-wrap[data-yt-id]');
+          if(!wrap)return;
+          function activate(){
+            if(wrap.dataset.activated==='1')return;
+            var id=wrap.getAttribute('data-yt-id');
+            if(!id)return;
+            wrap.dataset.activated='1';
+            var f=document.createElement('iframe');
+            f.className='ra-founder__video-frame';
+            f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            f.title='Message from the Founder — Blaine McKenzie';
+            f.setAttribute('frameborder','0');
+            f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            f.allowFullscreen=true;
+            wrap.appendChild(f);
+          }
+          wrap.addEventListener('click',activate);
+          wrap.addEventListener('keydown',function(ev){
+            if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();activate();}
+          });
+        })();</script>
+      </div>
+      <div class="ra-founder__content fade-up fade-up-d2">
+        <span class="eyebrow eyebrow--muted">A Message from the Founder</span>
+        <h2 class="display-3" style="margin-bottom:24px;">Growth isn't a mystery.<br>It's an <span class="highlight">engineering</span> problem.</h2>
+        <p class="ra-founder__body">I've spent years watching great businesses stall — not because of bad products or lack of hustle, but because the infrastructure wasn't there. No clear positioning. No sales system. No measurement that mapped to real outcomes.</p>
+        <p class="ra-founder__body">That's exactly why I built Revelation Agency: to give serious operators the same strategic and creative infrastructure that only the best-resourced companies have always had access to.</p>
+        <div class="ra-founder__sig">Blaine McKenzie, Founder</div>
+        <a href="about.html#story" class="btn btn--outline" style="margin-top:28px;">Our story <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROBLEM ==================== -->
+<section class="ra-problem" id="problem">
+  <canvas id="problem-shader" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="ra-problem__header fade-up">
+      <span class="eyebrow eyebrow--white">The Real Problem</span>
+      <h2 class="display-2 ra-problem__title">Growth doesn't fail from lack of effort. It fails from lack of <span class="highlight">infrastructure.</span></h2>
+    </div>
+    <div class="ra-problem__grid">
+      <div class="ra-problem__card fade-up fade-up-d1">
+        <div class="ra-problem__num">01</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-code-branch"></i></div>
+        <h3>Scattered tactics</h3>
+        <p>Agencies, freelancers, and point tools stacked on top of each other — none connected, none measured.</p>
+      </div>
+      <div class="ra-problem__card fade-up fade-up-d2">
+        <div class="ra-problem__num">02</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-filter-circle-dollar"></i></div>
+        <h3>Leaking ad spend</h3>
+        <p>Money goes in. Leads trickle out. No one can tell you which channel is actually working or why the funnel leaks.</p>
+      </div>
+      <div class="ra-problem__card fade-up fade-up-d3">
+        <div class="ra-problem__num">03</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-person-running"></i></div>
+        <h3>Founder-as-pipeline</h3>
+        <p>Every deal runs through you. Growth is capped at your personal bandwidth — no system exists to close without you.</p>
+      </div>
+      <div class="ra-problem__card fade-up fade-up-d1">
+        <div class="ra-problem__num">04</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-masks-theater"></i></div>
+        <h3>Brand confusion</h3>
+        <p>Your website says one thing, your sales deck another, and your ads something else entirely. No unified claim.</p>
+      </div>
+      <div class="ra-problem__card fade-up fade-up-d2">
+        <div class="ra-problem__num">05</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-gauge-simple"></i></div>
+        <h3>Vanity metrics</h3>
+        <p>Likes, impressions, followers — none of it maps to revenue. Reporting shows activity, not outcomes.</p>
+      </div>
+      <div class="ra-problem__card fade-up fade-up-d3">
+        <div class="ra-problem__num">06</div>
+        <div class="ra-problem__card-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>No foundation</h3>
+        <p>New campaigns get launched on top of broken infrastructure. Each one works harder to deliver less.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SYSTEM ==================== -->
+<section class="ra-system" id="ecosystem">
+  <div class="container">
+    <div class="ra-system__header fade-up">
+      <span class="eyebrow">The System</span>
+      <h2 class="display-2">Dream. <span class="highlight">Build.</span> Scale.</h2>
+      <p class="body-lead" style="max-width:580px; margin: 16px auto 0;">Three phases. One integrated system. Every engagement follows the same disciplined arc — from strategy through execution to compounding growth.</p>
+    </div>
+    <div class="ra-system__cols">
+      <div class="ra-system__col fade-up fade-up-d1">
+        <div class="ra-system__phase">Phase 01</div>
+        <div class="ra-system__col-icon"><i class="fa-solid fa-compass"></i></div>
+        <h3>Dream — Strategy</h3>
+        <p>Audit and rebuild your positioning, offer architecture, sales infrastructure, and automation stack. The Strategy Sprint is your entry point — a structured 2–4 month engagement that replaces guessing with a machine.</p>
+        <a href="services/strategy/index.html" class="btn btn--outline" style="font-size:13px; padding:12px 24px;">Explore Strategy <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+      <div class="ra-system__col fade-up fade-up-d2">
+        <div class="ra-system__phase">Phase 02</div>
+        <div class="ra-system__col-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>Build — Creative</h3>
+        <p>Branding, websites, apps, and video — built on the strategy foundation, not in a vacuum. Every asset serves the system: clear messaging, conversion architecture, and premium execution.</p>
+        <a href="services/creative/index.html" class="btn btn--outline" style="font-size:13px; padding:12px 24px;">Explore Creative <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+      <div class="ra-system__col fade-up fade-up-d3">
+        <div class="ra-system__phase">Phase 03</div>
+        <div class="ra-system__col-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Scale — Marketing</h3>
+        <p>Ads, social, search, and campaigns — running on infrastructure that was built to convert. Measurement is real. Reporting maps to revenue. Growth compounds month over month.</p>
+        <a href="services/marketing/index.html" class="btn btn--outline" style="font-size:13px; padding:12px 24px;">Explore Marketing <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SPRINT ==================== -->
+<section class="ra-sprint" id="sprint">
+  <div class="ra-sprint__glow-l"></div>
+  <div class="ra-sprint__glow-r"></div>
+  <div class="container">
+    <div class="ra-sprint__inner">
+
+      <div class="fade-up">
+        <span class="eyebrow eyebrow--white">Flagship Engagement</span>
+        <h2 class="display-2 ra-sprint__title">The <span class="highlight">Strategy Sprint</span></h2>
+        <p class="ra-sprint__desc">A structured 2–4 month audit and rebuild of the systems underneath your growth engine. Brand, sales, digital, and automation — diagnosed, redesigned, and handed back as a clear execution plan.</p>
+        <ul class="ra-sprint__list">
+          <li><i class="fa-solid fa-bullseye"></i> Brand claim and positioning statement</li>
+          <li><i class="fa-solid fa-sitemap"></i> Offer architecture and pricing logic</li>
+          <li><i class="fa-solid fa-diagram-project"></i> Sales pipeline model and objection playbook</li>
+          <li><i class="fa-solid fa-map-location-dot"></i> Digital surface map and funnel blueprint</li>
+          <li><i class="fa-solid fa-robot"></i> Automation stack recommendation</li>
+          <li><i class="fa-solid fa-calendar-check"></i> 90-day execution plan by owner and priority</li>
+        </ul>
+        <a href="services/strategy/index.html" class="btn btn--white">Learn about the Sprint <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      </div>
+
+      <div class="fade-up fade-up-d2">
+        <div class="ra-sprint__visual">
+          <div class="ra-sprint__fw-head">
+            <div>
+              <div class="ra-sprint__fw-title">Sprint Framework</div>
+              <div class="ra-sprint__fw-sub">Strategy · Rebuild · Activate</div>
+            </div>
+            <div class="ra-sprint__fw-meta">
+              Duration
+              <strong>12 Weeks</strong>
+            </div>
+          </div>
+
+          <div class="ra-sprint__fw-steps">
+            <div class="ra-sprint__fw-step" data-progress="92">
+              <div>
+                <div class="ra-sprint__fw-step-phase">01 Audit</div>
+                <div class="ra-sprint__fw-step-label">Brand</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 1–2</div>
+            </div>
+
+            <div class="ra-sprint__fw-step" data-progress="82">
+              <div>
+                <div class="ra-sprint__fw-step-phase">02 Design</div>
+                <div class="ra-sprint__fw-step-label">Offer</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 3–4</div>
+            </div>
+
+            <div class="ra-sprint__fw-step" data-progress="75">
+              <div>
+                <div class="ra-sprint__fw-step-phase">03 Build</div>
+                <div class="ra-sprint__fw-step-label">Sales</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 5–7</div>
+            </div>
+
+            <div class="ra-sprint__fw-step" data-progress="68">
+              <div>
+                <div class="ra-sprint__fw-step-phase">04 Build</div>
+                <div class="ra-sprint__fw-step-label">Funnel</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 6–8</div>
+            </div>
+
+            <div class="ra-sprint__fw-step" data-progress="58">
+              <div>
+                <div class="ra-sprint__fw-step-phase">05 Stack</div>
+                <div class="ra-sprint__fw-step-label">Automation</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 8–9</div>
+            </div>
+
+            <div class="ra-sprint__fw-step" data-progress="95">
+              <div>
+                <div class="ra-sprint__fw-step-phase">06 Activate</div>
+                <div class="ra-sprint__fw-step-label">90-Day Plan</div>
+              </div>
+              <div class="ra-sprint__fw-step-track"><div class="ra-sprint__fw-step-bar"></div></div>
+              <div class="ra-sprint__fw-step-week">WK 10–12</div>
+            </div>
+          </div>
+
+          <div class="ra-sprint__fw-foot">
+            <span><span class="ra-sprint__fw-foot-dot"></span>Live Engagement</span>
+            <span>Hand-off → Execute</span>
+          </div>
+        </div>
+
+        <div class="ra-sprint__stats" style="margin-top:16px;">
+          <div class="ra-sprint__stat">
+            <div class="ra-sprint__stat-num">2–4</div>
+            <div class="ra-sprint__stat-label">Months, phased</div>
+          </div>
+          <div class="ra-sprint__stat">
+            <div class="ra-sprint__stat-num">4</div>
+            <div class="ra-sprint__stat-label">Audit layers</div>
+          </div>
+          <div class="ra-sprint__stat">
+            <div class="ra-sprint__stat-num">8+</div>
+            <div class="ra-sprint__stat-label">Deliverables</div>
+          </div>
+          <div class="ra-sprint__stat">
+            <div class="ra-sprint__stat-num">90</div>
+            <div class="ra-sprint__stat-label">Day plan</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WORK ==================== -->
+<section class="ra-work" id="work">
+  <div class="container--wide">
+    <div class="ra-work__header fade-up">
+      <span class="eyebrow">Selected Work</span>
+      <h2 class="display-2">Strategy, creative, and <span class="highlight">growth</span> — in action.</h2>
+      <p class="body-lead" style="max-width:580px; margin: 16px auto 0;">Real engagements. Real outcomes. Each project follows the same system: diagnose the constraint, build the asset, measure the result.</p>
+    </div>
+
+    <div class="ra-work__grid ra-work__grid--preview fade-up fade-up-d1">
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/ivory-pools.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/ivory-pools/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/net-metering-systems.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/net-metering-systems/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/infinite-roofing-solutions.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/infinite-roofing-solutions/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/trust-energy.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/trust-energy/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/reservwise.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/reservwise/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      <a class="ra-work__item ra-work__item--locked" href="portfolio/case-studies/risen-sun-solar-roofing.html">
+        <div class="ra-work__placeholder" style="background:#1E1E1E url('/assets/img/portfolio/risen-sun-solar-roofing/thumbnail.png') center/cover no-repeat;"></div>
+      </a>
+      </div>
+
+    <div class="ra-work__footer fade-up">
+      <a href="portfolio.html" class="btn btn--outline">View full portfolio <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section class="ra-process" id="process">
+  <div class="container">
+    <div class="ra-process__header fade-up">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="display-2">Discover. Strategize. <span class="highlight">Create.</span> Market.</h2>
+      <p class="body-lead" style="max-width:600px; margin: 16px auto 0;">Every engagement follows the same disciplined arc. No shortcuts. Each phase has clear inputs, outputs, and a decision gate before the next begins.</p>
+    </div>
+    <div class="ra-process__steps">
+      <a href="services/strategy/index.html" class="ra-process__step fade-up fade-up-d1">
+        <div class="ra-process__step-num-wrap">
+          <div class="ra-process__step-num"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+        <h3>Discover</h3>
+        <p>Deep audit of brand, sales, digital, and automation. We pull the business apart to find the real constraint — not the symptom.</p>
+      </a>
+      <a href="services/strategy/index.html" class="ra-process__step fade-up fade-up-d2">
+        <div class="ra-process__step-num-wrap">
+          <div class="ra-process__step-num"><i class="fa-solid fa-compass-drafting"></i></div>
+        </div>
+        <h3>Strategize</h3>
+        <p>Rebuild the system on paper. Positioning, offer architecture, funnel blueprint — every decision locked before a pixel moves.</p>
+      </a>
+      <a href="services/creative/index.html" class="ra-process__step fade-up fade-up-d3">
+        <div class="ra-process__step-num-wrap">
+          <div class="ra-process__step-num"><i class="fa-solid fa-pen-ruler"></i></div>
+        </div>
+        <h3>Create</h3>
+        <p>Execute with discipline. Websites, branding, apps, video — every asset built on the strategy foundation.</p>
+      </a>
+      <a href="services/marketing/index.html" class="ra-process__step fade-up fade-up-d4">
+        <div class="ra-process__step-num-wrap">
+          <div class="ra-process__step-num"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
+        <h3>Market</h3>
+        <p>Activate acquisition. Ads, content, social — running on real infrastructure where measurement maps to revenue.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BAND ==================== -->
+<!-- REVEAL-HOMEPAGE -->
+<section class="ra-reveal" id="the-reveal">
+  <style>
+    .ra-reveal{position:relative;padding:112px 0 120px;background:var(--charcoal);color:#fff;overflow:hidden;}
+    .ra-reveal::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+    .ra-reveal__glow{position:absolute;top:-150px;right:-100px;width:520px;height:520px;background:radial-gradient(circle,rgba(215,37,50,0.18) 0%,transparent 60%);pointer-events:none;}
+    .ra-reveal__inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 32px;}
+    .ra-reveal__head{max-width:720px;margin:0 auto 56px;text-align:center;}
+    .ra-reveal__eyebrow{display:inline-block;font-family:var(--font-head);font-size:12px;letter-spacing:0.28em;color:var(--red);padding:6px 14px;border:1px solid rgba(215,37,50,0.5);border-radius:4px;margin-bottom:22px;text-transform:uppercase;}
+    .ra-reveal__title{font-family:var(--font-head);font-size:clamp(38px,5vw,64px);line-height:1.05;letter-spacing:0.03em;text-transform:uppercase;margin-bottom:18px;}
+    .ra-reveal__title em{color:var(--red);font-style:normal;}
+    .ra-reveal__sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,0.65);max-width:580px;margin:0 auto;}
+    .ra-reveal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px;}
+    .ra-reveal__card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;padding:28px 26px;border-radius:12px;overflow:hidden;background-size:cover;background-position:center;text-decoration:none;color:#fff;transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out);border:1px solid rgba(255,255,255,0.06);}
+    .ra-reveal__card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,0.4);}
+    .ra-reveal__card-tag{display:inline-block;font-family:var(--font-head);font-size:10px;letter-spacing:0.24em;color:var(--red);background:rgba(215,37,50,0.15);border:1px solid rgba(215,37,50,0.35);padding:5px 10px;border-radius:3px;margin-bottom:14px;text-transform:uppercase;width:fit-content;}
+    .ra-reveal__card-title{font-family:var(--font-head);font-size:22px;line-height:1.15;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:10px;color:#fff;}
+    .ra-reveal__card-excerpt{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.72);margin-bottom:16px;}
+    .ra-reveal__card-link{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;color:var(--red);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;width:fit-content;}
+    .ra-reveal__card-link i{transition:transform .25s ease;}
+    .ra-reveal__card:hover .ra-reveal__card-link i{transform:translateX(4px);}
+    .ra-reveal__footer{text-align:center;}
+    .ra-reveal__cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:14px;letter-spacing:0.2em;color:#fff;padding:16px 32px;background:var(--red);border-radius:var(--btn-radius,45px 0 45px 45px);text-transform:uppercase;text-decoration:none;transition:background .25s ease,transform .25s ease;}
+    .ra-reveal__cta:hover{background:var(--red-deep);transform:translateY(-2px);}
+    .ra-reveal__cta i{transition:transform .25s ease;}
+    .ra-reveal__cta:hover i{transform:translateX(4px);}
+    @media(max-width:960px){.ra-reveal__grid{grid-template-columns:1fr;gap:16px;}.ra-reveal{padding:72px 0 84px;}.ra-reveal__card{min-height:260px;}}
+  </style>
+  <div class="ra-reveal__glow" aria-hidden="true"></div>
+  <div class="ra-reveal__inner">
+    <div class="ra-reveal__head fade-up">
+      <span class="ra-reveal__eyebrow">The Reveal</span>
+      <h2 class="ra-reveal__title">We reveal the <em>secrets</em> of modern marketing</h2>
+      <p class="ra-reveal__sub">Strategy. Insights. Announcements. We don't just do the work &mdash; we explain how it works.</p>
+    </div>
+    <div class="ra-reveal__grid">
+      <a href="the-reveal/revelation-agency-is-now-live.html" class="ra-reveal__card" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55) 0%,rgba(24,24,24,0.92) 100%),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=75&fit=crop');">
+        <span class="ra-reveal__card-tag">Announcements</span>
+        <h3 class="ra-reveal__card-title">Revelation Agency Is Now Live &mdash; And We're Not Here to Play Small</h3>
+        <p class="ra-reveal__card-excerpt">This isn't a press release. It's a declaration of intent. Revelation Agency exists because too many businesses are getting sold marketing theater when they need a partner who actually knows how to move the needle.</p>
+        <span class="ra-reveal__card-link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="the-reveal/why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="ra-reveal__card ra-reveal__card--d1" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55) 0%,rgba(24,24,24,0.92) 100%),url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=75&fit=crop');">
+        <span class="ra-reveal__card-tag">Strategy</span>
+        <h3 class="ra-reveal__card-title">Why AI Answer Engines Are Rewriting the SEO Playbook</h3>
+        <p class="ra-reveal__card-excerpt">The search game changed while most brands were still running the old plays. AI answer engines don't show ten blue links &mdash; they give one answer, and either your brand is in it or it isn't.</p>
+        <span class="ra-reveal__card-link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+      <a href="the-reveal/video-is-no-longer-optional-its-infrastructure.html" class="ra-reveal__card ra-reveal__card--d2" style="background-image:linear-gradient(180deg,rgba(24,24,24,0.55) 0%,rgba(24,24,24,0.92) 100%),url('https://images.unsplash.com/photo-1574717024453-354056afd6fc?w=900&q=75&fit=crop');">
+        <span class="ra-reveal__card-tag">Creative</span>
+        <h3 class="ra-reveal__card-title">Video Is No Longer Optional &mdash; It's Infrastructure</h3>
+        <p class="ra-reveal__card-excerpt">Brands that treat video as a campaign deliverable are playing a different game than brands that treat it as infrastructure. The gap between those two approaches is widening fast.</p>
+        <span class="ra-reveal__card-link">Read <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+    <div class="ra-reveal__footer fade-up">
+      <a href="the-reveal/index.html" class="ra-reveal__cta">Explore The Reveal <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="ra-cta">
+  <canvas id="cta-network" class="ra-cta__network"></canvas>
+  <div class="ra-cta__noise"></div>
+  <div class="container">
+    <div class="ra-cta__content fade-up">
+      <h2 class="ra-cta__title">Ready to build the machine behind your growth?</h2>
+      <p class="ra-cta__desc">Thirty minutes. Real strategy. No pitch. Walk away with clarity on what's broken, what matters most, and whether we're the right partner to fix it.</p>
+      <a href="booking.html" class="btn btn--white">Book Your Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="ra-faq" id="faq">
+  <div class="container">
+    <div class="ra-faq__header fade-up">
+      <span class="eyebrow">A Little Revelation</span>
+      <h2 class="display-2" style="font-size: 45px; width: 1136px; max-width: 100%; margin-left: auto; margin-right: auto;">Questions that deserve a <span class="highlight">real</span> answer.</h2>
+      <p class="body-lead" style="max-width:500px; margin: 16px auto 0;">Real questions. Direct answers. No agency speak.</p>
+    </div>
+    <div class="ra-faq__list">
+      <div class="ra-faq__item">
+        <button class="ra-faq__q" aria-expanded="false">
+          What does Revelation Agency actually do?
+          <span class="ra-faq__q-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="ra-faq__a">
+          <div class="ra-faq__a-inner">
+            <p>We build the strategy, creative, and marketing infrastructure that growing businesses need but rarely have. That means auditing what's broken, rebuilding the foundation, and activating growth on top of something real. We operate across brand, web, ads, automation, and sales systems as one connected machine — not a stack of disconnected vendors.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ra-faq__item">
+        <button class="ra-faq__q" aria-expanded="false">
+          What is the Strategy Sprint and is it right for me?
+          <span class="ra-faq__q-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="ra-faq__a">
+          <div class="ra-faq__a-inner">
+            <p>The Strategy Sprint is our flagship engagement — a structured 2–4 month audit and rebuild of the systems beneath your growth engine. It's right for you if you're spending on marketing without compounding returns, if your messaging is inconsistent, or if growth depends on your personal time rather than a repeatable system.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ra-faq__item">
+        <button class="ra-faq__q" aria-expanded="false">
+          How long does it take to see results?
+          <span class="ra-faq__q-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="ra-faq__a">
+          <div class="ra-faq__a-inner">
+            <p>Depends on what you're building. Strategy Sprint deliverables are ready within 2–4 months. Creative projects typically run 6–12 weeks. Marketing campaigns generate early signal within 30–60 days, but real compounding growth becomes visible at 90+ days once the system is running properly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ra-faq__item">
+        <button class="ra-faq__q" aria-expanded="false">
+          Do you work with businesses outside of Fresno / California?
+          <span class="ra-faq__q-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="ra-faq__a">
+          <div class="ra-faq__a-inner">
+            <p>Yes — we're remote-first by design. We work with founders and operators across the US. Location has never been a constraint. Most of our best work happens over video calls, shared docs, and async collaboration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ra-faq__item">
+        <button class="ra-faq__q" aria-expanded="false">
+          What's the first step to working with Revelation Agency?
+          <span class="ra-faq__q-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="ra-faq__a">
+          <div class="ra-faq__a-inner">
+            <p>Book a free 30-minute strategy session. It's not a sales call — it's a real conversation about where your growth is stuck, what's causing it, and whether we're the right team to fix it. You'll leave with clarity regardless of whether we work together.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ra-faq__footer fade-up">
+      <a href="booking.html" class="btn btn--primary">Book a Free Strategy Session</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROOF ==================== -->
+<section class="ra-proof" id="proof">
+  <canvas id="proof-shader" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="ra-proof__header fade-up">
+      <span class="eyebrow eyebrow--white">Why Revelation</span>
+      <h2 class="display-2" style="color:white;">Built different. <span class="highlight">By design.</span></h2>
+      <p style="color:rgba(255,255,255,0.5); margin-top:12px;">Three things that separate operators from decorators.</p>
+    </div>
+    <div class="ra-proof__pillars">
+      <div class="ra-proof__pillar fade-up fade-up-d1">
+        <div class="ra-proof__pillar-icon"><i class="fa-solid fa-compass"></i></div>
+        <h4>Strategy First, Always</h4>
+        <p>Every engagement starts with a deep audit. We don't run ads on a broken foundation. We fix the foundation, then scale what works.</p>
+      </div>
+      <div class="ra-proof__pillar fade-up fade-up-d2">
+        <div class="ra-proof__pillar-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h4>Integrated by Default</h4>
+        <p>Strategy, creative, and marketing are one machine, not three vendors. When built together, they compound. When separated, they cancel.</p>
+      </div>
+      <div class="ra-proof__pillar fade-up fade-up-d3">
+        <div class="ra-proof__pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h4>Measurement Maps to Revenue</h4>
+        <p>We don't report vanity metrics. Every number we track connects back to pipeline, revenue, or margin. If it doesn't move money, we don't measure it.</p>
+      </div>
+    </div>
+    <div class="ra-proof__testimonial fade-up">
+      <p>"We built the machine first on ourselves — then applied it to every client engagement. The systems we use aren't hypothetical. They're the same ones that took Revelation Agency from concept to a full client roster in under 12 months."</p>
+      <cite>— Blaine McKenzie, Founder · Revelation Agency</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="ra-contact" id="contact">
+  <div class="container">
+    <!-- TOP: Where We Work — full-width, big header, full-width map, address below -->
+    <div class="ra-contact__top fade-up">
+      <span class="eyebrow">Where we work</span>
+      <h2 class="display-3 ra-contact__where-title">Based in <span class="highlight">Clovis</span>. Building everywhere.</h2>
+      <p class="ra-contact__where-lede">Operating remotely with founders and operators across the US &mdash; headquartered in Clovis, California, and flexing for real work across every time zone.</p>
+      <!-- HOME-WHERE-MAP -->
+      <div class="ra-contact__map-wrap" data-ra-home-map="1">
+        <iframe
+          src="https://www.google.com/maps?q=55+Shaw+Ave+%23201+Clovis+CA+93612&z=13&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Map showing Revelation Agency office in Clovis, CA"
+          title="Revelation Agency — Clovis, CA"></iframe>
+      </div>
+      <address class="ra-contact__addr">
+        <strong>Revelation Agency HQ</strong>
+        <span class="ra-contact__addr-dot" aria-hidden="true"></span>
+        <span>55 Shaw Ave. #201</span>
+        <span class="ra-contact__addr-dot" aria-hidden="true"></span>
+        <span>Clovis, CA 93612</span>
+      </address>
+    </div>
+
+    <!-- 2-COL: Drop a message + contact options (left) + Form (right) -->
+    <div class="ra-contact__inner">
+      <div class="fade-up">
+        <span class="eyebrow">Contact</span>
+        <h2 class="display-3" style="margin-bottom:20px;">Drop a <span class="highlight">message</span></h2>
+        <p class="ra-contact__intro">Thirty minutes. Real strategy. No pitch. Walk away with clarity on what's broken and whether we're the right partner.</p>
+        <div class="ra-contact__details">
+          <div class="ra-contact__detail">
+            <div class="ra-contact__detail-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <h4>Book a Strategy Session</h4>
+              <a href="booking.html">Free 30-minute session</a>
+              <p>Real strategy. No pitch.</p>
+            </div>
+          </div>
+          <div class="ra-contact__detail">
+            <div class="ra-contact__detail-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a>
+            </div>
+          </div>
+          <div class="ra-contact__detail">
+            <div class="ra-contact__detail-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+15592017039">(559) 201-7039</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up fade-up-d2">
+        <!-- ========== NATIVE LEAD FORM (fires GHL inbound webhook) ========== -->
+        <!-- RA_GO_LIVE_MARKER
+             The <form> below has data-webhook set to the LIVE GHL
+             inbound-webhook URL. If GHL ever rotates the hook, swap
+             the value on the <form data-webhook="..."> attribute.
+             The JS fallback guard (no-webhook-attr) stays — it keeps
+             the site from silently pretending to submit if the attr
+             is ever blanked.
+             Payload contract is documented in the GHL WORKER PROMPT
+             delivered alongside this form. If a field name changes
+             there, update the `var payload = { ... }` block below
+             and this marker. -->
+
+        <style>
+          .ra-form{position:relative;background:#fff;border:1px solid rgba(43,43,43,0.08);border-radius:20px;padding:40px 36px 32px;box-shadow:0 22px 60px rgba(0,0,0,0.08);overflow:hidden;}
+          .ra-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.85;z-index:2;}
+          /* RA-FORM-TRACE: red line slowly orbiting the form perimeter.
+             Pure CSS via @property --angle + conic-gradient masked into a
+             ~2px ring along the border-radius edge. Falls back to static
+             (no trace) on browsers that don't register @property — visual
+             enhancement only, never blocks form usability. */
+          @property --ra-form-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
+          .ra-form::after{
+            content:'';position:absolute;inset:0;border-radius:inherit;padding:1.6px;
+            background:conic-gradient(from var(--ra-form-angle),
+              rgba(215,37,50,0) 0deg,
+              rgba(215,37,50,0) 270deg,
+              rgba(215,37,50,0.18) 295deg,
+              rgba(215,37,50,0.85) 320deg,
+              rgba(215,37,50,1) 340deg,
+              rgba(215,37,50,0.55) 352deg,
+              rgba(215,37,50,0) 360deg);
+            -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+                    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+            -webkit-mask-composite:xor;mask-composite:exclude;
+            animation:ra-form-trace 9s linear infinite;
+            pointer-events:none;z-index:3;
+            filter:drop-shadow(0 0 4px rgba(215,37,50,0.35));
+          }
+          @keyframes ra-form-trace{to{--ra-form-angle:360deg;}}
+          @media (prefers-reduced-motion:reduce){
+            .ra-form::after{animation:none;background:transparent;}
+          }
+          .ra-form__head{margin-bottom:26px;}
+          .ra-form__eyebrow{font-family:var(--font-head);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+          .ra-form__eyebrow::after{content:'';flex:1;height:1px;background:rgba(215,37,50,0.25);}
+          .ra-form__title{font-family:var(--font-head);font-size:22px;letter-spacing:0.02em;color:var(--charcoal);line-height:1.2;}
+          .ra-form__title em{color:var(--red);font-style:italic;}
+          .ra-form__hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
+          .ra-form__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:18px;}
+          .ra-form__field{display:flex;flex-direction:column;gap:7px;}
+          .ra-form__field--full{grid-column:1 / -1;}
+          .ra-form__label{font-family:var(--font-head);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal);font-weight:600;}
+          .ra-form__req{color:var(--red);font-weight:700;margin-left:2px;}
+          .ra-form__input,.ra-form__textarea{font-family:var(--font-body);font-size:15px;color:var(--charcoal);background:transparent;border:none;border-bottom:1.5px solid rgba(43,43,43,0.18);padding:10px 2px 10px;transition:border-color .25s var(--ease-out),background .25s var(--ease-out);outline:none;width:100%;resize:none;}
+          .ra-form__input::placeholder,.ra-form__textarea::placeholder{color:rgba(43,43,43,0.32);font-style:italic;}
+          .ra-form__input:focus,.ra-form__textarea:focus{border-bottom-color:var(--red);background:rgba(215,37,50,0.025);}
+          .ra-form__textarea{min-height:96px;border:1.5px solid rgba(43,43,43,0.12);border-radius:10px;padding:12px 14px;}
+          .ra-form__textarea:focus{border-color:var(--red);background:rgba(215,37,50,0.02);}
+          .ra-form__field.has-error .ra-form__input,.ra-form__field.has-error .ra-form__textarea{border-bottom-color:var(--red);border-color:var(--red);background:rgba(215,37,50,0.04);}
+          .ra-form__error{font-family:var(--font-body);font-size:12px;color:var(--red);min-height:0;display:none;margin-top:-2px;}
+          .ra-form__field.has-error .ra-form__error{display:block;}
+          .ra-form__footer{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-top:26px;padding-top:22px;border-top:1px solid rgba(43,43,43,0.06);}
+          .ra-form__submit{position:relative;min-width:220px;justify-content:center;transition:background .25s var(--ease-out),transform .25s var(--ease-out),box-shadow .25s var(--ease-out),opacity .2s;}
+          .ra-form__submit[disabled]{opacity:0.7;cursor:not-allowed;transform:none;}
+          .ra-form__submit.is-loading{pointer-events:none;opacity:0.85;}
+          .ra-form__submit.is-loading .ra-form__submit-label::after{content:'';display:inline-block;width:14px;height:14px;margin-left:10px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:ra-spin .7s linear infinite;vertical-align:-3px;}
+          .ra-form__fine{font-family:var(--font-body);font-size:12px;color:#777;letter-spacing:0.02em;}
+          .ra-form__status{font-family:var(--font-body);font-size:14px;line-height:1.55;margin-top:16px;padding:14px 16px;border-radius:10px;display:none;}
+          .ra-form__status.is-error{display:block;background:rgba(215,37,50,0.08);border:1px solid rgba(215,37,50,0.25);color:var(--red-deep);}
+          .ra-form__success{display:none;flex-direction:column;gap:14px;padding:34px 28px;text-align:center;align-items:center;}
+          .ra-form__success.is-visible{display:flex;}
+          .ra-form__success-icon{width:54px;height:54px;border-radius:50%;background:rgba(215,37,50,0.08);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:22px;}
+          .ra-form__success-title{font-family:var(--font-head);font-size:22px;color:var(--charcoal);letter-spacing:0.02em;}
+          .ra-form__success-body{font-family:var(--font-body);font-size:15px;color:#555;line-height:1.65;max-width:380px;}
+          @keyframes ra-spin{to{transform:rotate(360deg);}}
+          @media (max-width: 720px){
+            .ra-form{padding:28px 22px 24px;border-radius:16px;}
+            .ra-form__grid{grid-template-columns:1fr;gap:14px;}
+            .ra-form__title{font-size:18px;}
+            .ra-form__submit{width:100%;}
+          }
+        </style>
+        <form class="ra-form" id="ra-contact-form" data-webhook="https://services.leadconnectorhq.com/hooks/Jx498vFpyvZUSLnIfT0B/webhook-trigger/a808dddf-d86e-4a37-89cc-ad9ad5df657a" novalidate>
+          <div class="ra-form__head">
+            <div class="ra-form__eyebrow">Tell us where you're stuck</div>
+            <h3 class="ra-form__title">Start the <em>conversation.</em></h3>
+          </div>
+          <!-- Honeypot: bots fill this, humans don't. -->
+          <div class="ra-form__hp" aria-hidden="true">
+            <label for="ra-form-hp">Leave this field empty</label>
+            <input type="text" name="hp_website" id="ra-form-hp" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="ra-form__grid">
+            <div class="ra-form__field">
+              <label class="ra-form__label" for="ra-form-name">Your Name <span class="ra-form__req">*</span></label>
+              <input class="ra-form__input" type="text" id="ra-form-name" name="name" required autocomplete="name" placeholder="Jane Doe" maxlength="80">
+              <div class="ra-form__error" data-error-for="name">Please share your name.</div>
+            </div>
+            <div class="ra-form__field">
+              <label class="ra-form__label" for="ra-form-email">Email <span class="ra-form__req">*</span></label>
+              <input class="ra-form__input" type="email" id="ra-form-email" name="email" required autocomplete="email" placeholder="you@company.com" maxlength="120">
+              <div class="ra-form__error" data-error-for="email">Please share a valid email.</div>
+            </div>
+          </div>
+          <div class="ra-form__grid">
+            <div class="ra-form__field">
+              <label class="ra-form__label" for="ra-form-phone">Phone</label>
+              <input class="ra-form__input" type="tel" id="ra-form-phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" maxlength="30">
+              <div class="ra-form__error" data-error-for="phone"></div>
+            </div>
+            <div class="ra-form__field">
+              <label class="ra-form__label" for="ra-form-company">Company</label>
+              <input class="ra-form__input" type="text" id="ra-form-company" name="company" autocomplete="organization" placeholder="Acme Inc" maxlength="120">
+              <div class="ra-form__error" data-error-for="company"></div>
+            </div>
+          </div>
+          <div class="ra-form__field ra-form__field--full">
+            <label class="ra-form__label" for="ra-form-message">What can we help you build? <span class="ra-form__req">*</span></label>
+            <textarea class="ra-form__textarea" id="ra-form-message" name="message" rows="4" required placeholder="A few sentences on what you're working on — campaign, rebrand, new launch, or something we haven't named yet." maxlength="2000"></textarea>
+            <div class="ra-form__error" data-error-for="message">A sentence or two is enough to get us started.</div>
+          </div>
+          <div class="ra-form__footer">
+            <button type="submit" class="btn btn--primary ra-form__submit">
+              <span class="ra-form__submit-label">Send Message</span>
+              <i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i>
+            </button>
+            <p class="ra-form__fine">Thirty minutes. Real strategy. No pitch. We respond within one business day.</p>
+          </div>
+          <div class="ra-form__status" id="ra-form-status" role="status" aria-live="polite"></div>
+        </form>
+        <div class="ra-form__success" id="ra-form-success" role="status" aria-live="polite">
+          <div class="ra-form__success-icon"><i class="fa-solid fa-check"></i></div>
+          <div class="ra-form__success-title">Message received.</div>
+          <div class="ra-form__success-body">We'll be in touch within one business day. If it's urgent, call <a href="tel:+15592017039" style="color:var(--red);font-weight:600;">(559) 201-7039</a> or <a href="booking.html" style="color:var(--red);font-weight:600;">book a free strategy session</a>.</div>
+        </div>
+        <script>
+        /* ============================================================
+           RA HOME FORM — LAYERED SPAM GATE
+           ------------------------------------------------------------
+           Two client-side hard drops (bot-only, zero human false
+           positive risk):
+             1. Honeypot filled  → silent success, never submitted
+             2. Fill time < 1.5s → silent success, never submitted
+           Everything else is submitted to the GHL webhook with a
+           spam:{score, flags, fill_seconds} object attached. The GHL
+           workflow uses that to route high-risk leads into a
+           quarantine pipeline (no owner notification) instead of
+           blocking at the client. Humans are never hard-stopped for
+           content — routing is decided server-side.
+           ============================================================ */
+        (function(){
+          var form = document.getElementById('ra-contact-form');
+          if(!form) return;
+          var statusEl = document.getElementById('ra-form-status');
+          var successEl = document.getElementById('ra-form-success');
+          var submitBtn = form.querySelector('.ra-form__submit');
+          var submitLabel = form.querySelector('.ra-form__submit-label');
+          var originalLabel = submitLabel.textContent;
+          var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          var renderTs = Date.now();
+
+          // ---- spam-gate reference data ----------------------------
+          // Explicit cold-outreach / vendor framing. Patterns target
+          // sales-pitch phrasing, not topic keywords, so a legitimate
+          // client asking about SEO or web design isn't flagged.
+          var OUTREACH_PATTERNS = [
+            /\bwe(?:'| )(?:can|will|would) (?:help|rank|get|boost|grow) (?:your|you)\b/i,
+            /\bwe (?:offer|provide|specialize in|are experts in)\b/i,
+            /\bwe (?:noticed|came across|found|stumbled upon) your (?:site|website|business|company)\b/i,
+            /\bi (?:came across|noticed|found) your (?:site|website)\b/i,
+            /\b(?:rank|ranking|ranked) (?:higher|#?1|number one|on (?:the )?first page) (?:on|of) google\b/i,
+            /\b(?:first|front) page of google\b/i,
+            /\bguaranteed (?:results|rankings|traffic|leads)\b/i,
+            /\b(?:qualified|exclusive|guaranteed) leads\b/i,
+            /\bguest (?:post|posting|blog(?:ging)?)\b/i,
+            /\b(?:high[- ]?quality )?back ?links?\b/i,
+            /\blink[- ]?building (?:services?|package|campaign)\b/i,
+            /\bwebsite (?:redesign|revamp) (?:service|offer|package|project)\b/i,
+            /\b(?:affordable|cheap|low[- ]?cost) (?:web(?:site)? (?:design|development)|seo)\b/i,
+            /\b(?:as per|per) (?:our|my) (?:previous|last) (?:conversation|email|discussion)\b/i,
+            /\b(?:kindly )?revert (?:back )?(?:to|at your earliest)\b/i,
+            /\b(?:outsource|outsourcing|white[- ]?label) (?:your|our) (?:seo|web|development|marketing)\b/i,
+            /\bpartner(?:ship)? (?:opportunity|proposal) with\b/i,
+            /\bb2b (?:lead[- ]?gen|outreach|data|database|list)\b/i
+          ];
+          // Disposable / throwaway email domains — strong spam signal.
+          var DISPOSABLE_DOMAINS = [
+            'mailinator.com','guerrillamail.com','guerrillamail.net','10minutemail.com',
+            'tempmail.com','temp-mail.org','temp-mail.io','yopmail.com','throwawaymail.com',
+            'trashmail.com','getnada.com','sharklasers.com','maildrop.cc','dispostable.com',
+            'mailnesia.com','fakeinbox.com','mohmal.com','mintemail.com','spambog.com',
+            'spamgourmet.com','mytemp.email','tmail.ws','tempmail.net','tempmailo.com'
+          ];
+          // TLDs commonly used for bulk spam outreach.
+          var SUSPICIOUS_TLDS = [
+            '.top','.xyz','.click','.work','.loan','.gq','.tk','.ml','.cf',
+            '.info','.site','.online','.website','.space','.rest','.bid',
+            '.trade','.stream','.download','.win','.review'
+          ];
+          // Free-mail providers — NOT a block. Slight signal only
+          // (legit small-biz clients frequently use Gmail, etc.).
+          var FREE_MAIL_DOMAINS = [
+            'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com',
+            'live.com','icloud.com','msn.com','ymail.com','me.com','proton.me','protonmail.com'
+          ];
+
+          function scanOutreachPhrases(text){
+            var hits = [];
+            if(!text) return hits;
+            for(var i = 0; i < OUTREACH_PATTERNS.length; i++){
+              var m = text.match(OUTREACH_PATTERNS[i]);
+              if(m) hits.push(m[0].toLowerCase().replace(/\s+/g,' ').slice(0, 60));
+            }
+            return hits;
+          }
+
+          function countLinks(text){
+            if(!text) return 0;
+            var m = text.match(/(https?:\/\/|www\.)[^\s)]+/gi);
+            return m ? m.length : 0;
+          }
+
+          function emailRiskScan(email){
+            var flags = [];
+            var score = 0;
+            var domain = '';
+            if(!email) return { flags: flags, score: score, domain: domain, free_mail: false };
+            var at = email.lastIndexOf('@');
+            if(at < 0) return { flags: flags, score: score, domain: domain, free_mail: false };
+            domain = email.slice(at + 1).toLowerCase();
+            if(DISPOSABLE_DOMAINS.indexOf(domain) !== -1){
+              flags.push('disposable_email'); score += 50;
+            }
+            for(var i = 0; i < SUSPICIOUS_TLDS.length; i++){
+              if(domain.endsWith(SUSPICIOUS_TLDS[i])){
+                flags.push('suspicious_tld:' + SUSPICIOUS_TLDS[i]); score += 25; break;
+              }
+            }
+            var free_mail = FREE_MAIL_DOMAINS.indexOf(domain) !== -1;
+            if(free_mail) score += 5; // context-only, not a flag
+            return { flags: flags, score: score, domain: domain, free_mail: free_mail };
+          }
+
+          function evaluateSpam(data, fillSeconds){
+            var flags = [];
+            var score = 0;
+            var combined = [data.name, data.company, data.message].join(' \u00B7 ');
+            var outreach = scanOutreachPhrases(combined);
+            if(outreach.length >= 2){ flags.push('outreach_pattern_multi'); score += 55; }
+            else if(outreach.length === 1){ flags.push('outreach_pattern'); score += 35; }
+            var links = countLinks(data.message);
+            if(links >= 3){ flags.push('link_farm'); score += 40; }
+            else if(links === 2){ flags.push('multi_link'); score += 15; }
+            if(fillSeconds < 3){ flags.push('fill_time_fast'); score += 30; }
+            else if(fillSeconds < 6){ flags.push('fill_time_quick'); score += 10; }
+            var em = emailRiskScan(data.email);
+            flags = flags.concat(em.flags);
+            score += em.score;
+            // Message too short to be genuine inquiry (but still passed min validation).
+            if(data.message && data.message.length < 20){ flags.push('message_terse'); score += 10; }
+            // Name looks like a URL — very common in vendor spam "names".
+            if(data.name && /https?:\/\/|www\./i.test(data.name)){ flags.push('name_is_url'); score += 35; }
+            if(score > 100) score = 100;
+            return {
+              score: score,
+              flags: flags,
+              outreach_hits: outreach,
+              link_count: links,
+              email_domain: em.domain,
+              free_mail: em.free_mail,
+              route: score >= 60 ? 'quarantine' : 'standard'
+            };
+          }
+
+          function setError(name, show, message){
+            var field = form.querySelector('[name="'+name+'"]').closest('.ra-form__field');
+            if(!field) return;
+            field.classList.toggle('has-error', !!show);
+            if(message){
+              var err = field.querySelector('.ra-form__error');
+              if(err) err.textContent = message;
+            }
+          }
+
+          function clearErrors(){
+            form.querySelectorAll('.ra-form__field.has-error').forEach(function(f){f.classList.remove('has-error');});
+            statusEl.className = 'ra-form__status';
+            statusEl.textContent = '';
+          }
+
+          function validate(data){
+            var ok = true;
+            if(!data.name || data.name.length < 2){ setError('name', true, 'Please share your name.'); ok = false; }
+            if(!data.email || !emailRe.test(data.email)){ setError('email', true, 'Please share a valid email.'); ok = false; }
+            if(!data.message || data.message.length < 4){ setError('message', true, 'A sentence or two is enough to get us started.'); ok = false; }
+            return ok;
+          }
+
+          function showStatus(kind, msg){
+            statusEl.className = 'ra-form__status is-' + kind;
+            statusEl.textContent = msg;
+          }
+
+          function silentBotSuccess(){
+            // Identical UX to a real success — bots get no signal they
+            // were caught, so they won't retry with a different payload.
+            form.style.display = 'none';
+            successEl.classList.add('is-visible');
+          }
+
+          form.addEventListener('input', function(e){
+            var field = e.target.closest('.ra-form__field');
+            if(field && field.classList.contains('has-error')) field.classList.remove('has-error');
+          });
+
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            clearErrors();
+
+            var fd = new FormData(form);
+            var honeypot = (fd.get('hp_website')||'').toString().trim();
+            var fillSeconds = (Date.now() - renderTs) / 1000;
+
+            // --- LAYER 1: hard bot drop on honeypot -----------------
+            if(honeypot){ silentBotSuccess(); return; }
+            // --- LAYER 2: hard bot drop on impossible fill speed ----
+            // 1.5s is faster than any human can tab through name +
+            // email + message. Real users rarely sub-3s; 1.5s is the
+            // conservative floor.
+            if(fillSeconds < 1.5){ silentBotSuccess(); return; }
+
+            var data = {
+              name: (fd.get('name')||'').toString().trim(),
+              email: (fd.get('email')||'').toString().trim(),
+              phone: (fd.get('phone')||'').toString().trim(),
+              company: (fd.get('company')||'').toString().trim(),
+              message: (fd.get('message')||'').toString().trim()
+            };
+
+            if(!validate(data)) return;
+
+            // --- LAYER 3: scored spam evaluation (soft) -------------
+            // Never blocks at the client. GHL workflow uses this to
+            // route high-risk leads to the quarantine pipeline.
+            var spam = evaluateSpam(data, fillSeconds);
+
+            // RA_GO_LIVE_MARKER: this reads the webhook URL set on the
+            // <form data-webhook="..."> attribute. See the HTML marker
+            // above the form tag for the swap instructions.
+            var webhook = form.getAttribute('data-webhook') || '';
+
+            // Payload contract — this is the canonical JSON shape the
+            // GHL inbound-webhook workflow expects. If GHL renames any
+            // of these fields, rename them here too (and update the
+            // RA_GO_LIVE_MARKER HTML comment). Keep the full `spam`
+            // object intact — GHL routes on `spam.route` / `spam.score`
+            // / `spam.flags`, so stripping any of them regresses the
+            // quarantine pipeline.
+            // Split display name into first / last while keeping the
+            // original `name` intact. GHL contact records expect
+            // first_name / last_name; `name` is retained for display +
+            // legacy consumers. Single-word names land entirely in
+            // first_name with last_name empty.
+            var _nameParts = (data.name || '').trim().split(/\s+/).filter(Boolean);
+            var _firstName = _nameParts.shift() || '';
+            var _lastName = _nameParts.join(' ');
+
+            var payload = {
+              first_name: _firstName,
+              last_name: _lastName,
+              name: data.name,
+              email: data.email,
+              phone: data.phone,
+              company: data.company,
+              message: data.message,
+              source: 'revelationagency.com — Home Contact Form',
+              page_url: window.location.href,
+              referrer: document.referrer || '',
+              submitted_at: new Date().toISOString(),
+              fill_seconds: Math.round(fillSeconds * 10) / 10,
+              spam_route: (spam && spam.route) || 'standard',
+              user_agent: navigator.userAgent || '',
+              spam: spam
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('is-loading');
+            submitLabel.textContent = 'Sending';
+
+            // RA_GO_LIVE_MARKER: honest fallback. If the form somehow
+            // loads without a webhook attribute, surface a clean error
+            // rather than silently dropping the submission. The live
+            // URL is wired on the <form data-webhook="..."> attribute.
+            if(!webhook){
+              setTimeout(function(){
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('is-loading');
+                submitLabel.textContent = originalLabel;
+                showStatus('error', "We couldn't deliver that just yet — our web form is still coming online. Email connect@revelationagency.com (we reply within one business day) or book a free strategy session to lock in a time.");
+              }, 400);
+              return;
+            }
+
+            // Quarantine-route submissions still POST to GHL — the
+            // website never silently drops them. GHL decides routing
+            // based on `spam_route` / `spam.*`.
+            fetch(webhook, {
+              method: 'POST',
+              mode: 'cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).then(function(resp){
+              if(!resp.ok){
+                // Log non-2xx quietly but keep the user's fast-success
+                // UX — GHL can still capture via alt channels and we
+                // don't want to block a lead on a transient 5xx.
+                console.warn('[ra-form] webhook non-2xx', resp.status);
+                throw new Error('Network response was not OK ('+resp.status+')');
+              }
+              form.style.display = 'none';
+              successEl.classList.add('is-visible');
+              successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              // Post-send: bounce quarantine-route leads to a generic
+              // thank-you (stay on page), real leads to the scheduler.
+              try { sessionStorage.setItem('ra_lead_name', data.name || ''); } catch(e){}
+              if(spam.route === 'standard'){
+                setTimeout(function(){
+                  window.location.href = 'booking.html?src=home-form&name=' + encodeURIComponent(data.name || '');
+                }, 1400);
+              }
+              // Quarantine-route leads: no scheduler redirect. GHL
+              // workflow decides whether to surface them manually.
+            }).catch(function(err){
+              submitBtn.disabled = false;
+              submitBtn.classList.remove('is-loading');
+              submitLabel.textContent = originalLabel;
+              showStatus('error', "We couldn't send that message. Try again, email connect@revelationagency.com, or call (559) 201-7039.");
+              console.error('[ra-form]', err);
+            });
+          });
+        })();
+        </script>
+        <!-- ========== END NATIVE LEAD FORM ========== -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="ra-footer">
+  <div class="container">
+    <div class="ra-footer__inner">
+      <div class="ra-footer__brand">
+        <div class="ra-footer__logo">
+          <img src="assets/revelation-logo.png" alt="Revelation Agency">
+        </div>
+        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
+        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <div class="ra-footer__social">
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <!-- FOOTER-ADDRESS -->
+        <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
+          <div style="color:rgba(255,255,255,0.72); font-weight:600; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; margin-bottom:6px;">Revelation Agency</div>
+          <div>55 Shaw Ave. #201</div>
+          <div>Clovis, CA 93612</div>
+          <div style="margin-top:6px; font-style:italic; color:rgba(255,255,255,0.55);">We work remotely across the globe.</div>
+        </address>
+      </div>
+
+      <div class="ra-footer__nav ra-footer__nav--services">
+        <style>
+          .ra-footer__nav--services .ra-footer__svc{list-style:none;margin:0;padding:0;}
+          .ra-footer__nav--services .ra-footer__svc-group{margin-bottom:4px;}
+          .ra-footer__nav--services .ra-footer__svc-group:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-parent{display:flex;align-items:center;justify-content:space-between;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 0;cursor:pointer;transition:color .2s;line-height:1.2;}
+          .ra-footer__nav--services .ra-footer__svc-parent:hover{color:var(--red);}
+          .ra-footer__nav--services .ra-footer__svc-caret{font-size:11px;color:rgba(255,255,255,0.45);transition:transform .28s ease,color .2s;margin-left:8px;flex-shrink:0;display:inline-block;}
+          .ra-footer__nav--services .ra-footer__svc-children{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .32s ease,opacity .22s ease,margin-top .22s ease;margin-top:0;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-children,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-group:hover .ra-footer__svc-caret,
+          .ra-footer__nav--services .ra-footer__svc-group:focus-within .ra-footer__svc-caret{transform:rotate(180deg);color:#fff;}
+          .ra-footer__nav--services .ra-footer__svc-children li{margin-bottom:6px;}
+          .ra-footer__nav--services .ra-footer__svc-children li:last-child{margin-bottom:0;}
+          .ra-footer__nav--services .ra-footer__svc-children a{font-size:13px;color:rgba(255,255,255,0.5);padding-left:2px;display:block;transition:color .2s;}
+          .ra-footer__nav--services .ra-footer__svc-children a:hover{color:#fff;}
+          @media (max-width:720px){
+            .ra-footer__nav--services .ra-footer__svc-children{max-height:260px;opacity:1;margin-top:4px;}
+            .ra-footer__nav--services .ra-footer__svc-caret{display:none;}
+          }
+        </style>
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
+        <ul class="ra-footer__svc">
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/strategy/">Strategy<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/strategy/brand-strategy.html">Brand Strategy</a></li>
+              <li><a href="services/strategy/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="services/strategy/digital-presence.html">Digital Presence</a></li>
+              <li><a href="services/strategy/sales-infrastructure.html">Sales Infrastructure</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/creative/branding.html">Branding</a></li>
+              <li><a href="services/creative/video-production.html">Video Production</a></li>
+              <li><a href="services/creative/website-development.html">Website Development</a></li>
+              <li><a href="services/creative/app-development.html">App Development</a></li>
+            </ul>
+          </li>
+          <li class="ra-footer__svc-group">
+            <a class="ra-footer__svc-parent" href="services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <ul class="ra-footer__svc-children">
+              <li><a href="services/marketing/digital-ads.html">Digital Ads</a></li>
+              <li><a href="services/marketing/social-media.html">Social Media</a></li>
+              <li><a href="services/marketing/search-rankings.html">Search Rankings</a></li>
+              <li><a href="services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ra-footer__nav">
+        <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
+        <ul>
+          <li><a href="the-reveal/index.html">The Reveal</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="tel:+15592017039">(559) 201-7039</a></li>
+          <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
+        </ul>
+      </div><div class="ra-footer__cta">
+<!-- RA-FOOTER-MINIFORM-START -->
+        <form class="ra-footer__miniform" data-booking-url="booking.html" novalidate>
+          <h5 class="ra-footer__miniform-title">Let's Connect</h5>
+          <div class="ra-footer__miniform-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          </div>
+          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <div class="ra-footer__miniform-status" aria-live="polite"></div>
+        </form>
+        <script>(function(){
+  var WEBHOOK = "https://services.leadconnectorhq.com/hooks/Jx498vFpyvZUSLnIfT0B/webhook-trigger/c6d7e341-7e3c-4dbb-a9df-ab8df070bbf4";
   var forms = document.querySelectorAll('.ra-footer__miniform');
   forms.forEach(function(f){
     if (f.dataset.bound === '1') return;
@@ -4177,53 +5276,13 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
       ev.preventDefault();
       var name = (f.name && f.name.value || '').trim();
       var phone = (f.phone && f.phone.value || '').trim();
-      if (!name || !phone) {
-        if (status) {
-          status.textContent = 'Add a name and phone so we can prefill your booking.';
-          status.classList.add('is-error');
-        }
-        return;
-      }
-      try {
-        sessionStorage.setItem('ra_lead_name', name);
-        sessionStorage.setItem('ra_lead_phone', phone);
-        sessionStorage.setItem('ra_lead_source', 'footer-miniform');
-      } catch(e) {}
-      // Fire the lead at GHL BEFORE redirecting. keepalive: true tells the
-      // browser to keep the request alive through navigation so the lead
-      // is never lost if the user closes the tab or the booking page is
-      // slow to load.
-      var payload = {
-        name: name,
-        phone: phone,
-        source: 'footer-miniform',
-        page: (location.pathname || '/') + (location.search || ''),
-        referrer: document.referrer || '',
-        timestamp: new Date().toISOString(),
-        user_agent: navigator.userAgent || ''
-      };
-      try {
-        fetch(WEBHOOK, {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(function(err){ console.warn('[ra-footer-miniform] webhook error', err); });
-      } catch(e) {
-        console.warn('[ra-footer-miniform] webhook threw', e);
-      }
-      if (status) {
-        status.textContent = 'Got it — taking you to the calendar...';
-        status.classList.remove('is-error');
-      }
+      if (!name || !phone) { if (status) { status.textContent = 'Add a name and phone so we can prefill your booking.'; status.classList.add('is-error'); } return; }
+      try { sessionStorage.setItem('ra_lead_name', name); sessionStorage.setItem('ra_lead_phone', phone); sessionStorage.setItem('ra_lead_source', 'footer-miniform'); } catch(e){}
+      var payload = { name: name, phone: phone, source: 'footer-miniform', page: (location.pathname || '/') + (location.search || ''), referrer: document.referrer || '', timestamp: new Date().toISOString(), user_agent: navigator.userAgent || '' };
+      try { fetch(WEBHOOK, { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function(err){ console.warn('[ra-footer-miniform] webhook error', err); }); } catch(e) { console.warn('[ra-footer-miniform] webhook threw', e); }
+      if (status) { status.textContent = 'Got it — taking you to the calendar...'; status.classList.remove('is-error'); }
       var base = f.getAttribute('data-booking-url') || 'booking.html';
-      var url = base + (base.indexOf('?') === -1 ? '?' : '&')
-        + 'name=' + encodeURIComponent(name)
-        + '&phone=' + encodeURIComponent(phone)
-        + '&src=footer-miniform';
-      // 150 ms is enough to push the keepalive request out of the local
-      // stack on every browser tested, but is imperceptible to the user.
+      var url = base + (base.indexOf('?') === -1 ? '?' : '&') + 'name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone) + '&src=footer-miniform';
       setTimeout(function(){ window.location.href = url; }, 150);
     });
   });
