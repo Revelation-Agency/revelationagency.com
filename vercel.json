@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/services/strategy", "destination": "/services/systems", "permanent": true },
+    { "source": "/services/strategy/:path*", "destination": "/services/systems/:path*", "permanent": true },
+    { "source": "/portfolio/strategy", "destination": "/portfolio/systems", "permanent": true },
+    { "source": "/portfolio/strategy/:path*", "destination": "/portfolio/systems/:path*", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/g/bill",        "destination": "/sales-growth-engine/index.html?ref=bill-gerard" },
     { "source": "/partners/bill", "destination": "/sales-growth-engine/index.html?ref=bill-gerard" }
