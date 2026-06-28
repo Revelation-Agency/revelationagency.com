@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/services/strategy/brand-strategy", "destination": "/services/systems/brand-systems", "permanent": true },
+    { "source": "/services/systems/brand-strategy", "destination": "/services/systems/brand-systems", "permanent": true },
+    { "source": "/portfolio/strategy/brand-strategy", "destination": "/portfolio/systems/brand-systems", "permanent": true },
+    { "source": "/portfolio/systems/brand-strategy", "destination": "/portfolio/systems/brand-systems", "permanent": true },
     { "source": "/services/strategy", "destination": "/services/systems", "permanent": true },
     { "source": "/services/strategy/:path*", "destination": "/services/systems/:path*", "permanent": true },
     { "source": "/portfolio/strategy", "destination": "/portfolio/systems", "permanent": true },
