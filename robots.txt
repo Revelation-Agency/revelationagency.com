@@ -3,4 +3,4 @@ Allow: /
 Disallow: /asset-review.html
 Disallow: /the-reveal/article-template.html
 
-Sitemap: https://revelationagency.com/sitemap.xml
+Sitemap: https://www.revelationagency.com/sitemap.xml
