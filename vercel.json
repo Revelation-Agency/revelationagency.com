@@ -2,18 +2,211 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/services/strategy/brand-strategy", "destination": "/services/systems/brand-systems", "permanent": true },
-    { "source": "/services/systems/brand-strategy", "destination": "/services/systems/brand-systems", "permanent": true },
-    { "source": "/portfolio/strategy/brand-strategy", "destination": "/portfolio/systems/brand-systems", "permanent": true },
-    { "source": "/portfolio/systems/brand-strategy", "destination": "/portfolio/systems/brand-systems", "permanent": true },
-    { "source": "/services/strategy", "destination": "/services/systems", "permanent": true },
-    { "source": "/services/strategy/:path*", "destination": "/services/systems/:path*", "permanent": true },
-    { "source": "/portfolio/strategy", "destination": "/portfolio/systems", "permanent": true },
-    { "source": "/portfolio/strategy/:path*", "destination": "/portfolio/systems/:path*", "permanent": true }
+    {
+      "source": "/services/creative/branding.html",
+      "destination": "/services/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/creative/website-development.html",
+      "destination": "/services/branding/websites-landing-pages.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/creative/app-development.html",
+      "destination": "/services/branding/apps-digital-products.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/creative/video-production.html",
+      "destination": "/services/branding/video-visual-content.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/creative/index.html",
+      "destination": "/services/branding/",
+      "permanent": true
+    },
+    {
+      "source": "/services/creative/",
+      "destination": "/services/branding/",
+      "permanent": true
+    },
+    {
+      "source": "/services/marketing/index.html",
+      "destination": "/services/marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/services/marketing/search-rankings.html",
+      "destination": "/services/marketing/seo-ai-visibility.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/marketing/outsource-marketing.html",
+      "destination": "/services/marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/services/marketing/digital-ads.html",
+      "destination": "/services/sales/conversion-advertising.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/sales-infrastructure.html",
+      "destination": "/services/sales/crm-sales-infrastructure.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/brand-systems.html",
+      "destination": "/services/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/digital-presence.html",
+      "destination": "/services/branding/websites-landing-pages.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/ai-automation.html",
+      "destination": "/services/ai-automation.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/index.html",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/creative.html",
+      "destination": "/portfolio/branding.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems.html",
+      "destination": "/portfolio.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/creative/branding.html",
+      "destination": "/portfolio/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/creative/website-development.html",
+      "destination": "/portfolio/branding/websites-landing-pages.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/creative/app-development.html",
+      "destination": "/portfolio/branding/apps-digital-products.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/creative/video-production.html",
+      "destination": "/portfolio/branding/video-visual-content.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems/brand-systems.html",
+      "destination": "/portfolio/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems/digital-presence.html",
+      "destination": "/portfolio/branding/websites-landing-pages.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems/sales-infrastructure.html",
+      "destination": "/portfolio/sales/crm-sales-infrastructure.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems/ai-automation.html",
+      "destination": "/portfolio/ai-automation.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/marketing/search-rankings.html",
+      "destination": "/portfolio/marketing/seo-ai-visibility.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/marketing/outsource-marketing.html",
+      "destination": "/portfolio/marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/marketing/digital-ads.html",
+      "destination": "/portfolio/sales/conversion-advertising.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy/brand-strategy",
+      "destination": "/services/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy/brand-strategy/",
+      "destination": "/services/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy",
+      "destination": "/services/branding/",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy/",
+      "destination": "/services/branding/",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy/:path*",
+      "destination": "/services/branding/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/strategy/brand-strategy",
+      "destination": "/portfolio/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/strategy",
+      "destination": "/portfolio/branding.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/strategy/:path*",
+      "destination": "/portfolio/branding/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/services/systems/brand-strategy",
+      "destination": "/services/branding/brand-strategy-identity.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/systems/brand-strategy",
+      "destination": "/portfolio/branding/brand-strategy-identity.html",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/g/bill",        "destination": "/sales-growth-engine/index.html?ref=bill-gerard" },
-    { "source": "/partners/bill", "destination": "/sales-growth-engine/index.html?ref=bill-gerard" }
+    {
+      "source": "/g/bill",
+      "destination": "/sales-growth-engine/index.html?ref=bill-gerard"
+    },
+    {
+      "source": "/partners/bill",
+      "destination": "/sales-growth-engine/index.html?ref=bill-gerard"
+    }
   ],
   "headers": [
     {

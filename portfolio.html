@@ -1381,7 +1381,7 @@ h1, h2, h3, h4, h5, h6,
     <div class="pf-hero__inner">
       <div class="pf-hero__tagline fade-up">Portfolio</div>
       <h1 class="pf-hero__title fade-up fade-up-d1">Proof<em>.</em></h1>
-      <p class="pf-hero__desc fade-up fade-up-d2">Premium execution across systems, creative, and growth. The work speaks — case studies, campaigns, and systems we've shipped for operators who refuse to stall.</p>
+      <p class="pf-hero__desc fade-up fade-up-d2">Premium execution across Branding, Marketing, and Sales — with AI and automation woven through. The work speaks: case studies, campaigns, and systems we've shipped for operators who refuse to stall.</p>
     </div>
   </div>
 </section>
@@ -1390,9 +1390,9 @@ h1, h2, h3, h4, h5, h6,
   <div class="container">
     <div class="pf-filters__bar fade-up">
       <button class="pf-filter-btn is-active" data-filter="all">All</button>
-      <button class="pf-filter-btn" data-filter="strategy">Systems</button>
-      <button class="pf-filter-btn" data-filter="creative">Creative</button>
+      <button class="pf-filter-btn" data-filter="branding">Branding</button>
       <button class="pf-filter-btn" data-filter="marketing">Marketing</button>
+      <button class="pf-filter-btn" data-filter="sales">Sales</button>
     </div>
   </div>
 </section>
@@ -1419,7 +1419,7 @@ h1, h2, h3, h4, h5, h6,
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Trust Energy</h3>
-            <p class="pf-card__desc">4-year flagship &mdash; brand, video, $25/lead ads, GHL automation, training portal, and call center infrastructure.</p>
+            <p class="pf-card__desc">Multi-year flagship engagement &mdash; brand, video, paid social, GoHighLevel automation, training portal, and call-center infrastructure.</p>
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="creative-branding" href="portfolio/case-studies/reservwise.html">
@@ -1482,7 +1482,7 @@ h1, h2, h3, h4, h5, h6,
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Evergreen Island</h3>
-            <p class="pf-card__desc">Event venue acquisition &mdash; $10/lead Facebook ads, venue tour video, and GHL booking automation.</p>
+            <p class="pf-card__desc">Event venue acquisition &mdash; paid social campaign, venue tour video, and GoHighLevel booking automation.</p>
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="creative-video-production" href="portfolio/case-studies/el-camino-del-mar.html">
@@ -1491,7 +1491,7 @@ h1, h2, h3, h4, h5, h6,
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">El Camino Del Mar</h3>
-            <p class="pf-card__desc">Real estate development launch &mdash; 2 videos, $5/lead Facebook ads, and GHL routing to on-site sales.</p>
+            <p class="pf-card__desc">Real estate development launch &mdash; video production, paid social campaigns, and GoHighLevel routing to on-site sales.</p>
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="creative-video-production" href="portfolio/case-studies/hope-now-for-youth.html">
@@ -1845,7 +1845,20 @@ h1, h2, h3, h4, h5, h6,
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-  // Portfolio filter
+  // Portfolio filter — map legacy data-cat values into the new pillars.
+  //   Branding pillar  ⟵  every data-cat starting with "creative-" or bare "creative"
+  //                       (identity / websites / apps / video are all Branding now)
+  //   Marketing pillar ⟵  data-cat containing "marketing"
+  //   Sales pillar     ⟵  data-cat containing "sales" (and cards can opt in with
+  //                       data-cat containing that token)
+  function matchesPillar(cat, pillar) {
+    if (!cat) return false;
+    var c = cat.toLowerCase();
+    if (pillar === 'branding')  return c === 'creative' || c.indexOf('creative-') === 0 || c.indexOf('branding') !== -1;
+    if (pillar === 'marketing') return c.indexOf('marketing') !== -1 || c.indexOf('seo') !== -1 || c.indexOf('social') !== -1;
+    if (pillar === 'sales')     return c.indexOf('sales') !== -1 || c.indexOf('crm') !== -1 || c.indexOf('lead') !== -1 || c.indexOf('digital-ads') !== -1 || c.indexOf('conversion') !== -1;
+    return false;
+  }
   const filterBtns = document.querySelectorAll('.pf-filter-btn');
   const cards = document.querySelectorAll('.pf-card');
   filterBtns.forEach(btn => {
@@ -1855,7 +1868,7 @@ h1, h2, h3, h4, h5, h6,
       btn.classList.add('is-active');
       cards.forEach(card => {
         const cat = card.getAttribute('data-cat');
-        if (filter === 'all' || cat === filter) {
+        if (filter === 'all' || matchesPillar(cat, filter)) {
           card.classList.remove('pf-card--hidden');
         } else {
           card.classList.add('pf-card--hidden');
@@ -1863,6 +1876,14 @@ h1, h2, h3, h4, h5, h6,
       });
     });
   });
+  // Support ?filter=branding|marketing|sales|all on page load (pillar hubs deep-link here).
+  (function initFromQuery(){
+    var q = new URLSearchParams(location.search || '');
+    var f = (q.get('filter') || '').toLowerCase();
+    if (!f) return;
+    var target = document.querySelector('.pf-filter-btn[data-filter="' + f + '"]');
+    if (target) target.click();
+  })();
 
   /* NAV-3L-JS */
   document.querySelectorAll('.has-drop-l3 > a').forEach(function(anchor){
