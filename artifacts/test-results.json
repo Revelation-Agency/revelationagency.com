@@ -1,0 +1,156 @@
+{
+  "passed": 30,
+  "total": 30,
+  "results": [
+    {
+      "test": "01_repo_identity",
+      "pass": true,
+      "detail": "remote=https://github.com/Revelation-Agency/revelationagency.com.git branch=claude/p5-branding-marketing-sales-rebrand"
+    },
+    {
+      "test": "02_worktree_clean_or_test_generated_only",
+      "pass": true,
+      "detail": "pending_total=1 non_test_pending=0"
+    },
+    {
+      "test": "03_baseline_urls_accounted",
+      "pass": true,
+      "detail": "122 baseline; unaccounted=[]"
+    },
+    {
+      "test": "04_proposed_urls_serve_200",
+      "pass": true,
+      "detail": "proposed=111 failing=[]"
+    },
+    {
+      "test": "05_all_retired_have_direct_redirect",
+      "pass": true,
+      "detail": "retired=27 missing=[]"
+    },
+    {
+      "test": "06_no_redirect_chain_or_loop",
+      "pass": true,
+      "detail": "issues=[]"
+    },
+    {
+      "test": "07_canonical_host_www",
+      "pass": true,
+      "detail": "nonstandard=[]"
+    },
+    {
+      "test": "08_internal_link_checker",
+      "pass": true,
+      "detail": "broken=[] total=0"
+    },
+    {
+      "test": "09_missing_assets",
+      "pass": true,
+      "detail": "missing=[] total=0"
+    },
+    {
+      "test": "10_titles_and_meta_coverage",
+      "pass": true,
+      "detail": "missing_title=0 missing_desc=0 dup_titles=2 dup_descs=11 (dups informational)"
+    },
+    {
+      "test": "11_one_h1_per_page",
+      "pass": true,
+      "detail": "anomalies=[] total=0"
+    },
+    {
+      "test": "12_structured_data_valid",
+      "pass": true,
+      "detail": "issues=[] total=0"
+    },
+    {
+      "test": "13_robots_sitemap_agreement",
+      "pass": true,
+      "detail": "sitemap-line=True sitemap-open=True"
+    },
+    {
+      "test": "14_no_lorem_or_placeholder_copy",
+      "pass": true,
+      "detail": "pages=[]"
+    },
+    {
+      "test": "15_no_public_tweaks_or_debug_controls",
+      "pass": true,
+      "detail": "pages=[]"
+    },
+    {
+      "test": "16_no_unapproved_numeric_performance_claims",
+      "pass": true,
+      "detail": "instances=[] total=0"
+    },
+    {
+      "test": "17_proof_ledger_has_projects",
+      "pass": true,
+      "detail": "ledger_project_rows=26"
+    },
+    {
+      "test": "18_integration_snippets_byte_identical",
+      "pass": true,
+      "detail": "drift=[] total=0"
+    },
+    {
+      "test": "19_analytics_layer_has_no_network_write",
+      "pass": true,
+      "detail": "instances=[]"
+    },
+    {
+      "test": "20_analytics_payload_sanitizes_pii",
+      "pass": true,
+      "detail": "expected keys PII_KEYS + sanitize present"
+    },
+    {
+      "test": "21_landmarks_and_focus_present",
+      "pass": true,
+      "detail": "nav/footer + aria-* on nav controls"
+    },
+    {
+      "test": "22_axe_lite_no_criticals_on_representative_pages",
+      "pass": true,
+      "detail": "issues=[]"
+    },
+    {
+      "test": "23_reduced_motion_css_present",
+      "pass": true,
+      "detail": "expected @media (prefers-reduced-motion) rule on homepage"
+    },
+    {
+      "test": "24_viewport_meta_on_every_page",
+      "pass": true,
+      "detail": "pages_without=[]"
+    },
+    {
+      "test": "25_responsive_images_no_regression",
+      "pass": true,
+      "detail": "weak=127 baseline_cap=275"
+    },
+    {
+      "test": "26_page_byte_budget",
+      "pass": true,
+      "detail": "over_budget=[]"
+    },
+    {
+      "test": "27_local_404_page_present",
+      "pass": true,
+      "detail": "exists=True"
+    },
+    {
+      "test": "28_noncanonical_host_noindex_preserved",
+      "pass": true,
+      "detail": "vercel.json headers[] intact"
+    },
+    {
+      "test": "29_immutable_asset_cache_preserved",
+      "pass": true,
+      "detail": "vercel.json /assets Cache-Control intact"
+    },
+    {
+      "test": "30_no_secret_added_by_this_branch",
+      "pass": true,
+      "detail": "suspect=[]"
+    }
+  ]
+}
