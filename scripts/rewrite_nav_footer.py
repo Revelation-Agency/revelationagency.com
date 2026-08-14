@@ -35,15 +35,15 @@ def sha16(s: str) -> str:
 NAV_TEMPLATE = string.Template("""<!-- RA-NAV-CANONICAL-START -->
 <nav class="ra-nav" id="ra-nav">
   <div class="ra-nav__inner">
-    <a href="$${p}index.html" class="ra-nav__logo" aria-label="Revelation Agency">
-      <img src="$${p}assets/brand/approved/ra-landscape-black-updated.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
+    <a href="${p}index.html" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="${p}assets/brand/approved/ra-landscape-black-updated.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
     </a>
 
     <ul class="ra-nav__links">
-      <li><a href="$${p}index.html"$${home_cur}>Home</a></li>
-      <li><a href="$${p}about.html"$${about_cur}>About</a></li>
+      <li><a href="${p}index.html"${home_cur}>Home</a></li>
+      <li><a href="${p}about.html"${about_cur}>About</a></li>
       <li class="has-drop">
-        <a href="$${p}services.html"$${svc_cur}>Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="${p}services.html"${svc_cur}>Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
           <li class="has-drop-l3">
@@ -160,7 +160,7 @@ NAV_RE = re.compile(r"<!-- RA-NAV-CANONICAL-START -->.*?<!-- RA-NAV-CANONICAL-EN
 def replace_canonical_nav(text: str, rel_path: str) -> str:
     p = compute_prefix(rel_path)
     subs = {"p": p, **current_flags(rel_path)}
-    replacement = NAV_TEMPLATE.substitute(subs)
+    replacement = NAV_TEMPLATE.safe_substitute(subs)
     return NAV_RE.sub(lambda _m: replacement, text)
 
 

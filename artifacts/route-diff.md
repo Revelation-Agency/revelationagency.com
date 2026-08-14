@@ -1,10 +1,10 @@
 # Route diff — baseline vs proposed
 
 - Baseline URL count: 122
-- Proposed URL count: 121
-- Retained (unchanged path): 96
-- Retired (redirected via redirect-map.json): 26
-- New URLs: 25
+- Proposed URL count: 111
+- Retained (unchanged path): 95
+- Retired (redirected via redirect-map.json): 27
+- New URLs: 16
 
 Every retired URL has exactly ONE permanent, direct redirect in `redirect-map.json`.
 No chains, no loops. Case-study URLs are all retained.
@@ -12,18 +12,19 @@ No chains, no loops. Case-study URLs are all retained.
 ## Retired (301 to new)
 
 - `https://www.revelationagency.com/portfolio/creative.html` → `/portfolio/branding.html`
-- `https://www.revelationagency.com/portfolio/creative/app-development.html` → `/portfolio/branding/apps-digital-products.html`
-- `https://www.revelationagency.com/portfolio/creative/branding.html` → `/portfolio/branding/brand-strategy-identity.html`
-- `https://www.revelationagency.com/portfolio/creative/video-production.html` → `/portfolio/branding/video-visual-content.html`
-- `https://www.revelationagency.com/portfolio/creative/website-development.html` → `/portfolio/branding/websites-landing-pages.html`
-- `https://www.revelationagency.com/portfolio/marketing/digital-ads.html` → `/portfolio/sales/conversion-advertising.html`
-- `https://www.revelationagency.com/portfolio/marketing/outsource-marketing.html` → `/portfolio/marketing/`
-- `https://www.revelationagency.com/portfolio/marketing/search-rankings.html` → `/portfolio/marketing/seo-ai-visibility.html`
+- `https://www.revelationagency.com/portfolio/creative/app-development.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/creative/branding.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/creative/video-production.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/creative/website-development.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/marketing/digital-ads.html` → `/portfolio/sales.html?filter=sales`
+- `https://www.revelationagency.com/portfolio/marketing/outsource-marketing.html` → `/portfolio/marketing.html?filter=marketing`
+- `https://www.revelationagency.com/portfolio/marketing/search-rankings.html` → `/portfolio/marketing.html?filter=marketing`
+- `https://www.revelationagency.com/portfolio/marketing/social-media.html` → `/portfolio/marketing.html?filter=marketing`
 - `https://www.revelationagency.com/portfolio/systems.html` → `/portfolio.html`
-- `https://www.revelationagency.com/portfolio/systems/ai-automation.html` → `/portfolio/ai-automation.html`
-- `https://www.revelationagency.com/portfolio/systems/brand-systems.html` → `/portfolio/branding/brand-strategy-identity.html`
-- `https://www.revelationagency.com/portfolio/systems/digital-presence.html` → `/portfolio/branding/websites-landing-pages.html`
-- `https://www.revelationagency.com/portfolio/systems/sales-infrastructure.html` → `/portfolio/sales/crm-sales-infrastructure.html`
+- `https://www.revelationagency.com/portfolio/systems/ai-automation.html` → `/services/ai-automation.html`
+- `https://www.revelationagency.com/portfolio/systems/brand-systems.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/systems/digital-presence.html` → `/portfolio/branding.html?filter=branding`
+- `https://www.revelationagency.com/portfolio/systems/sales-infrastructure.html` → `/portfolio/sales.html?filter=sales`
 - `https://www.revelationagency.com/services/creative/` → `/services/branding/`
 - `https://www.revelationagency.com/services/creative/app-development.html` → `/services/branding/apps-digital-products.html`
 - `https://www.revelationagency.com/services/creative/branding.html` → `/services/branding/brand-strategy-identity.html`
@@ -40,17 +41,8 @@ No chains, no loops. Case-study URLs are all retained.
 
 ## New URLs
 
-- `https://www.revelationagency.com/portfolio/ai-automation.html`
 - `https://www.revelationagency.com/portfolio/branding.html`
-- `https://www.revelationagency.com/portfolio/branding/apps-digital-products.html`
-- `https://www.revelationagency.com/portfolio/branding/brand-strategy-identity.html`
-- `https://www.revelationagency.com/portfolio/branding/video-visual-content.html`
-- `https://www.revelationagency.com/portfolio/branding/websites-landing-pages.html`
-- `https://www.revelationagency.com/portfolio/marketing/`
-- `https://www.revelationagency.com/portfolio/marketing/seo-ai-visibility.html`
 - `https://www.revelationagency.com/portfolio/sales.html`
-- `https://www.revelationagency.com/portfolio/sales/conversion-advertising.html`
-- `https://www.revelationagency.com/portfolio/sales/crm-sales-infrastructure.html`
 - `https://www.revelationagency.com/services/ai-automation.html`
 - `https://www.revelationagency.com/services/branding/`
 - `https://www.revelationagency.com/services/branding/apps-digital-products.html`

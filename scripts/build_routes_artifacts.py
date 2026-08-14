@@ -76,19 +76,21 @@ PORTFOLIO_HUB_MAP = {
     "/portfolio/creative.html":                    "/portfolio/branding.html",
     "/portfolio/systems.html":                     "/portfolio.html",  # collapse — no single "systems" pillar
     "/portfolio/marketing.html":                   "/portfolio/marketing.html",
-    # portfolio sub-categories mirror the service map
-    "/portfolio/creative/branding.html":           "/portfolio/branding/brand-strategy-identity.html",
-    "/portfolio/creative/website-development.html":"/portfolio/branding/websites-landing-pages.html",
-    "/portfolio/creative/app-development.html":    "/portfolio/branding/apps-digital-products.html",
-    "/portfolio/creative/video-production.html":   "/portfolio/branding/video-visual-content.html",
-    "/portfolio/systems/brand-systems.html":       "/portfolio/branding/brand-strategy-identity.html",
-    "/portfolio/systems/digital-presence.html":    "/portfolio/branding/websites-landing-pages.html",
-    "/portfolio/systems/sales-infrastructure.html":"/portfolio/sales/crm-sales-infrastructure.html",
-    "/portfolio/systems/ai-automation.html":       "/portfolio/ai-automation.html",
-    "/portfolio/marketing/search-rankings.html":   "/portfolio/marketing/seo-ai-visibility.html",
-    "/portfolio/marketing/social-media.html":      "/portfolio/marketing/social-media.html",
-    "/portfolio/marketing/outsource-marketing.html":"/portfolio/marketing/",
-    "/portfolio/marketing/digital-ads.html":       "/portfolio/sales/conversion-advertising.html",
+    # portfolio sub-categories redirect straight to the new pillar hubs
+    # (finer portfolio leaves are not created — the filtered All-work page
+    # + pillar hubs cover them). Direct single-hop always resolves.
+    "/portfolio/creative/branding.html":           "/portfolio/branding.html?filter=branding",
+    "/portfolio/creative/website-development.html":"/portfolio/branding.html?filter=branding",
+    "/portfolio/creative/app-development.html":    "/portfolio/branding.html?filter=branding",
+    "/portfolio/creative/video-production.html":   "/portfolio/branding.html?filter=branding",
+    "/portfolio/systems/brand-systems.html":       "/portfolio/branding.html?filter=branding",
+    "/portfolio/systems/digital-presence.html":    "/portfolio/branding.html?filter=branding",
+    "/portfolio/systems/sales-infrastructure.html":"/portfolio/sales.html?filter=sales",
+    "/portfolio/systems/ai-automation.html":       "/services/ai-automation.html",
+    "/portfolio/marketing/search-rankings.html":   "/portfolio/marketing.html?filter=marketing",
+    "/portfolio/marketing/social-media.html":      "/portfolio/marketing.html?filter=marketing",
+    "/portfolio/marketing/outsource-marketing.html":"/portfolio/marketing.html?filter=marketing",
+    "/portfolio/marketing/digital-ads.html":       "/portfolio/sales.html?filter=sales",
 }
 
 # Case studies: keep every one at its current URL. Case study taxonomy is corrected
@@ -103,9 +105,21 @@ ALL_LEGACY_MAP.update(PORTFOLIO_HUB_MAP)
 
 
 def load_baseline_urls():
+    """Baseline URL set — always from the pinned artifacts file when it exists.
+
+    Falls back to reading sitemap.xml (once, on first-ever run) so that the
+    baseline can be bootstrapped before any rebrand write occurs.
+    """
+    pinned = "artifacts/baseline-routes.json"
+    if os.path.exists(pinned):
+        return sorted(load(pinned)["urls"])
     with open("sitemap.xml", "r", encoding="utf-8") as f:
         import re
         return sorted(set(re.findall(r"<loc>([^<]+)</loc>", f.read())))
+
+
+def load(path):
+    return json.loads(open(path, "r", encoding="utf-8").read())
 
 
 def strip_canon(url: str) -> str:
@@ -142,6 +156,10 @@ def build_proposed_routes():
     proposed.add(f"{CANON}/portfolio/branding.html")
     proposed.add(f"{CANON}/portfolio/marketing.html")
     proposed.add(f"{CANON}/portfolio/sales.html")
+    # Strip any query-string variants that were introduced by the portfolio
+    # sub-category redirects (they map to a hub page + filter param, which
+    # does not belong in the sitemap as a distinct URL).
+    proposed = {u.split("?", 1)[0] for u in proposed}
     return sorted(proposed)
 
 
@@ -222,12 +240,21 @@ def build_route_diff(baseline, proposed):
 
 def main() -> int:
     os.makedirs("artifacts", exist_ok=True)
-    baseline = build_baseline_routes()
+    # Baseline is PINNED — never regenerated. It represents the sitemap at the
+    # base SHA. Rebuilding it here would drift once the sitemap is rewritten.
+    if os.path.exists("artifacts/baseline-routes.json"):
+        baseline = json.load(open("artifacts/baseline-routes.json", "r", encoding="utf-8"))
+        # normalize shape
+        if "urls" not in baseline:
+            baseline = {"canonical_host": CANON, "urls": sorted(baseline)}
+    else:
+        baseline = build_baseline_routes()
+        with open("artifacts/baseline-routes.json", "w", encoding="utf-8") as f:
+            json.dump(baseline, f, indent=2)
+
     proposed = build_proposed_routes()
     redirects = build_redirect_map()
 
-    with open("artifacts/baseline-routes.json", "w", encoding="utf-8") as f:
-        json.dump(baseline, f, indent=2)
     with open("artifacts/proposed-routes.json", "w", encoding="utf-8") as f:
         json.dump({"canonical_host": CANON, "count": len(proposed), "urls": proposed}, f, indent=2)
     with open("artifacts/redirect-map.json", "w", encoding="utf-8") as f:
