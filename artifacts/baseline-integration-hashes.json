@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-08-14",
+  "base_sha": "4a0b076c37189216a263dfab5c481464cf251a96",
+  "branch": "claude/p5-branding-marketing-sales-rebrand",
+  "file_sha256": {
+    "index.html": "6d6b66eed5d25a53b8f6a35fca9d8878913c01772551723f8dc84c40e5e0fc34",
+    "contact.html": "824bf23327951e411e164f9668df0cafdce1c72bce748528b8451b96447e4d1b",
+    "booking.html": "f78a5c27505aad7f8e0e6d0632edeeb6d133082fc3d7297bdb9ee6661447b948",
+    "faq.html": "9da791ff40826a8336a878ee62552c051f9e366ac720cc9780394eb889306eff",
+    "about.html": "cf956279946e181edee7c149df530cd4e858793945c0c7673a5a52f3bd06e775",
+    "services.html": "353d834138f321640cacb4d6f7510087b64672ba017c15209360c282bffbc272",
+    "portfolio.html": "d523802207b98a90527de88f550b168f3329dc3c15af01031a4a04c624f82752",
+    "web-hosting.html": "f52f9f8db61cf25ca5ad812b7b04beb03f0362f8206f3c63601062741da65001",
+    "404.html": "453458db0e6f9d630481a690e7b489e84e93473ac79a804a83d28f5a322eb82d",
+    "sitemap.xml": "6b31502fba7578d549b37cd0c792f833a85cee73dbbdab23933493835b6c57ea",
+    "robots.txt": "8a36870673306a71b6c6d4ac88deb0aa2c2d8242dbc0e51953ffa1e492198ceb",
+    "vercel.json": "e9169e577723b437cbde54e24310fda8a4806bf3bb807f6e765f66500dfef6e0",
+    "assets/js/contact-form.js": "0367749f57d8e2d8aa8a747dbd8133e2af6eb6477fa62799db2271388c33cf84",
+    "assets/js/landing-tracker.js": "051ccf0752283e629db2a2090042baf4dba4cd132c398395bb6acefa54ad1101",
+    "assets/js/landing-config.js": "4fffc786feae9503460cf76680548c51422551a882f5b8e489581eb15de0a586",
+    "assets/js/portfolio-data.js": "c53ee769c2904d878da0fc8fd06410210e6d9ca6c939ecb89d7decab9c58eaa5"
+  },
+  "integration_snippet_hashes": {
+    "index.html": {
+      "contact_form_element": "16ebbb82e8b63e45",
+      "footer_mini_webhook_line": "1b2bc5b40c6ff7cb",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "contact.html": {
+      "contact_form_element": "b361bcb2f87a46f9",
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "booking.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "booking_iframe": "422b66fcc841dcdd",
+      "booking_embed_script": "9d9e89746f5409dc",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "faq.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "about.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "services.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "portfolio.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "web-hosting.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    },
+    "404.html": {
+      "footer_mini_webhook_line": "137ed89cc26dfa67",
+      "chat_widget_loader": "6ceaf2a1e2ca51fb",
+      "mailto_connect": "36663756f5c7197f",
+      "tel_link": "3404bb7b9378f8aa"
+    }
+  },
+  "notes": [
+    "Endpoint identifiers are hashed with sha256 (first 16 hex). Never printed cleartext.",
+    "integration-preservation tests re-run this and compare against baseline."
+  ]
+}

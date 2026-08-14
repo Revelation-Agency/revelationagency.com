@@ -1,0 +1,37 @@
+{
+  "generated_at_utc": "2026-08-14",
+  "repo": "Revelation-Agency/revelationagency.com",
+  "remote": "https://github.com/Revelation-Agency/revelationagency.com.git",
+  "branch": "claude/p5-branding-marketing-sales-rebrand",
+  "base_sha": "4a0b076c37189216a263dfab5c481464cf251a96",
+  "base_sha_message": "SEO: canonicalize all self-references to www host",
+  "isolated_checkout": "D:/Codex/revelation-agency-site-rebrand-p5",
+  "worktrees": [
+    "D:/Codex/revelation-agency-site-rebrand-p5 4a0b076 [claude/p5-branding-marketing-sales-rebrand]"
+  ],
+  "counts": {
+    "html_files_total": 124,
+    "sitemap_urls": 122,
+    "case_studies": 68,
+    "service_pages_legacy": 15,
+    "portfolio_hub_pages_legacy": 15,
+    "reveal_articles": 12,
+    "landing_routes": 4
+  },
+  "asset_authorities": {
+    "updated_root_drive_folder": "1drGFVH1K63VlaDoR25pM_5Pow5BHW4nk",
+    "updated_logos_drive_folder": "1KqSZW-6X9HaQl-y1mE9MDnjevbuXJRJU",
+    "brand_guide_pdf_drive_id": "1HjzgmmRYk0LwuZJiYv9ZKo0vi0hVM0pG",
+    "ui_kit_pdf_drive_id": "1wlan7Aujt3Kwdy_agLB8UjPLb9N9gW-T",
+    "brand_assets_pdf_drive_id": "1xGW0IzFk35chMTa-Nnkz10nZYXbaBw3N"
+  },
+  "governing_decisions": [
+    "Canon 9487 — Branding / Marketing / Sales public architecture",
+    "Canon 9541 — Revelation Agency site first (P5); personal brand P3 deferred"
+  ],
+  "no_external_action_attestation": [
+    "This checkout is local-only. No push, PR, deploy, DNS, or public publication is authorized.",
+    "No production form, booking, chat, GHL/CRM, analytics, ad, SMS, email or workflow action is executed.",
+    "All integration snippets are byte-preserved OR replaced with inert local test adapters. Endpoints hashed only."
+  ]
+}
