@@ -125,7 +125,7 @@
     {
       "test": "25_responsive_images_no_regression",
       "pass": true,
-      "detail": "weak=127 baseline_cap=275"
+      "detail": "weak=146 baseline_cap=275"
     },
     {
       "test": "26_page_byte_budget",

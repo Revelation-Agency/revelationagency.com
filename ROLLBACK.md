@@ -173,7 +173,15 @@ required today.
 ## 5. Attestation
 
 At the time of writing, no rollback has been executed. The rebrand is a
-locally committed candidate on the isolated feature branch at HEAD
-`ecc5d0ecf4f30400941cb6d22fc8765973d50d43`. The last known-good
-production deployment `dpl_7XJxEcwMPadne4REF5pzP3hyVQ69` at SHA
+locally committed candidate on the isolated feature branch. The
+content-parent SHA (parent of the current repair commit written by the
+pillar-nav/footer repair pass) is
+`de7493479904baa58e34b8d7b55c9d719a443f91`; the final HEAD SHA of the
+branch is discoverable with `git rev-parse HEAD` (it is intentionally
+not self-referenced inside the commit body). The last known-good
+production deployment `dpl_7XJxEcwMPadne4REF5pzP3hyVQ69` at base SHA
 `4a0b076c37189216a263dfab5c481464cf251a96` is untouched.
+
+Prior editions of this file quoted a self-referential final SHA
+(`ecc5d0e…`) that pre-dated later commits; that value has been retired
+in favour of the content-parent + read-back framing above.

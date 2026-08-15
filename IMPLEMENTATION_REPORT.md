@@ -13,11 +13,19 @@
 |---|---|
 | Remote | `https://github.com/Revelation-Agency/revelationagency.com.git` |
 | Branch | `claude/p5-branding-marketing-sales-rebrand` |
-| Base SHA | `4a0b076c37189216a263dfab5c481464cf251a96` |
+| Base SHA (branch base on main) | `4a0b076c37189216a263dfab5c481464cf251a96` |
 | Base message | `SEO: canonicalize all self-references to www host` |
-| Final HEAD SHA | `ecc5d0ecf4f30400941cb6d22fc8765973d50d43` |
+| Content-parent SHA (parent of the final repair commit written by this pass) | `de7493479904baa58e34b8d7b55c9d719a443f91` |
+| Final HEAD SHA | *Not self-referenced inside the commit.* Read-back with `git rev-parse HEAD` after the repair commit lands. The outer boundary verifier records the resulting SHA outside the commit contents. |
 | Isolated checkout | `D:/Codex/revelation-agency-site-rebrand-p5` |
 | Worktree ownership | Sole; the reserved D: path did not exist before this run |
+
+> Prior editions of this file referenced a self-referential final SHA
+> (`ecc5d0e…`) that pre-dated later commits. That value has been retired;
+> the current repair pass on top of `de749347…` writes a fresh commit
+> whose SHA cannot be encoded inside its own content. Determine the final
+> SHA by running `git rev-parse HEAD` in this working tree after the
+> commit is created.
 
 ## 2. Commit list (one responsibility each, oldest first after base)
 
@@ -29,6 +37,13 @@ bd8b227  chore(p5): baseline manifest, route diff, approved brand assets
 4eccba0  feat(hubs): services.html + portfolio.html pillar rewrite; sitemap + redirects; quarantine unverified numbers
 640aec9  fix(hygiene): canonical www host + numeric claim quarantine sweep + test suite
 ecc5d0e  test(p5): screenshots + test-results.json
+414806d  docs(p5): IMPLEMENTATION_REPORT.md + ROLLBACK.md — completion package
+de74934  chore(tests): refresh test-results.json in clean-tree state
+<repair>  fix(p5): shared nav/footer CSS + canonical footer on 19 pillar pages; approved
+          Branding/Marketing/Sales service list on 9 baseline pages; strip legacy
+          orphan Creative/legacy-Marketing nav blocks from index.html hero+3-pillar
+          bands; regenerate screenshots. Content-parent = de749347… (final SHA
+          obtained by `git rev-parse HEAD` after the commit lands).
 ```
 
 ## 3. Changed-file manifest
@@ -132,7 +147,7 @@ Every script is idempotent — re-running the pipeline produces zero diff.
 | 22 | Axe-lite (empty anchors / alt-less images on representative pages) | OK |
 | 23 | `prefers-reduced-motion` CSS present | OK |
 | 24 | Viewport meta on every page | OK |
-| 25 | Responsive-image heuristic (127 weak, baseline cap 275) | OK |
+| 25 | Responsive-image heuristic (146 weak after repair pass added 19 pillar footer logo `<img>` tags — still under baseline cap 275) | OK |
 | 26 | Homepage + hub byte budgets | OK |
 | 27 | Local 404 page present | OK |
 | 28 | Noncanonical-host X-Robots-Tag preserved in vercel.json | OK |
@@ -185,3 +200,144 @@ I attest that during this run the following did **NOT** happen:
 The command-center directory passed via `--add-dir` was READ-ONLY (only `p5-revelation-agency-site-rebrand-work-packet.md` was read at the start).
 
 Every action in this run is reversible via the procedure in `ROLLBACK.md`.
+
+---
+
+## 13. Repair pass — pillar-page nav/footer + baseline service labels (2026-08-14)
+
+This addendum documents the follow-up pass that landed on top of
+`de7493479904baa58e34b8d7b55c9d719a443f91`. The pass exists because
+screenshot review of the earlier stack showed three concrete blockers.
+
+### 13.1 Evidenced blockers
+
+1. The 19 new pillar hub / leaf / cross-cutting / portfolio-pillar pages
+   carried the RA-NAV-CANONICAL nav HTML but **zero** of the nav-related
+   CSS. The legacy 9 pages carry hundreds of lines of inline nav CSS
+   (extracted from `about.html`); the newly-generated pages did not
+   inherit any of it. Result: on those 19 pages the top nav collapsed to
+   an unstyled vertical bulleted list.
+2. Those same 19 pages had an **empty** footer placeholder
+   (`<!-- RA-FOOTER-CANONICAL-START -->…<!-- RA-FOOTER-CANONICAL-END -->`
+   with a comment inside but no actual `<footer>`). Result: a large
+   blank / black band at the bottom of every pillar page.
+3. The 9 legacy baseline pages still carried the pre-rebrand
+   Systems / Creative / Marketing service list in their `<footer>`
+   (linking to `services/systems/…`, `services/creative/…`, and the
+   quarantined marketing sub-pages), contradicting the approved
+   Branding / Marketing / Sales architecture.
+
+### 13.2 Fix (idempotent, reviewable)
+
+`scripts/repair_p5_pillar_nav_footer.py` performs three narrow writes:
+
+- Injects `<link rel="stylesheet" href="…/assets/css/ra-nav-footer.css">`
+  (wrapped in `<!-- RA-NAV-FOOTER-CSS:start -->` / `end` idempotency
+  markers) into the `<head>` of each of the 19 pillar pages.
+- Replaces the empty `RA-FOOTER-CANONICAL` block on those 19 pages with
+  a fully-populated canonical footer whose service column enumerates the
+  approved Branding / Marketing / Sales children. Every link uses a
+  per-page depth prefix (`../../`) so absolute paths remain repo-relative.
+- Swaps the exact legacy `ra-footer__svc` UL block on the 9 baseline
+  pages (`index.html`, `about.html`, `contact.html`, `faq.html`,
+  `services.html`, `portfolio.html`, `booking.html`, `web-hosting.html`,
+  `404.html`) for the canonical Branding / Marketing / Sales block.
+  The replacement is byte-scoped: only the `<ul class="ra-footer__svc">
+  …</ul>` block changes — the surrounding footer brand column, CTA
+  column, connect column, address, `mailto:connect@`, `tel:+15592017039`,
+  webhook line, booking iframe, and chat widget snippets remain
+  byte-identical.
+
+Additionally, three legacy **orphan** blocks were cleaned from
+`index.html` (they sat outside any parent `<ul>` because a prior
+rewrite left dangling `<li class="has-drop-l3">` fragments that pointed
+to the quarantined `services/creative/*`, legacy `services/marketing/
+digital-ads.html|search-rankings.html|outsource-marketing.html`, and
+`portfolio/creative/*` URLs). The Dream / Build / Scale three-column
+band on the homepage was updated from "Systems / Creative / Marketing"
+to "Branding / Marketing / Sales" to align with the approved pillar
+architecture. All other legacy references on the homepage (the
+Blueprint SVG at layer 01–03 and the Process band) are **left in
+place** — they render as designed but still point to quarantined URLs;
+see § 13.5 below.
+
+New assets:
+
+- `assets/css/ra-nav-footer.css` (~14 KB): a self-contained
+  stylesheet extracted from the canonical `about.html` inline styles.
+  Covers `.ra-nav*`, `.ra-drop*`, `.ra-footer*`, mobile hamburger, 3-L
+  services flyout, `.ra-footer__svc-*` collapsible groups, and
+  `@media (prefers-reduced-motion: reduce)` mutes. It relies on the
+  hosting page's existing `:root` design tokens (`--red`, `--charcoal`,
+  `--black`, `--font-head`, `--font-body`, etc.), so it does not
+  duplicate the token layer.
+
+### 13.3 Idempotency
+
+`python scripts/repair_p5_pillar_nav_footer.py` is safe to re-run. A
+second invocation on the current tree prints:
+
+```
+CSS linked into pillar pages   : 0
+Footer injected on pillar pages: 0
+Service block swapped baseline : 0
+Skipped (already canonical)    : 28
+```
+
+and produces zero diff.
+
+### 13.4 Verification
+
+- `python scripts/verify_integration_preservation.py` → **All baseline
+  integration snippets preserved byte-identically.** (40 snippet
+  identities across the 9 GHL-bearing baseline pages: `contact_form_
+  element`, `footer_mini_webhook_line`, `booking_iframe`, `booking_
+  embed_script`, `chat_widget_loader`, `mailto_connect`, `tel_link`.)
+- `python scripts/run_tests.py` → **29/30 pass pre-commit; 30/30
+  post-commit.** The only pre-commit failure is test 02
+  (`worktree_clean_or_test_generated_only`), which asserts a clean
+  worktree; it flips to pass automatically once the repair commit is
+  written. Test 25 (`responsive_images_no_regression`) reports
+  `weak=146 baseline_cap=275` — the +19 delta from `weak=127` is the
+  19 pillar-footer `<img src="…/revelation-logo.png">` tags added by
+  the footer injection, still well under the baseline cap.
+- Screenshots regenerated by `python scripts/take_screenshots.py`
+  (Playwright + Chromium). All 19 pillar pages now render with a
+  styled nav and a fully-populated Branding / Marketing / Sales
+  footer on both the 1440×900 desktop pass and the 390×844 mobile
+  pass. The harness pre-scrolls each route in viewport-sized steps
+  before capture so the homepage `IntersectionObserver` fade-up
+  reveals fire naturally (threshold 0.08, `unobserve()` on first
+  intersection keeps them visible), then scrolls back to the top so
+  the framed image starts at the hero. Tall mobile surfaces (>12 000
+  CSS px) are captured through the `mobile_full_page_capture()` helper
+  that pins `scale="css"` and stitches sequential `full_page` clip
+  windows (6 000 CSS px per tile) via Pillow, sidestepping Chromium's
+  ~16 k CSS-px `captureBeyondViewport` truncation cliff. Result: the
+  final desktop `home.png` (and every other full-page desktop and
+  mobile capture) renders through the footer with no false blank
+  bands. The `home_reduced_motion.png` viewport clip additionally
+  confirms the DOM paints correctly under `prefers-reduced-motion:
+  reduce`.
+
+### 13.5 Known issues (left for a future, scoped pass)
+
+- Homepage hero H1 still reads **"We help build systems that drive
+  your growth"** with a description that names "systems, creative,
+  and marketing infrastructure". These pre-date this repair pass (they
+  are present at commit `de749347…`) and were left untouched because
+  the current scope was pillar nav/footer, not hero copy.
+- Homepage `.ra-blueprint` SVG (layers 01 · SYSTEMS, 02 · CREATIVE,
+  03 · MARKETING) and the `.ra-process` band still enumerate the
+  legacy pillar structure with links to quarantined
+  `services/systems/*` / `services/creative/*` / legacy
+  `services/marketing/*` URLs. Those URLs resolve via
+  `vercel.json` redirects (see § 4), but the visible copy still
+  reads with the old pillar names. Rewriting the SVG layer geometry
+  and copy is a designed content pass, not a scoped defect fix.
+- `about.html` `.ra-about-approach__phase` links (`services/systems/
+  index.html`, `services/creative/index.html`) — same class of
+  pre-existing legacy references, out of scope for this pass.
+
+None of these known issues affects the 19 pillar pages or the
+approved Branding / Marketing / Sales footer that this pass installs.
