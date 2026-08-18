@@ -15,6 +15,7 @@
 | Branch | `claude/p5-branding-marketing-sales-rebrand` |
 | Main baseline | `4a0b076c37189216a263dfab5c481464cf251a96` |
 | Candidate parent at start of this pass | `1e3f0436bc7bcf7c57be09e61cd640ee5ce85ee3` |
+| Implementation commit | `2c8166363cb44caec07783c67d806382142d3474` |
 | Final candidate HEAD | Read with `git rev-parse HEAD`; a commit cannot safely contain its own SHA |
 | Isolated checkout | `D:/Codex/revelation-agency-site-rebrand-p5` |
 
@@ -183,9 +184,10 @@ Pre-commit local evidence for the final content tree:
   Sales;
 - `git diff --check`: clean.
 
-After the implementation commit, `scripts/run_tests.py` is rerun from a clean
-tree. Its machine-readable result is `artifacts/test-results.json`; the final
-evidence commit records the clean-tree receipt.
+After implementation commit `2c8166363cb44caec07783c67d806382142d3474`,
+`scripts/run_tests.py` was rerun from a clean tree: **30/30 passed**. Test 02
+recorded `pending_total=0 non_test_pending=0`. The machine-readable receipt is
+`artifacts/test-results.json`; the final evidence commit records that receipt.
 
 ### Independent Claude Opus review
 
