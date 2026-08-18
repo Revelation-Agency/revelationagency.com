@@ -29,8 +29,8 @@ from urllib.parse import unquote, urljoin, urlsplit
 EXPECTED_HTML_COUNT = 143
 EXPECTED_CASE_COUNT = 68
 EXPECTED_MASTER_COUNT = 21
-REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817e"
-REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817e"
+REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817f"
+REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817f"
 PORTFOLIO_MANIFEST = "assets/data/portfolio-taxonomy-2026.json"
 
 EXPECTED_SOURCE_HASHES = {
@@ -162,6 +162,22 @@ EXPECTED_SERVICE_LEAVES = {
     "S2": "services/sales/lead-gen-ads.html",
     "S3": "services/sales/crm-sales-infrastructure.html",
     "S4": "services/sales/ai-automation-systems.html",
+}
+
+EXPECTED_PORTFOLIO_NAV_LINKS = {
+    "/portfolio?filter=b1": "Websites",
+    "/portfolio?filter=b2": "Apps",
+    "/portfolio?filter=b3": "Brand Identity",
+    "/portfolio?filter=b4": "Design",
+    "/portfolio?filter=b5": "Video",
+    "/portfolio?filter=m1": "SEO / AI Answers",
+    "/portfolio?filter=m2": "Social Media",
+    "/portfolio?filter=m3": "Digital Advertising",
+    "/portfolio?filter=m4": "Customer Nurture",
+    "/portfolio?filter=s1": "Outreach",
+    "/portfolio?filter=s2": "Lead Gen Ads",
+    "/portfolio?filter=s3": "CRMs / Sales Tools",
+    "/portfolio?filter=s4": "AI Automation Systems",
 }
 
 EXPECTED_CORRECTED_ROUTE_REDIRECTS = {
@@ -772,6 +788,17 @@ def check_portfolio_cards(root: Path) -> CheckResult:
 
     if parser.cards and multi_pillar_count == 0:
         errors.append("portfolio.html: no card has more than one data-pillars value; multi-pillar work is not represented")
+    for required_empty_state_token in (
+        'id="pf-empty-state"',
+        'id="pf-empty-label"',
+        "emptyState.hidden = shown !== 0",
+        "There is no public case study in this filter yet.",
+        "function findFilterButton(filter)",
+    ):
+        if required_empty_state_token not in text:
+            errors.append(f"portfolio.html: zero-result filters need an intentional empty state ({required_empty_state_token})")
+    if "querySelector('.pf-filter-btn[data-filter=\"' +" in text:
+        errors.append("portfolio.html: URL filter values must not be interpolated into a CSS selector")
 
     thumbnail_labels = re.findall(
         r'<div\b[^>]*class=["\'][^"\']*\bpf-card__bg\b[^"\']*["\'][^>]*\bdata-taxonomy=["\']([^"\']+)["\']',
@@ -784,7 +811,7 @@ def check_portfolio_cards(root: Path) -> CheckResult:
             f"found {len(thumbnail_labels)}"
         )
     for thumbnail_label in thumbnail_labels:
-        if re.search(r"\b(?:Systems|Creative|Strategy)\b", thumbnail_label, re.I):
+        if re.search(r"\b(?:Creative|Strategy)\b|(?<!Sales )\bSystems\b", thumbnail_label, re.I):
             errors.append(f"portfolio.html: retired thumbnail taxonomy remains: {thumbnail_label!r}")
     if "/assets/img/portfolio/revelation-portal/thumbnail.png" in text:
         errors.append("portfolio.html: Revelation Portal card still exposes the retired agency identity")
@@ -944,7 +971,7 @@ def check_legacy_footers(root: Path, html_files: list[Path], vercel: dict[str, A
             normalized_label = normalize_text(text).lower()
             if normalized_label in LEGACY_FOOTER_LABELS:
                 errors.append(
-                    f"{rel}:{line}: legacy footer label {text!r}; use the Branding / Marketing / Sales taxonomy"
+                    f"{rel}:{line}: legacy footer label {text!r}; use the Branding / Marketing / Sales Systems taxonomy"
                 )
             if href:
                 route = absolute_internal_path(rel, href).rstrip("/").lower()
@@ -1429,9 +1456,21 @@ def check_public_taxonomy(root: Path, html_files: list[Path], vercel: dict[str, 
         ):
             if blocker.lower() in text.lower():
                 errors.append(f"{rel}: stale public architecture copy remains: {blocker}")
+        for pattern, label in (
+            (r'href=["\']/services/sales["\'][^>]*>\s*Sales\s*<', "bare Sales service-parent label"),
+            (r'href=["\']/portfolio/sales["\'][^>]*>\s*Sales Work\s*<', "bare Sales portfolio-parent label"),
+            (r'<h1[^>]*>\s*Sales Services\b', "bare Sales Services H1"),
+            (r'<h1[^>]*>\s*Sales work\.', "bare Sales portfolio H1"),
+            (r'data-filter=["\']sales["\'][^>]*>\s*Sales\s*<', "bare Sales filter label"),
+            (r'Case Study · (?:Branding · )?Marketing · Sales(?! Systems)', "bare Sales case-study eyebrow"),
+            (r'Branding, Marketing (?:&|&amp;) Sales(?! Systems)', "bare Sales ampersand phrase"),
+            (r'Branding · Marketing · Sales(?! Systems)', "bare Sales dot-navigation phrase"),
+        ):
+            if re.search(pattern, text, re.I):
+                errors.append(f"{rel}: public pillar must say Sales Systems ({label})")
     return CheckResult(
         "public-brand-taxonomy",
-        f"{checked} non-redirect public/source pages checked for Branding / Marketing / Sales alignment",
+        f"{checked} non-redirect public/source pages checked for Branding / Marketing / Sales Systems alignment",
         errors,
     )
 
@@ -1642,6 +1681,32 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         rel = posix_rel(path, root)
         if 'id="ra-nav"' in text:
             nav_pages += 1
+            nav_match = re.search(r'<nav\b[^>]*id=["\']ra-nav["\'][^>]*>.*?</nav>', text, re.I | re.S)
+            if not nav_match:
+                errors.append(f"{rel}: canonical nav could not be isolated")
+            else:
+                nav = nav_match.group(0)
+                for href, label in EXPECTED_PORTFOLIO_NAV_LINKS.items():
+                    pattern = (
+                        r'<a\b[^>]*href=["\']' + re.escape(href) + r'["\'][^>]*>\s*'
+                        + re.escape(label) + r'\s*</a>'
+                    )
+                    if not re.search(pattern, nav, re.I):
+                        errors.append(f"{rel}: Portfolio menu missing {label!r} -> {href}")
+                for href, label in (
+                    ("/portfolio/branding", "Branding Work"),
+                    ("/portfolio/marketing", "Marketing Work"),
+                    ("/portfolio/sales", "Sales Systems Work"),
+                ):
+                    if not re.search(
+                        r'<a\b[^>]*href=["\']' + re.escape(href) + r'["\'][^>]*>\s*'
+                        + re.escape(label) + r'\s*<i\b',
+                        nav,
+                        re.I,
+                    ):
+                        errors.append(f"{rel}: Portfolio parent missing {label!r} -> {href}")
+                if not re.search(r'href=["\']/portfolio["\'][^>]*>\s*All Work\s*</a>', nav, re.I):
+                    errors.append(f"{rel}: Portfolio menu missing All Work link")
         if any(
             marker in text
             for marker in (
@@ -1681,6 +1746,7 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         "#ra-nav.is-open .ra-nav__links",
         "grid-template-columns: minmax(0, 1fr)",
         ".p-leaf",
+        ".ra-orbit__frame:not(.ra-orbit--active)",
     ):
         if token not in css:
             errors.append(f"assets/css/ra-refresh-2026.css: missing mobile contract token {token!r}")
@@ -1699,7 +1765,129 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         errors.append(f"only {nav_pages} HTML pages expose the canonical mobile navigation")
     return CheckResult(
         "mobile-navigation-contract",
-        f"{nav_pages} nav pages; shared label-navigation, accordion, chat, and narrow-grid rules checked",
+        f"{nav_pages} nav pages; full Portfolio drill-down, accordion, chat, and narrow-grid rules checked",
+        errors,
+    )
+
+
+def check_responsive_spacing_contract(root: Path, html_files: list[Path]) -> CheckResult:
+    """Guard the exact mobile defects reported from the production phone UI."""
+    errors: list[str] = []
+    proof_images = 0
+    outcome_pages = 0
+    for path in html_files:
+        text = read_text(path)
+        rel = posix_rel(path, root)
+        outcome_pages += int('class="cs-outcomes"' in text)
+        for card in re.findall(
+            r'<a\b[^>]*class=["\'][^"\']*\bra-service-proof\b[^"\']*["\'][^>]*>.*?</a>',
+            text,
+            re.I | re.S,
+        ):
+            image = re.search(r'<img\b[^>]*>', card, re.I)
+            if not image:
+                errors.append(f"{rel}: service proof card has no image")
+                continue
+            proof_images += 1
+            tag = image.group(0)
+            width = re.search(r'\bwidth=["\'](\d+)["\']', tag, re.I)
+            height = re.search(r'\bheight=["\'](\d+)["\']', tag, re.I)
+            if not width or not height or (int(width.group(1)), int(height.group(1))) != (1600, 900):
+                errors.append(f"{rel}: proof image must declare its natural 1600x900 size: {tag}")
+
+    if proof_images < 40:
+        errors.append(f"expected the shared service proof cards across the site, found only {proof_images} images")
+
+    css = read_text(root / "assets/css/ra-refresh-2026.css")
+    for token in (
+        ".ra-service-proof img",
+        "height: auto;",
+        "aspect-ratio: 16 / 9;",
+        ".container > .pf-grid",
+        ".cs-outcomes__inner",
+        ".cs-outcomes__grid",
+        "#hero-network",
+        ".ra-orbit__summary",
+        "@media (max-width: 360px)",
+        "@media (min-width: 769px)",
+        "rgba(255, 255, 255, 0.78) !important",
+    ):
+        if token not in css:
+            errors.append(f"assets/css/ra-refresh-2026.css: missing responsive spacing token {token!r}")
+    if re.search(r"animation:\s*ra-orbit-(?:node-signal|core-breathe)", css):
+        errors.append("assets/css/ra-refresh-2026.css: removed widget pulse loops are still active")
+
+    portfolio_css = read_text(root / "assets/css/portfolio-cards-v3.css")
+    if re.search(r"\.pf-grid\s*\{.*?padding:\s*0\s+24px", portfolio_css, re.S):
+        errors.append("assets/css/portfolio-cards-v3.css: nested portfolio grid still adds a second 24px gutter")
+
+    homepage = read_text(root / "index.html")
+    for retired in (
+        'class="ra-orbit__grid"',
+        'class="ra-orbit__sweep"',
+        'ra-orbit__route--triangle',
+        'ra-orbit__track--inner',
+        'class="ra-orbit__capability"',
+        'class="ra-orbit__caption"',
+    ):
+        if retired in homepage:
+            errors.append(f"index.html: crowded orbit element remains: {retired}")
+    route_count = len(re.findall(r'class="ra-orbit__route\s+ra-orbit__route--', homepage))
+    if route_count != 3:
+        errors.append(f"index.html: simplified orbit must expose exactly 3 direct routes, found {route_count}")
+    if "Sales Systems turn that attention into revenue." not in homepage:
+        errors.append("index.html: plain-language connected-system summary is missing")
+    if "We help with Branding, Marketing &amp; Sales Systems" not in homepage:
+        errors.append("index.html: approved Branding / Marketing / Sales Systems hero tagline is missing")
+    approved_home_intro = (
+        "Revelation Agency helps you run your Branding, Marketing, and Sales as one connected growth system "
+        "— operator-led, deliberately scoped, and backed by receipts."
+    )
+    if approved_home_intro not in homepage:
+        errors.append("index.html: approved connected-growth hero paragraph is missing")
+    approved_connected_delivery = (
+        "We diagnose the constraint, choose the exact services it requires, and operate Branding, Marketing, "
+        "and Sales Systems as one connected system. Websites, campaigns, CRM, and AI automation share clear "
+        "handoffs instead of becoming disconnected projects."
+    )
+    if approved_connected_delivery not in homepage:
+        errors.append("index.html: generated Connected Delivery section has drifted from its current source contract")
+    if "Explore Sales Systems" not in homepage or "Explore Sales <" in homepage:
+        errors.append("index.html: Sales Systems service CTA is not using the approved public pillar label")
+    proof_note_pages = (
+        root / "portfolio/case-studies/reservwise-app.html",
+        root / "portfolio/case-studies/revelation-portal.html",
+    )
+    for proof_note_page in proof_note_pages:
+        if 'cs-gallery__item--proof-note' not in read_text(proof_note_page):
+            errors.append(f"{proof_note_page.relative_to(root).as_posix()}: text gallery proof note lacks its responsive wrap hook")
+    if ".cs-gallery__item--proof-note" not in css or "overflow-wrap: anywhere;" not in css:
+        errors.append("assets/css/ra-refresh-2026.css: text gallery proof-note wrapping contract is missing")
+    if ".ra-proof-logo--trust" not in css or "padding: clamp(28px, 8vw, 112px)" not in css:
+        errors.append("assets/css/ra-refresh-2026.css: Trust Energy logo proof lacks responsive padding")
+    for trust_logo_page in (
+        root / "portfolio/case-studies/trust-energy.html",
+        root / "portfolio/case-studies/trust-energy-branding.html",
+    ):
+        trust_logo_text = read_text(trust_logo_page)
+        if 'class="ra-proof-logo--trust"' not in trust_logo_text:
+            errors.append(f"{trust_logo_page.relative_to(root).as_posix()}: Trust Energy logo proof hook is missing")
+        if re.search(r'trust-energy/logo\.png[^>]*padding:\s*140px', trust_logo_text, re.I):
+            errors.append(f"{trust_logo_page.relative_to(root).as_posix()}: fixed 140px logo padding still crops mobile proof")
+    if ".cs-service-card p" not in css or "word-break: break-word;" not in css:
+        errors.append("assets/css/ra-refresh-2026.css: long case-study technical strings lack a wrapping contract")
+    hosting = read_text(root / "web-hosting.html")
+    if 'class="wh-hero__crumb-current"' not in hosting or ".wh-hero__crumbs{display:flex;flex-wrap:wrap" not in hosting:
+        errors.append("web-hosting.html: mobile breadcrumb wrapping contract is missing")
+    for deck_path in (root / "sales-growth-engine/index.html", root / "sales-intelligence/index.html"):
+        deck = read_text(deck_path)
+        for token in (".slide-header__left { flex: 1 1 auto; min-width: 0", ".slide-header__doc-sep { display: none; }"):
+            if token not in deck:
+                errors.append(f"{deck_path.relative_to(root).as_posix()}: mobile deck header constraint is missing ({token})")
+
+    return CheckResult(
+        "responsive-spacing-contract",
+        f"{proof_images} 16:9 proof images, {outcome_pages} outcome pages, simplified orbit, and single-gutter portfolio checked",
         errors,
     )
 
@@ -1810,6 +1998,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         check_root_relative_links(root, html_files, vercel),
         check_service_proof_alignment(root),
         check_mobile_navigation_contract(root, html_files),
+        check_responsive_spacing_contract(root, html_files),
         check_generator_guardrails(root),
     ]
     if vercel_errors:

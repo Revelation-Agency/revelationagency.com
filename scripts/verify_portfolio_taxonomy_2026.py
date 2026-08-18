@@ -59,6 +59,7 @@ EXPECTED_MASTER_COUNTS = {
     "S1": 0, "S2": 8, "S3": 10, "S4": 8,
 }
 EXPECTED_PILLAR_COUNTS = {"Branding": 21, "Marketing": 13, "Sales": 11}
+PUBLIC_PILLAR_LABEL = {"Branding": "Branding", "Marketing": "Marketing", "Sales": "Sales Systems"}
 EXPECTED_PILLAR_DESCRIPTIONS = {
     "Branding": "Websites, Apps, Brand Identity, Design, and Video — the surfaces where the market meets the business.",
     "Marketing": "SEO / AI Answers, Social Media, Digital Advertising, and Customer Nurture connected to a measurable next step.",
@@ -285,7 +286,8 @@ def check_case_pages(cases: dict, errors: list[str]) -> None:
                 expected_about = [EXPECTED_TAXONOMY[code] for code in record["disciplines"]]
                 if payload.get("about") != expected_about:
                     errors.append(f"{route}: JSON-LD about={payload.get('about')}, expected {expected_about}")
-                expected_keywords = record["pillars"] + (["AI-enabled"] if record["aiAutomation"] else [])
+                expected_keywords = [PUBLIC_PILLAR_LABEL[pillar] for pillar in record["pillars"]]
+                expected_keywords += (["AI-enabled"] if record["aiAutomation"] else [])
                 if payload.get("keywords") != expected_keywords:
                     errors.append(f"{route}: JSON-LD keywords={payload.get('keywords')}, expected {expected_keywords}")
 
@@ -324,7 +326,7 @@ def check_portfolio_hub(masters: dict, errors: list[str]) -> None:
     pillar_counts = Counter(pillar for record in masters.values() for pillar in record["pillars"])
     expected_button_values = {
         "all": ("All Work", len(masters)),
-        **{pillar.lower(): (pillar, pillar_counts[pillar]) for pillar in PILLAR_ORDER},
+        **{pillar.lower(): (PUBLIC_PILLAR_LABEL[pillar], pillar_counts[pillar]) for pillar in PILLAR_ORDER},
         **{code.lower(): (title, master_counts[code]) for code, title in EXPECTED_TAXONOMY.items()},
     }
     for button in parser.buttons:
@@ -359,7 +361,7 @@ def check_portfolio_hub(masters: dict, errors: list[str]) -> None:
             errors.append(f"portfolio.html: cannot inspect card block for {route}")
             continue
         block = match.group(0)
-        expected_label = " · ".join(record["pillars"])
+        expected_label = " · ".join(PUBLIC_PILLAR_LABEL[pillar] for pillar in record["pillars"])
         label_match = re.search(r'<span class="pf-card__label">(.*?)</span>', block, re.S)
         if not label_match or html.unescape(label_match.group(1)) != expected_label:
             errors.append(f"portfolio.html: {route} public card label is not {expected_label!r}")
@@ -386,6 +388,10 @@ def check_shelves(masters: dict, errors: list[str]) -> None:
             errors.append(
                 f"{path.relative_to(ROOT)}: exact service description must appear in both hero and shelf"
             )
+        if pillar == "Sales":
+            for label in ("Sales Systems Work", "Sales Systems work.", "Sales Systems Proof"):
+                if label not in text:
+                    errors.append(f"{path.relative_to(ROOT)}: missing public pillar label {label!r}")
         for route, attrs in zip(actual_routes, parser.anchors):
             if route in masters:
                 check_card_attrs(route, attrs, masters[route], path.relative_to(ROOT).as_posix(), errors)
@@ -423,7 +429,7 @@ def main() -> int:
             print(f"- {error}")
         return 1
     print("Portfolio taxonomy verification PASSED")
-    print("- exact taxonomy: 5 Branding / 4 Marketing / 4 Sales services")
+    print("- exact taxonomy: 5 Branding / 4 Marketing / 4 Sales Systems services")
     print("- manifest: 68 case records / 21 master records")
     print(f"- case discipline counts: {EXPECTED_CASE_COUNTS}")
     print(f"- master discipline counts: {EXPECTED_MASTER_COUNTS}")

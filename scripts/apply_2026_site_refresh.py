@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
 CSS_MARKER = "<!-- RA-REFRESH-2026:css -->"
 JS_MARKER = "<!-- RA-REFRESH-2026:js -->"
-REFRESH_ASSET_VERSION = "20260817e"
+REFRESH_ASSET_VERSION = "20260817f"
 REFRESH_CSS_URL = f"/assets/css/ra-refresh-2026.css?v={REFRESH_ASSET_VERSION}"
 REFRESH_JS_URL = f"/assets/js/ra-refresh-2026.js?v={REFRESH_ASSET_VERSION}"
 APEX = "https://www.revelationagency.com"
@@ -32,7 +32,7 @@ REVEAL_CATEGORY_BY_SLUG = {
     "your-brand-isnt-what-you-say-it-is": "Branding",
     "the-website-is-still-your-most-important-real-estate": "Branding",
     "why-social-media-reach-is-a-vanity-metric": "Marketing",
-    "what-gohighlevel-actually-does": "Sales",
+    "what-gohighlevel-actually-does": "Sales Systems",
     "outsourcing-your-marketing-isnt-a-shortcut": "Marketing",
     "the-ai-content-trap": "Marketing",
 }
@@ -158,7 +158,7 @@ SERVICE_LIST = """<ul class="ra-footer__svc">
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales Systems<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
               <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
               <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
@@ -170,7 +170,7 @@ SERVICE_LIST = """<ul class="ra-footer__svc">
 
 
 def build_nav_links(rel: str) -> str:
-    """Render one public Branding / Marketing / Sales navigation taxonomy."""
+    """Render one public Branding / Marketing / Sales Systems taxonomy."""
     current = {
         "home": rel == "index.html",
         "about": rel == "about.html",
@@ -212,8 +212,8 @@ def build_nav_links(rel: str) -> str:
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
+            <a href="/services/sales">Sales Systems <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales Systems menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
               <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
               <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
@@ -228,10 +228,38 @@ def build_nav_links(rel: str) -> str:
         <a href="/portfolio"{active("portfolio")}>Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=b1">Websites</a></li>
+              <li><a href="/portfolio?filter=b2">Apps</a></li>
+              <li><a href="/portfolio?filter=b3">Brand Identity</a></li>
+              <li><a href="/portfolio?filter=b4">Design</a></li>
+              <li><a href="/portfolio?filter=b5">Video</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=m1">SEO / AI Answers</a></li>
+              <li><a href="/portfolio?filter=m2">Social Media</a></li>
+              <li><a href="/portfolio?filter=m3">Digital Advertising</a></li>
+              <li><a href="/portfolio?filter=m4">Customer Nurture</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/sales">Sales Systems Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales Systems portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=s1">Outreach</a></li>
+              <li><a href="/portfolio?filter=s2">Lead Gen Ads</a></li>
+              <li><a href="/portfolio?filter=s3">CRMs / Sales Tools</a></li>
+              <li><a href="/portfolio?filter=s4">AI Automation Systems</a></li>
+            </ul>
+          </li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All Work</a></li>
         </ul>
       </li>
       <li><a href="/contact"{active("contact")}>Contact</a></li>
@@ -239,39 +267,31 @@ def build_nav_links(rel: str) -> str:
 
 
 HERO_VISUAL = """      <div class="ra-hero__visual">
-        <div class="ra-orbit" role="group" aria-label="Branding, Marketing, and Sales connected as one growth system">
+        <div class="ra-orbit" role="group" aria-label="Branding, Marketing, and Sales Systems connected as one growth system">
           <div class="ra-orbit__frame">
-            <div class="ra-orbit__grid" aria-hidden="true"></div>
-            <div class="ra-orbit__sweep" aria-hidden="true"></div>
             <svg class="ra-orbit__routes" viewBox="0 0 620 620" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path class="ra-orbit__route ra-orbit__route--triangle" d="M310 125 L122 486 L498 486 Z"></path>
               <path class="ra-orbit__route ra-orbit__route--branding" d="M310 310 C310 250 310 196 310 142"></path>
               <path class="ra-orbit__route ra-orbit__route--marketing" d="M310 310 C252 342 202 395 146 464"></path>
               <path class="ra-orbit__route ra-orbit__route--sales" d="M310 310 C368 342 418 395 474 464"></path>
             </svg>
-            <div class="ra-orbit__track ra-orbit__track--outer" aria-hidden="true"><i></i><i></i></div>
-            <div class="ra-orbit__track ra-orbit__track--inner" aria-hidden="true"><i></i></div>
+            <div class="ra-orbit__track ra-orbit__track--outer" aria-hidden="true"><i></i></div>
             <a class="ra-orbit__node ra-orbit__node--branding" href="/services/branding">
-              <span>01 · IDENTITY</span>
+              <span>01 /</span>
               <strong>Branding</strong>
-              <small>Websites · Apps · Identity · Design · Video</small>
             </a>
             <a class="ra-orbit__node ra-orbit__node--marketing" href="/services/marketing">
-              <span>02 · DEMAND</span>
+              <span>02 /</span>
               <strong>Marketing</strong>
-              <small>SEO · Social · Ads · Nurture</small>
             </a>
             <a class="ra-orbit__node ra-orbit__node--sales" href="/services/sales">
-              <span>03 · REVENUE</span>
-              <strong>Sales</strong>
-              <small>Outreach · Lead Gen · CRM · AI Systems</small>
+              <span>03 /</span>
+              <strong>Sales Systems</strong>
             </a>
             <div class="ra-orbit__core">
               <img src="/assets/brand/current/ra-mark-red.png" alt="" width="116" height="116">
             </div>
-            <a class="ra-orbit__capability" href="/services/sales/ai-automation-systems">AI Automation Systems · Built for the Sales Pipeline</a>
           </div>
-          <div class="ra-orbit__caption">Diagnose · Scope · Operate · Prove</div>
+          <p class="ra-orbit__summary">Branding makes you clear. Marketing earns attention. Sales Systems turn that attention into revenue.</p>
         </div>
       </div>"""
 
@@ -285,7 +305,7 @@ SPRINT_REPLACEMENT = """<!-- ==================== CONNECTED DELIVERY ===========
       <div class="fade-up">
         <span class="eyebrow eyebrow--white">Connected Delivery</span>
         <h2 class="display-2 ra-sprint__title">One <span class="highlight">Growth System</span></h2>
-        <p class="ra-sprint__desc">We diagnose the constraint, choose the exact services it requires, and operate Branding, Marketing, and Sales as one connected system. Websites, campaigns, CRM, and AI automation share clear handoffs instead of becoming disconnected projects.</p>
+        <p class="ra-sprint__desc">We diagnose the constraint, choose the exact services it requires, and operate Branding, Marketing, and Sales Systems as one connected system. Websites, campaigns, CRM, and AI automation share clear handoffs instead of becoming disconnected projects.</p>
         <ul class="ra-sprint__list">
           <li><i class="fa-solid fa-stethoscope"></i> Diagnose the highest-leverage constraint</li>
           <li><i class="fa-solid fa-fingerprint"></i> Sharpen the position and brand people remember</li>
@@ -771,19 +791,29 @@ def normalize_reveal_taxonomy(text: str, rel: str) -> str:
     if rel == "the-reveal/index.html":
         text = text.replace(
             "Strategy. Insights. Announcements. We don't just do the work &mdash; we explain how it works.",
-            "Branding. Marketing. Sales. We do the work, show the receipts, and explain the operating logic.",
+            "Branding. Marketing. Sales Systems. We do the work, show the receipts, and explain the operating logic.",
         )
         text = text.replace('data-chip-filter="strategy">Strategy', 'data-chip-filter="branding">Branding')
         text = text.replace('data-chip-filter="creative">Creative', 'data-chip-filter="sales">Sales')
         text = text.replace('data-filter="strategy">Strategy', 'data-filter="branding">Branding')
         text = text.replace('data-filter="creative">Creative', 'data-filter="sales">Sales')
+        text = re.sub(
+            r'(data-chip-filter="sales">)Sales(?: Systems)*',
+            r'\1Sales Systems',
+            text,
+        )
+        text = re.sub(
+            r'(data-filter="sales">)Sales(?: Systems)*',
+            r'\1Sales Systems',
+            text,
+        )
 
         def card_repl(match: re.Match[str]) -> str:
             block = match.group(0)
             for slug, category in REVEAL_CATEGORY_BY_SLUG.items():
                 if f'/the-reveal/{slug}' not in block:
                     continue
-                token = category.lower()
+                token = "sales" if category == "Sales Systems" else category.lower()
                 block = re.sub(r'data-cat=["\'][^"\']+["\']', f'data-cat="{token}"', block, count=1)
                 block = re.sub(
                     r'(<span class="rv-card__tag">).*?(</span>)',
@@ -849,7 +879,13 @@ def apply_home_copy(text: str) -> str:
         "Revelation Agency — Your Strategic Growth Partner",
         "Branding, Marketing &amp; Sales | Revelation Agency",
     )
-    text = text.replace('<div class="ra-hero__tagline">Your Strategic Growth Partner</div>', '<div class="ra-hero__tagline">Branding · Marketing · Sales</div>')
+    text = re.sub(
+        r'<div class="ra-hero__tagline">.*?</div>',
+        '<div class="ra-hero__tagline">We help with Branding, Marketing &amp; Sales Systems</div>',
+        text,
+        count=1,
+        flags=re.S,
+    )
     text = text.replace('We help build <em>systems</em><br>that drive your growth', 'Build the brand.<br><em>Create demand.</em><br>Convert the opportunity.')
     text = text.replace(
         'Dream. <span class="highlight">Build.</span> Scale.',
@@ -860,7 +896,14 @@ def apply_home_copy(text: str) -> str:
     text = text.replace('<h3>Scale — Sales</h3>', '<h3>Revenue — Sales</h3>')
     text = text.replace(
         'Revelation Agency designs, builds, and operates the systems, creative, and marketing infrastructure behind your next stage of growth.',
-        'Revelation Agency runs your Branding, Marketing, and Sales as one connected growth system — operator-led, deliberately scoped, and backed by receipts.',
+        'Revelation Agency helps you run your Branding, Marketing, and Sales as one connected growth system — operator-led, deliberately scoped, and backed by receipts.',
+    )
+    text = re.sub(
+        r'(<p class="ra-hero__desc">\s*).*?(\s*</p>)',
+        r'\1Revelation Agency helps you run your Branding, Marketing, and Sales as one connected growth system — operator-led, deliberately scoped, and backed by receipts.\2',
+        text,
+        count=1,
+        flags=re.S,
     )
     text = text.replace('View Our Work', 'Explore the Proof')
     text = text.replace('Operators. Not decorators.', 'One connected growth system.')
@@ -885,6 +928,14 @@ def apply_home_copy(text: str) -> str:
     text = text.replace(
         'Three phases. One integrated system. Every engagement follows the same disciplined arc — from systems through execution to compounding growth.',
         'The brand people remember, the demand you earn, and the sales system that converts it — designed to move as one.',
+    )
+    # Keep the generated section authoritative after its marker is renamed.
+    # The legacy SPRINT marker is retained as a one-way migration fallback.
+    text = replace_between_markers(
+        text,
+        '<!-- ==================== CONNECTED DELIVERY ==================== -->',
+        '<!-- ==================== WORK ==================== -->',
+        SPRINT_REPLACEMENT,
     )
     text = replace_between_markers(
         text,
@@ -1159,6 +1210,73 @@ PALETTE_REPLACEMENTS = {
 }
 
 
+def normalize_sales_systems_public_copy(text: str) -> str:
+    """Use Sales Systems as the public pillar without changing stable tokens.
+
+    Internal routes, data attributes, and manifest membership intentionally
+    remain ``sales`` / ``Sales``. These bounded replacements only touch known
+    public category phrases and labels; ordinary uses such as sales team,
+    sales pipeline, and CRMs / Sales Tools remain unchanged.
+    """
+    for pattern, replacement in (
+        (r"Branding, Marketing &amp; Sales(?! Systems)", "Branding, Marketing &amp; Sales Systems"),
+        (r"Branding, Marketing & Sales(?! Systems)", "Branding, Marketing & Sales Systems"),
+        (r"Branding · Marketing · Sales(?! Systems)", "Branding · Marketing · Sales Systems"),
+        (r"Branding &middot; Marketing &middot; Sales(?! Systems)", "Branding &middot; Marketing &middot; Sales Systems"),
+        (r"Branding\. Marketing\. Sales\.(?! Systems)", "Branding. Marketing. Sales Systems."),
+        (r"Branding / Marketing / Sales(?! Systems)", "Branding / Marketing / Sales Systems"),
+        (r"Case Study · Marketing · Sales(?! Systems)", "Case Study · Marketing · Sales Systems"),
+        (r"Case Study · Branding · Marketing · Sales(?! Systems)", "Case Study · Branding · Marketing · Sales Systems"),
+    ):
+        text = re.sub(pattern, replacement, text)
+
+    text = re.sub(
+        r'(<a\b[^>]*href=["\']/services/sales["\'][^>]*>)Sales(?=\s*<)',
+        r'\1Sales Systems',
+        text,
+        flags=re.I,
+    )
+    text = re.sub(
+        r'(<a\b[^>]*href=["\']/portfolio/sales["\'][^>]*>)Sales Work(?=\s*<)',
+        r'\1Sales Systems Work',
+        text,
+        flags=re.I,
+    )
+    text = re.sub(
+        r'(<a\b[^>]*href=["\']/services/sales["\'][^>]*>)Explore Sales(?=\s*<)',
+        r'\1Explore Sales Systems',
+        text,
+        flags=re.I,
+    )
+    text = re.sub(
+        r'(<a\b[^>]*href=["\'][^"\']*net-metering-systems-strategy["\'][^>]*>)Sales(?=</a>)',
+        r'\1Sales Systems',
+        text,
+        flags=re.I,
+    )
+    for old, new in (
+        ('aria-label="Toggle Sales menu"', 'aria-label="Toggle Sales Systems menu"'),
+        ('<h4>Sales</h4>', '<h4>Sales Systems</h4>'),
+        ('<div class="faq-insight__tag">Sales</div>', '<div class="faq-insight__tag">Sales Systems</div>'),
+        ('<div class="cs-cross__lbl">Sales</div>', '<div class="cs-cross__lbl">Sales Systems</div>'),
+        ('<span class="highlight">Sales</span>', '<span class="highlight">Sales Systems</span>'),
+        ('Revenue — Sales</h3>', 'Revenue — Sales Systems</h3>'),
+        ('AI Automation Systems as a defined Sales service', 'AI Automation Systems as a defined Sales Systems service'),
+        ('AI Automation Systems are scoped inside Sales when', 'AI Automation Systems are scoped inside Sales Systems when'),
+        ('It sits clearly inside Sales and', 'It sits clearly inside Sales Systems and'),
+        ('data-chip-filter="sales">Sales</button>', 'data-chip-filter="sales">Sales Systems</button>'),
+        ('data-filter="sales">Sales</button>', 'data-filter="sales">Sales Systems</button>'),
+    ):
+        text = text.replace(old, new)
+    text = re.sub(
+        r'(<div class="ra-hero__trust-item">.*?>\s*)Sales(\s*</div>)',
+        r'\1Sales Systems\2',
+        text,
+        flags=re.I,
+    )
+    return text
+
+
 def migrate_html(path: Path) -> tuple[bool, bool]:
     original = read(path)
     text = original
@@ -1235,6 +1353,8 @@ def migrate_html(path: Path) -> tuple[bool, bool]:
         text = text.replace('href="../creative.html"', 'href="/portfolio/branding"')
         text = text.replace('>Creative Work<', '>Branding Work<')
         text = text.replace('All Creative Work', 'All Branding Work')
+
+    text = normalize_sales_systems_public_copy(text)
 
     text = re.sub(
         r'href=(["\'])/assets/css/ra-refresh-2026\.css(?:\?v=[^"\']*)?\1',

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build the clear 2026 Branding / Marketing / Sales service architecture.
+"""Build the clear 2026 Branding / Marketing / Sales Systems architecture.
 
 The user-facing contract is intentionally plain: five Branding services, four
-Marketing services, and four Sales services.  Existing equity-bearing file
+Marketing services, and four Sales Systems services. Existing equity-bearing file
 paths are retained when possible; redirects are owned by the route generator.
 This script only authors canonical service HTML and the main services overview.
 """
@@ -160,10 +160,24 @@ PILLAR_COPY = {
     },
     "Sales": {
         "dek": "We help you create opportunities, organize the pipeline, and follow through faster.",
-        "why": "Sales turns attention into action through outreach, lead generation, practical sales tools, and carefully governed automation.",
+        "why": "Sales Systems turn attention into action through outreach, lead generation, practical sales tools, and carefully governed automation.",
         "proof": ["net-metering-systems", "reservwise", "risen-sun-solar-roofing"],
     },
 }
+
+
+# Routes, manifest membership, and machine-readable filter tokens retain the
+# stable internal key "Sales". Public UI consistently uses the clearer pillar
+# name requested for the rebrand.
+PILLAR_PUBLIC_LABEL = {
+    "Branding": "Branding",
+    "Marketing": "Marketing",
+    "Sales": "Sales Systems",
+}
+
+
+def public_pillar(pillar: str) -> str:
+    return PILLAR_PUBLIC_LABEL[pillar]
 
 
 def esc(value: str) -> str:
@@ -179,7 +193,7 @@ def proof_cards(slugs: list[str]) -> str:
     for idx, slug in enumerate(slugs, 1):
         name, description = PROJECTS[slug]
         cards.append(f"""      <a class="ra-service-proof fade-up fade-up-d{min(idx, 3)}" href="/portfolio/case-studies/{slug}">
-        <img src="/assets/img/portfolio/{slug}/thumbnail.png" alt="{esc(name)} case study" loading="lazy" width="640" height="420">
+        <img src="/assets/img/portfolio/{slug}/thumbnail.png" alt="{esc(name)} case study" loading="lazy" width="1600" height="900">
         <span>Related work</span>
         <strong>{esc(name)}</strong>
         <p>{esc(description)}</p>
@@ -193,6 +207,7 @@ def list_items(items: list[str]) -> str:
 
 def render_leaf(service: dict[str, object]) -> str:
     pillar = str(service["pillar"])
+    pillar_label = public_pillar(pillar)
     title = str(service["title"])
     proof = list(service["proof"])
     if proof:
@@ -209,18 +224,18 @@ def render_leaf(service: dict[str, object]) -> str:
         proof_section = f"""<section class="p-section p-section--grey ra-service-proof-section ra-service-proof-section--pending">
   <div class="container">
     <div class="ra-service-proof-heading fade-up"><div class="eyebrow">Proof Standard</div><h2>We only call direct outreach work Outreach.</h2><p class="lead">Paid advertising, inbound lead handling, and a client&rsquo;s own prospecting are different services. We will publish an Outreach case study here when Revelation directly operates the work and can document it.</p></div>
-    <div class="ra-service-proof-more fade-up"><a href="/portfolio/sales" class="btn btn--outline">See related Sales work <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="ra-service-proof-more fade-up"><a href="/portfolio/sales" class="btn btn--outline">See related Sales Systems work <i class="fa-solid fa-arrow-right"></i></a></div>
   </div>
 </section>"""
     return f"""<section class="p-hero ra-service-hero" data-service-code="{service['code']}">
   <div class="container">
     <div class="p-hero__inner fade-up">
-      <div class="eyebrow" style="color:rgba(255,255,255,0.62);">{esc(pillar)} Service</div>
+      <div class="eyebrow" style="color:rgba(255,255,255,0.62);">{esc(pillar_label)} Service</div>
       <h1>{esc(title)}</h1>
       <p class="lead">{esc(str(service['dek']))}</p>
       <div class="p-hero__cta">
         <a href="/booking" class="btn btn--primary" data-cta="primary" data-cta-placement="leaf-hero" data-booking-open="1">Start a Conversation <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="/services/{pillar.lower()}" class="btn btn--ghost-dark">See all {esc(pillar)} services</a>
+        <a href="/services/{pillar.lower()}" class="btn btn--ghost-dark">See all {esc(pillar_label)} services</a>
       </div>
     </div>
   </div>
@@ -269,6 +284,7 @@ def validate_service_proof_assignments() -> None:
 
 
 def render_hub(pillar: str) -> str:
+    pillar_label = public_pillar(pillar)
     services = [service for service in SERVICES if service["pillar"] == pillar]
     cards = []
     for idx, service in enumerate(services, 1):
@@ -280,11 +296,11 @@ def render_hub(pillar: str) -> str:
       </a>""")
     copy = PILLAR_COPY[pillar]
     return f"""<section class="p-hero ra-service-hero ra-service-hero--pillar">
-  <div class="container"><div class="p-hero__inner fade-up"><div class="eyebrow" style="color:rgba(255,255,255,0.62);">Services</div><h1>{pillar} Services</h1><p class="lead">{esc(copy['dek'])}</p><div class="p-hero__cta"><a href="/booking" class="btn btn--primary" data-booking-open="1">Start a Conversation <i class="fa-solid fa-arrow-right"></i></a><a href="#services" class="btn btn--ghost-dark">See the Services</a></div></div></div>
+  <div class="container"><div class="p-hero__inner fade-up"><div class="eyebrow" style="color:rgba(255,255,255,0.62);">Services</div><h1>{pillar_label} Services</h1><p class="lead">{esc(copy['dek'])}</p><div class="p-hero__cta"><a href="/booking" class="btn btn--primary" data-booking-open="1">Start a Conversation <i class="fa-solid fa-arrow-right"></i></a><a href="#services" class="btn btn--ghost-dark">See the Services</a></div></div></div>
 </section>
 
 <section class="p-section p-section--grey">
-  <div class="container"><div class="ra-service-intro__lede fade-up"><div class="eyebrow">What {pillar} Means Here</div><h2>{pillar}, explained plainly.</h2><p class="lead">{esc(copy['why'])}</p></div></div>
+  <div class="container"><div class="ra-service-intro__lede fade-up"><div class="eyebrow">What {pillar_label} Means Here</div><h2>{pillar_label}, explained plainly.</h2><p class="lead">{esc(copy['why'])}</p></div></div>
 </section>
 
 <section class="p-section" id="services">
@@ -294,7 +310,7 @@ def render_hub(pillar: str) -> str:
 </section>
 
 <section class="p-section p-section--grey ra-service-proof-section">
-  <div class="container"><div class="ra-service-proof-heading fade-up"><div class="eyebrow">Selected {pillar} Work</div><h2>Real work, shown clearly.</h2></div><div class="ra-service-proof-grid">
+  <div class="container"><div class="ra-service-proof-heading fade-up"><div class="eyebrow">Selected {pillar_label} Work</div><h2>Real work, shown clearly.</h2></div><div class="ra-service-proof-grid">
 {proof_cards(copy['proof'])}
     </div></div>
 </section>
@@ -353,6 +369,7 @@ def write_if_changed(path: Path, text: str) -> bool:
 
 def build_leaf(service: dict[str, object]) -> bool:
     pillar = str(service["pillar"])
+    pillar_label = public_pillar(pillar)
     path = ROOT / "services" / pillar.lower() / f"{service['slug']}.html"
     source_by_pillar = {
         "Branding": ROOT / "services/branding/brand-strategy-identity.html",
@@ -365,7 +382,7 @@ def build_leaf(service: dict[str, object]) -> bool:
     else:
         text = source_by_pillar[pillar].read_text(encoding="utf-8")
     route = clean_route(service)
-    title = f"{service['title']} | {pillar} Services | Revelation Agency"
+    title = f"{service['title']} | {pillar_label} Services | Revelation Agency"
     text = metadata(text, title=title, description=str(service["dek"]), route=route)
     text = canonical_body(text, pillar=pillar, slug=str(service["slug"]), content=render_leaf(service))
     return write_if_changed(path, text)
@@ -378,7 +395,7 @@ def build_hub(pillar: str) -> bool:
     route = f"/services/{pillar.lower()}"
     text = metadata(
         text,
-        title=f"{pillar} Services | Revelation Agency",
+        title=f"{public_pillar(pillar)} Services | Revelation Agency",
         description=copy["dek"],
         route=route,
     )
@@ -387,6 +404,7 @@ def build_hub(pillar: str) -> bool:
 
 
 def stack(pillar: str) -> str:
+    pillar_label = public_pillar(pillar)
     services = [s for s in SERVICES if s["pillar"] == pillar]
     items = "".join(
         f'<li><a href="{clean_route(s)}"><i class="fa-solid fa-chevron-right"></i><span>{esc(str(s["title"]))}</span></a></li>'
@@ -394,9 +412,9 @@ def stack(pillar: str) -> str:
     )
     taglines = {"Branding": "Look &amp; Experience", "Marketing": "Visibility &amp; Demand", "Sales": "Pipeline &amp; Revenue"}
     return f"""      <article class="ra-stack fade-up">
-        <a href="/services/{pillar.lower()}" class="ra-stack__headline-link"><div class="ra-stack__name">{pillar}</div><div class="ra-stack__tagline">{taglines[pillar]}</div></a>
+        <a href="/services/{pillar.lower()}" class="ra-stack__headline-link"><div class="ra-stack__name">{pillar_label}</div><div class="ra-stack__tagline">{taglines[pillar]}</div></a>
         <ul class="ra-stack__list">{items}</ul>
-        <a href="/services/{pillar.lower()}" class="ra-stack__cta">Explore {pillar} <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="/services/{pillar.lower()}" class="ra-stack__cta">Explore {pillar_label} <i class="fa-solid fa-arrow-right"></i></a>
       </article>"""
 
 
@@ -404,13 +422,13 @@ def services_overview_content() -> str:
     return f"""<!-- ==================== SERVICES: CLEAR 5 / 4 / 4 TAXONOMY ==================== -->
 <section class="ra-services-hero">
   <canvas class="ra-services-hero__canvas" id="services-hero-network" aria-hidden="true"></canvas><div class="ra-services-hero__glow" aria-hidden="true"></div><div class="ra-services-hero__grid" aria-hidden="true"></div>
-  <div class="container"><div class="ra-services-hero__inner"><div class="ra-services-hero__tagline fade-up">What We Do</div><h1 class="ra-services-hero__title fade-up fade-up-d1">Branding, Marketing &amp; Sales <em>Services</em></h1><p class="ra-services-hero__desc fade-up fade-up-d2">Clear services for businesses that need to look professional, reach more customers, and turn opportunities into revenue. Start with one service or connect several into one system.</p><div class="ra-services-hero__actions fade-up fade-up-d3"><a href="#service-list" class="btn btn--primary">See Every Service <i class="fa-solid fa-arrow-down btn-arrow"></i></a></div></div></div>
+  <div class="container"><div class="ra-services-hero__inner"><div class="ra-services-hero__tagline fade-up">What We Do</div><h1 class="ra-services-hero__title fade-up fade-up-d1">Branding, Marketing &amp; Sales Systems <em>Services</em></h1><p class="ra-services-hero__desc fade-up fade-up-d2">Clear services for businesses that need to look professional, reach more customers, and turn opportunities into revenue. Start with one service or connect several into one system.</p><div class="ra-services-hero__actions fade-up fade-up-d3"><a href="#service-list" class="btn btn--primary">See Every Service <i class="fa-solid fa-arrow-down btn-arrow"></i></a></div></div></div>
 </section>
 
-<section class="ra-services-system"><div class="container"><div class="ra-services-system__header fade-up"><span class="eyebrow">Three Clear Categories</span><h2>Easy to understand. Built to work together.</h2><p>Branding shapes what people see. Marketing helps the right people find and remember you. Sales creates and manages the path from opportunity to revenue.</p></div><div class="ra-services-system__grid">
+<section class="ra-services-system"><div class="container"><div class="ra-services-system__header fade-up"><span class="eyebrow">Three Clear Categories</span><h2>Easy to understand. Built to work together.</h2><p>Branding shapes what people see. Marketing helps the right people find and remember you. Sales Systems create and manage the path from opportunity to revenue.</p></div><div class="ra-services-system__grid">
   <a href="/services/branding" class="ra-services-system__card fade-up"><div class="ra-services-system__num">01 / BRANDING</div><h3>Look clear and professional.</h3><p>Websites, apps, brand identity, design, and video.</p></a>
   <a href="/services/marketing" class="ra-services-system__card fade-up"><div class="ra-services-system__num">02 / MARKETING</div><h3>Reach and nurture customers.</h3><p>SEO / AI Answers, social media, digital advertising, and customer nurture.</p></a>
-  <a href="/services/sales" class="ra-services-system__card fade-up"><div class="ra-services-system__num">03 / SALES</div><h3>Create and manage opportunities.</h3><p>Outreach, lead gen ads, CRMs / sales tools, and AI automation systems.</p></a>
+  <a href="/services/sales" class="ra-services-system__card fade-up"><div class="ra-services-system__num">03 / SALES SYSTEMS</div><h3>Create and manage opportunities.</h3><p>Outreach, lead gen ads, CRMs / sales tools, and AI automation systems.</p></a>
 </div></div></section>
 
 <section class="ra-services-stacks" id="service-list"><div class="ra-services-stacks__grid-lines" aria-hidden="true"></div><div class="container"><div class="ra-services-stacks__header fade-up"><span class="eyebrow eyebrow--white">All 13 Services</span><h2>Choose the exact <span class="highlight">work you need.</span></h2><p>The titles are intentionally plain. Open any service to see what is included, how we work, and related client proof.</p></div><div class="ra-services-stacks__grid">
@@ -419,7 +437,7 @@ def services_overview_content() -> str:
 {stack('Sales')}
 </div></div></section>
 
-<section class="ra-services-engage"><div class="container"><div class="ra-services-engage__header fade-up"><span class="eyebrow">How We Engage</span><h2>One service or one connected team.</h2></div><div class="ra-services-engage__grid"><div class="ra-services-engage__col fade-up"><h3>Focused Project</h3><p>Bring us one clear need—like a website, brand identity, CRM, or campaign—and we will scope that work plainly.</p></div><div class="ra-services-engage__col ra-services-engage__col--integrated fade-up"><h3>Connected Growth System</h3><p>When several needs affect one another, we connect Branding, Marketing, and Sales so the handoffs are owned and visible.</p></div></div></div></section>
+<section class="ra-services-engage"><div class="container"><div class="ra-services-engage__header fade-up"><span class="eyebrow">How We Engage</span><h2>One service or one connected team.</h2></div><div class="ra-services-engage__grid"><div class="ra-services-engage__col fade-up"><h3>Focused Project</h3><p>Bring us one clear need—like a website, brand identity, CRM, or campaign—and we will scope that work plainly.</p></div><div class="ra-services-engage__col ra-services-engage__col--integrated fade-up"><h3>Connected Growth System</h3><p>When several needs affect one another, we connect Branding, Marketing, and Sales Systems so the handoffs are owned and visible.</p></div></div></div></section>
 
 <section class="ra-services-featured p-section p-section--grey"><div class="container"><div class="ra-service-proof-heading fade-up"><span class="eyebrow">Real Client Work</span><h2>See the services working together.</h2><p class="lead">Client proof uses authentic project imagery. Concept art is used only to explain services.</p></div><div class="ra-service-proof-grid">
 {proof_cards(['ivory-pools', 'net-metering-systems', 'reservwise'])}
@@ -435,7 +453,7 @@ def build_services_overview() -> bool:
     text = path.read_text(encoding="utf-8")
     text = metadata(
         text,
-        title="Branding, Marketing & Sales Services | Revelation Agency",
+        title="Branding, Marketing & Sales Systems Services | Revelation Agency",
         description="Websites, apps, brand identity, design, video, SEO, social media, advertising, nurture, outreach, lead generation, CRM, and AI automation services.",
         route="/services",
     )

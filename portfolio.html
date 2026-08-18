@@ -114,6 +114,11 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.1;font-weight:700;letter-
 .pf-filter-btn--service{font-size:12px;letter-spacing:.01em;text-transform:none;padding:9px 13px;}
 .pf-filter-count{font-variant-numeric:tabular-nums;opacity:.68;margin-left:4px;}
 .pf-filter-status{font-size:12px;color:rgba(43,43,43,.62);text-align:center;margin:18px 0 0;}
+.pf-empty-state{max-width:720px;margin:32px auto 0;padding:clamp(24px,5vw,42px);border:1px solid rgba(201,28,29,.2);border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f4f1 100%);text-align:center;box-shadow:0 18px 50px rgba(18,18,18,.07);}
+.pf-empty-state[hidden]{display:none!important;}
+.pf-empty-state__eyebrow{display:block;margin-bottom:10px;color:var(--red);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;}
+.pf-empty-state h2{margin:0 0 10px;font-size:clamp(24px,4vw,38px);line-height:1.05;}
+.pf-empty-state p{max-width:54ch;margin:0 auto 20px;color:rgba(43,43,43,.68);line-height:1.65;}
 @media (max-width:900px){.pf-service-filters{grid-template-columns:1fr;max-width:620px;}}
 @media (max-width:520px){.pf-service-filter-group{padding:13px}.pf-filter-btn--service{font-size:11px;padding:8px 11px}}
 /* RA-PORTFOLIO-SERVICE-FILTERS:END */
@@ -1052,7 +1057,7 @@ h1, h2, h3, h4, h5, h6,
 </style>
 <link rel="stylesheet" href="/assets/css/portfolio-cards-v3.css">
 <!-- RA-REFRESH-2026:css -->
-<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817e">
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817f">
 <meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta property="og:site_name" content="Revelation Agency">
 <meta property="og:image:width" content="1200">
@@ -1103,8 +1108,8 @@ h1, h2, h3, h4, h5, h6,
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
+            <a href="/services/sales">Sales Systems <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales Systems menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
               <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
               <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
@@ -1119,10 +1124,38 @@ h1, h2, h3, h4, h5, h6,
         <a href="/portfolio" class="is-current">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=b1">Websites</a></li>
+              <li><a href="/portfolio?filter=b2">Apps</a></li>
+              <li><a href="/portfolio?filter=b3">Brand Identity</a></li>
+              <li><a href="/portfolio?filter=b4">Design</a></li>
+              <li><a href="/portfolio?filter=b5">Video</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=m1">SEO / AI Answers</a></li>
+              <li><a href="/portfolio?filter=m2">Social Media</a></li>
+              <li><a href="/portfolio?filter=m3">Digital Advertising</a></li>
+              <li><a href="/portfolio?filter=m4">Customer Nurture</a></li>
+            </ul>
+          </li>
+          <li class="has-drop-l3">
+            <a href="/portfolio/sales">Sales Systems Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales Systems portfolio menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/portfolio?filter=s1">Outreach</a></li>
+              <li><a href="/portfolio?filter=s2">Lead Gen Ads</a></li>
+              <li><a href="/portfolio?filter=s3">CRMs / Sales Tools</a></li>
+              <li><a href="/portfolio?filter=s4">AI Automation Systems</a></li>
+            </ul>
+          </li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All Work</a></li>
         </ul>
       </li>
       <li><a href="/contact">Contact</a></li>
@@ -1159,7 +1192,7 @@ h1, h2, h3, h4, h5, h6,
       <button class="pf-filter-btn is-active" data-filter="all" aria-pressed="true">All Work <span class="pf-filter-count">21</span></button>
 <button class="pf-filter-btn" data-filter="branding" aria-pressed="false">Branding <span class="pf-filter-count">21</span></button>
 <button class="pf-filter-btn" data-filter="marketing" aria-pressed="false">Marketing <span class="pf-filter-count">13</span></button>
-<button class="pf-filter-btn" data-filter="sales" aria-pressed="false">Sales <span class="pf-filter-count">11</span></button>
+<button class="pf-filter-btn" data-filter="sales" aria-pressed="false">Sales Systems <span class="pf-filter-count">11</span></button>
     </div>
     <div class="pf-service-filters" aria-label="Filter portfolio by service">
       <div class="pf-service-filter-group" data-service-pillar="branding">
@@ -1182,7 +1215,7 @@ h1, h2, h3, h4, h5, h6,
         </div>
       </div>
 <div class="pf-service-filter-group" data-service-pillar="sales">
-        <div class="pf-service-filter-group__title">Sales</div>
+        <div class="pf-service-filter-group__title">Sales Systems</div>
         <div class="pf-service-filter-group__buttons">
           <button class="pf-filter-btn pf-filter-btn--service" data-filter="s1" data-discipline="S1" aria-pressed="false">Outreach <span class="pf-filter-count">0</span></button>
           <button class="pf-filter-btn pf-filter-btn--service" data-filter="s2" data-discipline="S2" aria-pressed="false">Lead Gen Ads <span class="pf-filter-count">8</span></button>
@@ -1192,6 +1225,12 @@ h1, h2, h3, h4, h5, h6,
       </div>
     </div>
     <p class="pf-filter-status" id="pf-filter-status" aria-live="polite">Showing 21 projects</p>
+    <div class="pf-empty-state" id="pf-empty-state" aria-live="polite" hidden>
+      <span class="pf-empty-state__eyebrow">Proof inventory</span>
+      <h2><span id="pf-empty-label">Selected service</span> work is not published yet.</h2>
+      <p>There is no public case study in this filter yet. The service is available; ask us for the most relevant private example.</p>
+      <a class="btn btn--primary" href="/contact">Ask about this service <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
   </div>
 </section>
 
@@ -1203,8 +1242,8 @@ h1, h2, h3, h4, h5, h6,
     </p>
     <div class="pf-grid" id="pf-grid">
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/wealth-coach-360" data-pillars="branding marketing sales" data-disciplines="B1 B2 B3 M4 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/wealth-coach-360/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/wealth-coach-360/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Wealth Coach 360</h3>
@@ -1212,8 +1251,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/trust-energy" data-pillars="branding marketing sales" data-disciplines="B2 B3 B5 M1 M2 M3 M4 S2 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/trust-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/trust-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Trust Energy</h3>
@@ -1221,8 +1260,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/reservwise" data-pillars="branding marketing sales" data-disciplines="B1 B2 B3 M4 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/reservwise/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/reservwise/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">ReservWise</h3>
@@ -1230,8 +1269,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/revelation-portal" data-pillars="branding sales" data-disciplines="B2 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:#1E1E1E url('/assets/brand/current/ra-mark-red.png') center/30% auto no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES"></div>
-          <span class="pf-card__label">Branding · Sales</span>
+          <div class="pf-card__bg" style="background:#1E1E1E url('/assets/brand/current/ra-mark-red.png') center/30% auto no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Sales Systems</span>
           <span class="pf-card__status">In-House</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Revelation Portal</h3>
@@ -1248,8 +1287,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/the-whole-vine" data-pillars="branding marketing sales" data-disciplines="B1 B5 M2 M3 S2" data-ai="false">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/the-whole-vine/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/the-whole-vine/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">The Whole Vine Festival</h3>
@@ -1257,8 +1296,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/highlands-energy" data-pillars="branding marketing sales" data-disciplines="B5 M1 M3 S2 S3" data-ai="false">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/highlands-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/highlands-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Highlands Energy</h3>
@@ -1266,8 +1305,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/risen-sun-solar-roofing" data-pillars="branding marketing sales" data-disciplines="B1 B3 B4 M4 S2 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/risen-sun-solar-roofing/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/risen-sun-solar-roofing/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Risen Sun Solar &amp; Roofing</h3>
@@ -1275,8 +1314,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/evergreen-island" data-pillars="branding marketing sales" data-disciplines="B5 M3 M4 S2 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/evergreen-island/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/evergreen-island/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Evergreen Island</h3>
@@ -1284,8 +1323,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/el-camino-del-mar" data-pillars="branding marketing sales" data-disciplines="B5 M3 M4 S2 S3 S4" data-ai="true">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/el-camino-del-mar/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/el-camino-del-mar/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">El Camino Del Mar</h3>
@@ -1356,8 +1395,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
         <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/infinite-roofing-solutions" data-pillars="branding marketing sales" data-disciplines="B1 B3 B4 B5 M1 M3 S2 S3" data-ai="false">
-          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/infinite-roofing-solutions/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/infinite-roofing-solutions/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
           <span class="pf-card__status">Case Study</span>
           <div class="pf-card__body">
             <h3 class="pf-card__title">Infinite Roofing Solutions</h3>
@@ -1374,8 +1413,8 @@ h1, h2, h3, h4, h5, h6,
           </div>
         </a>
       <a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/net-metering-systems" data-pillars="branding marketing sales" data-disciplines="B1 B5 M1 M2 M3 M4 S2 S3 S4" data-ai="true">
-        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/net-metering-systems/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
-        <span class="pf-card__label">Branding · Marketing · Sales</span>
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/net-metering-systems/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES SYSTEMS"></div>
+        <span class="pf-card__label">Branding · Marketing · Sales Systems</span>
         <span class="pf-card__status">Case Study</span>
         <div class="pf-card__body">
           <h3>Net Metering Systems</h3>
@@ -1467,7 +1506,7 @@ h1, h2, h3, h4, h5, h6,
           <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency" width="960" height="960">
         </div>
         <p>We run Branding, Marketing, and Sales as one connected growth system — and make the receipts visible.</p>
-        <div class="ra-footer__tagline">Branding. Marketing. Sales.</div>
+        <div class="ra-footer__tagline">Branding. Marketing. Sales Systems.</div>
         <div class="ra-footer__social">
           <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
@@ -1526,7 +1565,7 @@ h1, h2, h3, h4, h5, h6,
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales Systems<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
               <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
               <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
@@ -1627,7 +1666,7 @@ h1, h2, h3, h4, h5, h6,
     </div>
 
     <div class="ra-footer__bottom">
-      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales.</p>
+      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales Systems.</p>
     </div>
   </div>
 </footer>
@@ -1656,6 +1695,16 @@ h1, h2, h3, h4, h5, h6,
   const filterBtns = document.querySelectorAll('.pf-filter-btn');
   const cards = document.querySelectorAll('.pf-card');
   const filterStatus = document.getElementById('pf-filter-status');
+  const emptyState = document.getElementById('pf-empty-state');
+  const emptyLabel = document.getElementById('pf-empty-label');
+
+  function findFilterButton(filter) {
+    var match = null;
+    filterBtns.forEach(function(button) {
+      if (!match && button.getAttribute('data-filter') === filter) match = button;
+    });
+    return match;
+  }
 
   function applyPortfolioFilter(filter, updateQuery) {
     var normalized = (filter || 'all').toLowerCase();
@@ -1672,6 +1721,13 @@ h1, h2, h3, h4, h5, h6,
     });
     if (filterStatus) {
       filterStatus.textContent = 'Showing ' + shown + (shown === 1 ? ' project' : ' projects');
+    }
+    if (emptyState) {
+      var activeButton = findFilterButton(normalized);
+      var activeLabel = activeButton && activeButton.firstChild
+        ? activeButton.firstChild.textContent.trim() : 'Selected service';
+      if (emptyLabel) emptyLabel.textContent = activeLabel;
+      emptyState.hidden = shown !== 0;
     }
     if (updateQuery && window.history && window.history.replaceState) {
       var url = new URL(window.location.href);
@@ -1690,7 +1746,7 @@ h1, h2, h3, h4, h5, h6,
   (function initPortfolioFilter() {
     var query = new URLSearchParams(location.search || '');
     var requested = (query.get('filter') || 'all').toLowerCase();
-    var target = document.querySelector('.pf-filter-btn[data-filter="' + requested + '"]');
+    var target = findFilterButton(requested);
     applyPortfolioFilter(target ? requested : 'all', false);
   })();
   // RA-PORTFOLIO-FILTERS:END
@@ -1729,6 +1785,6 @@ h1, h2, h3, h4, h5, h6,
 <script src="assets/js/analytics-events.js" defer></script>
 <script src="assets/js/analytics-events.js" defer></script>
 <!-- RA-REFRESH-2026:js -->
-<script src="/assets/js/ra-refresh-2026.js?v=20260817e" defer></script>
+<script src="/assets/js/ra-refresh-2026.js?v=20260817f" defer></script>
 </body>
 </html>

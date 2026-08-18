@@ -4,7 +4,7 @@
 
 **Implementation:** Codex primary, with independent Claude Opus adversarial review
 
-**Governing decisions:** Revelation Agency is the done-for-you Branding / Marketing / Sales operator; AI and automation are cross-cutting capabilities, not a fourth public pillar
+**Governing decisions:** Revelation Agency is the done-for-you Branding / Marketing / Sales Systems operator; AI Automation Systems remain a defined service inside the Sales Systems pillar
 **Publication authority:** Not granted. This report covers a local candidate only.
 
 ## 1. Repository and release boundary
@@ -70,7 +70,7 @@ to WebP. Their prompts, usage, byte sizes, and SHA-256 hashes are recorded in
 |---|---|
 | `branding-signal.webp` | Branding hub and four Branding leaves |
 | `marketing-signal.webp` | Marketing hub and four Marketing leaves |
-| `sales-signal.webp` | Sales hub and four Sales leaves |
+| `sales-signal.webp` | Sales Systems hub and four Sales Systems leaves |
 | `ai-automation-signal.webp` | AI & Automation cross-cutting hero |
 | `reveal-straight-answers.webp` | Reveal card and article hero |
 | `reveal-video-infrastructure.webp` | Reveal card and article hero |
@@ -147,17 +147,19 @@ Run from the repository root:
 
 ```powershell
 python scripts/build_2026_brand_assets.py
-python scripts/apply_2026_site_refresh.py
+python scripts/apply_2026_service_taxonomy.py
 python scripts/apply_2026_portfolio_taxonomy.py
+python scripts/apply_2026_site_refresh.py
 python scripts/build_routes_artifacts.py
 python scripts/write_vercel_and_sitemap.py
 python scripts/verify_integration_preservation.py
 python scripts/verify_2026_refresh.py --max-errors 0
+python scripts/verify_responsive_render_2026.py
 python scripts/run_tests.py
 python scripts/take_screenshots.py
 ```
 
-Both 2026 HTML rewriters are idempotent. A second run must report zero changed
+All three 2026 HTML rewriters are idempotent. A second run must report zero changed
 HTML, case-study, shelf, and proof files.
 
 Retired scripts that intentionally fail closed:

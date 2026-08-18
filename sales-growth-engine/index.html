@@ -1202,7 +1202,12 @@ html, body {
         --display-3: clamp(1rem, 4.2vw, 1.4rem);
     }
     .slide-header__right { display: none; }
-    .slide-header { padding: 0.6rem 0.9rem; }
+    .slide-header { padding: 0.6rem 0.9rem; gap: 0.45rem; min-width: 0; box-sizing: border-box; }
+    .slide-header__left { flex: 1 1 auto; min-width: 0; gap: 0.45rem; }
+    .slide-header__doc-sep { display: none; }
+    .brand-wordmark { flex: 0 1 auto; min-width: 0; gap: 0.25em; font-size: 0.5rem; letter-spacing: 0.08em; }
+    .slide-header__left > span:last-child { min-width: 0; font-size: 0.54rem; letter-spacing: 0.06em; line-height: 1.15; white-space: normal; }
+    .slide-header > span:last-child { flex: 0 0 auto; font-size: 0.54rem; letter-spacing: 0.06em; }
     .slide-footer { padding: 0.55rem 0.9rem; font-size: 0.54rem; }
     .cover-headline { font-size: clamp(2.4rem, 11vw, 3.2rem); }
     .cover-subline { font-size: clamp(0.85rem, 4vw, 1.1rem); }
@@ -1254,7 +1259,7 @@ html, body {
 @media print{.ra-goto-top{display:none !important;}}
 </style>
 <!-- RA-REFRESH-2026:css -->
-<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817e">
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817f">
 <meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta name="theme-color" content="#C91C1D">
 <!-- RA-REFRESH-2026:favicons -->
@@ -2367,6 +2372,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- RA-GOTO-TOP-END -->
 
 <!-- RA-REFRESH-2026:js -->
-<script src="/assets/js/ra-refresh-2026.js?v=20260817e" defer></script>
+<script src="/assets/js/ra-refresh-2026.js?v=20260817f" defer></script>
 </body>
 </html>

@@ -52,11 +52,22 @@ PILLAR_COPY = {
         "description": "SEO / AI Answers, Social Media, Digital Advertising, and Customer Nurture connected to a measurable next step.",
     },
     "Sales": {
-        "eyebrow": "Sales Proof",
+        "eyebrow": "Sales Systems Proof",
         "title": "Attention, moved toward revenue.",
         "description": "Outreach, Lead Gen Ads, CRMs / Sales Tools, and AI Automation Systems — built so demand has somewhere disciplined to go.",
     },
 }
+
+
+PILLAR_PUBLIC_LABEL = {
+    "Branding": "Branding",
+    "Marketing": "Marketing",
+    "Sales": "Sales Systems",
+}
+
+
+def public_pillar(pillar: str) -> str:
+    return PILLAR_PUBLIC_LABEL[pillar]
 
 
 def read(path: Path) -> str:
@@ -127,7 +138,7 @@ def add_visible_taxonomy(text: str, record: dict) -> str:
         raise ValueError("Missing case-study hero/meta")
 
     prefix = text[hero_start:meta_start]
-    pillar_label = " · ".join(record["pillars"])
+    pillar_label = " · ".join(public_pillar(pillar) for pillar in record["pillars"])
     prefix, count = re.subn(
         r'<span class="eyebrow">.*?</span>',
         f'<span class="eyebrow">Case Study · {html.escape(pillar_label)}</span>',
@@ -161,7 +172,8 @@ def add_case_jsonld(text: str, record: dict, route: str) -> str:
         "url": "https://www.revelationagency.com" + clean,
         "creator": {"@type": "Organization", "name": "Revelation Agency"},
         "about": [TAXONOMY[code] for code in record["disciplines"]],
-        "keywords": record["pillars"] + (["AI-enabled"] if record["aiAutomation"] else []),
+        "keywords": [public_pillar(pillar) for pillar in record["pillars"]]
+        + (["AI-enabled"] if record["aiAutomation"] else []),
     }
     block = (
         '<!-- RA-PORTFOLIO-TAXONOMY:jsonld -->\n'
@@ -257,18 +269,27 @@ def migrate_case_studies() -> int:
             '<span class="lbl">Creative</span><span class="val">Video-fed campaigns</span>',
             '<span class="lbl">Campaign Assets</span><span class="val">Video-fed campaigns</span>',
         )
+        # Two app case studies use a text-only gallery proof note instead of
+        # an image. Give that note a stable hook so long hostnames and CTAs
+        # wrap cleanly on narrow screens rather than being clipped by the
+        # gallery tile's overflow mask.
+        text = re.sub(
+            r'(<div class="cs-gallery__item cs-gallery__item--wide)(?="[^>]*>[^\n]*<code)',
+            r'\1 cs-gallery__item--proof-note',
+            text,
+        )
 
         # The former NMS "Systems" tab contains CRM, customer nurture,
-        # automation, and reporting. AI Automation Systems belongs to Sales.
+        # automation, and reporting. AI Automation Systems belongs to Sales Systems.
         text = re.sub(
-            r'(<a\b[^>]*href=["\']/portfolio/case-studies/net-metering-systems-strategy["\'][^>]*>)(?:Systems|Sales &amp; AI)(</a>)',
-            r'\1Sales\2',
+            r'(<a\b[^>]*href=["\']/portfolio/case-studies/net-metering-systems-strategy["\'][^>]*>)(?:Systems|Sales(?: &amp; AI| Systems)?)(</a>)',
+            r'\1Sales Systems\2',
             text,
             flags=re.I,
         )
         text = re.sub(
-            r'(<a\b[^>]*href=["\'][^"\']*net-metering-systems-strategy["\'][^>]*>.*?<div class="cs-cross__lbl">)(?:Systems|Sales &amp; AI)(</div>)',
-            r'\1Sales\2',
+            r'(<a\b[^>]*href=["\'][^"\']*net-metering-systems-strategy["\'][^>]*>.*?<div class="cs-cross__lbl">)(?:Systems|Sales(?: &amp; AI| Systems)?)(</div>)',
+            r'\1Sales Systems\2',
             text,
             flags=re.I | re.S,
         )
@@ -332,8 +353,8 @@ def migrate_master_cards(text: str) -> tuple[str, int]:
                 "background:url('/assets/img/portfolio/revelation-portal/thumbnail.png') center/cover no-repeat;",
                 "background:#1E1E1E url('/assets/brand/current/ra-mark-red.png') center/30% auto no-repeat;",
             )
-        label = " · ".join(record["pillars"])
-        thumbnail_label = " · ".join(record["pillars"]).upper()
+        label = " · ".join(public_pillar(pillar) for pillar in record["pillars"])
+        thumbnail_label = label.upper()
 
         def thumbnail_repl(bg_match: re.Match[str]) -> str:
             bg_opening = re.sub(
@@ -380,6 +401,16 @@ def update_filter_script(text: str) -> str:
   const filterBtns = document.querySelectorAll('.pf-filter-btn');
   const cards = document.querySelectorAll('.pf-card');
   const filterStatus = document.getElementById('pf-filter-status');
+  const emptyState = document.getElementById('pf-empty-state');
+  const emptyLabel = document.getElementById('pf-empty-label');
+
+  function findFilterButton(filter) {
+    var match = null;
+    filterBtns.forEach(function(button) {
+      if (!match && button.getAttribute('data-filter') === filter) match = button;
+    });
+    return match;
+  }
 
   function applyPortfolioFilter(filter, updateQuery) {
     var normalized = (filter || 'all').toLowerCase();
@@ -396,6 +427,13 @@ def update_filter_script(text: str) -> str:
     });
     if (filterStatus) {
       filterStatus.textContent = 'Showing ' + shown + (shown === 1 ? ' project' : ' projects');
+    }
+    if (emptyState) {
+      var activeButton = findFilterButton(normalized);
+      var activeLabel = activeButton && activeButton.firstChild
+        ? activeButton.firstChild.textContent.trim() : 'Selected service';
+      if (emptyLabel) emptyLabel.textContent = activeLabel;
+      emptyState.hidden = shown !== 0;
     }
     if (updateQuery && window.history && window.history.replaceState) {
       var url = new URL(window.location.href);
@@ -414,7 +452,7 @@ def update_filter_script(text: str) -> str:
   (function initPortfolioFilter() {
     var query = new URLSearchParams(location.search || '');
     var requested = (query.get('filter') || 'all').toLowerCase();
-    var target = document.querySelector('.pf-filter-btn[data-filter="' + requested + '"]');
+    var target = findFilterButton(requested);
     applyPortfolioFilter(target ? requested : 'all', false);
   })();
   // RA-PORTFOLIO-FILTERS:END"""
@@ -445,6 +483,11 @@ def add_filter_styles(text: str) -> str:
 .pf-filter-btn--service{font-size:12px;letter-spacing:.01em;text-transform:none;padding:9px 13px;}
 .pf-filter-count{font-variant-numeric:tabular-nums;opacity:.68;margin-left:4px;}
 .pf-filter-status{font-size:12px;color:rgba(43,43,43,.62);text-align:center;margin:18px 0 0;}
+.pf-empty-state{max-width:720px;margin:32px auto 0;padding:clamp(24px,5vw,42px);border:1px solid rgba(201,28,29,.2);border-radius:22px;background:linear-gradient(145deg,#fff 0%,#f8f4f1 100%);text-align:center;box-shadow:0 18px 50px rgba(18,18,18,.07);}
+.pf-empty-state[hidden]{display:none!important;}
+.pf-empty-state__eyebrow{display:block;margin-bottom:10px;color:var(--red);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;}
+.pf-empty-state h2{margin:0 0 10px;font-size:clamp(24px,4vw,38px);line-height:1.05;}
+.pf-empty-state p{max-width:54ch;margin:0 auto 20px;color:rgba(43,43,43,.68);line-height:1.65;}
 @media (max-width:900px){.pf-service-filters{grid-template-columns:1fr;max-width:620px;}}
 @media (max-width:520px){.pf-service-filter-group{padding:13px}.pf-filter-btn--service{font-size:11px;padding:8px 11px}}
 /* RA-PORTFOLIO-SERVICE-FILTERS:END */"""
@@ -474,7 +517,7 @@ def build_filter_section() -> str:
         f'<button class="pf-filter-btn is-active" data-filter="all" aria-pressed="true">All Work <span class="pf-filter-count">{len(MASTER_CARDS)}</span></button>'
     ]
     pillar_buttons.extend(
-        f'<button class="pf-filter-btn" data-filter="{pillar.lower()}" aria-pressed="false">{pillar} <span class="pf-filter-count">{pillar_counts[pillar.lower()]}</span></button>'
+        f'<button class="pf-filter-btn" data-filter="{pillar.lower()}" aria-pressed="false">{public_pillar(pillar)} <span class="pf-filter-count">{pillar_counts[pillar.lower()]}</span></button>'
         for pillar in PILLAR_COPY
     )
 
@@ -487,7 +530,7 @@ def build_filter_section() -> str:
         )
         service_groups.append(
             f'''<div class="pf-service-filter-group" data-service-pillar="{pillar.lower()}">
-        <div class="pf-service-filter-group__title">{pillar}</div>
+        <div class="pf-service-filter-group__title">{public_pillar(pillar)}</div>
         <div class="pf-service-filter-group__buttons">
           {buttons}
         </div>
@@ -504,6 +547,12 @@ def build_filter_section() -> str:
       {chr(10).join(service_groups)}
     </div>
     <p class="pf-filter-status" id="pf-filter-status" aria-live="polite">Showing {len(MASTER_CARDS)} projects</p>
+    <div class="pf-empty-state" id="pf-empty-state" aria-live="polite" hidden>
+      <span class="pf-empty-state__eyebrow">Proof inventory</span>
+      <h2><span id="pf-empty-label">Selected service</span> work is not published yet.</h2>
+      <p>There is no public case study in this filter yet. The service is available; ask us for the most relevant private example.</p>
+      <a class="btn btn--primary" href="/contact">Ask about this service <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+    </div>
   </div>
 </section>'''
 
@@ -579,7 +628,7 @@ def build_pillar_section(pillar: str, cards: dict[str, str]) -> str:
       {chr(10).join(selected)}
     </div>
     <div class="ra-portfolio-shelf__footer">
-      <a href="/portfolio?filter={pillar.lower()}" class="btn btn--outline">Open the filtered proof index <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="/portfolio?filter={pillar.lower()}" class="btn btn--outline">Open the filtered {public_pillar(pillar)} proof index <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>"""
@@ -593,6 +642,11 @@ def populate_pillar_hubs(portfolio_text: str) -> int:
         original = read(path)
         text = original
         copy = PILLAR_COPY[pillar]
+        if pillar == "Sales":
+            text = text.replace("Sales Work", "Sales Systems Work")
+            text = text.replace("Sales work.", "Sales Systems work.")
+            text = re.sub(r"Portfolio · Sales(?! Systems)", "Portfolio · Sales Systems", text)
+            text = re.sub(r"Portfolio &middot; Sales(?! Systems)", "Portfolio &middot; Sales Systems", text)
         text, hero_count = re.subn(
             r'(<section class="p-hero">.*?<h1>.*?</h1>\s*<p class="lead">).*?(</p>)',
             rf"\g<1>{copy['description']}\g<2>",

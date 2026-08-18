@@ -19,13 +19,13 @@ Deployed via Vercel from the `main` branch.
 ```
 
 The canonical service IA is fixed at 5 Branding leaves, 4 Marketing leaves,
-and 4 Sales leaves:
+and 4 Sales Systems leaves:
 
 - Branding: `websites-landing-pages`, `apps-digital-products`,
   `brand-strategy-identity`, `video-visual-content`, `design`
 - Marketing: `seo-ai-visibility`, `social-media`,
   `email-lifecycle-marketing`, `digital-ads`
-- Sales: `lead-generation-outreach`, `crm-sales-infrastructure`,
+- Sales Systems: `lead-generation-outreach`, `crm-sales-infrastructure`,
   `lead-gen-ads`, `ai-automation-systems`
 
 Superseded service files may remain in the checkout for redirect continuity,
@@ -72,12 +72,14 @@ The supported deterministic pipeline is:
 
 ```bash
 python scripts/build_2026_brand_assets.py
-python scripts/apply_2026_site_refresh.py
+python scripts/apply_2026_service_taxonomy.py
 python scripts/apply_2026_portfolio_taxonomy.py
+python scripts/apply_2026_site_refresh.py
 python scripts/build_routes_artifacts.py
 python scripts/write_vercel_and_sitemap.py
 python scripts/verify_integration_preservation.py
 python scripts/verify_2026_refresh.py --max-errors 0
+python scripts/verify_responsive_render_2026.py
 python scripts/run_tests.py
 ```
 
@@ -87,7 +89,7 @@ editorial visuals, generation prompts, usage notes, and SHA-256 hashes live in
 `assets/data/portfolio-taxonomy-2026.json`; do not hand-edit generated pillar
 shelves.
 
-Both HTML rewriters are idempotent and must report zero changed files on a
+All three HTML rewriters are idempotent and must report zero changed files on a
 second run. Superseded page authors fail closed so they cannot restore the old
 identity, Systems / Creative taxonomy, or `.html` URL contract.
 

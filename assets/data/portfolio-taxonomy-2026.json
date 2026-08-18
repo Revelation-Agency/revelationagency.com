@@ -19,7 +19,8 @@
     "caseStudyRecords": 68,
     "masterPortfolioCardRecords": 21,
     "totalRecords": 89,
-    "architecture": "Branding: Websites, Apps, Brand Identity, Design, Video. Marketing: SEO / AI Answers, Social Media, Digital Advertising, Customer Nurture. Sales: Outreach, Lead Gen Ads, CRMs / Sales Tools, AI Automation Systems. aiAutomation is implementation metadata and does not create another public pillar."
+    "architecture": "Branding: Websites, Apps, Brand Identity, Design, Video. Marketing: SEO / AI Answers, Social Media, Digital Advertising, Customer Nurture. Sales Systems: Outreach, Lead Gen Ads, CRMs / Sales Tools, AI Automation Systems. Internal Sales membership and the sales route token remain stable for compatibility. aiAutomation is implementation metadata and does not create another public pillar.",
+    "publicPillarLabels": {"Branding":"Branding","Marketing":"Marketing","Sales":"Sales Systems"}
   },
   "caseStudiesByRoute": {
     "/portfolio/case-studies/ams-energy-solutions-branding.html": {"route":"/portfolio/case-studies/ams-energy-solutions-branding.html","project":"AMS Energy Solutions","pageKind":"caseStudyDiscipline","primaryDiscipline":"B3","disciplines":["B3","B4"],"pillars":["Branding"],"aiAutomation":false,"mappingRationale":"Audited route evidence maps this case study to B3 Brand Identity, and B4 Design."},

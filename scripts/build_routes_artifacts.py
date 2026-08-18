@@ -19,7 +19,8 @@ CANON = "https://www.revelationagency.com"
 # Creative -> Branding
 # Marketing -> Marketing (mostly retained)
 # The corrected public service architecture is exactly 5 Branding leaves,
-# 4 Marketing leaves, and 4 Sales leaves. AI & Automation is a Sales service,
+# 4 Marketing leaves, and 4 Sales Systems leaves. AI Automation Systems is a
+# Sales Systems service,
 # not a fourth/cross-cutting canonical route.
 
 # For every legacy sitemap URL, we produce a disposition record.
