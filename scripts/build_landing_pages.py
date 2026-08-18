@@ -510,6 +510,11 @@ def render_page(agent_id: str, cfg: dict, niche_id: str | None = None) -> str:
 
 
 def main():
+    raise SystemExit(
+        "DEPRECATED: this builder predates the user-supplied 2026 identity and clean-URL rules. "
+        "Use apply_2026_site_refresh.py for the current shared shell; update this template "
+        "contract explicitly before generating any new landing page."
+    )
     written = []
     for agent_id, cfg in PAGE_CONFIGS.items():
         # Base page

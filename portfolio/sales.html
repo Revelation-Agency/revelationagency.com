@@ -3,28 +3,26 @@
 <head>
 <meta charset="utf-8">
   <!-- RA-PWA-HEAD:start -->
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.webmanifest">
+
+
+<link rel="manifest" href="/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Revelation">
-  <meta name="theme-color" content="#D72532">
   <!-- RA-PWA-HEAD:end -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sales Work — Revelation Agency Portfolio</title>
 <meta name="description" content="Selected sales case studies from Revelation Agency.">
-<link rel="canonical" href="https://www.revelationagency.com/portfolio/sales.html">
+<link rel="canonical" href="https://www.revelationagency.com/portfolio/sales">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Revelation Agency">
 <meta property="og:title" content="Sales Work — Revelation Agency Portfolio">
 <meta property="og:description" content="Selected sales case studies from Revelation Agency.">
-<meta property="og:url" content="https://www.revelationagency.com/portfolio/sales.html">
-<meta property="og:image" content="https://www.revelationagency.com/assets/img/og-share.svg">
+<meta property="og:url" content="https://www.revelationagency.com/portfolio/sales">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preload" as="font" type="font/woff2" href="../assets/webfonts/Orbitron-VF.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/Orbitron-VF.woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap">
@@ -33,7 +31,7 @@
 @font-face { font-family: 'Orbitron'; src: url('../assets/webfonts/Orbitron-VF.woff2') format('woff2'); font-weight: 400 900; font-style: normal; font-display: swap; }
 
 :root {
-  --red: #D72532; --red-deep: #AD1C24; --red-dark: #840D11;
+  --red: #C91C1D; --red-deep: #9E1115; --red-dark: #780A0E;
   --charcoal: #2B2B2B; --black: #181818; --off-black: #1E1E1E;
   --grey-light: #F7F7F5; --grey-mid: #EDECE9; --white: #FFFFFF;
   --font-head: 'Bebas Neue', 'Orbitron', sans-serif;
@@ -55,7 +53,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 
 .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 36px; border-radius: var(--btn-radius); border: none; cursor: pointer; transition: transform .25s var(--ease-out), background .25s, box-shadow .25s; text-decoration: none; position: relative; overflow: hidden; }
 .btn--primary { background: var(--red); color: var(--white); }
-.btn--primary:hover { background: var(--red-deep); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(215,37,50,0.4); }
+.btn--primary:hover { background: var(--red-deep); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,28,29,0.4); }
 .btn--outline { background: transparent; color: var(--charcoal); border: 1.5px solid rgba(43,43,43,0.3); }
 .btn--outline:hover { border-color: var(--charcoal); background: var(--charcoal); color: var(--white); }
 .btn--white { background: var(--white); color: var(--charcoal); }
@@ -80,7 +78,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 
 .p-leaves { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 .p-leaf { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; transition: transform .25s var(--ease-out), box-shadow .25s, border-color .25s; }
-.p-leaf:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0,0,0,0.08); border-color: rgba(215,37,50,0.4); }
+.p-leaf:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0,0,0,0.08); border-color: rgba(201,28,29,0.4); }
 .p-leaf__num { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); }
 .p-leaf h3 { font-size: 22px; }
 .p-leaf p { font-size: 15px; color: #555; line-height: 1.6; }
@@ -108,75 +106,87 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 }
 </style>
 <!-- RA-NAV-FOOTER-CSS:start -->
-<link rel="stylesheet" href="../assets/css/ra-nav-footer.css">
+<link rel="stylesheet" href="/assets/css/ra-nav-footer.css">
 <!-- RA-NAV-FOOTER-CSS:end -->
+<link rel="stylesheet" href="/assets/css/portfolio-cards-v3.css">
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 <body>
 
 <!-- RA-NAV-CANONICAL-START -->
 <nav class="ra-nav" id="ra-nav">
   <div class="ra-nav__inner">
-    <a href="../index.html" class="ra-nav__logo" aria-label="Revelation Agency">
-      <img src="../assets/brand/approved/ra-landscape-black-updated.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
+    <a href="/" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="/assets/brand/current/ra-mark-red.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
     </a>
 
     <ul class="ra-nav__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
       <li class="has-drop">
-        <a href="../services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
           <li class="has-drop-l3">
-            <a href="../services/branding/index.html">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/branding">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/branding/brand-strategy-identity.html">Brand Strategy &amp; Identity</a></li>
-              <li><a href="../services/branding/websites-landing-pages.html">Websites &amp; Landing Pages</a></li>
-              <li><a href="../services/branding/apps-digital-products.html">Apps &amp; Digital Products</a></li>
-              <li><a href="../services/branding/video-visual-content.html">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="../services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/marketing">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/marketing/seo-ai-visibility.html">SEO &amp; AI Visibility</a></li>
-              <li><a href="../services/marketing/positioning-content-authority.html">Positioning, Content &amp; Authority</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/email-lifecycle-marketing.html">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="../services/sales/index.html">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/sales/lead-generation-outreach.html">Lead Generation &amp; Outreach</a></li>
-              <li><a href="../services/sales/crm-sales-infrastructure.html">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="../services/sales/follow-up-nurture.html">Follow-up &amp; Nurture</a></li>
-              <li><a href="../services/sales/conversion-advertising.html">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
-          <li><a href="../services/ai-automation.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
+          <li><a href="/services/ai-automation" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
         </ul>
       </li>
-      <li><a href="../the-reveal/index.html">The Reveal</a></li>
+      <li><a href="/the-reveal">The Reveal</a></li>
       <li class="has-drop">
-        <a href="../portfolio.html" class="is-current">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/portfolio" class="is-current">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li><a href="../portfolio/branding.html">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio/sales.html">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
+          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
         </ul>
       </li>
-      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
 
     <div class="ra-nav__right">
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Book a Call</a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Start Here</a>
     </div>
 
     <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -215,19 +225,131 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
       <h1>Sales work.</h1>
       <p class="lead">Lead generation, CRM infrastructure, follow-up, and conversion advertising.</p>
       <div class="p-hero__cta">
-        <a href="../portfolio.html?filter=sales" class="btn btn--primary" data-cta="primary" data-cta-placement="portfolio-pillar-hero">See Sales Case Studies <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="../booking.html" class="btn btn--ghost-dark" data-cta="secondary" data-cta-placement="portfolio-pillar-hero" data-booking-open="1">Book a Free Strategy Session</a>
+        <a href="/portfolio?filter=sales" class="btn btn--primary" data-cta="primary" data-cta-placement="portfolio-pillar-hero">See Sales Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="/booking" class="btn btn--ghost-dark" data-cta="secondary" data-cta-placement="portfolio-pillar-hero" data-booking-open="1">Start a Growth Conversation</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="p-section">
+<section class="p-section ra-portfolio-shelf" data-ra-portfolio-shelf="sales">
   <div class="container">
-    <div class="eyebrow">Every Card Is Factual</div>
-    <h2>What we built. What we shipped. Who it was for.</h2>
-    <p class="lead">Case studies here describe the work delivered. Outcome numbers (CPL, conversion, revenue) only appear when we have a signed proof record from the client — otherwise we describe the system we built and skip the number.</p>
-    <a href="../portfolio.html?filter=sales" class="btn btn--outline" data-cta="secondary" data-cta-placement="portfolio-pillar-body">Browse the full Sales shelf <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="eyebrow">Sales Proof · 12 Projects</div>
+    <h2>Attention, moved toward revenue.</h2>
+    <p class="lead">Lead generation, CRM, nurture, and conversion infrastructure — built so demand has somewhere disciplined to go. Cross-pillar projects appear everywhere they carry evidence.</p>
+    <div class="pf-grid">
+      <a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/el-camino-del-mar" data-pillars="branding sales" data-disciplines="B4 S1 S2 S3 S4" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/el-camino-del-mar/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">El Camino Del Mar</h3>
+            <p class="pf-card__desc">Real estate development launch &mdash; video production, paid social campaigns, and GoHighLevel routing to on-site sales.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/evergreen-island" data-pillars="branding sales" data-disciplines="B4 S1 S2 S3 S4" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/evergreen-island/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Evergreen Island</h3>
+            <p class="pf-card__desc">Event venue acquisition &mdash; paid social campaign, venue tour video, and GoHighLevel booking automation.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/highlands-energy" data-pillars="branding marketing sales" data-disciplines="B4 M2 S1 S2 S4" data-ai="false">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/highlands-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Highlands Energy</h3>
+            <p class="pf-card__desc">PG&amp;E ISA contractor &mdash; flagship authority video produced for Highlands, then run as an ad.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/infinite-heating-cooling" data-pillars="branding sales" data-disciplines="B1 B2 S4" data-ai="false">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/infinite-heating-cooling/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES"></div>
+          <span class="pf-card__label">Branding · Sales</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Infinite Heating &amp; Cooling</h3>
+            <p class="pf-card__desc">Brand identity, custom website, and seasonal HVAC ad campaigns for the HVAC division of Infinite Home Solutions.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/infinite-roofing-solutions" data-pillars="branding marketing sales" data-disciplines="B1 B2 B4 M2 S1 S2 S4" data-ai="false">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/infinite-roofing-solutions/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Infinite Roofing Solutions</h3>
+            <p class="pf-card__desc">Complete digital system &mdash; website, 23+ videos, ads, GHL automation, and sales consulting.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/net-metering-systems" data-pillars="branding marketing sales" data-disciplines="B2 B4 M1 M2 M3 S1 S2 S3 S4" data-ai="true">
+        <div class="pf-card__bg" style="background:url('/assets/img/portfolio/net-metering-systems/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES · AI"></div>
+        <span class="pf-card__label">Branding · Marketing · Sales · AI-enabled</span>
+        <span class="pf-card__status">Case Study</span>
+        <div class="pf-card__body">
+          <h3>Net Metering Systems</h3>
+          <p>Full-stack growth system &mdash; website, video, ads &amp; automation for a Clovis solar company.</p>
+        </div>
+      </a>
+<a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/reservwise" data-pillars="branding sales" data-disciplines="B1 B2 B3 S2 S3" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/reservwise/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">ReservWise</h3>
+            <p class="pf-card__desc">Revelation-owned AI reservation platform &mdash; brand, marketing site, app, support, and sales infrastructure shipped together.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/revelation-portal" data-pillars="branding sales" data-disciplines="B3 S2" data-ai="true">
+          <div class="pf-card__bg" style="background:#1E1E1E url('/assets/brand/current/ra-mark-red.png') center/30% auto no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Sales · AI-enabled</span>
+          <span class="pf-card__status">In-House</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Revelation Portal</h3>
+            <p class="pf-card__desc">The agency operations platform we built and run ourselves &mdash; clients, pipeline, AI intake, Hermes communication layer, GHL + Notion integration.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding sales" href="/portfolio/case-studies/risen-sun-solar-roofing" data-pillars="branding sales" data-disciplines="B1 B2 S1 S2 S3" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/risen-sun-solar-roofing/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Risen Sun Solar &amp; Roofing</h3>
+            <p class="pf-card__desc">Revelation-built solar + roofing company &mdash; full brand identity, custom React/Vite site, and complete GHL stack.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/the-whole-vine" data-pillars="branding marketing sales" data-disciplines="B2 B4 M3 S1 S4" data-ai="false">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/the-whole-vine/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">The Whole Vine Festival</h3>
+            <p class="pf-card__desc">Annual Fresno State festival &mdash; 2-year marketing partnership across website, video, paid ads, and social.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/trust-energy" data-pillars="branding marketing sales" data-disciplines="B1 B3 B4 M2 M3 S1 S2 S3 S4" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/trust-energy/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Trust Energy</h3>
+            <p class="pf-card__desc">Multi-year flagship engagement &mdash; brand, video, paid social, GoHighLevel automation, training portal, and call-center infrastructure.</p>
+          </div>
+        </a>
+<a class="pf-card fade-up" data-cat="branding marketing sales" href="/portfolio/case-studies/wealth-coach-360" data-pillars="branding marketing sales" data-disciplines="B1 B2 B3 M4 S2 S3" data-ai="true">
+          <div class="pf-card__bg" style="background:url('/assets/img/portfolio/wealth-coach-360/thumbnail.png') center/cover no-repeat;opacity:1;" data-taxonomy="BRANDING · MARKETING · SALES · AI"></div>
+          <span class="pf-card__label">Branding · Marketing · Sales · AI-enabled</span>
+          <span class="pf-card__status">Case Study</span>
+          <div class="pf-card__body">
+            <h3 class="pf-card__title">Wealth Coach 360</h3>
+            <p class="pf-card__desc">Bill Gerard's flagship &mdash; 60+ video E-course platform, paywall, full GHL automation, community, and outsourced marketing.</p>
+          </div>
+        </a>
+    </div>
+    <div class="ra-portfolio-shelf__footer">
+      <a href="/portfolio?filter=sales" class="btn btn--outline">Open the filtered proof index <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
   </div>
 </section>
 
@@ -237,9 +359,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
     <div class="ra-footer__inner">
       <div class="ra-footer__brand">
         <div class="ra-footer__logo">
-          <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+          <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
-        <p>Your strategic growth partner. We build the machine behind growth &mdash; so you can stop selling chaos and start scaling clarity.</p>
+        <p>We run Branding, Marketing, and Sales as one connected growth system &mdash; and make the receipts visible.</p>
         <div class="ra-footer__tagline">Branding. Marketing. Sales.</div>
         <div class="ra-footer__social">
           <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -258,30 +380,30 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
         <h5>Services</h5>
         <ul class="ra-footer__svc">
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/branding/index.html">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
+            <a class="ra-footer__svc-parent" href="/services/branding">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/branding/brand-strategy-identity.html">Brand Strategy &amp; Identity</a></li>
-              <li><a href="../services/branding/websites-landing-pages.html">Websites &amp; Landing Pages</a></li>
-              <li><a href="../services/branding/apps-digital-products.html">Apps &amp; Digital Products</a></li>
-              <li><a href="../services/branding/video-visual-content.html">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/marketing/index.html">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
+            <a class="ra-footer__svc-parent" href="/services/marketing">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/marketing/seo-ai-visibility.html">SEO &amp; AI Visibility</a></li>
-              <li><a href="../services/marketing/positioning-content-authority.html">Positioning, Content &amp; Authority</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/email-lifecycle-marketing.html">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/sales/index.html">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/sales/lead-generation-outreach.html">Lead Generation &amp; Outreach</a></li>
-              <li><a href="../services/sales/crm-sales-infrastructure.html">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="../services/sales/follow-up-nurture.html">Follow-up &amp; Nurture</a></li>
-              <li><a href="../services/sales/conversion-advertising.html">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
         </ul>
@@ -290,28 +412,30 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
       <div class="ra-footer__nav">
         <h5>Connect</h5>
         <ul>
-          <li><a href="../the-reveal/index.html">The Reveal</a></li>
-          <li><a href="../portfolio.html">Portfolio</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/the-reveal">The Reveal</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="tel:+15592017039">(559) 201-7039</a></li>
           <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
         </ul>
       </div>
 
       <div class="ra-footer__cta">
-        <h4>Ready to build the machine behind growth?</h4>
-        <p>Book a free strategy session. We'll audit what you have, name what's missing, and prescribe the smallest next step.</p>
-        <a href="../booking.html" class="btn btn--primary" style="width:100%; justify-content:center;">Book a Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+        <h4>Ready to connect your growth system?</h4>
+        <p>Bring the constraint. We'll read the connected system, name the highest-leverage next move, and be direct about fit.</p>
+        <a href="/booking" class="btn btn--primary" style="width:100%; justify-content:center;">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
       </div>
     </div>
 
     <div class="ra-footer__bottom">
-      <p class="ra-footer__copyright">&copy; 2026 <a href="../index.html">Revelation Agency</a>. Branding. Marketing. Sales.</p>
+      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales.</p>
     </div>
   </div>
 </footer>
 <!-- RA-FOOTER-CANONICAL-END -->
 
 <script src="../assets/js/analytics-events.js" defer></script>
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>

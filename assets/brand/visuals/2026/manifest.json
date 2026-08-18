@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-17",
+  "generator": "OpenAI ImageGen via Codex built-in image generation",
+  "artDirection": "Revelation Signals: near-black, off-white, and restrained #C91C1D editorial systems imagery",
+  "webOptimization": "1672x941 source output converted to WebP quality 90 with Pillow",
+  "assets": [
+    {
+      "path": "assets/brand/visuals/2026/branding-signal.webp",
+      "sha256": "c61214ce93d8636d53435c263fccf7f371b5a8b59c9a08e3cbcffb844575a833",
+      "usage": "Branding pillar hub and four Branding service leaves",
+      "prompt": "Premium cinematic widescreen editorial brand-system still life with matte-black architectural forms, off-white paper, translucent glass, restrained #C91C1D accents, right-side focal detail, and dark left-side headline space; no people, text, logos, marks, watermarks, fake UI, arrows, or stock-photo cliches."
+    },
+    {
+      "path": "assets/brand/visuals/2026/marketing-signal.webp",
+      "sha256": "85cca9654d4ba35c98c29e2ad612291ee1ebf1ed314c389062fddf0f537f3870",
+      "usage": "Marketing pillar hub and four Marketing service leaves",
+      "prompt": "Premium cinematic widescreen attention-and-authority signal system using translucent editorial panels, precision rails, luminous points, wave traces, and one clear #C91C1D signal; right-side focal detail and dark left-side headline space; no people, text, logos, dashboards, arrows, funnels, megaphones, or social icons."
+    },
+    {
+      "path": "assets/brand/visuals/2026/sales-signal.webp",
+      "sha256": "1161002b6c86077ffa2e25bbba19bda665790f07ddd8db43bd3dfa8982fe9a64",
+      "usage": "Sales pillar hub and four Sales service leaves",
+      "prompt": "Premium cinematic widescreen connected revenue handoff system made from machined dark metal channels, glass gates, linked nodes, and one controlled #C91C1D current; right-side focal detail and dark left-side headline space; no people, text, logos, funnels, arrows, coins, handshakes, dashboards, or charts."
+    },
+    {
+      "path": "assets/brand/visuals/2026/ai-automation-signal.webp",
+      "sha256": "7f23b678f8d32e26b2d6a4f3e920279ec51122f523d2b479a68d17331292d0a0",
+      "usage": "AI and Automation cross-cutting service hero",
+      "prompt": "Premium cinematic widescreen governed human-in-the-loop automation architecture using dark glass decision chambers, luminous nodes, clear checkpoints, and a restrained #C91C1D signal; right-side focal detail and dark left-side headline space; no people, robots, brains, text, logos, binary code, fake UI, or cyberpunk cliches."
+    },
+    {
+      "path": "assets/brand/visuals/2026/reveal-straight-answers.webp",
+      "sha256": "44fbdc859f408c9e1e3c57d96af80eb8077e004448bd4deb8e2f805b528eb089",
+      "usage": "The Reveal Straight Answers card and article hero",
+      "prompt": "Premium cinematic editorial cover with one precise #C91C1D beam cutting through layered matte-black architectural planes toward a clean off-white opening, expressing clarity through complexity; no people, text, letters, question marks, logos, icons, or watermarks."
+    },
+    {
+      "path": "assets/brand/visuals/2026/reveal-video-infrastructure.webp",
+      "sha256": "5165706a017064a1c329a9c896810f0d56c195fab39d42e13893733ecfc38088",
+      "usage": "The Reveal video-infrastructure card and article hero",
+      "prompt": "Premium cinematic editorial cover showing modular production-light infrastructure with dark machined rig geometry, optical glass, and a white beam becoming a restrained #C91C1D signal; no people, text, logos, play buttons, film-strip icons, fake UI, or stock film-crew imagery."
+    }
+  ]
+}

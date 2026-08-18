@@ -883,5 +883,8 @@ def build_all():
 
 
 if __name__ == "__main__":
-    build_all()
-    print("done")
+    raise SystemExit(
+        "DEPRECATED: this builder predates the user-supplied 2026 identity, clean URLs, "
+        "and canonical portfolio taxonomy. Run apply_2026_site_refresh.py and "
+        "apply_2026_portfolio_taxonomy.py instead."
+    )

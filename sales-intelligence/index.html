@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Revelation Agency — Sales Intelligence Capabilities</title>
 <meta name="description" content="The Sales Intelligence program from Revelation Agency — an Operations Manager for the owner, an Executive Assistant for every rep. Pipeline visibility, automated follow-up, and AI-assisted sales infrastructure that scales without adding headcount.">
-<link rel="canonical" href="https://www.revelationagency.com/sales-intelligence/">
+<link rel="canonical" href="https://www.revelationagency.com/sales-intelligence">
 
 <!-- Open Graph / Social Preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.revelationagency.com/sales-intelligence">
 <meta property="og:title" content="Sales Intelligence — Revelation Agency">
 <meta property="og:description" content="An Operations Manager for the owner. An Executive Assistant for every rep. The Sales Intelligence program from Revelation Agency.">
-<meta property="og:image" content="https://proposals.revelationagency.com/assets/proposal-og-preview.png">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Revelation Agency">
@@ -30,9 +30,9 @@
    REVELATION DESIGN SYSTEM v1.0 — TOKENS
    =========================================== */
 :root {
-    --red: #D72532;
-    --red-deep: #AD1C24;
-    --red-dark: #840D11;
+    --red: #C91C1D;
+    --red-deep: #9E1115;
+    --red-dark: #780A0E;
     --charcoal: #2B2B2B;
     --off-black: #1E1E1E;
     --grey-light: #F7F7F5;
@@ -233,7 +233,7 @@ html, body {
 .cover-logo-mark {
     height: clamp(48px, 6vw, 80px); width: auto; display: block;
     margin-bottom: clamp(0.4rem, 0.8vw, 0.8rem);
-    filter: drop-shadow(0 0 24px rgba(215,37,50,0.25));
+    filter: drop-shadow(0 0 24px rgba(201,28,29,0.25));
 }
 .cover-headline {
     font-family: var(--font-display); font-weight: 900;
@@ -510,7 +510,7 @@ html, body {
 .vis-card::after {
     content: ''; position: absolute;
     inset: 0; pointer-events: none;
-    background: radial-gradient(circle at top right, rgba(215,37,50,0.18), transparent 55%);
+    background: radial-gradient(circle at top right, rgba(201,28,29,0.18), transparent 55%);
     opacity: 0.7;
 }
 .vis-card > * { position: relative; z-index: 1; }
@@ -539,7 +539,7 @@ html, body {
     background: var(--red);
     border-radius: 2px;
     position: relative;
-    box-shadow: 0 0 12px rgba(215,37,50,0.45);
+    box-shadow: 0 0 12px rgba(201,28,29,0.45);
 }
 .vis-bar--small { width: 22%; }
 .vis-bar--big   { width: 100%; }
@@ -846,14 +846,14 @@ html, body {
     font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     letter-spacing: 0.18em; text-transform: uppercase;
     border-radius: var(--radius-asym);
-    box-shadow: 0 10px 28px rgba(215,37,50,0.4);
+    box-shadow: 0 10px 28px rgba(201,28,29,0.4);
     transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     width: 100%;
     text-align: center;
 }
 .close-cta-btn:hover {
     background: var(--red-deep); transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(215,37,50,0.55);
+    box-shadow: 0 14px 36px rgba(201,28,29,0.55);
 }
 .close-cta-btn__arrow { font-weight: 900; transition: transform 0.25s ease; }
 .close-cta-btn:hover .close-cta-btn__arrow { transform: translateX(5px); }
@@ -915,15 +915,15 @@ html, body {
     letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
     min-height: 44px; min-width: 100px;
     user-select: none; -webkit-tap-highlight-color: transparent;
-    box-shadow: 0 2px 8px rgba(215,37,50,0.35);
+    box-shadow: 0 2px 8px rgba(201,28,29,0.35);
 }
 .deck-ribbon__btn:hover:not([disabled]) {
     background: var(--red-deep); transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(215,37,50,0.5);
+    box-shadow: 0 4px 12px rgba(201,28,29,0.5);
 }
 .deck-ribbon__btn:active:not([disabled]) { transform: translateY(0); }
 .deck-ribbon__btn[disabled] {
-    background: rgba(215,37,50,0.25); color: rgba(255,255,255,0.4);
+    background: rgba(201,28,29,0.25); color: rgba(255,255,255,0.4);
     cursor: default; box-shadow: none;
 }
 .deck-ribbon__progress {
@@ -1053,8 +1053,8 @@ html, body {
     to   { offset-distance: 100%; }
 }
 @keyframes hubGlow {
-    0%, 100% { filter: drop-shadow(0 0 4px rgba(215,37,50,0.4)); }
-    50%      { filter: drop-shadow(0 0 12px rgba(215,37,50,0.9)); }
+    0%, 100% { filter: drop-shadow(0 0 4px rgba(201,28,29,0.4)); }
+    50%      { filter: drop-shadow(0 0 12px rgba(201,28,29,0.9)); }
 }
 @keyframes wallFlow {
     0%   { opacity: 0; transform: translateY(-6px); }
@@ -1078,17 +1078,17 @@ html, body {
 .hub-graphic .hub-node:nth-of-type(3) { animation-delay: 2s; }
 .ra-goto-top{position:fixed;right:20px;bottom:20px;z-index:990;
   width:48px;height:48px;border-radius:50%;
-  background:var(--red,#ED1C24);color:#fff;border:0;
+  background:var(--red,#ED2A31);color:#fff;border:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
-  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(237,42,49,0.32),0 4px 10px rgba(0,0,0,0.15);
   font-size:16px;line-height:1;
   -webkit-tap-highlight-color:transparent;
 }
 .ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
 @media (max-width:720px){
@@ -1096,6 +1096,15 @@ html, body {
 }
 @media print{.ra-goto-top{display:none !important;}}
 </style>
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 <body>
 
@@ -1111,7 +1120,7 @@ html, body {
 
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
-            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+            <img class="brand-logo-img" src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
         <div class="slide-header__right">
             <span class="slide-header__doc-sep"></span>
@@ -1320,7 +1329,7 @@ html, body {
                         </g>
 
                         <!-- Connector lines input → center, dashed red -->
-                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                        <g stroke="#C91C1D" stroke-width="1.5" fill="none" opacity="0.5">
                             <path id="sysPath1" d="M100,120 Q200,160 280,230" stroke-dasharray="3 4"/>
                             <path id="sysPath2" d="M100,220 L268,230" stroke-dasharray="3 4"/>
                             <path id="sysPath3" d="M100,320 Q200,290 280,232" stroke-dasharray="3 4"/>
@@ -1328,9 +1337,9 @@ html, body {
 
                         <!-- Central system node — bigger, with subtitle inside -->
                         <g transform="translate(310,230)">
-                            <circle r="68" fill="none" stroke="#D72532" stroke-width="1.5" opacity="0.25"/>
-                            <circle r="76" fill="none" stroke="#D72532" stroke-width="1" opacity="0.12"/>
-                            <circle r="58" fill="#D72532"/>
+                            <circle r="68" fill="none" stroke="#C91C1D" stroke-width="1.5" opacity="0.25"/>
+                            <circle r="76" fill="none" stroke="#C91C1D" stroke-width="1" opacity="0.12"/>
+                            <circle r="58" fill="#C91C1D"/>
                             <text y="-8" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="900" font-size="16" letter-spacing="2.5" fill="#FFFFFF">SYSTEM</text>
                             <line x1="-22" y1="2" x2="22" y2="2" stroke="#FFFFFF" stroke-width="1" opacity="0.55"/>
                             <text y="18" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="7" letter-spacing="1.8" fill="#FFFFFF" opacity="0.92">CUSTOM-BUILT</text>
@@ -1338,7 +1347,7 @@ html, body {
                         </g>
 
                         <!-- 5 satellite pillar nodes — connector lines (drawn first, under nodes) -->
-                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                        <g stroke="#C91C1D" stroke-width="1.5" fill="none" opacity="0.5">
                             <line id="satPath1" x1="368" y1="230" x2="460" y2="100"/>
                             <line id="satPath2" x1="368" y1="230" x2="500" y2="180"/>
                             <line id="satPath3" x1="368" y1="230" x2="500" y2="280"/>
@@ -1350,27 +1359,27 @@ html, body {
                         <g>
                             <!-- VISIBILITY -->
                             <g class="sat-node">
-                                <circle cx="460" cy="100" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                                <circle cx="460" cy="100" r="22" fill="#FFFFFF" stroke="#C91C1D" stroke-width="2.5"/>
                             </g>
                             <text x="490" y="104" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">VISIBILITY</text>
                             <!-- INTELLIGENCE -->
                             <g class="sat-node">
-                                <circle cx="500" cy="180" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                                <circle cx="500" cy="180" r="22" fill="#FFFFFF" stroke="#C91C1D" stroke-width="2.5"/>
                             </g>
                             <text x="530" y="184" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">INTEL</text>
                             <!-- CUSTOMIZATION -->
                             <g class="sat-node">
-                                <circle cx="500" cy="280" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                                <circle cx="500" cy="280" r="22" fill="#FFFFFF" stroke="#C91C1D" stroke-width="2.5"/>
                             </g>
                             <text x="530" y="284" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">CUSTOM</text>
                             <!-- COACHING -->
                             <g class="sat-node">
-                                <circle cx="460" cy="360" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                                <circle cx="460" cy="360" r="22" fill="#FFFFFF" stroke="#C91C1D" stroke-width="2.5"/>
                             </g>
                             <text x="490" y="364" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">COACH</text>
                             <!-- ACCOUNTABILITY -->
                             <g class="sat-node">
-                                <circle cx="400" cy="400" r="22" fill="#FFFFFF" stroke="#D72532" stroke-width="2.5"/>
+                                <circle cx="400" cy="400" r="22" fill="#FFFFFF" stroke="#C91C1D" stroke-width="2.5"/>
                             </g>
                             <text x="430" y="404" font-family="Orbitron,sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#2B2B2B">ACCT.</text>
                         </g>
@@ -1379,7 +1388,7 @@ html, body {
                         <text x="500" y="36" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2.2" fill="#2B2B2B" opacity="0.55">CONTINUOUS INTEL OUT</text>
 
                         <!-- Animated data dots flowing input → center → satellites -->
-                        <g fill="#D72532">
+                        <g fill="#C91C1D">
                             <circle r="4">
                                 <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
                                     <mpath href="#sysPath1"/>
@@ -1396,7 +1405,7 @@ html, body {
                                 </animateMotion>
                             </circle>
                         </g>
-                        <g fill="#FFFFFF" stroke="#D72532" stroke-width="1">
+                        <g fill="#FFFFFF" stroke="#C91C1D" stroke-width="1">
                             <circle r="4">
                                 <animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite">
                                     <mpath href="#satPath1"/>
@@ -1591,7 +1600,7 @@ html, body {
                 <div class="hub-graphic-wrap">
                     <svg class="hub-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <!-- Connector lines first (underneath) -->
-                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.45">
+                        <g stroke="#C91C1D" stroke-width="1.5" fill="none" opacity="0.45">
                             <line x1="230" y1="180" x2="230" y2="60" stroke-dasharray="3 4"/>
                             <line x1="230" y1="180" x2="380" y2="240" stroke-dasharray="3 4"/>
                             <line x1="230" y1="180" x2="80" y2="240" stroke-dasharray="3 4"/>
@@ -1599,7 +1608,7 @@ html, body {
 
                         <!-- Owner center -->
                         <g transform="translate(230,180)">
-                            <circle r="38" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <circle r="38" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                             <g stroke="#FFFFFF" stroke-width="2" fill="none">
                                 <circle cx="0" cy="-10" r="9"/>
                                 <path d="M-14,8 a14,14 0 0 1 28,0 v14 h-28 z"/>
@@ -1611,7 +1620,7 @@ html, body {
                         <g font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="1.5" fill="#FFFFFF" text-anchor="middle">
                             <!-- ANALYST top -->
                             <g class="hub-node">
-                                <circle cx="230" cy="60" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <circle cx="230" cy="60" r="32" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(230,55)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <polyline points="-10,5 -4,-3 2,2 10,-7"/>
                                     <line x1="-12" y1="8" x2="12" y2="8"/>
@@ -1620,7 +1629,7 @@ html, body {
                             </g>
                             <!-- STRATEGIST right -->
                             <g class="hub-node">
-                                <circle cx="380" cy="240" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <circle cx="380" cy="240" r="32" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(380,235)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <path d="M-2,-10 a3,3 0 0 1 4,0 l1,4 h-6 z"/>
                                     <line x1="0" y1="-6" x2="0" y2="0"/>
@@ -1631,7 +1640,7 @@ html, body {
                             </g>
                             <!-- MANAGER left -->
                             <g class="hub-node">
-                                <circle cx="80" cy="240" r="32" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <circle cx="80" cy="240" r="32" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(80,235)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <rect x="-7" y="-9" width="14" height="16" rx="1"/>
                                     <line x1="-4" y1="-5" x2="4" y2="-5"/>
@@ -1689,7 +1698,7 @@ html, body {
                 <div class="hub-graphic-wrap">
                     <svg class="hub-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <!-- Connector lines (from inputs → rep) -->
-                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.5">
+                        <g stroke="#C91C1D" stroke-width="1.5" fill="none" opacity="0.5">
                             <line x1="270" y1="84" x2="320" y2="186" stroke-dasharray="3 4"/>
                             <line x1="270" y1="198" x2="320" y2="200" stroke-dasharray="3 4"/>
                             <line x1="270" y1="312" x2="320" y2="216" stroke-dasharray="3 4"/>
@@ -1697,7 +1706,7 @@ html, body {
 
                         <!-- Rep silhouette (right) — mid-conversation pose with phone -->
                         <g transform="translate(346,200)">
-                            <circle r="42" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <circle r="42" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                             <g stroke="#FFFFFF" stroke-width="2" fill="none">
                                 <circle cx="-3" cy="-12" r="9"/>
                                 <path d="M-17,7 a14,14 0 0 1 28,0 v14 h-28 z"/>
@@ -1712,7 +1721,7 @@ html, body {
                         <g font-family="Orbitron,sans-serif" font-weight="800" fill="#FFFFFF" text-anchor="middle">
                             <!-- INTEL top -->
                             <g class="hub-node">
-                                <rect x="20" y="46" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <rect x="20" y="46" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(50,84)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <rect x="-10" y="-12" width="20" height="24" rx="1.5"/>
                                     <line x1="-5" y1="-6" x2="5" y2="-6"/>
@@ -1724,7 +1733,7 @@ html, body {
                             </g>
                             <!-- CUSTOMIZATION middle -->
                             <g class="hub-node">
-                                <rect x="20" y="160" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <rect x="20" y="160" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(50,198)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <path d="M-12,-8 a3,3 0 0 1 3,-3 h18 a3,3 0 0 1 3,3 v11 a3,3 0 0 1 -3,3 h-12 l-6,6 v-6 h0 a3,3 0 0 1 -3,-3 z"/>
                                 </g>
@@ -1733,7 +1742,7 @@ html, body {
                             </g>
                             <!-- SELF-IMPROVEMENT bottom -->
                             <g class="hub-node">
-                                <rect x="20" y="274" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                                <rect x="20" y="274" width="250" height="76" rx="6" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                                 <g transform="translate(50,312)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
                                     <polyline points="-12,10 -5,2 1,6 11,-6"/>
                                     <path d="M6,-6 L11,-6 L11,-1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1953,17 +1962,17 @@ html, body {
                                 <rect x="-50" y="2" width="100" height="14" rx="1"/>
                                 <rect x="-50" y="20" width="100" height="10" rx="1"/>
                             </g>
-                            <circle cx="44" cy="-27" r="2" fill="#D72532"/>
-                            <circle cx="44" cy="-9" r="2" fill="#D72532"/>
-                            <circle cx="44" cy="9" r="2" fill="#D72532"/>
+                            <circle cx="44" cy="-27" r="2" fill="#C91C1D"/>
+                            <circle cx="44" cy="-9" r="2" fill="#C91C1D"/>
+                            <circle cx="44" cy="9" r="2" fill="#C91C1D"/>
                             <text y="56" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="10" letter-spacing="2" fill="#2B2B2B">REVELATION INFRA</text>
                         </g>
 
                         <!-- The Wall -->
                         <g>
-                            <line x1="30" y1="190" x2="410" y2="190" stroke="#D72532" stroke-width="2"/>
-                            <line x1="30" y1="194" x2="410" y2="194" stroke="#D72532" stroke-width="0.5" opacity="0.4"/>
-                            <text x="220" y="183" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="8" letter-spacing="2.4" fill="#D72532">THE WALL — YOU NEVER TOUCH THE TECH</text>
+                            <line x1="30" y1="190" x2="410" y2="190" stroke="#C91C1D" stroke-width="2"/>
+                            <line x1="30" y1="194" x2="410" y2="194" stroke="#C91C1D" stroke-width="0.5" opacity="0.4"/>
+                            <text x="220" y="183" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="8" letter-spacing="2.4" fill="#C91C1D">THE WALL — YOU NEVER TOUCH THE TECH</text>
                         </g>
 
                         <!-- Owner / client icons below -->
@@ -1998,13 +2007,13 @@ html, body {
                         </g>
 
                         <!-- Arrows from server (through wall) to clients = RESULTS flowing down -->
-                        <g stroke="#D72532" stroke-width="1.5" fill="none" opacity="0.6">
+                        <g stroke="#C91C1D" stroke-width="1.5" fill="none" opacity="0.6">
                             <line x1="180" y1="120" x2="115" y2="252" stroke-dasharray="3 4"/>
                             <line x1="220" y1="120" x2="220" y2="262" stroke-dasharray="3 4"/>
                             <line x1="260" y1="120" x2="325" y2="252" stroke-dasharray="3 4"/>
                         </g>
                         <!-- Flowing dots downward -->
-                        <g fill="#D72532">
+                        <g fill="#C91C1D">
                             <circle r="3"><animateMotion dur="3s" repeatCount="indefinite" path="M180,120 L115,252"/></circle>
                             <circle r="3"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M220,120 L220,262"/></circle>
                             <circle r="3"><animateMotion dur="3s" begin="2s" repeatCount="indefinite" path="M260,120 L325,252"/></circle>
@@ -2058,21 +2067,21 @@ html, body {
                     <svg class="cost-graphic" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <!-- TOP: human + warning indicating error -->
                         <g transform="translate(110,90)">
-                            <circle r="42" fill="#1E1E1E" stroke="#D72532" stroke-width="2"/>
+                            <circle r="42" fill="#1E1E1E" stroke="#C91C1D" stroke-width="2"/>
                             <g stroke="#FFFFFF" stroke-width="2" fill="none">
                                 <circle cx="0" cy="-12" r="9"/>
                                 <path d="M-14,7 a14,14 0 0 1 28,0 v14 h-28 z"/>
                             </g>
                             <!-- Warning triangle -->
                             <g transform="translate(28,-22)">
-                                <path d="M0,-14 L12,8 L-12,8 z" fill="#D72532" stroke="#1E1E1E" stroke-width="1.5"/>
+                                <path d="M0,-14 L12,8 L-12,8 z" fill="#C91C1D" stroke="#1E1E1E" stroke-width="1.5"/>
                                 <text x="0" y="4" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="11" fill="#FFFFFF">!</text>
                             </g>
                             <text y="64" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" letter-spacing="2" fill="#FFFFFF">HUMAN ERROR</text>
                         </g>
 
                         <!-- Inefficiency arrows leading down to leaking funnel -->
-                        <g stroke="#D72532" stroke-width="1.6" fill="none" opacity="0.6">
+                        <g stroke="#C91C1D" stroke-width="1.6" fill="none" opacity="0.6">
                             <line x1="80" y1="160" x2="60" y2="210" stroke-dasharray="4 4"/>
                             <line x1="110" y1="160" x2="110" y2="210" stroke-dasharray="4 4"/>
                             <line x1="140" y1="160" x2="160" y2="210" stroke-dasharray="4 4"/>
@@ -2080,17 +2089,17 @@ html, body {
 
                         <!-- Funnel (leaky) -->
                         <g transform="translate(110,260)">
-                            <path d="M-70,-50 L70,-50 L40,10 L40,46 L-40,46 L-40,10 z" fill="rgba(215,37,50,0.08)" stroke="#D72532" stroke-width="2"/>
-                            <line x1="-30" y1="-30" x2="30" y2="-30" stroke="rgba(215,37,50,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
-                            <line x1="-22" y1="-12" x2="22" y2="-12" stroke="rgba(215,37,50,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
+                            <path d="M-70,-50 L70,-50 L40,10 L40,46 L-40,46 L-40,10 z" fill="rgba(201,28,29,0.08)" stroke="#C91C1D" stroke-width="2"/>
+                            <line x1="-30" y1="-30" x2="30" y2="-30" stroke="rgba(201,28,29,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
+                            <line x1="-22" y1="-12" x2="22" y2="-12" stroke="rgba(201,28,29,0.4)" stroke-width="1" stroke-dasharray="2 3"/>
                             <!-- Leak cracks -->
-                            <line x1="-58" y1="-30" x2="-66" y2="-22" stroke="#D72532" stroke-width="1.5"/>
-                            <line x1="58" y1="-30" x2="66" y2="-22" stroke="#D72532" stroke-width="1.5"/>
-                            <line x1="-44" y1="0" x2="-52" y2="8" stroke="#D72532" stroke-width="1.5"/>
+                            <line x1="-58" y1="-30" x2="-66" y2="-22" stroke="#C91C1D" stroke-width="1.5"/>
+                            <line x1="58" y1="-30" x2="66" y2="-22" stroke="#C91C1D" stroke-width="1.5"/>
+                            <line x1="-44" y1="0" x2="-52" y2="8" stroke="#C91C1D" stroke-width="1.5"/>
                         </g>
 
                         <!-- Money falling out — animated $$ symbols flowing right -->
-                        <g font-family="Orbitron,sans-serif" font-weight="900" font-size="22" fill="#D72532">
+                        <g font-family="Orbitron,sans-serif" font-weight="900" font-size="22" fill="#C91C1D">
                             <text x="240" y="120">
                                 $
                                 <animateTransform attributeName="transform" type="translate" values="0,0; 50,180; 100,260" dur="3s" repeatCount="indefinite"/>
@@ -2114,7 +2123,7 @@ html, body {
                         </g>
 
                         <!-- Drain labels -->
-                        <text x="320" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="10" letter-spacing="2" fill="#D72532">REVENUE LEAK</text>
+                        <text x="320" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="10" letter-spacing="2" fill="#C91C1D">REVENUE LEAK</text>
                         <text x="320" y="305" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" font-size="8" letter-spacing="1.5" fill="#FFFFFF" opacity="0.65">LOST DEALS · WASTED HOURS · COLD PIPELINE</text>
                     </svg>
                     <p class="cost-caption">Without a system: human error compounds, pipeline leaks, revenue walks.</p>
@@ -2393,7 +2402,7 @@ html, body {
                             <line x1="14" y1="10" x2="30" y2="10"/>
                             <line x1="14" y1="46" x2="30" y2="46"/>
                             <!-- Dollar sign -->
-                            <text x="43" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="20" fill="#D72532" stroke="none" class="ic-fill">$</text>
+                            <text x="43" y="34" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="20" fill="#C91C1D" stroke="none" class="ic-fill">$</text>
                         </g>
                     </svg>
                 </div>
@@ -2442,7 +2451,7 @@ html, body {
 
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
-            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+            <img class="brand-logo-img" src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
         <span>15 / 15</span>
     </header>
@@ -2472,7 +2481,7 @@ html, body {
                 <a class="close-cta-btn"
                    href="https://api.leadconnectorhq.com/widget/booking/xbsXZ260ceuKPHPn7zb6"
                    target="_blank" rel="noopener noreferrer">
-                    <span class="close-cta-btn__label">Book a Strategy Session</span>
+                    <span class="close-cta-btn__label">Start a Growth Conversation</span>
                     <span class="close-cta-btn__arrow">→</span>
                 </a>
 
@@ -2883,5 +2892,7 @@ document.addEventListener('DOMContentLoaded', () => { new PresenterDeck(); });
 })();</script>
 <!-- RA-GOTO-TOP-END -->
 
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>

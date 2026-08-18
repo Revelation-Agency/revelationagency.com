@@ -5,6 +5,7 @@ URLs must resolve to keep / rename / retain-redirect / retire with successor.
 """
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -126,6 +127,17 @@ def strip_canon(url: str) -> str:
     return url.replace(CANON, "") or "/"
 
 
+def clean_public_path(value: str) -> str:
+    """Match Vercel cleanUrls=true + trailingSlash=false route syntax."""
+    path, separator, query = value.partition("?")
+    path = re.sub(r"/index\.html$", "", path, flags=re.I)
+    path = re.sub(r"\.html$", "", path, flags=re.I)
+    if path != "/":
+        path = path.rstrip("/")
+    path = path or "/"
+    return path + (separator + query if separator else "")
+
+
 def build_baseline_routes():
     urls = load_baseline_urls()
     baseline = {"canonical_host": CANON, "count": len(urls), "urls": urls}
@@ -140,22 +152,23 @@ def build_proposed_routes():
     for u in urls:
         path = strip_canon(u)
         new = ALL_LEGACY_MAP.get(path, path)
+        new = clean_public_path(new)
         proposed.add(CANON + (new if new != "/" else "/"))
     # Add new service hubs + leaves
     for pillar in ("branding", "marketing", "sales"):
-        proposed.add(f"{CANON}/services/{pillar}/")
+        proposed.add(f"{CANON}/services/{pillar}")
     for slug, _ in BRANDING_LEAVES:
-        proposed.add(f"{CANON}/services/branding/{slug}.html")
+        proposed.add(f"{CANON}/services/branding/{slug}")
     for slug, _ in MARKETING_LEAVES:
-        proposed.add(f"{CANON}/services/marketing/{slug}.html")
+        proposed.add(f"{CANON}/services/marketing/{slug}")
     for slug, _ in SALES_LEAVES:
-        proposed.add(f"{CANON}/services/sales/{slug}.html")
+        proposed.add(f"{CANON}/services/sales/{slug}")
     # Cross-cutting page
-    proposed.add(f"{CANON}/services/ai-automation.html")
+    proposed.add(f"{CANON}/services/ai-automation")
     # Portfolio pillar hubs
-    proposed.add(f"{CANON}/portfolio/branding.html")
-    proposed.add(f"{CANON}/portfolio/marketing.html")
-    proposed.add(f"{CANON}/portfolio/sales.html")
+    proposed.add(f"{CANON}/portfolio/branding")
+    proposed.add(f"{CANON}/portfolio/marketing")
+    proposed.add(f"{CANON}/portfolio/sales")
     # Strip any query-string variants that were introduced by the portfolio
     # sub-category redirects (they map to a hub page + filter param, which
     # does not belong in the sitemap as a distinct URL).
@@ -170,42 +183,57 @@ def build_redirect_map():
     directly at the new destinations, so old published /services/strategy/* URLs
     still resolve in one hop.
     """
-    out = []
+    candidates = []
     # New pillar-level redirects for every legacy service/portfolio URL
     for legacy, new in ALL_LEGACY_MAP.items():
         if legacy == new:
             continue
-        out.append({"source": legacy, "destination": new, "permanent": True})
+        candidates.append({"source": legacy, "destination": new, "permanent": True})
     # Existing /services/strategy/* users must land on the new Branding pages
     # (packet requires single-hop, so we point strategy directly to new IA)
-    out.extend([
+    candidates.extend([
         {"source": "/services/strategy/brand-strategy",
-         "destination": "/services/branding/brand-strategy-identity.html", "permanent": True},
+         "destination": "/services/branding/brand-strategy-identity", "permanent": True},
         {"source": "/services/strategy/brand-strategy/",
-         "destination": "/services/branding/brand-strategy-identity.html", "permanent": True},
+         "destination": "/services/branding/brand-strategy-identity", "permanent": True},
         {"source": "/services/strategy",
-         "destination": "/services/branding/", "permanent": True},
+         "destination": "/services/branding", "permanent": True},
         {"source": "/services/strategy/",
-         "destination": "/services/branding/", "permanent": True},
+         "destination": "/services/branding", "permanent": True},
         {"source": "/services/strategy/:path*",
-         "destination": "/services/branding/:path*", "permanent": True},
+         "destination": "/services/branding", "permanent": True},
         {"source": "/portfolio/strategy/brand-strategy",
-         "destination": "/portfolio/branding/brand-strategy-identity.html", "permanent": True},
+         "destination": "/portfolio/branding?filter=branding", "permanent": True},
         {"source": "/portfolio/strategy",
-         "destination": "/portfolio/branding.html", "permanent": True},
+         "destination": "/portfolio/branding", "permanent": True},
         {"source": "/portfolio/strategy/:path*",
-         "destination": "/portfolio/branding/:path*", "permanent": True},
+         "destination": "/portfolio/branding?filter=branding", "permanent": True},
         # Also redirect the /services/systems/brand-strategy -> new
         {"source": "/services/systems/brand-strategy",
-         "destination": "/services/branding/brand-strategy-identity.html", "permanent": True},
+         "destination": "/services/branding/brand-strategy-identity", "permanent": True},
         {"source": "/portfolio/systems/brand-strategy",
-         "destination": "/portfolio/branding/brand-strategy-identity.html", "permanent": True},
+         "destination": "/portfolio/branding?filter=branding", "permanent": True},
     ])
+    out = []
+    seen_sources = set()
+    for row in candidates:
+        source = clean_public_path(row["source"])
+        destination = clean_public_path(row["destination"])
+        if source == destination or source in seen_sources:
+            continue
+        seen_sources.add(source)
+        out.append({"source": source, "destination": destination, "permanent": True})
     return out
 
 
 def build_route_diff(baseline, proposed):
-    b = set(baseline["urls"])
+    # The pinned baseline intentionally preserves the old sitemap spelling.
+    # Compare canonical clean routes so Vercel's automatic .html normalization
+    # is not misreported as a retired page.
+    b = {
+        CANON + clean_public_path(strip_canon(url)).split("?", 1)[0]
+        for url in baseline["urls"]
+    }
     p = set(proposed)
     added = sorted(p - b)
     removed = sorted(b - p)
@@ -219,15 +247,20 @@ def build_route_diff(baseline, proposed):
         f"- Retired (redirected via redirect-map.json): {len(removed)}",
         f"- New URLs: {len(added)}",
         "",
-        "Every retired URL has exactly ONE permanent, direct redirect in `redirect-map.json`.",
+        "The pinned baseline remains byte-stable; comparison here normalizes Vercel clean URLs.",
+        "Every truly retired route has exactly ONE permanent, direct redirect in `redirect-map.json`.",
         "No chains, no loops. Case-study URLs are all retained.",
         "",
         "## Retired (301 to new)",
         "",
     ]
+    clean_legacy_map = {
+        clean_public_path(source).split("?", 1)[0]: clean_public_path(destination)
+        for source, destination in ALL_LEGACY_MAP.items()
+    }
     for u in removed:
         legacy_path = strip_canon(u)
-        target = ALL_LEGACY_MAP.get(legacy_path, "(missing)")
+        target = clean_legacy_map.get(legacy_path, "(missing)")
         lines.append(f"- `{u}` → `{target}`")
     lines.append("")
     lines.append("## New URLs")

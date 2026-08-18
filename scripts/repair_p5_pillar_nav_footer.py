@@ -358,6 +358,10 @@ def swap_baseline_service_list(text: str) -> Tuple[str, bool]:
 # ------------------------------------------------------------------ main
 
 def main() -> int:
+    raise SystemExit(
+        "DEPRECATED: this repair emits retired Systems/Creative markup. "
+        "Run apply_2026_site_refresh.py and apply_2026_portfolio_taxonomy.py instead."
+    )
     css_file = "assets/css/ra-nav-footer.css"
     if not os.path.exists(css_file):
         print(f"[FAIL] shared CSS file missing: {css_file}")

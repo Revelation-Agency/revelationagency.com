@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://www.revelationagency.com/sales-growth-engine">
 <meta property="og:title" content="Sales Growth Engine — Revelation Agency">
 <meta property="og:description" content="One engine. Two jobs. Fill the pipeline. Close the pipeline. Senior-level sales support for a fraction of the cost.">
-<meta property="og:image" content="https://proposals.revelationagency.com/assets/proposal-og-preview.png">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Revelation Agency">
@@ -28,9 +28,9 @@
    REVELATION DESIGN SYSTEM v1.0 — TOKENS
    =========================================== */
 :root {
-    --red: #D72532;
-    --red-deep: #AD1C24;
-    --red-dark: #840D11;
+    --red: #C91C1D;
+    --red-deep: #9E1115;
+    --red-dark: #780A0E;
     --charcoal: #2B2B2B;
     --off-black: #1E1E1E;
     --grey-light: #F7F7F5;
@@ -463,7 +463,7 @@ html, body {
 }
 .dual-track__label::after {
     content: ''; flex: 1; height: 1px;
-    background: linear-gradient(90deg, rgba(215,37,50,0.55), rgba(215,37,50,0));
+    background: linear-gradient(90deg, rgba(201,28,29,0.55), rgba(201,28,29,0));
 }
 .dual-card {
     border: 1px solid var(--grey-line-dark);
@@ -496,7 +496,7 @@ html, body {
 }
 .dual-link__line {
     width: 2px; height: 100%;
-    background: rgba(215,37,50,0.4);
+    background: rgba(201,28,29,0.4);
     position: relative;
     overflow: hidden;
 }
@@ -574,7 +574,7 @@ html, body {
 .handoff-callout {
     border-left: 3px solid var(--red);
     padding: clamp(0.55rem, 1.1vw, 0.9rem) clamp(0.85rem, 1.6vw, 1.2rem);
-    background: rgba(215,37,50,0.06);
+    background: rgba(201,28,29,0.06);
     border-radius: 0 4px 4px 0;
     grid-column: 1 / -1;
 }
@@ -619,23 +619,23 @@ html, body {
 }
 .pipe-node--source { color: var(--grey-mid); border-style: dashed; background: transparent; }
 .pipe-node--engine {
-    background: linear-gradient(135deg, rgba(215,37,50,0.22), rgba(215,37,50,0.06));
+    background: linear-gradient(135deg, rgba(201,28,29,0.22), rgba(201,28,29,0.06));
     border-color: var(--red); color: var(--white); font-weight: 800;
     padding: clamp(0.5rem, 1vw, 0.8rem) clamp(0.7rem, 1.2vw, 1rem);
-    box-shadow: 0 8px 22px rgba(215,37,50,0.18);
+    box-shadow: 0 8px 22px rgba(201,28,29,0.18);
 }
 .pipe-node--win { background: var(--red); border-color: var(--red); color: var(--white); font-weight: 900; }
 .pipe-link {
     width: 2px;
     height: clamp(14px, 2.2vh, 22px);
-    background: rgba(215,37,50,0.35);
+    background: rgba(201,28,29,0.35);
     position: relative;
     overflow: hidden;
 }
 .pipe-link__dot {
     position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--white); box-shadow: 0 0 10px rgba(215,37,50,1);
+    background: var(--white); box-shadow: 0 0 10px rgba(201,28,29,1);
     animation: pipeFlow 2.4s linear infinite;
     animation-delay: calc(var(--i, 0) * -0.6s);
 }
@@ -668,7 +668,7 @@ html, body {
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 70%; height: 80%;
-    background: radial-gradient(ellipse at center, rgba(215,37,50,0.15) 0%, transparent 65%);
+    background: radial-gradient(ellipse at center, rgba(201,28,29,0.15) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
@@ -717,7 +717,7 @@ html, body {
     aspect-ratio: 1;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, var(--red), var(--red-deep));
-    box-shadow: 0 0 28px rgba(215,37,50,0.55), 0 0 70px rgba(215,37,50,0.18);
+    box-shadow: 0 0 28px rgba(201,28,29,0.55), 0 0 70px rgba(201,28,29,0.18);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     color: var(--white); text-align: center;
     z-index: 2;
@@ -725,8 +725,8 @@ html, body {
     padding: clamp(0.6rem, 1.2vw, 1rem);
 }
 @keyframes corePulse {
-    0%, 100% { box-shadow: 0 0 28px rgba(215,37,50,0.55), 0 0 70px rgba(215,37,50,0.18); transform: scale(1); }
-    50%      { box-shadow: 0 0 40px rgba(215,37,50,0.78), 0 0 90px rgba(215,37,50,0.32); transform: scale(1.03); }
+    0%, 100% { box-shadow: 0 0 28px rgba(201,28,29,0.55), 0 0 70px rgba(201,28,29,0.18); transform: scale(1); }
+    50%      { box-shadow: 0 0 40px rgba(201,28,29,0.78), 0 0 90px rgba(201,28,29,0.32); transform: scale(1.03); }
 }
 .hub-core__label {
     font-family: var(--font-display); font-weight: 900;
@@ -747,12 +747,12 @@ html, body {
     content: '';
     position: absolute; top: 50%;
     width: clamp(0.6rem, 1.4vw, 1.1rem); height: 2px;
-    background: linear-gradient(var(--dir, 90deg), var(--red), rgba(215,37,50,0));
+    background: linear-gradient(var(--dir, 90deg), var(--red), rgba(201,28,29,0));
     transform: translateY(-50%);
     z-index: 0;
 }
-.hub-card--tl::after, .hub-card--bl::after { right: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: 90deg; background: linear-gradient(90deg, rgba(215,37,50,0), var(--red)); }
-.hub-card--tr::after, .hub-card--br::after { left: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: -90deg; background: linear-gradient(90deg, var(--red), rgba(215,37,50,0)); }
+.hub-card--tl::after, .hub-card--bl::after { right: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: 90deg; background: linear-gradient(90deg, rgba(201,28,29,0), var(--red)); }
+.hub-card--tr::after, .hub-card--br::after { left: calc(-1 * clamp(0.6rem, 1.4vw, 1.1rem)); --dir: -90deg; background: linear-gradient(90deg, var(--red), rgba(201,28,29,0)); }
 
 @media (max-width: 900px) {
     .hub-graphic {
@@ -797,7 +797,7 @@ html, body {
     color: var(--off-black);
 }
 .shift-col--before .shift-pct { color: var(--charcoal); opacity: 0.45; }
-.shift-col--after  .shift-pct { color: var(--red); text-shadow: 0 0 22px rgba(215,37,50,0.22); }
+.shift-col--after  .shift-pct { color: var(--red); text-shadow: 0 0 22px rgba(201,28,29,0.22); }
 .shift-col__label {
     font-family: var(--font-display); font-weight: 700;
     font-size: clamp(0.78rem, 0.95vw, 0.92rem);
@@ -1022,8 +1022,8 @@ html, body {
     animation: calPulse 2.4s ease-in-out infinite;
 }
 @keyframes calPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(215,37,50,0.55); }
-    50%      { box-shadow: 0 0 0 8px rgba(215,37,50,0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,28,29,0.55); }
+    50%      { box-shadow: 0 0 0 8px rgba(201,28,29,0); }
 }
 
 .close-cta-btn {
@@ -1034,12 +1034,12 @@ html, body {
     font-size: clamp(0.88rem, 1.15vw, 1.05rem);
     letter-spacing: 0.18em; text-transform: uppercase;
     border-radius: var(--radius-asym);
-    box-shadow: 0 10px 28px rgba(215,37,50,0.4);
+    box-shadow: 0 10px 28px rgba(201,28,29,0.4);
     transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     width: 100%; text-align: center;
     margin-top: clamp(0.5rem, 1vw, 0.85rem);
 }
-.close-cta-btn:hover { background: var(--red-deep); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(215,37,50,0.55); }
+.close-cta-btn:hover { background: var(--red-deep); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(201,28,29,0.55); }
 .close-cta-btn__arrow { font-weight: 900; transition: transform 0.25s ease; }
 .close-cta-btn:hover .close-cta-btn__arrow { transform: translateX(5px); }
 
@@ -1108,11 +1108,11 @@ html, body {
     letter-spacing: 0.18em; cursor: pointer; transition: all 0.2s ease-out;
     min-height: 44px; min-width: 100px;
     user-select: none; -webkit-tap-highlight-color: transparent;
-    box-shadow: 0 2px 8px rgba(215,37,50,0.35);
+    box-shadow: 0 2px 8px rgba(201,28,29,0.35);
 }
-.deck-ribbon__btn:hover:not([disabled]) { background: var(--red-deep); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(215,37,50,0.5); }
+.deck-ribbon__btn:hover:not([disabled]) { background: var(--red-deep); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,28,29,0.5); }
 .deck-ribbon__btn:active:not([disabled]) { transform: translateY(0); }
-.deck-ribbon__btn[disabled] { background: rgba(215,37,50,0.25); color: rgba(255,255,255,0.4); cursor: default; box-shadow: none; }
+.deck-ribbon__btn[disabled] { background: rgba(201,28,29,0.25); color: rgba(255,255,255,0.4); cursor: default; box-shadow: none; }
 .deck-ribbon__progress {
     background: transparent; border: 1px solid rgba(255,255,255,0.2);
     color: #fff; padding: 9px 16px; border-radius: 999px;
@@ -1235,17 +1235,17 @@ html, body {
 }
 .ra-goto-top{position:fixed;right:20px;bottom:20px;z-index:990;
   width:48px;height:48px;border-radius:50%;
-  background:var(--red,#ED1C24);color:#fff;border:0;
+  background:var(--red,#ED2A31);color:#fff;border:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
-  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(237,42,49,0.32),0 4px 10px rgba(0,0,0,0.15);
   font-size:16px;line-height:1;
   -webkit-tap-highlight-color:transparent;
 }
 .ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
 @media (max-width:720px){
@@ -1253,6 +1253,15 @@ html, body {
 }
 @media print{.ra-goto-top{display:none !important;}}
 </style>
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 <body>
 
@@ -1268,7 +1277,7 @@ html, body {
 
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
-            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+            <img class="brand-logo-img" src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
         <div class="slide-header__right">
             <span class="slide-header__doc-sep"></span>
@@ -1864,7 +1873,7 @@ html, body {
 
     <header class="slide-header">
         <div class="slide-header__left brand-logo-wrap">
-            <img class="brand-logo-img" src="../assets/revelation-logo.png" alt="Revelation Agency">
+            <img class="brand-logo-img" src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
         <span>10 / 10</span>
     </header>
@@ -1925,7 +1934,7 @@ html, body {
                 <a class="close-cta-btn" id="bookingCta"
                    href="https://api.leadconnectorhq.com/widget/booking/xbsXZ260ceuKPHPn7zb6"
                    target="_blank" rel="noopener noreferrer">
-                    <span class="close-cta-btn__label">Book a Strategy Session</span>
+                    <span class="close-cta-btn__label">Start a Growth Conversation</span>
                     <span class="close-cta-btn__arrow">→</span>
                 </a>
 
@@ -2357,5 +2366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();</script>
 <!-- RA-GOTO-TOP-END -->
 
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>

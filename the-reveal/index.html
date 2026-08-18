@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8">
   <!-- RA-PWA-HEAD:start -->
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.webmanifest">
+
+
+<link rel="manifest" href="/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Revelation">
-  <meta name="theme-color" content="#D72532">
   <!-- RA-PWA-HEAD:end -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <title>The Reveal — Revelation Agency</title>
 <meta name="description" content="Strategy, insights, and announcements from Revelation Agency. We don't just do the work — we explain how it works.">
-<link rel="canonical" href="https://www.revelationagency.com/the-reveal/">
+<link rel="canonical" href="https://www.revelationagency.com/the-reveal">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Revelation Agency">
 <meta property="og:title" content="The Reveal — Revelation Agency">
 <meta property="og:description" content="Strategy, insights, and announcements from Revelation Agency. We don't just do the work — we explain how it works.">
-<meta property="og:url" content="https://www.revelationagency.com/the-reveal/">
-<meta property="og:image" content="https://www.revelationagency.com/assets/images/generated/revelation-agency-strategic-business-planning.png">
+<meta property="og:url" content="https://www.revelationagency.com/the-reveal">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="../assets/revelation-logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +28,7 @@
 
 <style>
 :root{
-  --red:#D72532; --red-deep:#AD1C24;
+  --red:#C91C1D; --red-deep:#9E1115;
   --charcoal:#2B2B2B; --black:#181818; --off-black:#1E1E1E;
   --grey-light:#F7F7F5; --grey-mid:#8A8A8A;
   --font-head:'Bebas Neue','Orbitron',sans-serif;
@@ -50,7 +46,7 @@ a{color:inherit;text-decoration:none;}
 
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;font-family:var(--font-head);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;border-radius:var(--btn-radius);transition:all .35s var(--ease-out);white-space:nowrap;}
 .btn--primary{background:var(--red);color:#fff;}
-.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(215,37,50,0.35);}
+.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(201,28,29,0.35);}
 .btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35);}
 .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
 
@@ -73,7 +69,7 @@ a{color:inherit;text-decoration:none;}
 .ra-nav__links .has-drop:hover>.ra-drop,.ra-nav__links .has-drop:focus-within>.ra-drop{opacity:1;pointer-events:auto;transform:translateY(0);}
 .ra-drop li{width:100%;}
 .ra-drop a{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;font-size:14px;opacity:0.85;border-radius:4px;}
-.ra-drop a:hover{background:rgba(215,37,50,0.06);color:var(--red);opacity:1;}
+.ra-drop a:hover{background:rgba(201,28,29,0.06);color:var(--red);opacity:1;}
 .ra-drop--l2{min-width:220px;}
 .ra-drop--l3{position:absolute;top:-10px;left:calc(100% + 2px);min-width:230px;}
 .ra-drop--l2 .has-drop-l3:hover>.ra-drop--l3,.ra-drop--l2 .has-drop-l3:focus-within>.ra-drop--l3{opacity:1;pointer-events:auto;transform:translateY(0);}
@@ -88,20 +84,20 @@ a{color:inherit;text-decoration:none;}
 /* hero */
 .rv-hero{position:relative;background:var(--black);color:#fff;padding:200px 0 120px;overflow:hidden;}
 .rv-hero__canvas{position:absolute;inset:0;opacity:0.55;pointer-events:auto;cursor:crosshair;}
-.rv-hero__glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(215,37,50,0.22) 0%,transparent 65%);pointer-events:none;}
+.rv-hero__glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(201,28,29,0.22) 0%,transparent 65%);pointer-events:none;}
 .rv-hero__inner{position:relative;z-index:2;max-width:960px;}
 .rv-hero__eyebrow{font-family:var(--font-head);font-size:13px;letter-spacing:0.22em;color:var(--red);margin-bottom:20px;}
 .rv-hero__title{font-family:var(--font-head);font-size:clamp(48px,8.5vw,120px);line-height:0.98;letter-spacing:0.04em;margin-bottom:28px;text-transform:uppercase;}
 .rv-hero__sub{font-size:18px;line-height:1.6;color:rgba(255,255,255,0.75);max-width:640px;margin-bottom:32px;}
 .rv-hero__chips{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:2;}
-.rv-hero__chip{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(215,37,50,0.45);background:rgba(215,37,50,0.08);color:#fff;border-radius:45px 0 45px 45px;cursor:pointer;transition:all .25s ease;}
+.rv-hero__chip{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(201,28,29,0.45);background:rgba(201,28,29,0.08);color:#fff;border-radius:45px 0 45px 45px;cursor:pointer;transition:all .25s ease;}
 .rv-hero__chip:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px);}
 .rv-hero__chip--pulse{animation:rvChipPulse 3.6s ease-in-out infinite;}
 .rv-hero__chip--pulse:nth-child(2){animation-delay:0.6s;}
 .rv-hero__chip--pulse:nth-child(3){animation-delay:1.2s;}
 .rv-hero__chip--pulse:nth-child(4){animation-delay:1.8s;}
 .rv-hero__chip--pulse:nth-child(5){animation-delay:2.4s;}
-@keyframes rvChipPulse{0%,100%{box-shadow:0 0 0 0 rgba(215,37,50,0);}50%{box-shadow:0 0 0 6px rgba(215,37,50,0.12);}}
+@keyframes rvChipPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,28,29,0);}50%{box-shadow:0 0 0 6px rgba(201,28,29,0.12);}}
 .rv-hero__hint{position:absolute;bottom:24px;right:28px;font-family:var(--font-head);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);z-index:2;pointer-events:none;}
 @media (max-width:768px){.rv-hero__hint{display:none;}}
 
@@ -121,7 +117,7 @@ a{color:inherit;text-decoration:none;}
 .rv-card__img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#2B2B2B 0%,#1E1E1E 100%);position:relative;overflow:hidden;}
 .rv-card__img--red{background:linear-gradient(135deg,var(--red-deep) 0%,var(--red) 100%);}
 .rv-card__img--dark{background:linear-gradient(135deg,#181818 0%,#2B2B2B 100%);}
-.rv-card__img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(215,37,50,0.25) 0%,transparent 55%);}
+.rv-card__img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,28,29,0.25) 0%,transparent 55%);}
 .rv-card__body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1;}
 .rv-card__tag{display:inline-block;font-family:var(--font-head);font-size:11px;letter-spacing:0.18em;color:var(--red);margin-bottom:14px;text-transform:uppercase;}
 .rv-card__title{font-family:var(--font-head);font-size:24px;line-height:1.1;letter-spacing:0.02em;margin-bottom:12px;color:var(--charcoal);text-transform:uppercase;}
@@ -204,7 +200,7 @@ a{color:inherit;text-decoration:none;}
   color: var(--charcoal);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red); }
 
 /* Services mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -231,7 +227,7 @@ a{color:inherit;text-decoration:none;}
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -273,12 +269,12 @@ a{color:inherit;text-decoration:none;}
   transition: background .15s, color .15s, transform .15s;
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
-  background: rgba(215,37,50,0.06) !important;
+  background: rgba(201,28,29,0.06) !important;
   color: var(--red) !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
+  background: rgba(201,28,29,0.08) !important;
   color: var(--red) !important;
   font-weight: 600 !important;
 }
@@ -357,7 +353,7 @@ a{color:inherit;text-decoration:none;}
     margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
   .ra-nav__links .has-drop > a { font-weight: 600 !important; }
   .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
   .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
@@ -375,17 +371,17 @@ a{color:inherit;text-decoration:none;}
 .ra-goto-top{
   position:fixed;right:20px;bottom:20px;z-index:990;
   width:48px;height:48px;border-radius:50%;
-  background:var(--red,#ED1C24);color:#fff;border:0;
+  background:var(--red,#ED2A31);color:#fff;border:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
-  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(237,42,49,0.32),0 4px 10px rgba(0,0,0,0.15);
   font-size:16px;line-height:1;
   -webkit-tap-highlight-color:transparent;
 }
 .ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
 @media (max-width:720px){
@@ -439,15 +435,15 @@ a{color:inherit;text-decoration:none;}
 }
 .ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus{
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn{
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status{
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
@@ -504,7 +500,7 @@ a{color:inherit;text-decoration:none;}
   color: var(--charcoal, #2B2B2B);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red, #C91C1D); }
 
 /* Services / Portfolio mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -531,7 +527,7 @@ a{color:inherit;text-decoration:none;}
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -579,13 +575,13 @@ a{color:inherit;text-decoration:none;}
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
-  background: rgba(215,37,50,0.06) !important;
-  color: #D72532 !important;
+  background: rgba(201,28,29,0.06) !important;
+  color: #C91C1D !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
-  color: var(--red, #D72532) !important;
+  background: rgba(201,28,29,0.08) !important;
+  color: var(--red, #C91C1D) !important;
   font-weight: 600 !important;
 }
 .ra-nav__links .ra-drop--l3 a::after { display: none !important; }
@@ -632,7 +628,7 @@ a{color:inherit;text-decoration:none;}
     align-self: stretch !important;
     transition: transform 0.3s ease, color 0.2s ease;
   }
-  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #C91C1D); }
 
   /* Accordion animation on mobile */
   .ra-nav__links .ra-drop--l2,
@@ -646,7 +642,7 @@ a{color:inherit;text-decoration:none;}
     padding: 0 !important; margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
 
   .ra-nav__logo img,
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
@@ -714,7 +710,7 @@ a{color:inherit;text-decoration:none;}
   #ra-nav .has-drop.is-open > .ra-nav__services-toggle,
   #ra-nav .has-drop-l3.is-open > .ra-nav__l2-toggle {
     transform: rotate(180deg) !important;
-    color: var(--red, #D72532) !important;
+    color: var(--red, #C91C1D) !important;
   }
   /* Submenus: full-width, hidden until the parent row is .is-open. Uses
      display (not max-height) so there is never a clipped / half-open state —
@@ -749,7 +745,7 @@ a{color:inherit;text-decoration:none;}
   #ra-nav .ra-nav__links .ra-drop--l3 {
     padding: 2px 0 8px 14px !important;
     margin: 2px 0 6px 4px !important;
-    border-left: 2px solid rgba(215,37,50,0.35) !important;
+    border-left: 2px solid rgba(201,28,29,0.35) !important;
   }
   /* Reveal the submenu when its parent row is open. */
   #ra-nav .has-drop.is-open > .ra-drop--l2,
@@ -797,7 +793,7 @@ a{color:inherit;text-decoration:none;}
   #ra-nav .ra-nav__links .ra-drop--l3 a:hover,
   #ra-nav .ra-nav__links .ra-drop--l3 a:active,
   #ra-nav .ra-nav__links .ra-drop--l3 a.is-current {
-    color: var(--red, #D72532) !important;
+    color: var(--red, #C91C1D) !important;
   }
   /* Hide the small decorative chevron icons baked into the label text — the
      dedicated toggle button is the only chevron shown on mobile. */
@@ -973,8 +969,8 @@ a{color:inherit;text-decoration:none;}
 .ra-footer__nav ul a:hover { color: white; }
 .ra-footer__cta {
   align-self: start;
-  background: rgba(237,28,36,0.08);
-  border: 1px solid rgba(237,28,36,0.15);
+  background: rgba(237,42,49,0.08);
+  border: 1px solid rgba(237,42,49,0.15);
   border-radius: 16px;
   padding: 24px 22px;
 }
@@ -1085,88 +1081,99 @@ h1, h2, h3, h4, h5, h6,
 }
 .ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus {
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn {
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status {
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
 .ra-footer__miniform-status.is-error {color:#ff8888;}
 /* RA-FOOTER-CANONICAL-CSS-END */
 </style>
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 <body>
 
 <!-- RA-NAV-CANONICAL-START -->
 <nav class="ra-nav" id="ra-nav">
   <div class="ra-nav__inner">
-    <a href="../index.html" class="ra-nav__logo" aria-label="Revelation Agency">
-      <img src="../assets/brand/approved/ra-landscape-black-updated.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
+    <a href="/" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="/assets/brand/current/ra-mark-red.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
     </a>
 
     <ul class="ra-nav__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
       <li class="has-drop">
-        <a href="../services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
           <li class="has-drop-l3">
-            <a href="../services/branding/index.html">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/branding">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/branding/brand-strategy-identity.html">Brand Strategy &amp; Identity</a></li>
-              <li><a href="../services/branding/websites-landing-pages.html">Websites &amp; Landing Pages</a></li>
-              <li><a href="../services/branding/apps-digital-products.html">Apps &amp; Digital Products</a></li>
-              <li><a href="../services/branding/video-visual-content.html">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="../services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/marketing">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/marketing/seo-ai-visibility.html">SEO &amp; AI Visibility</a></li>
-              <li><a href="../services/marketing/positioning-content-authority.html">Positioning, Content &amp; Authority</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/email-lifecycle-marketing.html">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="../services/sales/index.html">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/sales/lead-generation-outreach.html">Lead Generation &amp; Outreach</a></li>
-              <li><a href="../services/sales/crm-sales-infrastructure.html">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="../services/sales/follow-up-nurture.html">Follow-up &amp; Nurture</a></li>
-              <li><a href="../services/sales/conversion-advertising.html">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
-          <li><a href="../services/ai-automation.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
+          <li><a href="/services/ai-automation" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
         </ul>
       </li>
-      <li><a href="../the-reveal/index.html" class="is-current">The Reveal</a></li>
+      <li><a href="/the-reveal" class="is-current">The Reveal</a></li>
       <li class="has-drop">
-        <a href="../portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/portfolio">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li><a href="../portfolio/branding.html">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio/sales.html">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="../portfolio.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
+          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
         </ul>
       </li>
-      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
 
     <div class="ra-nav__right">
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Book a Call</a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Start Here</a>
     </div>
 
     <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -1205,10 +1212,10 @@ h1, h2, h3, h4, h5, h6,
     <div class="rv-hero__inner">
       <div class="rv-hero__eyebrow fade-up">REVELATION AGENCY</div>
       <h1 class="rv-hero__title fade-up fade-up-d1">THE REVEAL</h1>
-      <p class="rv-hero__sub fade-up fade-up-d2">Strategy. Insights. Announcements. We don't just do the work &mdash; we explain how it works.</p>
+      <p class="rv-hero__sub fade-up fade-up-d2">Branding. Marketing. Sales. We do the work, show the receipts, and explain the operating logic.</p>
       <div class="rv-hero__chips fade-up fade-up-d3" role="tablist" aria-label="Jump to category">
-        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="strategy">Strategy</button>
-        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="creative">Creative</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="branding">Branding</button>
+        <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="sales">Sales</button>
         <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="marketing">Marketing</button>
         <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="announcements">Announcements</button>
         <button type="button" class="rv-hero__chip rv-hero__chip--pulse" data-chip-filter="faq">FAQ</button>
@@ -1222,8 +1229,8 @@ h1, h2, h3, h4, h5, h6,
   <div class="container">
     <div class="rv-filter__inner" role="tablist">
       <button class="rv-filter__btn is-active" data-filter="all">All</button>
-      <button class="rv-filter__btn" data-filter="strategy">Strategy</button>
-      <button class="rv-filter__btn" data-filter="creative">Creative</button>
+      <button class="rv-filter__btn" data-filter="branding">Branding</button>
+      <button class="rv-filter__btn" data-filter="sales">Sales</button>
       <button class="rv-filter__btn" data-filter="marketing">Marketing</button>
       <button class="rv-filter__btn" data-filter="announcements">Announcements</button>
       <button class="rv-filter__btn" data-filter="faq">FAQ</button>
@@ -1236,112 +1243,112 @@ h1, h2, h3, h4, h5, h6,
     <div class="rv-feed__grid" id="rv-feed-grid">
 
       <article class="rv-card fade-up" data-cat="faq">
-        <a href="straight-answers.html" class="rv-card__img rv-card__img--red" aria-hidden="true"></a>
+        <a href="/the-reveal/straight-answers" class="rv-card__img rv-card__img--red" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(17,17,17,0.16),rgba(17,17,17,0.48)),url('/assets/brand/visuals/2026/reveal-straight-answers.webp');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
           <span class="rv-card__tag">FAQ</span>
           <h3 class="rv-card__title">Straight Answers</h3>
           <p class="rv-card__excerpt">Every question we hear before someone says yes &mdash; answered without the runaround.</p>
-          <a href="straight-answers.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/straight-answers" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
       <article class="rv-card fade-up fade-up-d1" data-cat="announcements">
-        <a href="revelation-agency-is-now-live.html" class="rv-card__img rv-card__img--dark" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <a href="/the-reveal/revelation-agency-is-now-live" class="rv-card__img rv-card__img--dark" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
           <span class="rv-card__tag">Announcements</span>
           <h3 class="rv-card__title">Revelation Agency Is Now Live &mdash; And We're Not Here to Play Small</h3>
           <p class="rv-card__excerpt">This isn't a press release. It's a declaration of intent. Revelation Agency exists because too many businesses are getting sold marketing theater when they need a partner who actually knows how to move the needle.</p>
-          <a href="revelation-agency-is-now-live.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/revelation-agency-is-now-live" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
-      <article class="rv-card fade-up fade-up-d2" data-cat="strategy">
-        <a href="why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
-        <div class="rv-card__body">
-          <span class="rv-card__tag">Strategy</span>
-          <h3 class="rv-card__title">Why AI Answer Engines Are Rewriting the SEO Playbook</h3>
-          <p class="rv-card__excerpt">The search game changed while most brands were still running the old plays. AI answer engines don't show ten blue links &mdash; they give one answer, and either your brand is in it or it isn't.</p>
-          <a href="why-ai-answer-engines-are-rewriting-the-seo-playbook.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </article>
-
-      <article class="rv-card fade-up" data-cat="creative">
-        <a href="video-is-no-longer-optional-its-infrastructure.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1574717024453-354056afd6fc?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
-        <div class="rv-card__body">
-          <span class="rv-card__tag">Creative</span>
-          <h3 class="rv-card__title">Video Is No Longer Optional &mdash; It's Infrastructure</h3>
-          <p class="rv-card__excerpt">Brands that treat video as a campaign deliverable are playing a different game than brands that treat it as infrastructure. The gap between those two approaches is widening fast.</p>
-          <a href="video-is-no-longer-optional-its-infrastructure.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </article>
-
-      <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
-        <a href="the-paid-ads-playbook-is-dead.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+      <article class="rv-card fade-up fade-up-d2" data-cat="marketing">
+        <a href="/the-reveal/why-ai-answer-engines-are-rewriting-the-seo-playbook" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
           <span class="rv-card__tag">Marketing</span>
+          <h3 class="rv-card__title">Why AI Answer Engines Are Rewriting the SEO Playbook</h3>
+          <p class="rv-card__excerpt">The search game changed while most brands were still running the old plays. AI answer engines don't show ten blue links &mdash; they give one answer, and either your brand is in it or it isn't.</p>
+          <a href="/the-reveal/why-ai-answer-engines-are-rewriting-the-seo-playbook" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up" data-cat="branding">
+        <a href="/the-reveal/video-is-no-longer-optional-its-infrastructure" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(17,17,17,0.16),rgba(17,17,17,0.48)),url('/assets/brand/visuals/2026/reveal-video-infrastructure.webp');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Branding</span>
+          <h3 class="rv-card__title">Video Is No Longer Optional &mdash; It's Infrastructure</h3>
+          <p class="rv-card__excerpt">Brands that treat video as a campaign deliverable are playing a different game than brands that treat it as infrastructure. The gap between those two approaches is widening fast.</p>
+          <a href="/the-reveal/video-is-no-longer-optional-its-infrastructure" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="rv-card fade-up fade-up-d1" data-cat="sales">
+        <a href="/the-reveal/the-paid-ads-playbook-is-dead" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <div class="rv-card__body">
+          <span class="rv-card__tag">Sales</span>
           <h3 class="rv-card__title">The Paid Ads Playbook Is Dead. Here's What Replaced It.</h3>
           <p class="rv-card__excerpt">The old approach &mdash; pick an interest audience, run a polished ad, let the algorithm sort it out &mdash; stopped working. What replaced it is more demanding and more rewarding.</p>
-          <a href="the-paid-ads-playbook-is-dead.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/the-paid-ads-playbook-is-dead" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
-      <article class="rv-card fade-up fade-up-d2" data-cat="strategy">
-        <a href="your-brand-isnt-what-you-say-it-is.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+      <article class="rv-card fade-up fade-up-d2" data-cat="branding">
+        <a href="/the-reveal/your-brand-isnt-what-you-say-it-is" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
-          <span class="rv-card__tag">Strategy</span>
+          <span class="rv-card__tag">Branding</span>
           <h3 class="rv-card__title">Your Brand Isn't What You Say It Is &mdash; It's What You Prove</h3>
           <p class="rv-card__excerpt">You can spend six figures on a brand refresh and still lose to a competitor whose website is full of real results and honest case studies. In 2026, proof is the positioning.</p>
-          <a href="your-brand-isnt-what-you-say-it-is.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/your-brand-isnt-what-you-say-it-is" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
-      <article class="rv-card fade-up" data-cat="creative">
-        <a href="the-website-is-still-your-most-important-real-estate.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+      <article class="rv-card fade-up" data-cat="branding">
+        <a href="/the-reveal/the-website-is-still-your-most-important-real-estate" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
-          <span class="rv-card__tag">Creative</span>
+          <span class="rv-card__tag">Branding</span>
           <h3 class="rv-card__title">The Website Is Still the Most Important Real Estate You Own</h3>
           <p class="rv-card__excerpt">Social platforms own the relationship with your audience. Your website is the only digital asset you actually control &mdash; and in an AI-search world, it's also the most important citation source you have.</p>
-          <a href="the-website-is-still-your-most-important-real-estate.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/the-website-is-still-your-most-important-real-estate" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
       <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
-        <a href="why-social-media-reach-is-a-vanity-metric.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <a href="/the-reveal/why-social-media-reach-is-a-vanity-metric" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
           <span class="rv-card__tag">Marketing</span>
           <h3 class="rv-card__title">Why Social Media Reach Is a Vanity Metric (And What to Measure Instead)</h3>
           <p class="rv-card__excerpt">A brand with 5,000 followers and an 8% engagement rate will outperform a brand with 100,000 followers and 0.5% engagement. The algorithm already knows this. Most marketing reports don't.</p>
-          <a href="why-social-media-reach-is-a-vanity-metric.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/why-social-media-reach-is-a-vanity-metric" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
-      <article class="rv-card fade-up fade-up-d2" data-cat="creative">
-        <a href="what-gohighlevel-actually-does.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+      <article class="rv-card fade-up fade-up-d2" data-cat="sales">
+        <a href="/the-reveal/what-gohighlevel-actually-does" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
-          <span class="rv-card__tag">Creative</span>
+          <span class="rv-card__tag">Sales</span>
           <h3 class="rv-card__title">What GoHighLevel Actually Does (And Why Most Businesses Are Barely Using It)</h3>
           <p class="rv-card__excerpt">Most businesses using GoHighLevel are running it like a basic contact database with some email sequences. A fully-built GHL system is something entirely different &mdash; and the gap between the two is where revenue lives.</p>
-          <a href="what-gohighlevel-actually-does.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/what-gohighlevel-actually-does" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
-      <article class="rv-card fade-up" data-cat="strategy">
-        <a href="outsourcing-your-marketing-isnt-a-shortcut.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+      <article class="rv-card fade-up" data-cat="marketing">
+        <a href="/the-reveal/outsourcing-your-marketing-isnt-a-shortcut" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
-          <span class="rv-card__tag">Strategy</span>
+          <span class="rv-card__tag">Marketing</span>
           <h3 class="rv-card__title">Outsourcing Your Marketing Isn't a Shortcut &mdash; It's a Strategy</h3>
           <p class="rv-card__excerpt">The narrative that outsourcing is a budget compromise has it exactly backwards. The best-run companies outsource to access specialists who don't exist on any org chart.</p>
-          <a href="outsourcing-your-marketing-isnt-a-shortcut.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/outsourcing-your-marketing-isnt-a-shortcut" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
       <article class="rv-card fade-up fade-up-d1" data-cat="marketing">
-        <a href="the-ai-content-trap.html" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
+        <a href="/the-reveal/the-ai-content-trap" class="rv-card__img" aria-hidden="true" style="background-image:linear-gradient(135deg,rgba(24,24,24,0.45),rgba(24,24,24,0.75)),url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=75&fit=crop');background-size:cover;background-position:center;"></a>
         <div class="rv-card__body">
           <span class="rv-card__tag">Marketing</span>
           <h3 class="rv-card__title">The AI Content Trap: Why Most AI-Generated Marketing Falls Flat</h3>
           <p class="rv-card__excerpt">AI didn't create the mediocre content problem &mdash; it scaled it. The brands winning with AI-assisted content understand something the rest don't: the model writes what you tell it to write, and most people aren't telling it much.</p>
-          <a href="the-ai-content-trap.html" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="/the-reveal/the-ai-content-trap" class="rv-card__link">Read <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
@@ -1352,8 +1359,8 @@ h1, h2, h3, h4, h5, h6,
 <section class="rv-cta">
   <div class="rv-cta__inner container">
     <h2 class="rv-cta__title">Ready to talk strategy? Let's go.</h2>
-    <p class="rv-cta__sub">Thirty minutes. Real strategy. No pitch. Walk away with clarity on what's broken, what matters, and what to do next.</p>
-    <a href="../booking.html" class="btn btn--primary" style="background:#fff;color:var(--red-deep);">Book a Free Strategy Session <i class="fa-solid fa-arrow-right"></i></a>
+    <p class="rv-cta__sub">Bring the real constraint. Get a direct read on what's breaking the connected system and what should move next.</p>
+    <a href="/booking" class="btn btn--primary" style="background:#fff;color:var(--red-deep);">Start a Growth Conversation <i class="fa-solid fa-arrow-right"></i></a>
   </div>
 </section>
 
@@ -1363,14 +1370,14 @@ h1, h2, h3, h4, h5, h6,
     <div class="ra-footer__inner">
       <div class="ra-footer__brand">
         <div class="ra-footer__logo">
-          <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+          <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
-        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
-        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <p>We run Branding, Marketing, and Sales as one connected growth system — and make the receipts visible.</p>
+        <div class="ra-footer__tagline">Branding. Marketing. Sales.</div>
         <div class="ra-footer__social">
-          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
         </div>
         <!-- FOOTER-ADDRESS -->
         <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
@@ -1406,30 +1413,30 @@ h1, h2, h3, h4, h5, h6,
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
         <ul class="ra-footer__svc">
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/systems/">Systems<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/branding">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/systems/brand-systems.html">Brand Systems</a></li>
-              <li><a href="../services/systems/ai-automation.html">AI &amp; Automation</a></li>
-              <li><a href="../services/systems/digital-presence.html">Digital Presence</a></li>
-              <li><a href="../services/systems/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/marketing">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/creative/branding.html">Branding</a></li>
-              <li><a href="../services/creative/video-production.html">Video Production</a></li>
-              <li><a href="../services/creative/website-development.html">Website Development</a></li>
-              <li><a href="../services/creative/app-development.html">App Development</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/marketing/digital-ads.html">Digital Ads</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/search-rankings.html">Search Rankings</a></li>
-              <li><a href="../services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
         </ul>
@@ -1438,9 +1445,9 @@ h1, h2, h3, h4, h5, h6,
       <div class="ra-footer__nav">
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
         <ul>
-          <li><a href="../the-reveal/index.html">The Reveal</a></li>
-          <li><a href="../portfolio.html">Portfolio</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/the-reveal">The Reveal</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="tel:+15592017039">(559) 201-7039</a></li>
           <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
         </ul>
@@ -1452,7 +1459,7 @@ h1, h2, h3, h4, h5, h6,
             <input type="text" name="name" placeholder="Your name" required autocomplete="name">
             <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
           </div>
-          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <button type="submit" class="ra-footer__miniform-btn">Start the Conversation <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
           <div class="ra-footer__miniform-status" aria-live="polite"></div>
         </form>
         <script>(function(){
@@ -1525,7 +1532,7 @@ h1, h2, h3, h4, h5, h6,
     </div>
 
     <div class="ra-footer__bottom">
-      <p class="ra-footer__copyright">&copy; 2026 <a href="../index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales.</p>
     </div>
   </div>
 </footer>
@@ -1640,7 +1647,7 @@ h1, h2, h3, h4, h5, h6,
         }
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.baseR * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(215,37,50,' + glow + ')';
+        ctx.fillStyle = 'rgba(201,28,29,' + glow + ')';
         ctx.fill();
         for (var j = i + 1; j < dots.length; j++) {
           var dx = d.x - dots[j].x, dy = d.y - dots[j].y;
@@ -1650,7 +1657,7 @@ h1, h2, h3, h4, h5, h6,
             ctx.beginPath();
             ctx.moveTo(d.x, d.y);
             ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = 'rgba(215,37,50,' + (0.22 * (1 - dist/linkMax)) + ')';
+            ctx.strokeStyle = 'rgba(201,28,29,' + (0.22 * (1 - dist/linkMax)) + ')';
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -1835,5 +1842,7 @@ h1, h2, h3, h4, h5, h6,
 </script>
 <!-- RA-MOBILE-NAV-JS-FIX-END -->
 <script src="../assets/js/analytics-events.js" defer></script>
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>

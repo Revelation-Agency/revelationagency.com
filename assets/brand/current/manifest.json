@@ -1,0 +1,36 @@
+{
+  "version": "2026-08-17.user-supplied",
+  "authority": "Files supplied directly by Blaine McKenzie for this website refresh",
+  "palette": {
+    "logo_red_observed": "#C91C1D",
+    "site_red": "#C91C1D",
+    "ink": "#171717",
+    "paper": "#F6F3EE"
+  },
+  "sources": [
+    {
+      "path": "assets/brand/current/source/revelation-logo-no-text.png",
+      "sha256": "452413d4ef652d26f4ac75392bacb889148bca59e1ef94155a85202763a2b200",
+      "width": 2000,
+      "height": 2000
+    },
+    {
+      "path": "assets/brand/current/source/revelation-logo-with-text.png",
+      "sha256": "441045281d05747bd1fc231217348d44324ff5819144207d2755120f829199f4",
+      "width": 2000,
+      "height": 2000
+    }
+  ],
+  "outputs": [
+    "assets/brand/current/ra-mark-red.png",
+    "assets/brand/current/ra-lockup-red.png",
+    "assets/brand/current/ra-social-card.png",
+    "assets/revelation-logo.png",
+    "favicon-32.png",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "favicon.ico"
+  ],
+  "transform": "transparent-padding crop, proportional resize, no artwork or color changes"
+}

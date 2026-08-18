@@ -1,71 +1,16 @@
 {
-  "generated_at_utc": "2026-08-14",
-  "source_of_truth": {
-    "root_folder_name": "Revelation Agency Branding [Updated]",
-    "root_folder_id": "1drGFVH1K63VlaDoR25pM_5Pow5BHW4nk",
-    "logos_folder_name": "RA - Logo(s)",
-    "logos_folder_id": "1KqSZW-6X9HaQl-y1mE9MDnjevbuXJRJU",
-    "note": "Legacy /Logo folder (1XMLNFvuOtNqO-K-Y_XrX1JThDwN0gzfW) is NOT the default source."
-  },
+  "generated_at_utc": "2026-08-17",
+  "status": "superseded-by-user-supplied-assets",
+  "canonical_manifest": "assets/brand/current/manifest.json",
+  "authority": "Files supplied directly by Blaine McKenzie for the 2026-08-17 website refresh",
   "brand_tokens": {
-    "colors": {
-      "charcoal": "#2B2B2B",
-      "red_primary": "#D72532",
-      "red_bright": "#ED1C24",
-      "red_dark": "#840D11",
-      "white": "#FFFFFF"
-    },
-    "typography": {
-      "primary_reference": "Horizon Bold",
-      "secondary_reference": "Helvetica",
-      "current_site_head_font": "Bebas Neue (Google Fonts) with Orbitron VF fallback",
-      "font_licensing_decision": "Horizon Bold source not staged in checkout. Retain the deployed Bebas Neue + Orbitron cascade as a legal, locally reproducible fallback until a licensed Horizon file is available. Documented in artifacts/copy-migration-manifest.md."
-    },
-    "brand_guide_placeholder_warning": "Revelation Agency - Brand Guide.pdf contains lorem-ipsum copy for mission/vision/strategy/logo-description sections. Those words are NOT approved. No lorem-ipsum copy has been ingested into the site."
+    "red_primary": "#C91C1D",
+    "ink": "#171717",
+    "paper": "#F6F3EE"
   },
-  "approved_updated_variants_in_checkout": [
-    {
-      "local_path": "assets/brand/approved/ra-landscape-black-updated.png",
-      "drive_id": "1jdc_JVmGZgXvK2CA9J_RWG86-MTBgqoB",
-      "drive_filename": "RA Landscape Logo - Black (Updated).png",
-      "sha256": "6d077b5f2298a8f68b27a42b783e9f29d1f69725dc2e0c23246821917dcb3f2d",
-      "dimensions_px": "1563x1563",
-      "mode": "8-bit RGBA, non-interlaced",
-      "primary_usage": "light-background nav / print / dark-on-white marks"
-    },
-    {
-      "local_path": "assets/brand/approved/ra-landscape-red-updated.png",
-      "drive_id": "1-q4y-CWcvrjqPQiVtqfFTDSW7winmwf3",
-      "drive_filename": "RA Landscape Logo - Red (Updated).png",
-      "sha256": "fe1faea76db1c4403b02c735c6ed8dcd73b0d18029e1056f3c67b8eec1a3d630",
-      "dimensions_px": "1563x1563",
-      "mode": "8-bit RGBA, non-interlaced",
-      "primary_usage": "brand red-on-white or hero/accent placements"
-    },
-    {
-      "local_path": "assets/brand/approved/ra-landscape-white-updated.png",
-      "drive_id": "1tiKQDVrGHwSUU1DbfALk02tyCEYM_-qH",
-      "drive_filename": "RA Landscape Logo - White (Updated).png",
-      "sha256": "b2f045239255a407fac6abfd414076160d7fb0660ac05a965cbe008aed33e239",
-      "dimensions_px": "1563x1563",
-      "mode": "8-bit RGBA, non-interlaced",
-      "primary_usage": "primary site nav (dark backgrounds), footer, dark hero"
-    },
-    {
-      "local_path": "assets/brand/approved/ra-icon-white-updated.png",
-      "drive_id": "1e0x5JEyrKj6o6ZffYMToBBuskQ83mcXe",
-      "drive_filename": "RA Icon Logo - White (Updated).png",
-      "sha256": "2fe982ba9a64774855dd2d2e866e2306cc37dc91a83b80be951a561601468da2",
-      "dimensions_px": "1563x1563",
-      "mode": "8-bit RGBA, non-interlaced",
-      "primary_usage": "mobile nav mark / OG-image accent / favicon regeneration source"
-    }
-  ],
-  "legacy_asset_status": {
-    "assets/revelation-logo.png": "Legacy inline nav logo. Retained for byte-preserved OG references. Nav switches to ra-landscape-white-updated.png at render time."
+  "source_hashes": {
+    "assets/brand/current/source/revelation-logo-no-text.png": "452413d4ef652d26f4ac75392bacb889148bca59e1ef94155a85202763a2b200",
+    "assets/brand/current/source/revelation-logo-with-text.png": "441045281d05747bd1fc231217348d44324ff5819144207d2755120f829199f4"
   },
-  "not_staged_here_by_design": [
-    "Portrait / icon black variants — not currently needed by any nav or footer surface. Add later only with usage evidence.",
-    "Alternate red logo — reserved for special campaigns, not the site chrome."
-  ]
+  "note": "The former Drive-sourced phoenix/dove manifest is historical and must not be used to regenerate current site branding."
 }

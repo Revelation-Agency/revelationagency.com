@@ -1,187 +1,162 @@
-# P5 Rebrand — Rollback Plan
+# Revelation Agency 2026 Refresh — Rollback Plan
 
-## What this document covers
+## Scope and authority
 
-- **Local rollback** (this checkout) — instructions to revert the branch to
-  the exact base SHA without losing the migration ledgers.
-- **Future production rollback** — the pre-approved procedure to promote the
-  last known-good Vercel deployment if / when this branch is ever deployed
-  and needs to be reverted. Deployment is **NOT** authorized by the current
-  packet; this section exists so the rollback is ready when the next phase
-  authorizes it.
+This plan covers the local feature-branch candidate and a future production
+release if one is separately authorized. No push, merge, Vercel deployment,
+alias change, or DNS change was performed during the refresh.
 
-## 1. Local rollback (this branch)
+Repository boundary:
 
-The rebrand is committed on the feature branch. `main` is untouched.
+- branch: `claude/p5-branding-marketing-sales-rebrand`;
+- main baseline: `4a0b076c37189216a263dfab5c481464cf251a96`;
+- candidate parent at the start of the final pass:
+  `1e3f0436bc7bcf7c57be09e61cd640ee5ce85ee3`;
+- final candidate SHA: read with `git rev-parse HEAD` after the evidence commit.
 
-### 1.1 Preserve baseline manifests
+## 1. Preserve before any rollback
 
-The `artifacts/` folder contains:
-- `baseline-manifest.json` — pinned identity + counts
-- `baseline-routes.json` — pinned baseline sitemap URLs (122)
-- `baseline-integration-hashes.json` — pinned integration snippet hashes
-- `route-diff.md`, `redirect-map.json`, `proposed-routes.json`
-- `portfolio-proof-migration.csv` — proof ledger
-- `copy-migration-manifest.md` — copy decisions
+Create a recoverable branch bundle before changing history or removing the
+isolated checkout:
 
-**Do not discard these.** They document the analysis even if the rebrand is
-rejected. Save them (copy the `artifacts/` folder out of the checkout)
-before doing any destructive git operation.
-
-### 1.2 Discard the branch entirely
-
-If the whole rebrand is rejected:
-
-```
-# Inspect the state you are about to lose
-git status
-git log --oneline claude/p5-branding-marketing-sales-rebrand ^main
-
-# Optional: keep a snapshot bundle first (recommended)
-git bundle create /path/to/backup/p5-rebrand-snapshot.bundle \
-    claude/p5-branding-marketing-sales-rebrand
-
-# Return the working tree to the base SHA
-git checkout main
-git branch -D claude/p5-branding-marketing-sales-rebrand
-
-# The isolated D: checkout is safe to delete after that — its ownership
-# is exclusive to this rebrand run.
+```powershell
+git status --short
+git log --oneline --decorate -12
+git bundle create D:/Codex/revelation-agency-site-rebrand-p5-backup.bundle `
+  claude/p5-branding-marketing-sales-rebrand
+git bundle verify D:/Codex/revelation-agency-site-rebrand-p5-backup.bundle
 ```
 
-### 1.3 Discard only the LAST commit(s)
+Also preserve the `artifacts/` directory. It contains the pinned baseline,
+route disposition, proof ledger, taxonomy migration, integration hashes, test
+receipt, and desktop/mobile screenshots.
 
-If a specific commit in the stack is defective:
+## 2. Complete refresh inventory
 
-```
-# Show recent commits
-git log --oneline -10
+A rollback must account for all of these 2026-owned surfaces, not only the HTML
+files:
 
-# Undo the last N commits, keeping the changes UNSTAGED for review
-git reset HEAD~N
+- `assets/brand/current/` — supplied-logo sources, generated logo roles,
+  favicons, and social card;
+- `assets/brand/visuals/2026/` — six generated editorial WebPs and prompt/hash
+  manifest;
+- `assets/css/ra-refresh-2026.css` and
+  `assets/js/ra-refresh-2026.js`;
+- `assets/data/portfolio-taxonomy-2026.json`;
+- `artifacts/portfolio-taxonomy-migration-2026.csv` plus route/proof/test and
+  screenshot artifacts;
+- `scripts/build_2026_brand_assets.py`;
+- `scripts/apply_2026_site_refresh.py`;
+- `scripts/apply_2026_portfolio_taxonomy.py`;
+- `scripts/verify_2026_refresh.py`;
+- 140 HTML documents, `vercel.json`, `sitemap.xml`, `robots.txt`, and application
+  icons touched by the refresh;
+- the five retired generators that now fail closed.
 
-# Or drop the changes entirely
-git reset --hard HEAD~N
-```
+The implementation commit is the authoritative inventory. Use `git show
+--stat <candidate-sha>` and `git show --name-status <candidate-sha>` rather than
+maintaining a hand-written file count during rollback.
 
-The commit stack is intentionally scoped one-responsibility-per-commit so
-individual commits can be reverted with `git revert <sha>` without
-disturbing the others.
+## 3. Preferred local rollback
 
-### 1.4 Rebuild artifacts after a partial rollback
+Use non-destructive reverts so the refresh and its rollback remain auditable.
+If the branch has an implementation commit followed by an evidence-only commit,
+revert newest first:
 
-Every artifact in `artifacts/` is regenerated deterministically by:
-
-```
-C:/Python314/python.exe scripts/baseline_snapshot.py
-C:/Python314/python.exe scripts/build_routes_artifacts.py
-C:/Python314/python.exe scripts/write_vercel_and_sitemap.py
-C:/Python314/python.exe scripts/verify_integration_preservation.py
-C:/Python314/python.exe scripts/run_tests.py
-```
-
-`baseline-routes.json` is PINNED and is only regenerated if it is deleted
-first — this prevents drift after the sitemap is rewritten.
-
-## 2. Future production rollback (only when a future phase deploys this)
-
-**Preconditions before this section applies:**
-- A separate phase / dispatcher has been authorized to deploy this branch.
-- That deploy has actually shipped to production (`www.revelationagency.com`
-  serves the rebrand).
-- A production defect has been observed OR the operator wants to revert.
-
-### 2.1 Primary rollback — promote the last known-good Vercel deployment
-
-The known-good production deployment at packet preparation was:
-
-- Vercel scope: `connect-9983s-projects`
-- Vercel project: `revelationagency-com`
-- Deployment ID: **`dpl_7XJxEcwMPadne4REF5pzP3hyVQ69`**
-- Deployment SHA: `4a0b076c37189216a263dfab5c481464cf251a96`
-- Aligned primary alias: `https://www.revelationagency.com/`
-
-Promotion procedure (executed by the authorized deploy lane, not by this
-editor):
-
-```
-# 1. Confirm the target deployment is still present in Vercel and healthy
-vercel inspect dpl_7XJxEcwMPadne4REF5pzP3hyVQ69 --scope connect-9983s-projects
-
-# 2. Promote it to production
-vercel promote dpl_7XJxEcwMPadne4REF5pzP3hyVQ69 --scope connect-9983s-projects
-
-# 3. Verify aliases
-vercel alias ls --scope connect-9983s-projects | grep revelationagency
+```powershell
+git log --oneline -6
+git revert <evidence-commit-sha>
+git revert <implementation-commit-sha>
 ```
 
-### 2.2 Post-rollback verification checklist
+Then run the baseline checks appropriate to the restored state. Do not push the
+rollback unless a separate instruction authorizes publication.
 
-Run these against the LIVE site after promotion:
+If the entire feature branch is rejected before publication, the safest action
+is to keep the branch and its bundle, switch back to `main`, and leave the
+isolated checkout untouched until the operator confirms it can be removed.
 
-- [ ] `https://www.revelationagency.com/` returns 200 and shows pre-rebrand
-      Systems / Creative / Marketing homepage
-- [ ] `https://revelationagency.com/` 301s to `https://www.revelationagency.com/`
-- [ ] Canonical tag on `/` reads `https://www.revelationagency.com/`
-- [ ] `robots.txt` accessible, sitemap URL matches
-- [ ] `sitemap.xml` returns 200 and matches base-SHA content
-- [ ] A representative legacy 301 still resolves — e.g.
-      `curl -I https://www.revelationagency.com/services/creative/branding.html`
-      hits the pre-rebrand behavior
-- [ ] Homepage contact form POST target is byte-identical to the base-SHA
-      configuration (webhook URL sha256 unchanged)
-- [ ] Booking iframe embed unchanged
-- [ ] Chat widget loads
-- [ ] `mailto:connect@revelationagency.com` and `tel:+15592017039` links present
-- [ ] Custom 404 renders on an unknown URL
+## 4. Partial rollback and regeneration
 
-### 2.3 Do NOT use DNS as the first rollback mechanism
+If only one subsystem is defective, revert the commit that owns it or restore
+the affected paths from the immediately previous candidate commit. Then rebuild
+with the supported pipeline:
 
-The `www.revelationagency.com` and apex `revelationagency.com` records
-remain unchanged for this entire packet. DNS is the last-resort rollback
-mechanism, not the first. Vercel deployment promotion is faster,
-reversible in seconds, and does not touch the DNS provider.
+```powershell
+python scripts/build_2026_brand_assets.py
+python scripts/apply_2026_site_refresh.py
+python scripts/apply_2026_portfolio_taxonomy.py
+python scripts/build_routes_artifacts.py
+python scripts/write_vercel_and_sitemap.py
+python scripts/verify_integration_preservation.py
+python scripts/verify_2026_refresh.py --max-errors 0
+python scripts/run_tests.py
+python scripts/take_screenshots.py
+```
 
-## 3. Configuration rollback (analytics / forms — deferred)
+Both HTML rewriters must converge to zero changes on their second run.
 
-This rebrand does not change any production form endpoint, chat widget
-ID, GHL webhook, or analytics measurement ID. The event layer added at
-`assets/js/analytics-events.js` is inert (no network destination).
+Never run these retired authors; they intentionally fail closed because they
+encode the old identity, taxonomy, or URL contract:
 
-If a FUTURE phase configures a real analytics destination or edits any of
-those endpoint contracts, that phase must:
+- `scripts/build_landing_pages.py`
+- `scripts/build_pillar_pages.py`
+- `scripts/regen_sitemap.py`
+- `scripts/repair_p5_pillar_nav_footer.py`
+- `scripts/rewrite_nav_footer.py`
 
-- version the previous configuration in a separately-committed rollback
-  file (`artifacts/config-rollback-<date>.json`),
-- publish a live read-back checklist,
-- and store the swap procedure alongside this rollback doc.
+`artifacts/baseline-routes.json` is pinned. Do not regenerate or overwrite it
+when evaluating a rollback.
 
-Nothing in the current packet has that footprint, so nothing extra is
-required today.
+## 5. Future production rollback
 
-## 4. What NEVER to do during rollback
+This section applies only after an approved release has actually shipped.
 
-- Do NOT force-push to `main`.
-- Do NOT reset the base SHA on the remote repository.
-- Do NOT delete artifacts that document the migration analysis, even if
-  the rebrand itself is discarded.
-- Do NOT clean or reset the other desktop checkouts
-  (`C:/Users/blain/Desktop/Revelation Command Center/…`) or the Reviii
-  Portal checkout. They are outside this rebrand's scope.
-- Do NOT change DNS as a first response to a production defect.
+Before deploying, the authorized release lane must record:
 
-## 5. Attestation
+- the exact candidate Git SHA;
+- the new Vercel deployment ID and production aliases;
+- the immediately previous healthy Vercel deployment ID and Git SHA;
+- live readback for homepage, services, portfolio, sitemap, redirects, forms,
+  booking, and chat.
 
-At the time of writing, no rollback has been executed. The rebrand is a
-locally committed candidate on the isolated feature branch. The
-content-parent SHA (parent of the current repair commit written by the
-pillar-nav/footer repair pass) is
-`de7493479904baa58e34b8d7b55c9d719a443f91`; the final HEAD SHA of the
-branch is discoverable with `git rev-parse HEAD` (it is intentionally
-not self-referenced inside the commit body). The last known-good
-production deployment `dpl_7XJxEcwMPadne4REF5pzP3hyVQ69` at base SHA
-`4a0b076c37189216a263dfab5c481464cf251a96` is untouched.
+If a material production defect appears, promote the recorded previous healthy
+Vercel deployment. Verify the target first; do not rely on an old deployment ID
+copied from this document because deployment state can change.
 
-Prior editions of this file quoted a self-referential final SHA
-(`ecc5d0e…`) that pre-dated later commits; that value has been retired
-in favour of the content-parent + read-back framing above.
+After promotion, verify:
+
+- apex redirects to `www`;
+- homepage and representative service/portfolio/article pages return 200;
+- canonical and Open Graph URLs use `https://www.revelationagency.com`;
+- `robots.txt` and the restored sitemap agree;
+- a representative legacy route resolves through one direct redirect;
+- the contact form target, footer mini-form line, booking iframe, chat loader,
+  mailto, and telephone links match the known-good receipt;
+- an unknown path renders the custom 404.
+
+DNS is not the first rollback mechanism. A Vercel deployment promotion is
+faster and more reversible; DNS changes require separate explicit authority.
+
+## 6. Protected external state
+
+The refresh does not alter production form endpoints, chat widget IDs, booking
+configuration, GHL workflows, analytics destinations, CRM records, email, SMS,
+or DNS. A future phase that changes any of those must create its own versioned
+rollback receipt before activation.
+
+## 7. Hard safety rules
+
+- Do not force-push `main`.
+- Do not rewrite or delete the remote baseline.
+- Do not discard the branch or isolated checkout until a verified bundle exists.
+- Do not delete the evidence artifacts before the rollback is accepted.
+- Do not touch the Command Center, Portal, or other desktop checkouts; they are
+  outside this repository boundary.
+- Do not use DNS as the first response to an application defect.
+
+## 8. Attestation
+
+No rollback has been executed. No production release exists from this local
+candidate. The branch, commits, and evidence packet are the recovery boundary
+until a separately authorized deployment records a live release receipt.

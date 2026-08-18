@@ -1,12 +1,13 @@
-"""Emit an updated vercel.json (new redirect map, direct + single-hop) and
-regenerate sitemap.xml from artifacts/proposed-routes.json.
+"""Emit clean-URL Vercel routing and the canonical sitemap.
 
-The header + rewrite blocks of vercel.json are preserved from the baseline;
-only the `redirects` array is replaced. This lets a reviewer diff the
-redirect list alone.
+The migration redirect map is generated separately. This writer adds the
+canonical apex-to-www host redirect, normalizes the two retained rewrites,
+preserves security/cache headers, and refuses to emit extension-bearing route
+rules while ``cleanUrls`` is enabled.
 """
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,13 +25,50 @@ def write(path, obj):
         f.write("\n")
 
 
+def clean_public_path(value: str) -> str:
+    """Normalize an internal route while preserving query strings."""
+    path, separator, query = value.partition("?")
+    path = re.sub(r"/index\.html$", "", path, flags=re.I)
+    path = re.sub(r"\.html$", "", path, flags=re.I)
+    if path != "/":
+        path = path.rstrip("/")
+    path = path or "/"
+    return path + (separator + query if separator else "")
+
+
+CANONICAL_HOST_REDIRECT = {
+    "source": "/:path*",
+    "has": [{"type": "host", "value": "revelationagency.com"}],
+    "destination": "https://www.revelationagency.com/:path*",
+    "permanent": True,
+}
+
+
 def rebuild_vercel_json() -> None:
     baseline = load("vercel.json")
     new_redirects = load("artifacts/redirect-map.json")["redirects"]
-    baseline["redirects"] = new_redirects
-    # keep cleanUrls, trailingSlash, rewrites, and headers untouched
+    baseline["redirects"] = [CANONICAL_HOST_REDIRECT, *new_redirects]
+    baseline["rewrites"] = [
+        {
+            "source": clean_public_path(rule["source"]),
+            "destination": clean_public_path(rule["destination"]),
+        }
+        for rule in baseline.get("rewrites", [])
+    ]
+
+    for section in ("redirects", "rewrites"):
+        for rule in baseline.get(section, []):
+            for key in ("source", "destination"):
+                value = str(rule.get(key, ""))
+                if ".html" in value.lower():
+                    raise ValueError(f"{section} {key} must be extensionless with cleanUrls=true: {value}")
+
     write("vercel.json", baseline)
-    print(f"vercel.json: wrote {len(new_redirects)} redirects (single-hop, permanent)")
+    print(
+        "vercel.json: wrote "
+        f"{len(new_redirects)} migration redirects + 1 canonical-host redirect "
+        f"and {len(baseline['rewrites'])} rewrites"
+    )
 
 
 SITEMAP_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
@@ -45,11 +83,19 @@ CANON = "https://www.revelationagency.com"
 def priority(url: str) -> str:
     if url == f"{CANON}/":
         return "1.0"
-    if url.endswith("/services/") or url.endswith("/services.html") or url.endswith("/portfolio.html"):
+    if url in {
+        f"{CANON}/services",
+        f"{CANON}/services/branding",
+        f"{CANON}/services/marketing",
+        f"{CANON}/services/sales",
+        f"{CANON}/portfolio",
+    }:
         return "0.9"
+    if url == f"{CANON}/the-reveal":
+        return "0.8"
     if "/services/branding/" in url or "/services/marketing/" in url or "/services/sales/" in url:
         # index vs leaves
-        if url.endswith("/branding/") or url.endswith("/marketing/") or url.endswith("/sales/"):
+        if url.endswith("/branding") or url.endswith("/marketing") or url.endswith("/sales"):
             return "0.9"
         return "0.8"
     if "/portfolio/case-studies/" in url:
@@ -73,44 +119,62 @@ def changefreq(url: str) -> str:
 
 def build_sitemap() -> None:
     urls = load("artifacts/proposed-routes.json")["urls"]
+    if len(urls) != len(set(urls)):
+        raise ValueError("artifacts/proposed-routes.json contains duplicate URLs")
     # De-dupe and sort by group for stable diff:
     groups = {"core": [], "services": [], "portfolio": [], "the-reveal": [], "landing": [], "other": []}
     for u in urls:
         p = u.replace(CANON, "") or "/"
-        if p in ("/", "/about.html", "/booking.html", "/contact.html", "/faq.html",
-                 "/portfolio.html", "/services.html", "/web-hosting.html"):
+        if p in ("/", "/about", "/booking", "/contact", "/faq",
+                 "/portfolio", "/services", "/web-hosting"):
             groups["core"].append(u)
         elif p.startswith("/services/"):
             groups["services"].append(u)
         elif p.startswith("/portfolio/"):
             groups["portfolio"].append(u)
-        elif p.startswith("/the-reveal/"):
+        elif p == "/the-reveal" or p.startswith("/the-reveal/"):
             groups["the-reveal"].append(u)
-        elif p in ("/lead-agent/", "/sales-agent/", "/sales-growth-engine/", "/sales-intelligence/"):
+        elif p in ("/lead-agent", "/sales-agent", "/sales-growth-engine", "/sales-intelligence"):
             groups["landing"].append(u)
         else:
             groups["other"].append(u)
 
+    emitted_urls: list[str] = []
+
+    def append_group(lines: list[str], key: str, *, frequency: str | None = None, fixed_priority: str | None = None) -> None:
+        for u in sorted(groups[key]):
+            emitted_urls.append(u)
+            lines.append(
+                "  <url>\n"
+                f"    <loc>{u}</loc>\n"
+                "    <lastmod>2026-08-17</lastmod>\n"
+                f"    <changefreq>{frequency or changefreq(u)}</changefreq>\n"
+                f"    <priority>{fixed_priority or priority(u)}</priority>\n"
+                "  </url>\n"
+            )
+
     lines = [SITEMAP_HEADER, "\n  <!-- Core pages -->\n"]
-    for u in sorted(groups["core"]):
-        lines.append(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>2026-08-14</lastmod>\n    <changefreq>{changefreq(u)}</changefreq>\n    <priority>{priority(u)}</priority>\n  </url>\n")
+    append_group(lines, "core")
     lines.append("\n  <!-- Services (Branding / Marketing / Sales + AI cross-cutting) -->\n")
-    for u in sorted(groups["services"]):
-        lines.append(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>2026-08-14</lastmod>\n    <changefreq>{changefreq(u)}</changefreq>\n    <priority>{priority(u)}</priority>\n  </url>\n")
+    append_group(lines, "services")
     lines.append("\n  <!-- Portfolio -->\n")
-    for u in sorted(groups["portfolio"]):
-        lines.append(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>2026-08-14</lastmod>\n    <changefreq>{changefreq(u)}</changefreq>\n    <priority>{priority(u)}</priority>\n  </url>\n")
+    append_group(lines, "portfolio")
     lines.append("\n  <!-- The Reveal -->\n")
-    for u in sorted(groups["the-reveal"]):
-        lines.append(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>2026-08-14</lastmod>\n    <changefreq>{changefreq(u)}</changefreq>\n    <priority>{priority(u)}</priority>\n  </url>\n")
+    append_group(lines, "the-reveal")
     lines.append("\n  <!-- Lead / sales landing routes (preserved pending separate review) -->\n")
-    for u in sorted(groups["landing"]):
-        lines.append(f"  <url>\n    <loc>{u}</loc>\n    <lastmod>2026-08-14</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n  </url>\n")
+    append_group(lines, "landing", frequency="monthly", fixed_priority="0.5")
+    if groups["other"]:
+        lines.append("\n  <!-- Other canonical routes -->\n")
+        append_group(lines, "other")
     lines.append(SITEMAP_FOOTER)
+
+    if set(emitted_urls) != set(urls) or len(emitted_urls) != len(urls):
+        missing = sorted(set(urls) - set(emitted_urls))
+        extra = sorted(set(emitted_urls) - set(urls))
+        raise ValueError(f"sitemap grouping mismatch: missing={missing} extra={extra}")
     with open("sitemap.xml", "w", encoding="utf-8", newline="") as f:
         f.write("".join(lines))
-    total = sum(len(v) for v in groups.values())
-    print(f"sitemap.xml: wrote {total} URLs")
+    print(f"sitemap.xml: wrote {len(emitted_urls)} URLs")
 
 
 if __name__ == "__main__":

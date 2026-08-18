@@ -34,6 +34,8 @@ PAGES = [
     ("case_study_risen_sun",    "/portfolio/case-studies/risen-sun-solar-roofing.html"),
     ("case_study_trust_energy", "/portfolio/case-studies/trust-energy.html"),
     ("reveal_index",            "/the-reveal/index.html"),
+    ("reveal_straight_answers", "/the-reveal/straight-answers.html"),
+    ("reveal_video_infra",      "/the-reveal/video-is-no-longer-optional-its-infrastructure.html"),
     ("about",                   "/about.html"),
     ("contact",                 "/contact.html"),
     ("services_hub",            "/services.html"),

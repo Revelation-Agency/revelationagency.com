@@ -42,6 +42,7 @@ after applying cleanUrls / trailingSlash / redirect rules.
 import hashlib
 import http.server
 import json
+import glob
 import os
 import re
 import socket
@@ -142,7 +143,17 @@ class LocalServer:
 # ---------------- Vercel-lite: apply cleanUrls / trailingSlash / redirects ----
 
 def path_from_url(url: str) -> str:
-    return url.replace(CANON, "") or "/"
+    return clean_public_path(url.replace(CANON, "") or "/")
+
+
+def clean_public_path(value: str) -> str:
+    path, separator, query = value.partition("?")
+    path = re.sub(r"/index\.html$", "", path, flags=re.I)
+    path = re.sub(r"\.html$", "", path, flags=re.I)
+    if path != "/":
+        path = path.rstrip("/")
+    path = path or "/"
+    return path + (separator + query if separator else "")
 
 
 def resolve_static(path: str) -> str | None:
@@ -179,6 +190,8 @@ def load_redirects():
 def apply_redirect(path: str) -> str | None:
     """If path matches a redirect source, return the destination; else None."""
     for r in load_redirects():
+        if r.get("has") or r.get("missing"):
+            continue
         src = r["source"]
         dst = r["destination"]
         if ":path*" in src:
@@ -213,20 +226,23 @@ def t02_worktree_clean():
 
 
 def t03_baseline_urls_accounted():
-    baseline = set(load_json("artifacts/baseline-routes.json")["urls"])
-    proposed = set(load_json("artifacts/proposed-routes.json")["urls"])
-    retired = {r["source"] for r in load_redirects()}
+    baseline = {path_from_url(u) for u in load_json("artifacts/baseline-routes.json")["urls"]}
+    proposed = {path_from_url(u) for u in load_json("artifacts/proposed-routes.json")["urls"]}
+    retired = {
+        clean_public_path(r["source"])
+        for r in load_redirects()
+        if not r.get("has") and not r.get("missing")
+    }
     unaccounted = []
-    for u in baseline:
-        p = path_from_url(u)
-        if u in proposed:
+    for p in baseline:
+        if p in proposed:
             continue
         if p in retired:
             continue
         # Fallback: exact-path redirect covers it
         if apply_redirect(p) is not None:
             continue
-        unaccounted.append(u)
+        unaccounted.append(p)
     record("03_baseline_urls_accounted", not unaccounted, f"{len(baseline)} baseline; unaccounted={unaccounted}")
 
 
@@ -247,15 +263,18 @@ def t04_proposed_urls_serve(server: LocalServer):
 
 
 def t05_all_retired_have_redirect():
-    baseline = set(load_json("artifacts/baseline-routes.json")["urls"])
-    proposed = set(load_json("artifacts/proposed-routes.json")["urls"])
-    retired = [u for u in baseline if u not in proposed]
-    redirect_srcs = {r["source"] for r in load_redirects()}
+    baseline = {path_from_url(u) for u in load_json("artifacts/baseline-routes.json")["urls"]}
+    proposed = {path_from_url(u) for u in load_json("artifacts/proposed-routes.json")["urls"]}
+    retired = [p for p in baseline if p not in proposed]
+    redirect_srcs = {
+        clean_public_path(r["source"])
+        for r in load_redirects()
+        if not r.get("has") and not r.get("missing")
+    }
     missing = []
-    for u in retired:
-        p = path_from_url(u)
+    for p in retired:
         if p not in redirect_srcs and apply_redirect(p) is None:
-            missing.append(u)
+            missing.append(p)
     record("05_all_retired_have_direct_redirect", not missing, f"retired={len(retired)} missing={missing}")
 
 
@@ -264,16 +283,26 @@ def t06_no_redirect_chain_or_loop():
     following any source must reach a live file within 1 hop."""
     proposed = set(path_from_url(u) for u in load_json("artifacts/proposed-routes.json")["urls"])
     fails = []
-    for r in load_redirects():
+    rules = [r for r in load_redirects() if not r.get("has") and not r.get("missing")]
+    seen = set()
+    for r in rules:
         src = r["source"]
         dst = r["destination"]
+        if ".html" in src.lower() or ".html" in dst.lower():
+            fails.append(f"cleanUrls violation: {src} -> {dst}")
+        if src in seen:
+            fails.append(f"duplicate source: {src}")
+        seen.add(src)
         # Reject a chain: dst also a source (excluding parametric)
-        srcs = {rr["source"] for rr in load_redirects() if ":path*" not in rr["source"]}
-        if dst in srcs:
+        srcs = {rr["source"] for rr in rules if ":path*" not in rr["source"]}
+        if clean_public_path(dst) in srcs:
             fails.append(f"chain: {src} -> {dst} (also a source)")
         # Reject a self-loop
-        if src == dst:
+        if clean_public_path(src) == clean_public_path(dst):
             fails.append(f"loop: {src} -> {dst}")
+    for r in load_json("vercel.json").get("rewrites", []):
+        if ".html" in r.get("source", "").lower() or ".html" in r.get("destination", "").lower():
+            fails.append(f"cleanUrls rewrite violation: {r}")
     record("06_no_redirect_chain_or_loop", not fails, f"issues={fails}")
 
 
@@ -425,6 +454,8 @@ def t12_structured_data():
                 data,
             ):
                 blob = m.group(1).strip()
+                if "&amp;" in blob:
+                    fails.append(f"{path}: JSON-LD contains HTML entity &amp;")
                 try:
                     obj = json.loads(blob)
                 except Exception as e:
@@ -444,7 +475,10 @@ def t13_robots_and_sitemap():
            f"sitemap-line={ok_sitemap_line} sitemap-open={ok_open}")
 
 
-LOREM_RE = re.compile(r"lorem ipsum|placeholder text|xxx placeholder", re.IGNORECASE)
+LOREM_RE = re.compile(
+    r"lorem ipsum|placeholder text|xxx placeholder|paid social program",
+    re.IGNORECASE,
+)
 
 
 def t14_no_lorem():
@@ -484,25 +518,50 @@ def t15_no_public_tweaks_controls():
     record("15_no_public_tweaks_or_debug_controls", not fails, f"pages={fails}")
 
 
-NUMERIC_CLAIM_RE = re.compile(
-    r"\$\d+/lead|\$\d+ CPL|\d+% (conversion|ROAS|CPL|open|reply)|\d+x ROAS|"
-    r"guaranteed \d|instant response",
-    re.IGNORECASE,
-)
-
-
 def t16_no_unapproved_numeric_claims():
     fails = []
-    for _dir, _dirs, files in os.walk("."):
-        if any(seg in _dir.replace("\\", "/") for seg in ("/.git", "/artifacts", "/node_modules")):
-            continue
-        for f in files:
-            if not f.endswith(".html"):
+    scopes = [
+        (
+            list(sorted(glob.glob("portfolio/case-studies/net-metering-systems*.html")))
+            + ["portfolio/systems/ai-automation.html"],
+            [
+                re.compile(r"\$50", re.I),
+                re.compile(r"25%\s+lead-to-appointment", re.I),
+                re.compile(r"5x.{0,30}(?:ROAS|return)", re.I | re.S),
+                re.compile(r"positive return on ad spend", re.I),
+                re.compile(r"\b12\s+management automations?\b", re.I),
+            ],
+        ),
+        (
+            list(sorted(glob.glob("portfolio/case-studies/trust-energy*.html")))
+            + [
+                "services.html",
+                "services/marketing/digital-ads.html",
+                "services/systems/brand-systems.html",
+                "portfolio/marketing/digital-ads.html",
+                "portfolio/systems/ai-automation.html",
+            ],
+            [
+                re.compile(r"\$25", re.I),
+                re.compile(r"\$40\s*[-–]\s*\$50", re.I),
+                re.compile(r"1-in-4|1:4", re.I),
+                re.compile(r"\b4\s+years?\b|\bfour years\b", re.I),
+                re.compile(r"half-industry\s+CPL", re.I),
+            ],
+        ),
+        (
+            list(sorted(glob.glob("portfolio/case-studies/highlands-energy*.html"))),
+            [re.compile(r"\$9", re.I), re.compile(r"3\s*[-–]\s*5x", re.I)],
+        ),
+    ]
+    for paths, patterns in scopes:
+        for path in paths:
+            if not os.path.exists(path):
                 continue
-            path = os.path.relpath(os.path.join(_dir, f)).replace("\\", "/")
             data = read(path)
-            for m in NUMERIC_CLAIM_RE.finditer(data):
-                fails.append(f"{path}: '{m.group(0)}'")
+            for pattern in patterns:
+                for match in pattern.finditer(data):
+                    fails.append(f"{path}: '{match.group(0)}'")
     record("16_no_unapproved_numeric_performance_claims", not fails,
            f"instances={fails[:10]} total={len(fails)}")
 

@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
   <!-- RA-PWA-HEAD:start -->
-  <link rel="icon" href="../favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.webmanifest">
+
+
+<link rel="manifest" href="/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Revelation">
-  <meta name="theme-color" content="#D72532">
   <!-- RA-PWA-HEAD:end -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <title>Revelation Lead Agent System — Revelation Agency</title>
@@ -21,10 +19,8 @@
 <meta property="og:title" content="Revelation Lead Agent System — Revelation Agency">
 <meta property="og:description" content="The Revelation Lead Agent System finds the people actually ready to buy, reaches each one personally, and follows up until they respond, so your calendar fills with real opportunities instead of busywork.">
 <meta property="og:url" content="https://www.revelationagency.com/lead-agent">
-<meta property="og:image" content="https://www.revelationagency.com/assets/revelation-logo.png">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="../assets/revelation-logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +28,7 @@
 
 <style>
 :root{
-  --red:#D72532; --red-deep:#AD1C24;
+  --red:#C91C1D; --red-deep:#9E1115;
   --charcoal:#2B2B2B; --black:#181818; --off-black:#1E1E1E;
   --grey-light:#F7F7F5; --grey-mid:#8A8A8A;
   --font-head:'Bebas Neue','Orbitron',sans-serif;
@@ -50,7 +46,7 @@ a{color:inherit;text-decoration:none;}
 
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;font-family:var(--font-head);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;border:0;cursor:pointer;border-radius:var(--btn-radius);transition:all .35s var(--ease-out);white-space:nowrap;}
 .btn--primary{background:var(--red);color:#fff;}
-.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(215,37,50,0.35);}
+.btn--primary:hover{background:var(--red-deep);transform:translateY(-2px);box-shadow:0 16px 34px rgba(201,28,29,0.35);}
 .btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35);}
 .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
 
@@ -73,7 +69,7 @@ a{color:inherit;text-decoration:none;}
 .ra-nav__links .has-drop:hover>.ra-drop,.ra-nav__links .has-drop:focus-within>.ra-drop{opacity:1;pointer-events:auto;transform:translateY(0);}
 .ra-drop li{width:100%;}
 .ra-drop a{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;font-size:14px;opacity:0.85;border-radius:4px;}
-.ra-drop a:hover{background:rgba(215,37,50,0.06);color:var(--red);opacity:1;}
+.ra-drop a:hover{background:rgba(201,28,29,0.06);color:var(--red);opacity:1;}
 .ra-drop--l2{min-width:220px;}
 .ra-drop--l3{position:absolute;top:-10px;left:calc(100% + 2px);min-width:230px;}
 .ra-drop--l2 .has-drop-l3:hover>.ra-drop--l3,.ra-drop--l2 .has-drop-l3:focus-within>.ra-drop--l3{opacity:1;pointer-events:auto;transform:translateY(0);}
@@ -88,20 +84,20 @@ a{color:inherit;text-decoration:none;}
 /* hero */
 .rv-hero{position:relative;background:var(--black);color:#fff;padding:200px 0 120px;overflow:hidden;}
 .rv-hero__canvas{position:absolute;inset:0;opacity:0.55;pointer-events:auto;cursor:crosshair;}
-.rv-hero__glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(215,37,50,0.22) 0%,transparent 65%);pointer-events:none;}
+.rv-hero__glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(201,28,29,0.22) 0%,transparent 65%);pointer-events:none;}
 .rv-hero__inner{position:relative;z-index:2;max-width:960px;}
 .rv-hero__eyebrow{font-family:var(--font-head);font-size:13px;letter-spacing:0.22em;color:var(--red);margin-bottom:20px;}
 .rv-hero__title{font-family:var(--font-head);font-size:clamp(48px,8.5vw,120px);line-height:0.98;letter-spacing:0.04em;margin-bottom:28px;text-transform:uppercase;}
 .rv-hero__sub{font-size:18px;line-height:1.6;color:rgba(255,255,255,0.75);max-width:640px;margin-bottom:32px;}
 .rv-hero__chips{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:2;}
-.rv-hero__chip{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(215,37,50,0.45);background:rgba(215,37,50,0.08);color:#fff;border-radius:45px 0 45px 45px;cursor:pointer;transition:all .25s ease;}
+.rv-hero__chip{font-family:var(--font-head);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(201,28,29,0.45);background:rgba(201,28,29,0.08);color:#fff;border-radius:45px 0 45px 45px;cursor:pointer;transition:all .25s ease;}
 .rv-hero__chip:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px);}
 .rv-hero__chip--pulse{animation:rvChipPulse 3.6s ease-in-out infinite;}
 .rv-hero__chip--pulse:nth-child(2){animation-delay:0.6s;}
 .rv-hero__chip--pulse:nth-child(3){animation-delay:1.2s;}
 .rv-hero__chip--pulse:nth-child(4){animation-delay:1.8s;}
 .rv-hero__chip--pulse:nth-child(5){animation-delay:2.4s;}
-@keyframes rvChipPulse{0%,100%{box-shadow:0 0 0 0 rgba(215,37,50,0);}50%{box-shadow:0 0 0 6px rgba(215,37,50,0.12);}}
+@keyframes rvChipPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,28,29,0);}50%{box-shadow:0 0 0 6px rgba(201,28,29,0.12);}}
 .rv-hero__hint{position:absolute;bottom:24px;right:28px;font-family:var(--font-head);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);z-index:2;pointer-events:none;}
 @media (max-width:768px){.rv-hero__hint{display:none;}}
 
@@ -121,7 +117,7 @@ a{color:inherit;text-decoration:none;}
 .rv-card__img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#2B2B2B 0%,#1E1E1E 100%);position:relative;overflow:hidden;}
 .rv-card__img--red{background:linear-gradient(135deg,var(--red-deep) 0%,var(--red) 100%);}
 .rv-card__img--dark{background:linear-gradient(135deg,#181818 0%,#2B2B2B 100%);}
-.rv-card__img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(215,37,50,0.25) 0%,transparent 55%);}
+.rv-card__img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,28,29,0.25) 0%,transparent 55%);}
 .rv-card__body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1;}
 .rv-card__tag{display:inline-block;font-family:var(--font-head);font-size:11px;letter-spacing:0.18em;color:var(--red);margin-bottom:14px;text-transform:uppercase;}
 .rv-card__title{font-family:var(--font-head);font-size:24px;line-height:1.1;letter-spacing:0.02em;margin-bottom:12px;color:var(--charcoal);text-transform:uppercase;}
@@ -204,7 +200,7 @@ a{color:inherit;text-decoration:none;}
   color: var(--charcoal);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red); }
 
 /* Services mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -231,7 +227,7 @@ a{color:inherit;text-decoration:none;}
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -273,12 +269,12 @@ a{color:inherit;text-decoration:none;}
   transition: background .15s, color .15s, transform .15s;
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
-  background: rgba(215,37,50,0.06) !important;
+  background: rgba(201,28,29,0.06) !important;
   color: var(--red) !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
+  background: rgba(201,28,29,0.08) !important;
   color: var(--red) !important;
   font-weight: 600 !important;
 }
@@ -357,7 +353,7 @@ a{color:inherit;text-decoration:none;}
     margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
   .ra-nav__links .has-drop > a { font-weight: 600 !important; }
   .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
   .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
@@ -375,17 +371,17 @@ a{color:inherit;text-decoration:none;}
 .ra-goto-top{
   position:fixed;right:20px;bottom:20px;z-index:990;
   width:48px;height:48px;border-radius:50%;
-  background:var(--red,#ED1C24);color:#fff;border:0;
+  background:var(--red,#ED2A31);color:#fff;border:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
-  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(237,42,49,0.32),0 4px 10px rgba(0,0,0,0.15);
   font-size:16px;line-height:1;
   -webkit-tap-highlight-color:transparent;
 }
 .ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
 @media (max-width:720px){
@@ -439,15 +435,15 @@ a{color:inherit;text-decoration:none;}
 }
 .ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus{
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn{
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status{
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
@@ -504,7 +500,7 @@ a{color:inherit;text-decoration:none;}
   color: var(--charcoal, #2B2B2B);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red, #C91C1D); }
 
 /* Services / Portfolio mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -531,7 +527,7 @@ a{color:inherit;text-decoration:none;}
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -579,13 +575,13 @@ a{color:inherit;text-decoration:none;}
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
-  background: rgba(215,37,50,0.06) !important;
-  color: #D72532 !important;
+  background: rgba(201,28,29,0.06) !important;
+  color: #C91C1D !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
-  color: var(--red, #D72532) !important;
+  background: rgba(201,28,29,0.08) !important;
+  color: var(--red, #C91C1D) !important;
   font-weight: 600 !important;
 }
 .ra-nav__links .ra-drop--l3 a::after { display: none !important; }
@@ -632,7 +628,7 @@ a{color:inherit;text-decoration:none;}
     align-self: stretch !important;
     transition: transform 0.3s ease, color 0.2s ease;
   }
-  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #C91C1D); }
 
   /* Accordion animation on mobile */
   .ra-nav__links .ra-drop--l2,
@@ -646,7 +642,7 @@ a{color:inherit;text-decoration:none;}
     padding: 0 !important; margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
 
   .ra-nav__logo img,
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
@@ -744,7 +740,7 @@ a{color:inherit;text-decoration:none;}
   .ra-nav__links .has-drop-l3.is-open > .ra-drop--l3 {
     max-height: 600px !important;
     padding: 4px 0 8px 18px !important;
-    border-left: 2px solid rgba(215,37,50,0.35) !important;
+    border-left: 2px solid rgba(201,28,29,0.35) !important;
     margin-left: 4px !important;
   }
   .ra-nav__links .has-drop.is-open > .ra-drop--l2 {
@@ -910,8 +906,8 @@ a{color:inherit;text-decoration:none;}
 .ra-footer__nav ul a:hover { color: white; }
 .ra-footer__cta {
   align-self: start;
-  background: rgba(237,28,36,0.08);
-  border: 1px solid rgba(237,28,36,0.15);
+  background: rgba(237,42,49,0.08);
+  border: 1px solid rgba(237,42,49,0.15);
   border-radius: 16px;
   padding: 24px 22px;
 }
@@ -1022,15 +1018,15 @@ h1, h2, h3, h4, h5, h6,
 }
 .ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus {
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn {
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status {
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
@@ -1042,16 +1038,16 @@ h1, h2, h3, h4, h5, h6,
 /* RA-LANDING-AGENT-CSS-START */
 .la-page { font-family: Inter, system-ui, -apple-system, sans-serif; color: var(--charcoal, #2B2B2B); }
 .la-container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
-.la-eyebrow { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red, #D72532); display: inline-block; margin-bottom: 18px; }
+.la-eyebrow { font-family: Inter, system-ui, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red, #C91C1D); display: inline-block; margin-bottom: 18px; }
 
 .la-hero { background: #1E1E1E; color: #fff; padding: clamp(72px, 11vw, 140px) 0 clamp(72px, 11vw, 140px); position: relative; overflow: hidden; }
-.la-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 30%, rgba(215,37,50,0.18), transparent 55%); pointer-events: none; }
+.la-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 30%, rgba(201,28,29,0.18), transparent 55%); pointer-events: none; }
 .la-hero > .la-container { position: relative; }
 .la-hero .la-eyebrow { color: #ff5a66; }
 .la-h1 { font-family: Orbitron, Inter, system-ui, sans-serif; font-weight: 800; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.08; letter-spacing: -0.01em; color: #fff; margin: 0 0 24px; max-width: 22ch; }
 .la-subhead { font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.55; color: rgba(255,255,255,0.85); max-width: 60ch; margin: 0 0 36px; }
-.la-cta-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--red, #D72532); color: #fff !important; text-decoration: none; font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.04em; padding: 18px 32px; border-radius: 999px; box-shadow: 0 10px 26px rgba(215,37,50,0.32); transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
-.la-cta-primary:hover { background: #AD1C24; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(215,37,50,0.4); }
+.la-cta-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--red, #C91C1D); color: #fff !important; text-decoration: none; font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.04em; padding: 18px 32px; border-radius: 999px; box-shadow: 0 10px 26px rgba(201,28,29,0.32); transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.la-cta-primary:hover { background: #9E1115; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,28,29,0.4); }
 .la-cta-primary .la-cta-arrow { font-weight: 900; transition: transform 0.2s; }
 .la-cta-primary:hover .la-cta-arrow { transform: translateX(4px); }
 .la-cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin: 18px 0 0; }
@@ -1067,14 +1063,14 @@ h1, h2, h3, h4, h5, h6,
 
 .la-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; max-width: 760px; }
 .la-step { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
-.la-step__num { font-family: Orbitron, sans-serif; font-weight: 800; font-size: 18px; color: var(--red, #D72532); background: rgba(215,37,50,0.10); border-radius: 999px; padding: 8px 14px; min-width: 48px; text-align: center; line-height: 1; align-self: start; }
-.la-section--dark .la-step__num { background: rgba(215,37,50,0.18); color: #ff8a93; }
+.la-step__num { font-family: Orbitron, sans-serif; font-weight: 800; font-size: 18px; color: var(--red, #C91C1D); background: rgba(201,28,29,0.10); border-radius: 999px; padding: 8px 14px; min-width: 48px; text-align: center; line-height: 1; align-self: start; }
+.la-section--dark .la-step__num { background: rgba(201,28,29,0.18); color: #ff8a93; }
 .la-step__title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.4; margin: 6px 0 6px; color: inherit; }
 .la-step__body { font-size: clamp(0.95rem, 1.2vw, 1.05rem); line-height: 1.6; margin: 0; color: inherit; opacity: 0.85; }
 
 .la-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; max-width: 720px; }
 .la-checks li { display: grid; grid-template-columns: auto 1fr; gap: 14px; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.55; }
-.la-checks li::before { content: ''; display: block; width: 22px; height: 22px; border-radius: 50%; background: var(--red, #D72532); margin-top: 3px; flex-shrink: 0; position: relative; }
+.la-checks li::before { content: ''; display: block; width: 22px; height: 22px; border-radius: 50%; background: var(--red, #C91C1D); margin-top: 3px; flex-shrink: 0; position: relative; }
 .la-checks li { position: relative; }
 .la-checks li::after { content: ''; position: absolute; left: 6px; top: 9px; width: 10px; height: 5px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); }
 
@@ -1083,10 +1079,10 @@ h1, h2, h3, h4, h5, h6,
 .la-video-slot__placeholder { font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin: 0; text-align: center; }
 .la-section--dark .la-video-slot__placeholder { color: rgba(255,255,255,0.55); }
 
-.la-section--final { background: linear-gradient(135deg, #D72532 0%, #AD1C24 100%); color: #fff; text-align: center; }
+.la-section--final { background: linear-gradient(135deg, #C91C1D 0%, #9E1115 100%); color: #fff; text-align: center; }
 .la-section--final .la-h2 { color: #fff; max-width: none; margin-left: auto; margin-right: auto; }
 .la-section--final .la-body { color: rgba(255,255,255,0.92); margin-left: auto; margin-right: auto; }
-.la-section--final .la-cta-primary { background: #fff; color: var(--red, #D72532) !important; box-shadow: 0 10px 26px rgba(0,0,0,0.18); margin-top: 28px; }
+.la-section--final .la-cta-primary { background: #fff; color: var(--red, #C91C1D) !important; box-shadow: 0 10px 26px rgba(0,0,0,0.18); margin-top: 28px; }
 .la-section--final .la-cta-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.26); }
 
 @media (max-width: 640px) {
@@ -1097,98 +1093,84 @@ h1, h2, h3, h4, h5, h6,
 }
 /* RA-LANDING-AGENT-CSS-END */
 </style>
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 <body>
 
 <!-- RA-NAV-CANONICAL-START -->
 <nav class="ra-nav" id="ra-nav">
   <div class="ra-nav__inner">
-    <a href="../index.html" class="ra-nav__logo" aria-label="Revelation Agency">
-      <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+    <a href="/" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="/assets/brand/current/ra-mark-red.png" alt="Revelation Agency">
     </a>
 
     <ul class="ra-nav__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
       <li class="has-drop">
-        <a href="../services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
           <li class="has-drop-l3">
-            <a href="../services/systems/index.html">Systems <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Systems menu" aria-expanded="false">&#9662;</button>
+            <a href="/services/branding">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/systems/brand-systems.html">Brand Systems</a></li>
-              <li><a href="../services/systems/sales-infrastructure.html">Sales Infrastructure</a></li>
-              <li><a href="../services/systems/digital-presence.html">Digital Presence</a></li>
-              <li><a href="../services/systems/ai-automation.html">AI &amp; Automation</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="../services/creative/index.html">Creative <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative menu" aria-expanded="false">&#9662;</button>
-            <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/creative/branding.html">Branding</a></li>
-              <li><a href="../services/creative/website-development.html">Website Development</a></li>
-              <li><a href="../services/creative/app-development.html">App Development</a></li>
-              <li><a href="../services/creative/video-production.html">Video Production</a></li>
-            </ul>
-          </li>
-          <li class="has-drop-l3">
-            <a href="../services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/marketing">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="../services/marketing/digital-ads.html">Digital Ads</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
-              <li><a href="../services/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
+          <li class="has-drop-l3">
+            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
+            <ul class="ra-drop ra-drop--l3">
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
+            </ul>
+          </li>
+          <li><a href="/services/ai-automation" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
         </ul>
       </li>
-      <li><a href="../the-reveal/index.html" class="is-current">The Reveal</a></li>
+      <li><a href="/the-reveal">The Reveal</a></li>
       <li class="has-drop">
-        <a href="../portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/portfolio">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li class="has-drop-l3">
-            <a href="../portfolio/systems.html">Systems Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Systems Work menu" aria-expanded="false">&#9662;</button>
-            <ul class="ra-drop ra-drop--l3">
-              <li><a href="../portfolio/systems/brand-systems.html">Brand Systems</a></li>
-              <li><a href="../portfolio/systems/sales-infrastructure.html">Sales Infrastructure</a></li>
-              <li><a href="../portfolio/systems/digital-presence.html">Digital Presence</a></li>
-              <li><a href="../portfolio/systems/ai-automation.html">AI &amp; Automation</a></li>
-            </ul>
-          </li>
-          <li class="has-drop-l3">
-            <a href="../portfolio/creative.html">Creative Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Creative Work menu" aria-expanded="false">&#9662;</button>
-            <ul class="ra-drop ra-drop--l3">
-              <li><a href="../portfolio/creative/branding.html">Branding</a></li>
-              <li><a href="../portfolio/creative/website-development.html">Website Development</a></li>
-              <li><a href="../portfolio/creative/app-development.html">App Development</a></li>
-              <li><a href="../portfolio/creative/video-production.html">Video Production</a></li>
-            </ul>
-          </li>
-          <li class="has-drop-l3">
-            <a href="../portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
-            <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing Work menu" aria-expanded="false">&#9662;</button>
-            <ul class="ra-drop ra-drop--l3">
-              <li><a href="../portfolio/marketing/digital-ads.html">Digital Ads</a></li>
-              <li><a href="../portfolio/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../portfolio/marketing/search-rankings.html">Search &amp; AI Rankings</a></li>
-              <li><a href="../portfolio/marketing/outsource-marketing.html">Outsourced Marketing</a></li>
-            </ul>
-          </li>
+          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
         </ul>
       </li>
-      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
 
     <div class="ra-nav__right">
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
-      <a href="../booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Book a Call</a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;">Start Here</a>
     </div>
 
     <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -1205,7 +1187,7 @@ h1, h2, h3, h4, h5, h6,
       <span class="la-eyebrow">Revelation Lead Agent System</span>
       <h1 class="la-h1">The right customers, reached before your competitors know they exist.</h1>
       <p class="la-subhead">Most lead generation blasts the same ad to everyone and hands you a list of tire-kickers. The Revelation Lead Agent System finds the people actually ready to buy, reaches each one personally, and follows up until they respond, so your calendar fills with real opportunities instead of busywork.</p>
-      <a class="la-cta-primary landing-cta" data-cta="hero" data-page="lead-agent" href="../booking">
+      <a class="la-cta-primary landing-cta" data-cta="hero" data-page="lead-agent" href="/booking">
         See it for your business <span class="la-cta-arrow">→</span>
       </a>
       <p class="la-cta-sub">No switching software. No long contract to find out if it works.</p>
@@ -1311,7 +1293,7 @@ h1, h2, h3, h4, h5, h6,
     <div class="la-container">
       <h2 class="la-h2">Want to see what this looks like for your business?</h2>
       <p class="la-body">Book a 15-minute look.</p>
-      <a class="la-cta-primary landing-cta" data-cta="footer" data-page="lead-agent" href="../booking">
+      <a class="la-cta-primary landing-cta" data-cta="footer" data-page="lead-agent" href="/booking">
         Book a 15-Minute Look <span class="la-cta-arrow">→</span>
       </a>
     </div>
@@ -1325,14 +1307,14 @@ h1, h2, h3, h4, h5, h6,
     <div class="ra-footer__inner">
       <div class="ra-footer__brand">
         <div class="ra-footer__logo">
-          <img src="../assets/revelation-logo.png" alt="Revelation Agency">
+          <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
-        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
-        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <p>We run Branding, Marketing, and Sales as one connected growth system — and make the receipts visible.</p>
+        <div class="ra-footer__tagline">Branding. Marketing. Sales.</div>
         <div class="ra-footer__social">
-          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
         </div>
         <!-- FOOTER-ADDRESS -->
         <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
@@ -1368,30 +1350,30 @@ h1, h2, h3, h4, h5, h6,
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
         <ul class="ra-footer__svc">
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/systems/">Systems<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/branding">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/systems/brand-systems.html">Brand Systems</a></li>
-              <li><a href="../services/systems/ai-automation.html">AI &amp; Automation</a></li>
-              <li><a href="../services/systems/digital-presence.html">Digital Presence</a></li>
-              <li><a href="../services/systems/sales-infrastructure.html">Sales Infrastructure</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/creative/">Creative<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/marketing">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/creative/branding.html">Branding</a></li>
-              <li><a href="../services/creative/video-production.html">Video Production</a></li>
-              <li><a href="../services/creative/website-development.html">Website Development</a></li>
-              <li><a href="../services/creative/app-development.html">App Development</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="../services/marketing/">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="../services/marketing/digital-ads.html">Digital Ads</a></li>
-              <li><a href="../services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="../services/marketing/search-rankings.html">Search Rankings</a></li>
-              <li><a href="../services/marketing/outsource-marketing.html">Outsource Marketing</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
         </ul>
@@ -1400,9 +1382,9 @@ h1, h2, h3, h4, h5, h6,
       <div class="ra-footer__nav">
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
         <ul>
-          <li><a href="../the-reveal/index.html">The Reveal</a></li>
-          <li><a href="../portfolio.html">Portfolio</a></li>
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="/the-reveal">The Reveal</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="tel:+15592017039">(559) 201-7039</a></li>
           <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
         </ul>
@@ -1414,7 +1396,7 @@ h1, h2, h3, h4, h5, h6,
             <input type="text" name="name" placeholder="Your name" required autocomplete="name">
             <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
           </div>
-          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <button type="submit" class="ra-footer__miniform-btn">Start the Conversation <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
           <div class="ra-footer__miniform-status" aria-live="polite"></div>
         </form>
         <script>(function(){
@@ -1487,7 +1469,7 @@ h1, h2, h3, h4, h5, h6,
     </div>
 
     <div class="ra-footer__bottom">
-      <p class="ra-footer__copyright">&copy; 2026 <a href="../index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales.</p>
     </div>
   </div>
 </footer>
@@ -1602,7 +1584,7 @@ h1, h2, h3, h4, h5, h6,
         }
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.baseR * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(215,37,50,' + glow + ')';
+        ctx.fillStyle = 'rgba(201,28,29,' + glow + ')';
         ctx.fill();
         for (var j = i + 1; j < dots.length; j++) {
           var dx = d.x - dots[j].x, dy = d.y - dots[j].y;
@@ -1612,7 +1594,7 @@ h1, h2, h3, h4, h5, h6,
             ctx.beginPath();
             ctx.moveTo(d.x, d.y);
             ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = 'rgba(215,37,50,' + (0.22 * (1 - dist/linkMax)) + ')';
+            ctx.strokeStyle = 'rgba(201,28,29,' + (0.22 * (1 - dist/linkMax)) + ')';
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -1816,5 +1798,7 @@ h1, h2, h3, h4, h5, h6,
 <script src="../assets/js/landing-tracker.js"></script>
 <!-- RA-LANDING-TRACKER-END -->
 <script src="../assets/js/analytics-events.js" defer></script>
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /asset-review.html
-Disallow: /the-reveal/article-template.html
+Disallow: /asset-review
+Disallow: /the-reveal/article-template
 
 Sitemap: https://www.revelationagency.com/sitemap.xml

@@ -467,6 +467,10 @@ def iter_html():
 
 
 def main() -> int:
+    raise SystemExit(
+        "DEPRECATED: this pre-2026 generator contains retired identity/taxonomy. "
+        "Run apply_2026_site_refresh.py and apply_2026_portfolio_taxonomy.py instead."
+    )
     report = []
     for rel in sorted(iter_html()):
         try:

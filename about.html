@@ -3,27 +3,24 @@
 <head>
 <meta charset="utf-8">
   <!-- RA-PWA-HEAD:start -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.webmanifest">
+
+
+<link rel="manifest" href="/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Revelation">
-  <meta name="theme-color" content="#D72532">
   <!-- RA-PWA-HEAD:end -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#D72532">
 <title>About — Revelation Agency</title>
-<meta name="description" content="Revelation Agency is a systems-first growth partner built for operators. Systems, creative, and marketing — integrated into one machine.">
+<meta name="description" content="Revelation Agency is the operator-led growth partner connecting Branding, Marketing, and Sales around the constraint that matters most.">
 
 <link rel="canonical" href="https://www.revelationagency.com/about">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Revelation Agency">
 <meta property="og:title" content="About — Revelation Agency">
-<meta property="og:description" content="Revelation Agency is a systems-first growth partner built for operators. Systems, creative, and marketing — integrated into one machine.">
+<meta property="og:description" content="Revelation Agency is the operator-led growth partner connecting Branding, Marketing, and Sales around the constraint that matters most.">
 <meta property="og:url" content="https://www.revelationagency.com/about">
-<meta property="og:image" content="https://www.revelationagency.com/assets/images/generated/revelation-agency-about-hero.png">
+<meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -33,7 +30,7 @@
       "@type": "Organization",
       "name": "Revelation Agency",
       "url": "https://www.revelationagency.com",
-      "logo": "https://www.revelationagency.com/assets/revelation-logo.png",
+      "logo": "https://www.revelationagency.com/assets/brand/current/ra-lockup-red.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "55 Shaw Ave #201",
@@ -48,8 +45,8 @@
     {
       "@type": "AboutPage",
       "name": "About — Revelation Agency",
-      "url": "https://www.revelationagency.com/about.html",
-      "description": "Revelation Agency is a systems-first growth partner built for operators. Systems, creative, and marketing — integrated into one machine.",
+      "url": "https://www.revelationagency.com/about",
+      "description": "Revelation Agency is the operator-led growth partner connecting Branding, Marketing, and Sales around the constraint that matters most.",
       "publisher": {
         "@type": "Organization",
         "name": "Revelation Agency"
@@ -60,7 +57,7 @@
 </script>
 
 <!-- Fonts — identical to homepage: self-hosted Orbitron + Google Fonts Bebas Neue -->
-<link rel="preload" as="font" type="font/woff2" href="assets/webfonts/Orbitron-VF.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/Orbitron-VF.woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&display=swap">
@@ -79,9 +76,9 @@
    TOKENS — shared with homepage (index.html)
    ============================================= */
 :root {
-  --red:        #D72532;
-  --red-deep:   #AD1C24;
-  --red-dark:   #840D11;
+  --red:        #C91C1D;
+  --red-deep:   #9E1115;
+  --red-dark:   #780A0E;
   --charcoal:   #2B2B2B;
   --black:      #181818;
   --off-black:  #1E1E1E;
@@ -194,7 +191,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .btn--primary:hover {
   background: var(--red-deep);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(215,37,50,0.40);
+  box-shadow: 0 12px 32px rgba(201,28,29,0.40);
 }
 .btn--outline {
   background: transparent;
@@ -295,7 +292,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .has-drop-l3:hover > .ra-drop--l3{opacity:1;pointer-events:auto;transform:translateX(0);}
 .ra-drop--l3 a{display:block;padding:9px 14px;font-size:13px;border-radius:7px;opacity:1;color:var(--charcoal);white-space:nowrap;}
 .ra-drop--l3 a:hover{background:var(--grey-light);color:var(--red);}
-.ra-drop--l3 a.is-current{background:rgba(215,37,50,0.08);color:var(--red);font-weight:600;}
+.ra-drop--l3 a.is-current{background:rgba(201,28,29,0.08);color:var(--red);font-weight:600;}
 .ra-drop--l3 a::after{display:none !important;}
 
 .ra-drop a:hover { background: var(--grey-light); }
@@ -344,15 +341,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   right: -160px;
   width: 680px;
   height: 680px;
-  background: radial-gradient(circle, rgba(237,28,36,0.09) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(237,42,49,0.09) 0%, transparent 65%);
   pointer-events: none;
 }
 .ra-about-hero__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(215,37,50,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(215,37,50,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(201,28,29,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,28,29,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 60% 80% at 80% 50%, black 20%, transparent 100%);
 }
@@ -444,7 +441,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   inset: 0;
   background:
     linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(13,13,13,0.55) 100%),
-    radial-gradient(circle at 50% 40%, rgba(215,37,50,0.12) 0%, rgba(215,37,50,0) 60%);
+    radial-gradient(circle at 50% 40%, rgba(201,28,29,0.12) 0%, rgba(201,28,29,0) 60%);
   pointer-events: none;
 }
 .ra-about-story__caption {
@@ -481,7 +478,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   margin: 36px 0 12px;
   padding: 24px 28px;
   border-left: 3px solid var(--red);
-  background: rgba(215,37,50,0.04);
+  background: rgba(201,28,29,0.04);
   border-radius: 0 12px 12px 0;
   font-family: var(--font-head);
   font-size: clamp(18px, 2vw, 22px);
@@ -546,7 +543,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .ra-about-principle:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.06);
-  border-color: rgba(215,37,50,0.22);
+  border-color: rgba(201,28,29,0.22);
 }
 .ra-about-principle:hover::after { transform: scaleX(1); }
 .ra-about-principle__num {
@@ -608,7 +605,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   border: 1px solid rgba(43,43,43,0.10);
   background: var(--white);
 }
-.ra-about-audience__col--fit { border-color: rgba(215,37,50,0.25); background: rgba(215,37,50,0.03); }
+.ra-about-audience__col--fit { border-color: rgba(201,28,29,0.25); background: rgba(201,28,29,0.03); }
 .ra-about-audience__col h3 {
   font-size: 22px;
   letter-spacing: 0.04em;
@@ -633,7 +630,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   flex-shrink: 0;
 }
 .ra-about-audience__col--fit .ra-about-audience__badge {
-  background: rgba(215,37,50,0.14);
+  background: rgba(201,28,29,0.14);
 }
 .ra-about-audience__list {
   list-style: none;
@@ -718,8 +715,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   align-items: flex-start;
 }
 .ra-about-approach__phase:hover {
-  border-color: rgba(215,37,50,0.35);
-  background: rgba(215,37,50,0.05);
+  border-color: rgba(201,28,29,0.35);
+  background: rgba(201,28,29,0.05);
   transform: translateX(2px);
 }
 .ra-about-approach__phase-num {
@@ -845,8 +842,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .ra-footer__nav ul a:hover { color: white; }
 .ra-footer__cta {
   align-self: start;
-  background: rgba(237,28,36,0.08);
-  border: 1px solid rgba(237,28,36,0.15);
+  background: rgba(237,42,49,0.08);
+  border: 1px solid rgba(237,42,49,0.15);
   border-radius: 16px;
   padding: 32px 28px;
 }
@@ -935,7 +932,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   color: var(--charcoal);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red); }
 
 /* Services mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -962,7 +959,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -1004,12 +1001,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   transition: background .15s, color .15s, transform .15s;
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover {
-  background: rgba(215,37,50,0.06) !important;
+  background: rgba(201,28,29,0.06) !important;
   color: var(--red) !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
+  background: rgba(201,28,29,0.08) !important;
   color: var(--red) !important;
   font-weight: 600 !important;
 }
@@ -1169,7 +1166,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   .ra-nav__links .has-drop > a { font-weight: 600 !important; }
   .ra-nav__links .ra-drop--l2 { padding-left: 16px !important; }
   .ra-nav__links .ra-drop--l2 > li > a { font-weight: 500 !important; }
-  .ra-nav__links .ra-drop--l3 { padding-left: 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3 { padding-left: 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
   .ra-nav__links .ra-drop--l3 a { font-size: 13px !important; opacity: 0.72 !important; font-weight: 400 !important; }
   .ra-nav__links .ra-drop--l3 a:hover { color: var(--red) !important; opacity: 1 !important; }
 
@@ -1212,7 +1209,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
     margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
   .ra-nav__links .has-drop > a { font-weight: 600 !important; }
   .ra-nav__links .has-drop-l3 > a { font-weight: 500 !important; }
   .ra-nav__links .ra-drop--l2 .has-drop-l3 > a .ra-drop__arrow { display: none !important; }
@@ -1242,9 +1239,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   pointer-events: none;
   z-index: 0;
 }
-.fx-glow--tl { background: radial-gradient(ellipse at 15% 20%, rgba(237,28,36,0.12) 0%, transparent 55%); }
-.fx-glow--tr { background: radial-gradient(ellipse at 85% 25%, rgba(237,28,36,0.12) 0%, transparent 55%); }
-.fx-glow--bl { background: radial-gradient(ellipse at 10% 80%, rgba(237,28,36,0.10) 0%, transparent 55%); }
+.fx-glow--tl { background: radial-gradient(ellipse at 15% 20%, rgba(237,42,49,0.12) 0%, transparent 55%); }
+.fx-glow--tr { background: radial-gradient(ellipse at 85% 25%, rgba(237,42,49,0.12) 0%, transparent 55%); }
+.fx-glow--bl { background: radial-gradient(ellipse at 10% 80%, rgba(237,42,49,0.10) 0%, transparent 55%); }
 .fx-glow--center { background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.14) 0%, transparent 60%); }
 .fx-shimmer {
   position: absolute;
@@ -1252,7 +1249,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   pointer-events: none;
   background: linear-gradient(90deg,
     transparent 0%, transparent 40%,
-    rgba(237,28,36,0.06) 50%,
+    rgba(237,42,49,0.06) 50%,
     transparent 60%, transparent 100%);
   background-size: 220% 100%;
   animation: fx-shimmer 11s linear infinite;
@@ -1266,7 +1263,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .fx-line-pulse {
   position: relative;
   height: 1px;
-  background: rgba(215,37,50,0.14);
+  background: rgba(201,28,29,0.14);
   margin: 56px auto;
   max-width: 100%;
   overflow: hidden;
@@ -1278,8 +1275,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   left: -25%;
   width: 25%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(237,28,36,0.9), transparent);
-  box-shadow: 0 0 10px rgba(237,28,36,0.55);
+  background: linear-gradient(90deg, transparent, rgba(237,42,49,0.9), transparent);
+  box-shadow: 0 0 10px rgba(237,42,49,0.55);
   animation: fx-line-pulse 4.5s linear infinite;
 }
 @keyframes fx-line-pulse {
@@ -1300,22 +1297,22 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   width: 2px;
   height: 2px;
   border-radius: 50%;
-  background: rgba(215,37,50,0.30);
+  background: rgba(201,28,29,0.30);
   box-shadow:
     120px 80px 0 rgba(43,43,43,0.20),
-    240px 160px 0 rgba(215,37,50,0.22),
+    240px 160px 0 rgba(201,28,29,0.22),
     340px 40px 0 rgba(43,43,43,0.14),
-    420px 240px 0 rgba(215,37,50,0.20),
+    420px 240px 0 rgba(201,28,29,0.20),
     540px 100px 0 rgba(43,43,43,0.16),
-    640px 280px 0 rgba(215,37,50,0.18),
+    640px 280px 0 rgba(201,28,29,0.18),
     720px 60px 0 rgba(43,43,43,0.18),
-    820px 200px 0 rgba(215,37,50,0.24),
+    820px 200px 0 rgba(201,28,29,0.24),
     920px 140px 0 rgba(43,43,43,0.12),
-    1020px 320px 0 rgba(215,37,50,0.16),
+    1020px 320px 0 rgba(201,28,29,0.16),
     1140px 80px 0 rgba(43,43,43,0.14),
-    80px 360px 0 rgba(215,37,50,0.18),
+    80px 360px 0 rgba(201,28,29,0.18),
     260px 400px 0 rgba(43,43,43,0.12),
-    460px 380px 0 rgba(215,37,50,0.14),
+    460px 380px 0 rgba(201,28,29,0.14),
     680px 420px 0 rgba(43,43,43,0.14);
   top: 20px;
   left: 20px;
@@ -1341,8 +1338,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(215,37,50,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(215,37,50,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(201,28,29,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,28,29,0.05) 1px, transparent 1px);
   background-size: 80px 80px;
   -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%);
   mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 30%, transparent 100%);
@@ -1398,17 +1395,17 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .ra-goto-top{
   position:fixed;right:20px;bottom:20px;z-index:990;
   width:48px;height:48px;border-radius:50%;
-  background:var(--red,#ED1C24);color:#fff;border:0;
+  background:var(--red,#ED2A31);color:#fff;border:0;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease;
-  box-shadow:0 12px 28px rgba(237,28,36,0.32),0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(237,42,49,0.32),0 4px 10px rgba(0,0,0,0.15);
   font-size:16px;line-height:1;
   -webkit-tap-highlight-color:transparent;
 }
 .ra-goto-top.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.ra-goto-top:hover{background:var(--ra-red-deep,#D72532);}
+.ra-goto-top:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-goto-top:focus-visible{outline:2px solid #fff;outline-offset:2px;}
 .ra-goto-top svg{width:18px;height:18px;display:block;pointer-events:none;}
 @media (max-width:720px){
@@ -1462,15 +1459,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 }
 .ra-footer__miniform input::placeholder{color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus{
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn{
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover{background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status{
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
@@ -1527,7 +1524,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   color: var(--charcoal, #2B2B2B);
   transition: background .15s, color .15s, transform .15s;
 }
-.ra-nav__links .ra-drop a:hover { background: rgba(215,37,50,0.06); color: var(--red, #D72532); }
+.ra-nav__links .ra-drop a:hover { background: rgba(201,28,29,0.06); color: var(--red, #C91C1D); }
 
 /* Services / Portfolio mega-menu: 3-column flat layout */
 .ra-nav__links .ra-drop--l2 {
@@ -1554,7 +1551,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
-  color: #ED1C24 !important;
+  color: #ED2A31 !important;
   background: transparent !important;
   border-radius: 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -1602,13 +1599,13 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
-  background: rgba(215,37,50,0.06) !important;
-  color: #D72532 !important;
+  background: rgba(201,28,29,0.06) !important;
+  color: #C91C1D !important;
   transform: translateX(3px);
 }
 .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
-  background: rgba(215,37,50,0.08) !important;
-  color: var(--red, #D72532) !important;
+  background: rgba(201,28,29,0.08) !important;
+  color: var(--red, #C91C1D) !important;
   font-weight: 600 !important;
 }
 .ra-nav__links .ra-drop--l3 a::after { display: none !important; }
@@ -1655,7 +1652,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
     align-self: stretch !important;
     transition: transform 0.3s ease, color 0.2s ease;
   }
-  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #D72532); }
+  .ra-nav__services-toggle.open, .ra-nav__l2-toggle.open { transform: rotate(180deg); color: var(--red, #C91C1D); }
 
   /* Accordion animation on mobile */
   .ra-nav__links .ra-drop--l2,
@@ -1669,7 +1666,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
     padding: 0 !important; margin: 0 !important;
   }
   .ra-nav__links .ra-drop--l2.open { max-height: 900px !important; padding: 4px 0 4px 16px !important; }
-  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(215,37,50,0.35) !important; margin-left: 4px !important; }
+  .ra-nav__links .ra-drop--l3.open { max-height: 440px !important; padding: 4px 0 8px 18px !important; border-left: 2px solid rgba(201,28,29,0.35) !important; margin-left: 4px !important; }
 
   .ra-nav__logo img,
   .ra-nav.scrolled .ra-nav__logo img { height: 48px !important; max-height: 48px !important; width: auto !important; max-width: 180px !important; object-fit: contain !important; display: block !important; }
@@ -1737,7 +1734,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   #ra-nav .has-drop.is-open > .ra-nav__services-toggle,
   #ra-nav .has-drop-l3.is-open > .ra-nav__l2-toggle {
     transform: rotate(180deg) !important;
-    color: var(--red, #D72532) !important;
+    color: var(--red, #C91C1D) !important;
   }
   /* Submenus: full-width, hidden until the parent row is .is-open. Uses
      display (not max-height) so there is never a clipped / half-open state —
@@ -1772,7 +1769,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   #ra-nav .ra-nav__links .ra-drop--l3 {
     padding: 2px 0 8px 14px !important;
     margin: 2px 0 6px 4px !important;
-    border-left: 2px solid rgba(215,37,50,0.35) !important;
+    border-left: 2px solid rgba(201,28,29,0.35) !important;
   }
   /* Reveal the submenu when its parent row is open. */
   #ra-nav .has-drop.is-open > .ra-drop--l2,
@@ -1820,7 +1817,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
   #ra-nav .ra-nav__links .ra-drop--l3 a:hover,
   #ra-nav .ra-nav__links .ra-drop--l3 a:active,
   #ra-nav .ra-nav__links .ra-drop--l3 a.is-current {
-    color: var(--red, #D72532) !important;
+    color: var(--red, #C91C1D) !important;
   }
   /* Hide the small decorative chevron icons baked into the label text — the
      dedicated toggle button is the only chevron shown on mobile. */
@@ -1996,8 +1993,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
 .ra-footer__nav ul a:hover { color: white; }
 .ra-footer__cta {
   align-self: start;
-  background: rgba(237,28,36,0.08);
-  border: 1px solid rgba(237,28,36,0.15);
+  background: rgba(237,42,49,0.08);
+  border: 1px solid rgba(237,42,49,0.15);
   border-radius: 16px;
   padding: 24px 22px;
 }
@@ -2108,21 +2105,32 @@ h1, h2, h3, h4, h5, h6,
 }
 .ra-footer__miniform input::placeholder {color:rgba(255,255,255,0.42);}
 .ra-footer__miniform input:focus {
-  border-color:var(--red,#ED1C24);background:rgba(255,255,255,0.09);
+  border-color:var(--red,#ED2A31);background:rgba(255,255,255,0.09);
 }
 .ra-footer__miniform-btn {
-  width:100%;background:var(--red,#ED1C24);color:#fff;border:0;border-radius:8px;
+  width:100%;background:var(--red,#ED2A31);color:#fff;border:0;border-radius:8px;
   padding:11px 14px;font-size:12px;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;transition:background .15s ease;
   font-family:inherit;
 }
-.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#D72532);}
+.ra-footer__miniform-btn:hover {background:var(--ra-red-deep,#C91C1D);}
 .ra-footer__miniform-status {
   font-size:11px;color:rgba(255,255,255,0.55);margin-top:6px;min-height:14px;
 }
 .ra-footer__miniform-status.is-error {color:#ff8888;}
 /* RA-FOOTER-CANONICAL-CSS-END */
 </style>
+<!-- RA-REFRESH-2026:css -->
+<link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817c">
+<meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#C91C1D">
+<!-- RA-REFRESH-2026:favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- /RA-REFRESH-2026:favicons -->
 </head>
 
 <body>
@@ -2131,67 +2139,67 @@ h1, h2, h3, h4, h5, h6,
 <!-- RA-NAV-CANONICAL-START -->
 <nav class="ra-nav" id="ra-nav">
   <div class="ra-nav__inner">
-    <a href="index.html" class="ra-nav__logo" aria-label="Revelation Agency">
-      <img src="assets/brand/approved/ra-landscape-black-updated.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
+    <a href="/" class="ra-nav__logo" aria-label="Revelation Agency">
+      <img src="/assets/brand/current/ra-mark-red.png" alt="Revelation Agency" style="height:76px;width:auto;display:block;">
     </a>
 
     <ul class="ra-nav__links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="is-current">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about" class="is-current">About</a></li>
       <li class="has-drop">
-        <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/services">Services <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Services menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
           <li class="has-drop-l3">
-            <a href="services/branding/index.html">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/branding">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="services/branding/brand-strategy-identity.html">Brand Strategy &amp; Identity</a></li>
-              <li><a href="services/branding/websites-landing-pages.html">Websites &amp; Landing Pages</a></li>
-              <li><a href="services/branding/apps-digital-products.html">Apps &amp; Digital Products</a></li>
-              <li><a href="services/branding/video-visual-content.html">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="services/marketing/index.html">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/marketing">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="services/marketing/seo-ai-visibility.html">SEO &amp; AI Visibility</a></li>
-              <li><a href="services/marketing/positioning-content-authority.html">Positioning, Content &amp; Authority</a></li>
-              <li><a href="services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="services/marketing/email-lifecycle-marketing.html">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
-            <a href="services/sales/index.html">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
+            <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="services/sales/lead-generation-outreach.html">Lead Generation &amp; Outreach</a></li>
-              <li><a href="services/sales/crm-sales-infrastructure.html">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="services/sales/follow-up-nurture.html">Follow-up &amp; Nurture</a></li>
-              <li><a href="services/sales/conversion-advertising.html">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
-          <li><a href="services/ai-automation.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
+          <li><a href="/services/ai-automation" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
         </ul>
       </li>
-      <li><a href="the-reveal/index.html">The Reveal</a></li>
+      <li><a href="/the-reveal">The Reveal</a></li>
       <li class="has-drop">
-        <a href="portfolio.html">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
+        <a href="/portfolio">Portfolio <i class="fa-solid fa-chevron-down" style="font-size:9px;margin-left:3px;"></i></a>
         <button class="ra-nav__services-toggle" type="button" aria-label="Toggle Portfolio menu" aria-expanded="false">&#9662;</button>
         <ul class="ra-drop ra-drop--l2">
-          <li><a href="portfolio/branding.html">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="portfolio/marketing.html">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="portfolio/sales.html">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
-          <li><a href="portfolio.html" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
+          <li><a href="/portfolio/branding">Branding Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/marketing">Marketing Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio/sales">Sales Work <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a></li>
+          <li><a href="/portfolio" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">All case studies</a></li>
         </ul>
       </li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
 
     <div class="ra-nav__right">
-      <a href="booking.html" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
-      <a href="booking.html" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Book a Call</a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta" style="padding: 12px 24px; font-size: 13px;" data-cta="primary" data-cta-placement="nav" data-booking-open="1">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <a href="/booking" class="btn btn--primary ra-nav__cta-mobile" style="padding: 10px 16px; font-size: 12px;" data-cta="primary" data-cta-placement="nav-mobile" data-booking-open="1">Start Here</a>
     </div>
 
     <button class="ra-nav__hamburger" id="ra-nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -2235,10 +2243,10 @@ h1, h2, h3, h4, h5, h6,
       <div class="ra-about-hero__tagline fade-up">About Revelation</div>
       <h1 class="ra-about-hero__title fade-up fade-up-d1">Built for <em>operators.</em><br>Designed for growth.</h1>
       <p class="ra-about-hero__desc fade-up fade-up-d2">
-        Revelation Agency is a systems-first growth partner for businesses that are done guessing. We don't sell tactics in isolation — we audit the foundation, build the assets, and scale what works. Systems, creative, and marketing running as one connected machine.
+        Revelation Agency is the operator-led growth partner for businesses done managing disconnected vendors. We diagnose the constraint, then run Branding, Marketing, and Sales as one connected system with visible receipts.
       </p>
       <div class="ra-about-hero__actions fade-up fade-up-d3">
-        <a href="booking.html" class="btn btn--primary">Book a Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+        <a href="/booking" class="btn btn--primary">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
         <a href="#story" class="btn btn--outline">Read Our Story</a>
       </div>
     </div>
@@ -2258,7 +2266,7 @@ h1, h2, h3, h4, h5, h6,
   <div style="max-width:960px; margin:0 auto;">
     <div class="eyebrow eyebrow--white" style="color:rgba(255,255,255,0.6); letter-spacing:0.18em; font-size:11px; text-transform:uppercase; margin-bottom:14px;">Watch · 90 seconds</div>
     <h2 style="color:#fff; font-size:clamp(26px,3.2vw,38px); margin:0 0 10px; letter-spacing:-0.01em;">See how the machine runs.</h2>
-    <p style="color:rgba(255,255,255,0.62); font-size:15px; max-width:620px; margin:0 auto 28px;">A short walk-through of the Revelation system — systems, creative, and marketing operating as one connected machine.</p>
+    <p style="color:rgba(255,255,255,0.62); font-size:15px; max-width:620px; margin:0 auto 28px;">A short walk-through of Branding, Marketing, and Sales operating as one connected growth system.</p>
     <div class="ra-about-brandvideo__frame" style="position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.10); background:linear-gradient(135deg,#151519 0%,#0b0b0d 100%); display:flex; align-items:center; justify-content:center;">
       <!-- HOOK POINT: replace this placeholder with <video> or <iframe> when asset is ready -->
       <div class="ra-about-brandvideo__placeholder" style="text-align:center; color:rgba(255,255,255,0.55); padding:40px 20px;">
@@ -2292,7 +2300,7 @@ h1, h2, h3, h4, h5, h6,
           Revelation was founded on a simple frustration: most agencies hand you a logo and a list of ad spend, then disappear. They build a website but not the strategy behind it. They run campaigns but can't tell you why the funnel leaks. They design a brand but never connect it to revenue.
         </p>
         <p>
-          We built the opposite — a single partner that owns systems, creative, and marketing as one connected system. Every engagement follows the same disciplined path: audit the foundation, build the assets, scale what works. No shortcuts. No guessing.
+          We built the opposite — one accountable partner connecting the brand people remember, the marketing that earns demand, and the sales system that converts it. Every engagement starts with diagnosis, becomes a deliberate scope, and is operated against evidence.
         </p>
         <div class="ra-about-story__pullquote">
           "Most agencies decorate. We <em>engineer</em> the machine that runs behind the growth."
@@ -2320,12 +2328,12 @@ h1, h2, h3, h4, h5, h6,
     <div class="ra-about-principles__grid">
       <div class="ra-about-principle fade-up fade-up-d1">
         <div class="ra-about-principle__num">01</div>
-        <h3>Systems Before Execution</h3>
-        <p>Every engagement starts with a full-system audit — brand, funnel, digital, AI readiness — before a single asset is built. No guessing which lever moves the number.</p>
+        <h3>Diagnosis Before Prescription</h3>
+        <p>Every engagement starts with a connected read of brand, demand, pipeline, and operating reality. We find the constraint before prescribing the work.</p>
       </div>
       <div class="ra-about-principle fade-up fade-up-d2">
         <div class="ra-about-principle__num">02</div>
-        <h3>Systems Over Tactics</h3>
+        <h3>Connected Over Fragmented</h3>
         <p>We don't sell isolated deliverables. Every asset, campaign, and decision traces back to the larger system. Nothing decorative. Nothing disconnected.</p>
       </div>
       <div class="ra-about-principle fade-up fade-up-d3">
@@ -2360,7 +2368,7 @@ h1, h2, h3, h4, h5, h6,
         </h3>
         <ul class="ra-about-audience__list">
           <li><i class="fa-solid fa-circle-check"></i><span>You're past founder-led sales and ready for a repeatable growth engine</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span>You want systems, creative, and marketing owned by one accountable partner</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>You want Branding, Marketing, and Sales owned by one accountable partner</span></li>
           <li><i class="fa-solid fa-circle-check"></i><span>You care about measurement — dashboards, attribution, outcomes</span></li>
           <li><i class="fa-solid fa-circle-check"></i><span>You're willing to let the foundation get audited before the tactics get shipped</span></li>
           <li><i class="fa-solid fa-circle-check"></i><span>You want a partner who operates like an operator, not an order-taker</span></li>
@@ -2396,34 +2404,21 @@ h1, h2, h3, h4, h5, h6,
       <div class="ra-about-approach__header fade-up">
         <div class="eyebrow eyebrow--white">The Approach</div>
         <h2>One machine.<br>Three <span class="highlight">phases.</span></h2>
-        <p>Every engagement follows the same sequence — because the sequence is the system. Strategy feeds creative. Creative feeds marketing. Marketing feeds back into strategy. The whole thing compounds.</p>
-        <p style="color: rgba(255,255,255,0.5); font-size: 14px;">See the full system on the <a href="index.html#growth-machine" style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3);">homepage Growth Machine</a>.</p>
+        <p>Branding shapes what the market remembers. Marketing turns that clarity into demand. Sales converts the demand and feeds the evidence back into the system.</p>
+        <p style="color: rgba(255,255,255,0.5); font-size: 14px;">See the full system on the <a href="/#growth-machine" style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.3);">homepage Growth Machine</a>.</p>
       </div>
 
       <div class="ra-about-approach__phases">
-        <a href="services/systems/index.html" class="ra-about-approach__phase fade-up fade-up-d1" style="color:inherit;text-decoration:none;">
-          <div class="ra-about-approach__phase-num">01</div>
-          <div>
-            <h4>Systems</h4>
-            <p>We build the foundation — sales infrastructure, digital presence, and the AI &amp; agentic automation stack — and map the system end-to-end before any asset gets built.</p>
-          </div>
+        <a href="/services/branding" class="ra-about-approach__phase fade-up fade-up-d1" style="color:inherit;text-decoration:none;">
+          <div class="ra-about-approach__phase-num">01</div><div><h4>Branding</h4><p>Position, identity, websites, products, and visual content built to make the business clear and memorable.</p></div>
         </a>
-        <a href="services/creative/index.html" class="ra-about-approach__phase fade-up fade-up-d2" style="color:inherit;text-decoration:none;">
-          <div class="ra-about-approach__phase-num">02</div>
-          <div>
-            <h4>Creative</h4>
-            <p>Brand, site, assets, and video — every piece tied to the strategy. Nothing decorative. Every asset earns its place in the machine.</p>
-          </div>
+        <a href="/services/marketing" class="ra-about-approach__phase fade-up fade-up-d2" style="color:inherit;text-decoration:none;">
+          <div class="ra-about-approach__phase-num">02</div><div><h4>Marketing</h4><p>Visibility, authority, social, and lifecycle work that earns attention around a coherent brand.</p></div>
         </a>
-        <a href="services/marketing/index.html" class="ra-about-approach__phase fade-up fade-up-d3" style="color:inherit;text-decoration:none;">
-          <div class="ra-about-approach__phase-num">03</div>
-          <div>
-            <h4>Marketing</h4>
-            <p>Ads, social, search, and automation run as one system — measured, optimized, and reported. If it can't be tracked, it doesn't ship.</p>
-          </div>
+        <a href="/services/sales" class="ra-about-approach__phase fade-up fade-up-d3" style="color:inherit;text-decoration:none;">
+          <div class="ra-about-approach__phase-num">03</div><div><h4>Sales</h4><p>Lead generation, CRM, nurture, and conversion infrastructure that moves attention toward revenue.</p></div>
         </a>
       </div>
-
     </div>
   </div>
 </section>
@@ -2432,7 +2427,7 @@ h1, h2, h3, h4, h5, h6,
 <!-- LOCATION-PILL + MAP -->
 <section class="ra-about-location" data-ra-about-map="1" style="padding:64px 20px 28px; background:#fff; text-align:center;">
   <div style="max-width:760px; margin:0 auto;">
-    <span style="display:inline-flex; align-items:center; gap:10px; padding:10px 20px; background:rgba(215,37,50,0.08); border:1px solid rgba(215,37,50,0.22); border-radius:999px; font-size:13.5px; letter-spacing:0.02em; color:var(--charcoal); margin-bottom:22px;">
+    <span style="display:inline-flex; align-items:center; gap:10px; padding:10px 20px; background:rgba(201,28,29,0.08); border:1px solid rgba(201,28,29,0.22); border-radius:999px; font-size:13.5px; letter-spacing:0.02em; color:var(--charcoal); margin-bottom:22px;">
       <i class="fa-solid fa-location-dot" style="color:var(--red); font-size:14px;"></i>
       Based in Clovis, CA &mdash; working with brands across the US and beyond.
     </span>
@@ -2460,8 +2455,8 @@ h1, h2, h3, h4, h5, h6,
   <div class="container">
     <div class="ra-cta__content fade-up">
       <h2 class="ra-cta__title">Ready to build the machine?</h2>
-      <p class="ra-cta__desc">Thirty minutes. Real strategy. No pitch. We'll tell you whether you need the full system or a single phase — or whether we're the wrong fit entirely.</p>
-      <a href="booking.html" class="btn btn--white">Book a Free Strategy Session <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
+      <p class="ra-cta__desc">Bring the real constraint. We'll tell you which connected discipline should move first — or whether Revelation is the wrong fit entirely.</p>
+      <a href="/booking" class="btn btn--white">Start a Growth Conversation <i class="fa-solid fa-arrow-right btn-arrow"></i></a>
     </div>
   </div>
 </section>
@@ -2474,14 +2469,14 @@ h1, h2, h3, h4, h5, h6,
     <div class="ra-footer__inner">
       <div class="ra-footer__brand">
         <div class="ra-footer__logo">
-          <img src="assets/revelation-logo.png" alt="Revelation Agency">
+          <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
         </div>
-        <p>Your strategic growth partner. We build the machine behind growth — so you can stop selling chaos and start scaling clarity.</p>
-        <div class="ra-footer__tagline">Dream. Build. Scale.</div>
+        <p>We run Branding, Marketing, and Sales as one connected growth system — and make the receipts visible.</p>
+        <div class="ra-footer__tagline">Branding. Marketing. Sales.</div>
         <div class="ra-footer__social">
-          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/revelation-agency" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/revelationagency/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/revelationagency/" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
         </div>
         <!-- FOOTER-ADDRESS -->
         <address style="font-style:normal; margin-top:18px; font-size:12.5px; line-height:1.55; color:rgba(255,255,255,0.5); letter-spacing:0.01em;">
@@ -2517,30 +2512,30 @@ h1, h2, h3, h4, h5, h6,
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Services</h5>
         <ul class="ra-footer__svc">
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="services/branding/index.html">Branding<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/branding">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="services/branding/brand-strategy-identity.html">Brand Strategy &amp; Identity</a></li>
-              <li><a href="services/branding/websites-landing-pages.html">Websites &amp; Landing Pages</a></li>
-              <li><a href="services/branding/apps-digital-products.html">Apps &amp; Digital Products</a></li>
-              <li><a href="services/branding/video-visual-content.html">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
+              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="services/marketing/index.html">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/marketing">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="services/marketing/seo-ai-visibility.html">SEO &amp; AI Visibility</a></li>
-              <li><a href="services/marketing/positioning-content-authority.html">Positioning, Content &amp; Authority</a></li>
-              <li><a href="services/marketing/social-media.html">Social Media</a></li>
-              <li><a href="services/marketing/email-lifecycle-marketing.html">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
+              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/social-media">Social Media</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
-            <a class="ra-footer__svc-parent" href="services/sales/index.html">Sales<span class="ra-footer__svc-caret" aria-hidden="true">▾</span></a>
+            <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="services/sales/lead-generation-outreach.html">Lead Generation &amp; Outreach</a></li>
-              <li><a href="services/sales/crm-sales-infrastructure.html">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="services/sales/follow-up-nurture.html">Follow-up &amp; Nurture</a></li>
-              <li><a href="services/sales/conversion-advertising.html">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
+              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
+              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
             </ul>
           </li>
         </ul>
@@ -2549,9 +2544,9 @@ h1, h2, h3, h4, h5, h6,
       <div class="ra-footer__nav">
         <h5 style="font-size:15px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:20px;">Connect</h5>
         <ul>
-          <li><a href="the-reveal/index.html">The Reveal</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/the-reveal">The Reveal</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="tel:+15592017039">(559) 201-7039</a></li>
           <li><a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a></li>
         </ul>
@@ -2563,7 +2558,7 @@ h1, h2, h3, h4, h5, h6,
             <input type="text" name="name" placeholder="Your name" required autocomplete="name">
             <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
           </div>
-          <button type="submit" class="ra-footer__miniform-btn">Book Your Session <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
+          <button type="submit" class="ra-footer__miniform-btn">Start the Conversation <i class="fa-solid fa-arrow-right" style="margin-left:6px;font-size:11px;"></i></button>
           <div class="ra-footer__miniform-status" aria-live="polite"></div>
         </form>
         <script>(function(){
@@ -2636,7 +2631,7 @@ h1, h2, h3, h4, h5, h6,
     </div>
 
     <div class="ra-footer__bottom">
-      <p class="ra-footer__copyright">&copy; 2026 <a href="index.html">Revelation Agency</a>. Dream. Build. Scale.</p>
+      <p class="ra-footer__copyright">&copy; 2026 <a href="/">Revelation Agency</a>. Branding. Marketing. Sales.</p>
     </div>
   </div>
 </footer>
@@ -2766,7 +2761,7 @@ function initNodeNetwork(canvasId, opts) {
     nodeRadius: 4, redCount: 2,
     dotOpacity: 0.15, dotOpacityRed: 0.38,
     lineOpacity: 0.14, cursorOpacity: 0.22,
-    colorNeutral: '43,43,43', colorRed: '215,37,50',
+    colorNeutral: '43,43,43', colorRed: '201,28,29',
     gridBias: 0
   }, opts || {});
   if (window.innerWidth <= 768) CFG.count = Math.floor(CFG.count * 0.5);
@@ -2978,5 +2973,7 @@ initNodeNetwork('about-hero-network', {
 <script src="assets/js/analytics-events.js" defer></script>
 <script src="assets/js/analytics-events.js" defer></script>
 <script src="assets/js/analytics-events.js" defer></script>
+<!-- RA-REFRESH-2026:js -->
+<script src="/assets/js/ra-refresh-2026.js?v=20260817c" defer></script>
 </body>
 </html>
