@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "generator": "OpenAI built-in imagegen",
+  "processing": {
+    "output_format": "WEBP",
+    "quality": 90,
+    "resize_or_crop": "none; each generated source was already 1672x941"
+  },
+  "assets": [
+    {
+      "service": "Outreach",
+      "output_path": "assets/brand/visuals/2026/service-v2/outreach-system.webp",
+      "source_path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135e-8a10-7403-bcaa-8b70047e1da5\\exec-75ba4261-cf41-4a4a-8960-b930b78ef58b.png",
+      "source_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "output_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "e008962f9b8e1f532a416ab42f7aae929feb4ae5e542993dcd1ed6aa87d75a6e",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 landscape website service hero for Outreach\nPrimary request: Create a premium photorealistic operational scene that clearly shows target-account research leading to a personalized message draft, then a human approval, then a prospect reply routed into a CRM.\nScene/backdrop: sophisticated near-black operations desk and smoked-glass studio environment; warm off-white screen surfaces; a restrained Revelation red accent color #C91C1D.\nSubject: on the RIGHT 58% of the frame, a believable coordinated set of real devices and materials: a widescreen monitor with a clean target-account research dossier and contact signals, a second panel with a personalized outbound message draft, a small tablet under a natural human hand at an approval checkpoint, and a final CRM inbox/contact card showing an incoming reply assigned to an owner. Use subtle connecting lines and directional cues inside the interfaces so the sequence reads research -> draft -> approval -> reply in CRM.\nStyle/medium: ultra-realistic premium editorial product photography, practical B2B sales operations, not concept art.\nComposition/framing: wide 16:9; preserve the LEFT 42% as genuinely dark, quiet copy-safe negative space with no objects, bright reflections, or decorative lines; keep every operational element fully inside the right safe area with generous margins.\nLighting/mood: controlled cinematic studio lighting, warm practical glow, calm expert confidence, crisp but not glossy.\nColor palette: near-black, charcoal, warm off-white, restrained #C91C1D only for active states and routing cues.\nMaterials/textures: anodized black aluminum, matte glass, leather desk mat, subtle paper grain, realistic screen reflections.\nConstraints: workflow must feel like real software used by a human operator; interface typography should be absent except for a few simple universal icons and clean line placeholders; absolutely no fake words, gibberish, logos, brands, watermarks, slogans, or visible product trademarks.\nAvoid: abstract machine metaphor, floating sci-fi holograms, robot imagery, glowing neural networks, generic futuristic automation tunnels, campaign analytics dashboards, clutter, excessive red, objects or highlights in the left copy-safe zone."
+    },
+    {
+      "service": "Lead Gen Ads",
+      "output_path": "assets/brand/visuals/2026/service-v2/lead-gen-ads-system.webp",
+      "source_path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135e-8a10-7403-bcaa-8b70047e1da5\\exec-b41654d4-252b-4852-9548-ee780a1a9c01.png",
+      "source_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "output_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "c044c2705d57e6af44a758277d0de0f79e91fe9a6ec35d01bacb8c546c8d981b",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 landscape website service hero for Lead Gen Ads\nPrimary request: Create a premium photorealistic customer-acquisition scene that clearly shows an ad creative becoming a lead form, then a qualification step, then an immediate owner assignment.\nScene/backdrop: near-black editorial studio desk with warm off-white interface surfaces and restrained Revelation red #C91C1D accents.\nSubject: on the RIGHT 58% of the frame, show a realistic vertical phone displaying a polished but unbranded local-service ad image, beside a tablet with a clean lead form, then a compact qualification card with a short checklist and score indicator, ending in a CRM assignment card with one clear owner avatar and an immediate routing notification. Connect the four moments with understated red directional cues. The visual story is creative -> form submission -> qualification -> assigned owner.\nStyle/medium: ultra-realistic premium commercial product photography with believable production-ready software, not concept art.\nComposition/framing: wide 16:9; keep the LEFT 42% genuinely dark, calm, and empty for website copy, with no objects, bright edges, lines, or interface elements; all capture-flow objects stay fully inside the right safe area.\nLighting/mood: controlled cinematic studio lighting, warm practical highlights, decisive and conversion-focused.\nColor palette: near-black, charcoal, warm off-white, restrained #C91C1D for active form and assignment states.\nMaterials/textures: matte black phone and tablet, anodized metal, smoked glass, subtle paper card stock, realistic reflections and fingerprints.\nConstraints: emphasize lead capture and routing, not media buying or campaign management; interface typography should be absent except universal icons, clean line placeholders, check marks, score bars, and avatar circles; absolutely no fake words, gibberish, logos, brands, watermarks, slogans, or visible product trademarks.\nAvoid: ad-manager dashboards, spend graphs, ROAS charts, campaign analytics walls, abstract machine metaphor, floating sci-fi panels, robots, neural networks, generic futuristic tunnels, excessive red, clutter, anything in the left copy-safe zone."
+    },
+    {
+      "service": "CRMs / Sales Tools",
+      "output_path": "assets/brand/visuals/2026/service-v2/crm-sales-tools-system.webp",
+      "source_path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135e-8a10-7403-bcaa-8b70047e1da5\\exec-005edc3c-f81e-444c-a846-8be771512400.png",
+      "source_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "output_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "00900e96302f0536c654d2dcc666eddecd745d513f8bced7451ac88820604c98",
+      "prompt": "Use case: ui-mockup\nAsset type: 16:9 landscape website service hero for CRMs / Sales Tools\nPrimary request: Create a premium photorealistic sales-operations workstation centered on a believable CRM pipeline with stages, record owners, next actions, calendar commitments, and reporting.\nScene/backdrop: tailored near-black executive workspace with warm off-white application surfaces and restrained Revelation red #C91C1D accents.\nSubject: on the RIGHT 58% of the frame, a large high-end widescreen monitor shows a practical CRM kanban pipeline with several clearly separated stages and realistic opportunity cards, small owner avatars, next-action indicators, and due-state chips. A second smaller screen or tablet shows a weekly calendar with follow-up blocks, while a compact reporting panel shows a restrained funnel and activity trend. Include a real keyboard, slim notebook, and pen to ground the system in daily operator work.\nStyle/medium: ultra-realistic premium editorial product photography; shippable modern B2B software, not a futuristic concept.\nComposition/framing: wide 16:9; reserve the LEFT 42% as deep, clean, low-detail copy-safe negative space with no objects, glowing lines, screens, or reflections; all CRM details remain fully inside the right safe area.\nLighting/mood: sophisticated controlled studio lighting, warm practical highlights, disciplined and trustworthy.\nColor palette: near-black, charcoal, warm off-white, restrained #C91C1D for selected stages, due actions, and key reporting points.\nMaterials/textures: anodized aluminum, matte monitor glass, leather desk pad, textured notebook paper, subtle screen reflections.\nConstraints: the CRM must look usable and operational, with coherent columns, cards, avatars, calendar blocks, and charts; use universal icons, numbers, and clean line placeholders instead of prose; absolutely no fake words, gibberish, logos, brands, watermarks, slogans, or visible product trademarks.\nAvoid: abstract machine metaphor, floating holograms, robots, neural-network art, generic futuristic tunnels, oversaturated dashboards, giant decorative charts, excessive red, clutter, anything entering the left copy-safe zone."
+    },
+    {
+      "service": "AI Automation Systems",
+      "output_path": "assets/brand/visuals/2026/service-v2/ai-automation-systems-system.webp",
+      "source_path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135e-8a10-7403-bcaa-8b70047e1da5\\exec-d4303688-c064-4ce5-9b22-a114066b37e4.png",
+      "source_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "output_dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "c7c68645357bd716a271229c5caff16ac6fe3eb1289844398f623f0b29dbc1dc",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 landscape website service hero for AI Automation Systems\nPrimary request: Create a premium photorealistic operator-controlled automation scene showing a real business workflow: an incoming trigger, an AI or rule decision, a human approval checkpoint, a CRM record update, and a final audit trail.\nScene/backdrop: refined near-black operations workspace with warm off-white application surfaces and restrained Revelation red #C91C1D routing cues.\nSubject: on the RIGHT 58% of the frame, a wide professional monitor displays one practical horizontal workflow with five distinct, restrained interface cards: incoming event icon -> branching decision card with rule/spark symbol -> human approval card -> CRM contact-record update -> immutable audit-log rows. A tablet in front shows the approval checkpoint under a natural human hand, and a narrow secondary panel shows the resulting CRM record and time-ordered audit entries. Use precise thin red connectors only between steps.\nStyle/medium: ultra-realistic premium editorial product photography and credible modern operations software, not concept art.\nComposition/framing: wide 16:9; keep the LEFT 42% deeply dark, quiet, and entirely copy-safe with no objects, bright reflections, interface panels, or decorative connector lines; keep all workflow elements within the right safe area.\nLighting/mood: controlled cinematic studio lighting, warm practical highlights, intelligent, governed, and trustworthy rather than flashy.\nColor palette: near-black, charcoal, warm off-white, restrained #C91C1D for the active path, approval, and audit status.\nMaterials/textures: anodized black aluminum, matte glass, leather desk surface, brushed metal stylus, realistic screen reflections and hand texture.\nConstraints: depict an understandable human-governed business automation, with the approval visibly before the CRM update and audit trail; interfaces should use universal icons, timestamps as simple number forms, check marks, and clean line placeholders rather than prose; absolutely no fake words, gibberish, logos, brands, watermarks, slogans, or visible product trademarks.\nAvoid: abstract machine metaphor, robot heads or arms, glowing brains, neural networks, sci-fi holograms, gears, generic futuristic tunnels, autonomous-without-human imagery, excessive red, clutter, anything in the left copy-safe zone."
+    }
+  ]
+}

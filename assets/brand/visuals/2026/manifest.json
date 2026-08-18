@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generatedAt": "2026-08-17",
   "generator": "OpenAI ImageGen via Codex built-in image generation",
-  "artDirection": "Revelation Signals: near-black, off-white, and restrained #C91C1D editorial systems imagery",
+  "artDirection": "Revelation Signals: near-black, off-white, and restrained #C91C1D editorial systems imagery; service leaves use literal, realistic systems in operation rather than repeated abstract metaphors",
   "webOptimization": "1672x941 source output converted to WebP quality 90 with Pillow",
   "assets": [
     {
@@ -44,32 +44,115 @@
     {
       "path": "assets/brand/visuals/2026/digital-surfaces-signal.webp",
       "sha256": "72b86b8ca2e30a71558d61a4040022a05241df4a57ed57469c309223b3adaa30",
-      "usage": "Websites and Apps service heroes",
+      "usage": "Retired v1 grouped Websites and Apps service visual",
+      "status": "retired",
       "prompt": "Premium cinematic 16:9 editorial image representing Websites and Apps as one coherent digital surface system: matte near-black architectural planes, precise off-white glass interface layers without readable UI, machined edges, restrained #C91C1D signal, dark left-side headline space, detailed right-side focal architecture; no people, text, logos, icons, browser chrome, dashboards, or watermarks."
     },
     {
       "path": "assets/brand/visuals/2026/identity-design-signal.webp",
       "sha256": "92ffce680aca1abb3bf3e796debcb49bce9bb2c542bbe5f2d060b30c7e02dac1",
-      "usage": "Brand Identity and Design service heroes",
+      "usage": "Retired v1 grouped Brand Identity and Design service visual",
+      "status": "retired",
       "prompt": "Premium cinematic 16:9 editorial still life representing Brand Identity and Design: sculptural matte-black forms, thick off-white paper, unmarked embossed surfaces, translucent acrylic, precise grid alignment, restrained #C91C1D material accent, dark left-side headline space, rich right-side focal still life; no people, readable text, logos, symbols, mock marks, or watermarks."
     },
     {
       "path": "assets/brand/visuals/2026/discoverability-signal.webp",
       "sha256": "f3dd9ab2f00c45bd6ab0f53131e32ed415729f664aa5f53ec7fffbc46e2ca056",
-      "usage": "SEO / AI Answers, Social Media, and Digital Advertising service heroes",
+      "usage": "Retired v1 grouped Marketing service visual",
+      "status": "retired",
       "prompt": "Premium cinematic 16:9 editorial image representing discoverability and attention signals: layered dark optical glass, subtle light paths, disciplined luminous points converging into one off-white answer plane, restrained #C91C1D signal, dark left-side headline space, intricate right-side focal system; no people, text, search box, social icons, charts, megaphones, dashboards, or watermarks."
     },
     {
       "path": "assets/brand/visuals/2026/nurture-outreach-signal.webp",
       "sha256": "e92b0e2e8d88b67d195e56c575d1d2b8e1f9c6aa85e3446b4ae13deba64766fb",
-      "usage": "Customer Nurture and Outreach service heroes",
+      "usage": "Retired v1 grouped Customer Nurture and Outreach service visual",
+      "status": "retired",
       "prompt": "Premium cinematic 16:9 editorial image representing Customer Nurture and Outreach as a thoughtful communication sequence: dark glass chambers, evenly spaced warm off-white pulses along a controlled path, one restrained #C91C1D next-action pulse, machined-black materials, dark left-side headline space, right-side sequence; no people, phones, envelopes, chat bubbles, text, icons, or watermarks."
     },
     {
       "path": "assets/brand/visuals/2026/sales-automation-signal.webp",
       "sha256": "42948ad2a69dd82be899136f8a73657887e01a9b7a37fd4ca1a589c9dad5e507",
-      "usage": "Lead Gen Ads and CRMs / Sales Tools service heroes",
+      "usage": "Retired v1 grouped Lead Gen Ads and CRMs / Sales Tools service visual",
+      "status": "retired",
       "prompt": "Premium cinematic 16:9 editorial image representing a governed sales pipeline: precision black-metal channels, transparent routing gates, organized lead-like light particles, visible checkpoints, restrained #C91C1D current moving toward an off-white outcome plane, dark left-side headline space, detailed right-side routing system; no people, robots, brains, funnels, currency, charts, dashboards, text, logos, or watermarks."
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/websites-responsive-system.webp",
+      "sha256": "34d03e34c6bea23e7817f76dc89ab14d5d9f2b8e8c0ba3ec09bfcfe3cb9e22cc",
+      "usage": "Websites service hero — responsive design, build, and conversion system",
+      "generationReceipt": "artifacts/service-image-generation-branding-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/apps-product-system.webp",
+      "sha256": "abca4e5f3743ee924cd5d047351485303b315264973520e57e2f645a507c7f2f",
+      "usage": "Apps service hero — operational product, records, actions, and permissions",
+      "generationReceipt": "artifacts/service-image-generation-branding-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/brand-identity-system.webp",
+      "sha256": "29c7f327192b87dead3ad54e26885c35e7e7a9fa56ec4ab90bf7020208d20c46",
+      "usage": "Brand Identity service hero — standards applied across physical and digital touchpoints",
+      "generationReceipt": "artifacts/service-image-generation-branding-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/design-production-system.webp",
+      "sha256": "9cd5d4239a334d95bc3a84080cc4b87f23e10cb8dfc5b55fb3a1b5b98a5e7240",
+      "usage": "Design service hero — production-ready proposals, campaigns, social, print, and signage",
+      "generationReceipt": "artifacts/service-image-generation-branding-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/video-production-system.webp",
+      "sha256": "788fd8c21affdf7722fe3ee95b5d1e4a9382dd277d4031015dd1eb3055620e77",
+      "usage": "Video service hero — capture, audio, lighting, edit, and multi-format delivery",
+      "generationReceipt": "artifacts/service-image-generation-branding-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/seo-ai-answers-system.webp",
+      "sha256": "aa3e7209ddb17f9feca6d0f5ef222ede0f17fa515c9afb43ff0a86ac728f3eaf",
+      "usage": "SEO / AI Answers service hero — question, content, search, and cited answer workflow",
+      "generationReceipt": "artifacts/service-image-generation-marketing-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/social-content-system.webp",
+      "sha256": "1ead83fd05e54394f919c8a819616fc7395406194f62f5109117f764c963bfaa",
+      "usage": "Social Media service hero — capture, edit, schedule, and publish workflow",
+      "generationReceipt": "artifacts/service-image-generation-marketing-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/digital-advertising-system.webp",
+      "sha256": "20c2b8c15c4ed9dd95a6694f7f11051884a37245fcffeaf3a8cf73ae9dce8b6b",
+      "usage": "Digital Advertising service hero — creative, audience, budget, landing page, and measurement",
+      "generationReceipt": "artifacts/service-image-generation-marketing-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/customer-nurture-system.webp",
+      "sha256": "3db7e5adf50618769dfccd39bc8e0b839d605873ffff24c2e27ac78aa8b23961",
+      "usage": "Customer Nurture service hero — inquiry through appointment and reactivation",
+      "generationReceipt": "artifacts/service-image-generation-marketing-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/outreach-system.webp",
+      "sha256": "e008962f9b8e1f532a416ab42f7aae929feb4ae5e542993dcd1ed6aa87d75a6e",
+      "usage": "Outreach service hero — research, personalized draft, approval, and CRM reply",
+      "generationReceipt": "artifacts/service-image-generation-sales-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/lead-gen-ads-system.webp",
+      "sha256": "c044c2705d57e6af44a758277d0de0f79e91fe9a6ec35d01bacb8c546c8d981b",
+      "usage": "Lead Gen Ads service hero — ad, form, qualification, and owner assignment",
+      "generationReceipt": "artifacts/service-image-generation-sales-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/crm-sales-tools-system.webp",
+      "sha256": "00900e96302f0536c654d2dcc666eddecd745d513f8bced7451ac88820604c98",
+      "usage": "CRMs / Sales Tools service hero — pipeline, owners, next actions, calendar, and reporting",
+      "generationReceipt": "artifacts/service-image-generation-sales-v2.json"
+    },
+    {
+      "path": "assets/brand/visuals/2026/service-v2/ai-automation-systems-system.webp",
+      "sha256": "c7c68645357bd716a271229c5caff16ac6fe3eb1289844398f623f0b29dbc1dc",
+      "usage": "AI Automation Systems service hero — trigger, decision, approval, CRM update, and audit trail",
+      "generationReceipt": "artifacts/service-image-generation-sales-v2.json"
     }
   ]
 }

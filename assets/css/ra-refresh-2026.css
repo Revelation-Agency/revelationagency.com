@@ -346,9 +346,9 @@ html.ra-motion-ready .fade-up.visible {
   margin: 24px 0 24px !important;
   color: var(--ra-ink) !important;
   font-family: var(--ra-display) !important;
-  font-size: clamp(72px, 7.15vw, 116px) !important;
+  font-size: clamp(80px, 6vw, 94px) !important;
   font-weight: 700 !important;
-  line-height: 0.88 !important;
+  line-height: 0.9 !important;
   letter-spacing: 0.005em !important;
   text-wrap: balance;
 }
@@ -362,8 +362,8 @@ html.ra-motion-ready .fade-up.visible {
 .ra-hero__desc {
   max-width: 600px !important;
   color: rgba(23, 23, 23, 0.66) !important;
-  font-size: clamp(17px, 1.35vw, 21px) !important;
-  line-height: 1.7 !important;
+  font-size: clamp(17px, 1.15vw, 19px) !important;
+  line-height: 1.65 !important;
 }
 
 .ra-hero__actions {
@@ -660,14 +660,15 @@ html.ra-motion-ready .fade-up.visible {
 }
 
 .ra-orbit__node--sales {
-  width: 210px;
+  width: 190px;
   right: 5%;
   bottom: 10%;
 }
 
 .ra-orbit__node--sales strong {
-  font-size: 26px;
-  line-height: 0.96;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .ra-orbit__node--sales::after {
@@ -732,38 +733,58 @@ body[data-ra-visual='sales'] {
   --ra-generated-visual: url('/assets/brand/visuals/2026/sales-signal.webp');
 }
 
-body[data-ra-service='websites-landing-pages'],
-body[data-ra-service='apps-digital-products'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/digital-surfaces-signal.webp');
+/* Each service leaf gets a literal, realistic system-in-use visual. The art
+   direction repeats; the image never does. */
+body[data-ra-service='websites-landing-pages'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/websites-responsive-system.webp');
 }
 
-body[data-ra-service='brand-strategy-identity'],
+body[data-ra-service='apps-digital-products'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/apps-product-system.webp');
+}
+
+body[data-ra-service='brand-strategy-identity'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/brand-identity-system.webp');
+}
+
 body[data-ra-service='design'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/identity-design-signal.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/design-production-system.webp');
 }
 
 body[data-ra-service='video-visual-content'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/reveal-video-infrastructure.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/video-production-system.webp');
 }
 
-body[data-ra-service='seo-ai-visibility'],
-body[data-ra-service='social-media'],
+body[data-ra-service='seo-ai-visibility'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/seo-ai-answers-system.webp');
+}
+
+body[data-ra-service='social-media'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/social-content-system.webp');
+}
+
 body[data-ra-service='digital-ads'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/discoverability-signal.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/digital-advertising-system.webp');
 }
 
-body[data-ra-service='email-lifecycle-marketing'],
+body[data-ra-service='email-lifecycle-marketing'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/customer-nurture-system.webp');
+}
+
 body[data-ra-service='lead-generation-outreach'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/nurture-outreach-signal.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/outreach-system.webp');
 }
 
-body[data-ra-service='lead-gen-ads'],
+body[data-ra-service='lead-gen-ads'] {
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/lead-gen-ads-system.webp');
+}
+
 body[data-ra-service='crm-sales-infrastructure'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/sales-automation-signal.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/crm-sales-tools-system.webp');
 }
 
 body[data-ra-service='ai-automation-systems'] {
-  --ra-generated-visual: url('/assets/brand/visuals/2026/ai-automation-signal.webp');
+  --ra-generated-visual: url('/assets/brand/visuals/2026/service-v2/ai-automation-systems-system.webp');
 }
 
 body[data-ra-visual='ai-automation'] {
@@ -1769,16 +1790,162 @@ body[data-ra-visual^='reveal-'] .ar-hero__bg {
   }
 }
 
-/* Page-local legacy mega-menu rules use a high-specificity dark text color.
-   Reassert the premium dark-flyout palette at the same depth on desktop. */
-@media (min-width: 769px) {
+/* One authoritative desktop mega-menu. Older service and portfolio pages load
+   a retired 220px flyout model, while other pages carry a 640px inline model.
+   These ID-scoped rules normalize both menus, add breathing room below the
+   trigger, and preserve a hover bridge across that intentional gap. */
+@media (min-width: 1200px) {
+  #ra-nav .ra-nav__links > li.has-drop {
+    position: relative !important;
+  }
+
+  #ra-nav .ra-nav__links > li.has-drop::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -24px;
+    right: -24px;
+    height: 18px;
+  }
+
+  #ra-nav .ra-nav__links > li.has-drop > .ra-drop--l2 {
+    position: absolute !important;
+    top: calc(100% + 14px) !important;
+    left: 50% !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: min(680px, calc(100vw - 48px)) !important;
+    min-width: min(640px, calc(100vw - 48px)) !important;
+    max-width: 680px !important;
+    margin: 0 !important;
+    padding: 28px 10px 18px !important;
+    transform: translateX(-50%) translateY(-8px) !important;
+    overflow: hidden !important;
+  }
+
+  #ra-nav .ra-nav__links > li.has-drop:hover > .ra-drop--l2,
+  #ra-nav .ra-nav__links > li.has-drop:focus-within > .ra-drop--l2 {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 {
+    position: static !important;
+    min-width: 0 !important;
+    padding: 0 14px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.09) !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3:first-child {
+    border-left: 0 !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a {
+    display: block !important;
+    min-height: 38px !important;
+    margin: 0 0 6px !important;
+    padding: 0 10px 12px !important;
+    color: rgba(255, 255, 255, 0.94) !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(201, 28, 29, 0.58) !important;
+    border-radius: 0 !important;
+    font-family: var(--ra-body) !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3:hover > a,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3:focus-within > a,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:hover,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a:focus-visible {
+    color: #fff !important;
+    background: rgba(201, 28, 29, 0.16) !important;
+    transform: none !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a .ra-drop__arrow {
+    display: none !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: inherit !important;
+    transform: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
   #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 a,
   #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a {
+    display: block !important;
+    min-height: 39px !important;
+    padding: 9px 10px !important;
     color: rgba(255, 255, 255, 0.78) !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+    font-family: var(--ra-body) !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    transform: none !important;
   }
 
   #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:hover,
-  #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover {
+  #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 li a:hover,
+  #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 a:focus-visible,
+  #ra-nav .ra-nav__links .ra-drop--l2 .ra-drop--l3 a.is-current {
+    color: #fff !important;
+    background: rgba(201, 28, 29, 0.16) !important;
+    transform: none !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > li:not(.has-drop-l3) {
+    grid-column: 1 / -1 !important;
+    min-width: 0 !important;
+    margin: 8px 14px 0 !important;
+    padding-top: 8px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.09) !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > li:not(.has-drop-l3) > a {
+    display: block !important;
+    min-height: 40px !important;
+    padding: 10px 12px !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    background: transparent !important;
+    border-left: 2px solid var(--ra-red) !important;
+    border-radius: 8px !important;
+    font-family: var(--ra-body) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    opacity: 1 !important;
+  }
+
+  #ra-nav .ra-nav__links .ra-drop--l2 > li:not(.has-drop-l3) > a:hover,
+  #ra-nav .ra-nav__links .ra-drop--l2 > li:not(.has-drop-l3) > a:focus-visible {
     color: #fff !important;
     background: rgba(201, 28, 29, 0.16) !important;
   }
@@ -1787,7 +1954,46 @@ body[data-ra-visual^='reveal-'] .ar-hero__bg {
 /* Mobile navigation is intentionally deterministic: labels navigate, while
    the dedicated chevrons control the two accordion levels. These ID-scoped
    rules outrank older page-local mega-menu styles without affecting desktop. */
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
+  #ra-nav .ra-nav__inner {
+    width: min(100% - 28px, 1360px) !important;
+    height: 72px !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  #ra-nav .ra-nav__links {
+    display: none !important;
+  }
+
+  #ra-nav .ra-nav__right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  #ra-nav .ra-nav__hamburger {
+    display: flex !important;
+    order: 3 !important;
+    margin: 0 0 0 4px !important;
+  }
+
+  #ra-nav .ra-nav__cta {
+    display: none !important;
+  }
+
+  #ra-nav .ra-nav__cta-mobile {
+    display: inline-flex !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  #ra-nav .ra-nav__links > .has-drop::after {
+    display: none !important;
+  }
+
   body.ra-mobile-nav-open {
     overflow: hidden !important;
   }
@@ -1810,10 +2016,30 @@ body[data-ra-visual^='reveal-'] .ar-hero__bg {
     padding: 16px 20px max(40px, env(safe-area-inset-bottom)) !important;
     background: rgba(255, 253, 250, 0.99) !important;
     color: var(--ra-ink) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    list-style: none !important;
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     box-sizing: border-box !important;
+  }
+
+  #ra-nav .ra-nav__links > li {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #ra-nav .ra-nav__links > li > a {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 12px 4px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
   }
 
   #ra-nav .ra-nav__links,
@@ -1936,6 +2162,9 @@ body[data-ra-visual^='reveal-'] .ar-hero__bg {
 
   #ra-nav .ra-nav__services-toggle,
   #ra-nav .ra-nav__l2-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     flex: 0 0 48px !important;
     width: 48px !important;
     min-width: 48px !important;

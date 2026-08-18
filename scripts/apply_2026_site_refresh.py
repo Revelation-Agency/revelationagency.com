@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
 CSS_MARKER = "<!-- RA-REFRESH-2026:css -->"
 JS_MARKER = "<!-- RA-REFRESH-2026:js -->"
-REFRESH_ASSET_VERSION = "20260817f"
+REFRESH_ASSET_VERSION = "20260817g"
 REFRESH_CSS_URL = f"/assets/css/ra-refresh-2026.css?v={REFRESH_ASSET_VERSION}"
 REFRESH_JS_URL = f"/assets/js/ra-refresh-2026.js?v={REFRESH_ASSET_VERSION}"
 APEX = "https://www.revelationagency.com"

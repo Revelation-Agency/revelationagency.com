@@ -10,7 +10,7 @@
     {
       "test": "02_worktree_clean_or_test_generated_only",
       "pass": true,
-      "detail": "pending_total=0 non_test_pending=0"
+      "detail": "pending_total=1 non_test_pending=0"
     },
     {
       "test": "03_baseline_urls_accounted",

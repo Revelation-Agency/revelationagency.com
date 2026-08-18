@@ -1,7 +1,7 @@
 """Browser-level responsive release gate for the 2026 site refresh.
 
 The verifier serves the checkout on loopback, renders representative pages at
-320, 390, 768, and 1440 pixels, and checks the failures that static HTML tests
+320, 390, 768, 769, 900, 1024, 1025, 1100, 1199, 1200, 1440, and 1920 pixels, and checks failures that static HTML tests
 cannot see: clipped proof art, nested mobile gutters, orbit crowding, and the
 three-level Portfolio accordion. It is read-only and writes no screenshots.
 """
@@ -12,6 +12,7 @@ import http.server
 import os
 import re
 import socket
+import sys
 import threading
 import time
 import urllib.request
@@ -19,14 +20,26 @@ from dataclasses import dataclass
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WIDTHS = (320, 390, 768, 1440)
+WIDTHS = (320, 390, 768, 769, 900, 1024, 1025, 1100, 1199, 1200, 1440, 1920)
 HEIGHT = 900
 ROUTES = (
     ("home", "/index.html"),
     ("services", "/services.html"),
     ("branding-service", "/services/branding/index.html"),
-    ("design-service", "/services/branding/design.html"),
+    ("service-websites", "/services/branding/websites-landing-pages.html"),
+    ("service-apps", "/services/branding/apps-digital-products.html"),
+    ("service-brand-identity", "/services/branding/brand-strategy-identity.html"),
+    ("service-design", "/services/branding/design.html"),
+    ("service-video", "/services/branding/video-visual-content.html"),
+    ("service-seo-ai", "/services/marketing/seo-ai-visibility.html"),
+    ("service-social", "/services/marketing/social-media.html"),
+    ("service-digital-ads", "/services/marketing/digital-ads.html"),
+    ("service-customer-nurture", "/services/marketing/email-lifecycle-marketing.html"),
     ("sales-systems-service", "/services/sales/index.html"),
+    ("service-outreach", "/services/sales/lead-generation-outreach.html"),
+    ("service-lead-gen-ads", "/services/sales/lead-gen-ads.html"),
+    ("service-crm-sales-tools", "/services/sales/crm-sales-infrastructure.html"),
+    ("service-ai-automation-systems", "/services/sales/ai-automation-systems.html"),
     ("portfolio", "/portfolio.html"),
     ("portfolio-outreach", "/portfolio.html?filter=s1"),
     ("portfolio-invalid-filter", "/portfolio.html?filter=%22%5D%3Anot%28"),
@@ -44,6 +57,22 @@ ROUTES = (
     ("sales-intelligence", "/sales-intelligence/index.html"),
     ("web-hosting", "/web-hosting.html"),
 )
+
+SERVICE_HERO_EXPECTATIONS = {
+    "service-websites": "websites-responsive-system.webp",
+    "service-apps": "apps-product-system.webp",
+    "service-brand-identity": "brand-identity-system.webp",
+    "service-design": "design-production-system.webp",
+    "service-video": "video-production-system.webp",
+    "service-seo-ai": "seo-ai-answers-system.webp",
+    "service-social": "social-content-system.webp",
+    "service-digital-ads": "digital-advertising-system.webp",
+    "service-customer-nurture": "customer-nurture-system.webp",
+    "service-outreach": "outreach-system.webp",
+    "service-lead-gen-ads": "lead-gen-ads-system.webp",
+    "service-crm-sales-tools": "crm-sales-tools-system.webp",
+    "service-ai-automation-systems": "ai-automation-systems-system.webp",
+}
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -136,6 +165,7 @@ def inspect_layout(page) -> dict:
             return s.animationName !== 'none' && s.animationIterationCount === 'infinite';
           }).map((el) => ({className:el.getAttribute('class') || el.tagName, name:getComputedStyle(el).animationName})) : [];
           const canvas = document.querySelector('#hero-network');
+          const serviceHero = document.querySelector('.p-hero');
           return {
             innerWidth: window.innerWidth,
             documentWidth: document.documentElement.scrollWidth,
@@ -148,16 +178,30 @@ def inspect_layout(page) -> dict:
             canvasDisplay: canvas ? getComputedStyle(canvas).display : null,
             bodyText: document.body.innerText,
             heroTagline: document.querySelector('.ra-hero__tagline')?.textContent.trim() || '',
-            heroIntro: document.querySelector('.ra-hero__desc')?.textContent.replace(/\\s+/g, ' ').trim() || ''
+            heroIntro: document.querySelector('.ra-hero__desc')?.textContent.replace(/\\s+/g, ' ').trim() || '',
+            serviceVisualVar: getComputedStyle(document.body).getPropertyValue('--ra-generated-visual').trim(),
+            serviceHeroBackground: serviceHero ? getComputedStyle(serviceHero, '::after').backgroundImage : ''
           };
         }"""
     )
 
 
-def check_mobile_portfolio_menu(page, width: int, failures: list[Failure]) -> None:
-    route = "home-menu"
+def check_mobile_portfolio_menu(page, width: int, route: str, failures: list[Failure]) -> None:
     try:
         page.locator("#ra-nav-hamburger").click(timeout=4_000)
+        drawer_metrics = page.locator("#ra-nav .ra-nav__links").evaluate(
+            """el => {
+              const s=getComputedStyle(el), first=el.querySelector(':scope > li > a');
+              const r=el.getBoundingClientRect(), fr=first.getBoundingClientRect();
+              return {left:r.left,right:r.right,width:r.width,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,
+                direction:s.flexDirection,align:s.alignItems,gap:s.gap,
+                firstWidth:fr.width,firstHeight:fr.height,firstFont:getComputedStyle(first).fontSize};
+            }"""
+        )
+        if (drawer_metrics["direction"] != "column" or
+                drawer_metrics["firstWidth"] < drawer_metrics["clientWidth"] * 0.75 or
+                drawer_metrics["firstHeight"] > 60):
+            failures.append(Failure(width, route, f"open drawer is not a readable column: {drawer_metrics}"))
         portfolio = page.locator('li.has-drop:has(> a[href="/portfolio"])').first
         portfolio.locator(":scope > button.ra-nav__services-toggle").click(timeout=4_000)
         expected = (5, 4, 4)
@@ -191,37 +235,113 @@ def check_mobile_portfolio_menu(page, width: int, failures: list[Failure]) -> No
         failures.append(Failure(width, route, f"accordion interaction failed: {exc}"))
 
 
-def check_desktop_portfolio_menu(page, failures: list[Failure]) -> None:
+def check_desktop_mega_menus(page, width: int, route: str, failures: list[Failure]) -> None:
+    """Both top-level menus must keep one readable 5 / 4 / 4 grid everywhere."""
+    for href, label in (("/services", "Services"), ("/portfolio", "Portfolio")):
+        check_name = f"{route}-{label.lower()}-menu"
+        try:
+            top = page.locator(f'li.has-drop:has(> a[href="{href}"])').first
+            trigger = top.locator(":scope > a")
+            top.hover()
+            menu = top.locator(":scope > ul.ra-drop--l2")
+            page.wait_for_function(
+                "el => parseFloat(getComputedStyle(el).opacity) >= 0.98",
+                arg=menu.element_handle(),
+                timeout=1_500,
+            )
+            metrics = menu.evaluate(
+                """el => {
+                  const r=el.getBoundingClientRect(), s=getComputedStyle(el);
+                  const trigger=el.parentElement.querySelector(':scope > a').getBoundingClientRect();
+                  return {left:r.left,right:r.right,top:r.top,width:r.width,display:s.display,
+                    columns:s.gridTemplateColumns,opacity:parseFloat(s.opacity),gap:r.top-trigger.bottom};
+                }"""
+            )
+            if (metrics["left"] < -1 or metrics["right"] > width + 1 or
+                    not 639 <= metrics["width"] <= 681 or metrics["display"] != "grid" or
+                    metrics["opacity"] < 0.98):
+                failures.append(Failure(width, check_name, f"desktop L2 geometry is not canonical: {metrics}"))
+            if metrics["gap"] < 12 or metrics["gap"] > 28:
+                failures.append(Failure(width, check_name, f"desktop L2 trigger gap is {metrics['gap']:.1f}px: {metrics}"))
+            if len([part for part in metrics["columns"].split(" ") if part]) != 3:
+                failures.append(Failure(width, check_name, f"desktop L2 is not three equal columns: {metrics['columns']}"))
+
+            groups = menu.locator(":scope > li.has-drop-l3")
+            expected = (5, 4, 4)
+            if groups.count() != 3:
+                failures.append(Failure(width, check_name, f"expected 3 groups, found {groups.count()}"))
+                continue
+            for index, leaf_count in enumerate(expected):
+                group = groups.nth(index)
+                leaves = group.locator(":scope > ul.ra-drop--l3 > li > a")
+                if leaves.count() != leaf_count:
+                    failures.append(Failure(width, check_name, f"group {index + 1} has {leaves.count()} leaves, expected {leaf_count}"))
+                l3 = group.locator(":scope > ul.ra-drop--l3").evaluate(
+                    """el => { const r=el.getBoundingClientRect(), s=getComputedStyle(el);
+                      return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,position:s.position,
+                        display:s.display,visibility:s.visibility,transform:s.transform}; }"""
+                )
+                if (l3["position"] != "static" or l3["display"] != "block" or
+                        l3["visibility"] == "hidden" or l3["transform"] != "none" or
+                        l3["left"] < metrics["left"] - 1 or l3["right"] > metrics["right"] + 1):
+                    failures.append(Failure(width, check_name, f"group {index + 1} L3 overlaps or escapes the grid: {l3}"))
+
+            first_group = groups.first
+            first_group.hover()
+            heading_style = first_group.locator(":scope > a").evaluate(
+                "el => { const s=getComputedStyle(el); return {color:s.color,background:s.backgroundColor}; }"
+            )
+            channels = [int(value) for value in re.findall(r"\d+", heading_style["color"])[:3]]
+            if len(channels) != 3 or min(channels) < 225:
+                failures.append(Failure(width, check_name, f"category heading becomes unreadable on hover: {heading_style}"))
+            if float(menu.evaluate("el => getComputedStyle(el).opacity")) < 0.98:
+                failures.append(Failure(width, check_name, "menu closes while crossing the hover gap"))
+        except Exception as exc:
+            failures.append(Failure(width, check_name, f"desktop mega-menu interaction failed: {exc}"))
+
+
+def check_desktop_home_symmetry(page, width: int, failures: list[Failure]) -> None:
     try:
-        portfolio = page.locator('li.has-drop:has(> a[href="/portfolio"])').first
-        portfolio.hover()
-        group = portfolio.locator(":scope > ul.ra-drop--l2 > li.has-drop-l3").first
-        group.hover()
-        rect = group.locator(":scope > ul.ra-drop--l3").evaluate(
-            "el => { const r=el.getBoundingClientRect(); return {left:r.left,right:r.right,width:r.width,display:getComputedStyle(el).display,visibility:getComputedStyle(el).visibility}; }"
+        metrics = page.evaluate(
+            """() => {
+              const title=document.querySelector('.ra-hero__title');
+              const frame=document.querySelector('.ra-orbit__frame');
+              const marketing=document.querySelector('.ra-orbit__node--marketing');
+              const sales=document.querySelector('.ra-orbit__node--sales');
+              const range=document.createRange();
+              const ys=[];
+              const walker=document.createTreeWalker(title, NodeFilter.SHOW_TEXT);
+              while(walker.nextNode()) {
+                if(!walker.currentNode.textContent.trim()) continue;
+                range.selectNodeContents(walker.currentNode);
+                [...range.getClientRects()].forEach(r => ys.push(Math.round(r.top)));
+              }
+              const tr=title.getBoundingClientRect(), fr=frame.getBoundingClientRect();
+              const mr=marketing.getBoundingClientRect(), sr=sales.getBoundingClientRect();
+              return {font:parseFloat(getComputedStyle(title).fontSize), titleHeight:tr.height,
+                frameHeight:fr.height, lines:[...new Set(ys)].length,
+                marketingWidth:mr.width,salesWidth:sr.width,
+                marketingCenter:mr.left+mr.width/2-frame.left-frame.width/2,
+                salesCenter:sr.left+sr.width/2-frame.left-frame.width/2};
+            }"""
         )
-        if rect["left"] < -1 or rect["right"] > 1441 or rect["display"] == "none" or rect["visibility"] == "hidden":
-            failures.append(Failure(1440, "home-menu", f"desktop Portfolio flyout is clipped or hidden: {rect}"))
-        colors = group.locator(":scope > ul.ra-drop--l3 a").evaluate_all(
-            "links => links.map(link => getComputedStyle(link).color)"
-        )
-        for color in colors:
-            channels = [int(value) for value in re.findall(r"\d+", color)[:3]]
-            if len(channels) == 3:
-                def linear(channel: int) -> float:
-                    value = channel / 255
-                    return value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
-                foreground = 0.2126 * linear(channels[0]) + 0.7152 * linear(channels[1]) + 0.0722 * linear(channels[2])
-                background = linear(16)
-                contrast = (max(foreground, background) + 0.05) / (min(foreground, background) + 0.05)
-                if contrast < 4.5:
-                    failures.append(Failure(1440, "home-menu", f"desktop Portfolio leaf contrast is only {contrast:.2f}:1 ({color})"))
+        if metrics["font"] > 95 or metrics["titleHeight"] > 345 or metrics["lines"] != 4:
+            failures.append(Failure(width, "home-symmetry", f"desktop hero headline is oversized or unbalanced: {metrics}"))
+        ratio = metrics["titleHeight"] / metrics["frameHeight"]
+        if not 0.55 <= ratio <= 0.72:
+            failures.append(Failure(width, "home-symmetry", f"headline/widget height ratio is {ratio:.2f}: {metrics}"))
+        if (abs(metrics["marketingWidth"] - metrics["salesWidth"]) > 1 or
+                abs(abs(metrics["marketingCenter"]) - abs(metrics["salesCenter"])) > 2):
+            failures.append(Failure(width, "home-symmetry", f"Marketing and Sales Systems cards are asymmetric: {metrics}"))
     except Exception as exc:
-        failures.append(Failure(1440, "home-menu", f"desktop flyout interaction failed: {exc}"))
+        failures.append(Failure(width, "home-symmetry", f"desktop hero symmetry check failed: {exc}"))
 
 
 def main() -> int:
     from playwright.sync_api import sync_playwright
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
 
     failures: list[Failure] = []
     server, port = start_server()
@@ -233,8 +353,8 @@ def main() -> int:
             for width in WIDTHS:
                 context = browser.new_context(
                     viewport={"width": width, "height": HEIGHT},
-                    is_mobile=width <= 768,
-                    has_touch=width <= 768,
+                    is_mobile=width <= 1199,
+                    has_touch=width <= 1199,
                     reduced_motion="no-preference",
                 )
                 for slug, path in ROUTES:
@@ -256,6 +376,16 @@ def main() -> int:
                             failures.append(Failure(width, slug, f"local HTTP failures: {local_4xx}"))
                         if page_errors:
                             failures.append(Failure(width, slug, f"page errors: {page_errors}"))
+                        if slug in SERVICE_HERO_EXPECTATIONS:
+                            expected_visual = SERVICE_HERO_EXPECTATIONS[slug]
+                            if (expected_visual not in data["serviceVisualVar"] or
+                                    expected_visual not in data["serviceHeroBackground"]):
+                                failures.append(Failure(
+                                    width,
+                                    slug,
+                                    f"unique service hero is not active ({expected_visual}): "
+                                    f"var={data['serviceVisualVar']!r} background={data['serviceHeroBackground']!r}",
+                                ))
                         if data["documentWidth"] > width + 1 or data["bodyWidth"] > width + 1:
                             failures.append(Failure(width, slug, f"document overflow: html={data['documentWidth']} body={data['bodyWidth']}"))
                         for box in data["boxes"]:
@@ -338,10 +468,12 @@ def main() -> int:
                                 failures.append(Failure(width, slug, f"hero canvas remains visible on mobile ({data['canvasDisplay']})"))
                             if len(data["orbitAnimations"]) > 5:
                                 failures.append(Failure(width, slug, f"orbit still has {len(data['orbitAnimations'])} continuous animations: {data['orbitAnimations']}"))
-                            if width in (320, 390, 768):
-                                check_mobile_portfolio_menu(page, width, failures)
-                            elif width == 1440:
-                                check_desktop_portfolio_menu(page, failures)
+                            elif width in (1200, 1440, 1920):
+                                check_desktop_home_symmetry(page, width, failures)
+                        if width <= 1199 and slug in ("home", "service-design", "portfolio-branding", "case-outcomes"):
+                            check_mobile_portfolio_menu(page, width, f"{slug}-menu", failures)
+                        if width in (1200, 1440, 1920) and slug in ("home", "service-design", "portfolio-branding", "case-outcomes"):
+                            check_desktop_mega_menus(page, width, slug, failures)
                         if slug == "portfolio-outreach":
                             empty_state = page.locator("#pf-empty-state")
                             empty_text = " ".join((empty_state.text_content() or "").split())
@@ -367,11 +499,12 @@ def main() -> int:
             print(f"- {failure}")
         return 1
     print(f"Responsive render verification PASSED ({rendered} renders: {len(ROUTES)} routes x {len(WIDTHS)} widths)")
-    print("- exact homepage copy rendered at 320 / 390 / 768 / 1440")
+    print("- exact homepage copy rendered from 320 through 1920, including tablet breakpoints")
     print("- mobile orbit contained, simplified, and spaced")
     print("- service proof art rendered at 16:9")
     print("- portfolio and outcomes gutters contained")
-    print("- Portfolio 5 / 4 / 4 accordion and desktop flyout verified")
+    print("- Services and Portfolio 5 / 4 / 4 mobile accordions and desktop mega-menus verified")
+    print("- desktop hero headline and connected-system cards verified for symmetry")
     return 0
 
 

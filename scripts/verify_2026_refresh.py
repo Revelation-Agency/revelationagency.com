@@ -29,8 +29,8 @@ from urllib.parse import unquote, urljoin, urlsplit
 EXPECTED_HTML_COUNT = 143
 EXPECTED_CASE_COUNT = 68
 EXPECTED_MASTER_COUNT = 21
-REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817f"
-REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817f"
+REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817g"
+REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817g"
 PORTFOLIO_MANIFEST = "assets/data/portfolio-taxonomy-2026.json"
 
 EXPECTED_SOURCE_HASHES = {
@@ -39,6 +39,22 @@ EXPECTED_SOURCE_HASHES = {
     "assets/brand/current/source/revelation-logo-with-text.png":
         "441045281d05747bd1fc231217348d44324ff5819144207d2755120f829199f4",
 }
+
+SERVICE_VISUAL_PATHS = (
+    "assets/brand/visuals/2026/service-v2/websites-responsive-system.webp",
+    "assets/brand/visuals/2026/service-v2/apps-product-system.webp",
+    "assets/brand/visuals/2026/service-v2/brand-identity-system.webp",
+    "assets/brand/visuals/2026/service-v2/design-production-system.webp",
+    "assets/brand/visuals/2026/service-v2/video-production-system.webp",
+    "assets/brand/visuals/2026/service-v2/seo-ai-answers-system.webp",
+    "assets/brand/visuals/2026/service-v2/social-content-system.webp",
+    "assets/brand/visuals/2026/service-v2/digital-advertising-system.webp",
+    "assets/brand/visuals/2026/service-v2/customer-nurture-system.webp",
+    "assets/brand/visuals/2026/service-v2/outreach-system.webp",
+    "assets/brand/visuals/2026/service-v2/lead-gen-ads-system.webp",
+    "assets/brand/visuals/2026/service-v2/crm-sales-tools-system.webp",
+    "assets/brand/visuals/2026/service-v2/ai-automation-systems-system.webp",
+)
 
 REQUIRED_REFRESH_ASSETS = (
     "assets/css/ra-refresh-2026.css",
@@ -51,11 +67,7 @@ REQUIRED_REFRESH_ASSETS = (
     "assets/brand/visuals/2026/marketing-signal.webp",
     "assets/brand/visuals/2026/sales-signal.webp",
     "assets/brand/visuals/2026/ai-automation-signal.webp",
-    "assets/brand/visuals/2026/digital-surfaces-signal.webp",
-    "assets/brand/visuals/2026/identity-design-signal.webp",
-    "assets/brand/visuals/2026/discoverability-signal.webp",
-    "assets/brand/visuals/2026/nurture-outreach-signal.webp",
-    "assets/brand/visuals/2026/sales-automation-signal.webp",
+    *SERVICE_VISUAL_PATHS,
     "assets/brand/visuals/2026/reveal-straight-answers.webp",
     "assets/brand/visuals/2026/reveal-video-infrastructure.webp",
     "assets/revelation-logo.png",
@@ -86,6 +98,31 @@ EXPECTED_VISUAL_ASSIGNMENTS = {
     "the-reveal/straight-answers.html": "reveal-straight-answers",
     "the-reveal/video-is-no-longer-optional-its-infrastructure.html":
         "reveal-video-infrastructure",
+}
+
+EXPECTED_SERVICE_VISUAL_ASSIGNMENTS = {
+    "services/branding/websites-landing-pages.html": (
+        "websites-landing-pages", SERVICE_VISUAL_PATHS[0]),
+    "services/branding/apps-digital-products.html": (
+        "apps-digital-products", SERVICE_VISUAL_PATHS[1]),
+    "services/branding/brand-strategy-identity.html": (
+        "brand-strategy-identity", SERVICE_VISUAL_PATHS[2]),
+    "services/branding/design.html": ("design", SERVICE_VISUAL_PATHS[3]),
+    "services/branding/video-visual-content.html": (
+        "video-visual-content", SERVICE_VISUAL_PATHS[4]),
+    "services/marketing/seo-ai-visibility.html": (
+        "seo-ai-visibility", SERVICE_VISUAL_PATHS[5]),
+    "services/marketing/social-media.html": ("social-media", SERVICE_VISUAL_PATHS[6]),
+    "services/marketing/digital-ads.html": ("digital-ads", SERVICE_VISUAL_PATHS[7]),
+    "services/marketing/email-lifecycle-marketing.html": (
+        "email-lifecycle-marketing", SERVICE_VISUAL_PATHS[8]),
+    "services/sales/lead-generation-outreach.html": (
+        "lead-generation-outreach", SERVICE_VISUAL_PATHS[9]),
+    "services/sales/lead-gen-ads.html": ("lead-gen-ads", SERVICE_VISUAL_PATHS[10]),
+    "services/sales/crm-sales-infrastructure.html": (
+        "crm-sales-infrastructure", SERVICE_VISUAL_PATHS[11]),
+    "services/sales/ai-automation-systems.html": (
+        "ai-automation-systems", SERVICE_VISUAL_PATHS[12]),
 }
 
 VALID_PILLARS = {"branding", "marketing", "sales"}
@@ -1050,11 +1087,7 @@ def check_generated_visual_system(root: Path) -> CheckResult:
         "assets/brand/visuals/2026/marketing-signal.webp",
         "assets/brand/visuals/2026/sales-signal.webp",
         "assets/brand/visuals/2026/ai-automation-signal.webp",
-        "assets/brand/visuals/2026/digital-surfaces-signal.webp",
-        "assets/brand/visuals/2026/identity-design-signal.webp",
-        "assets/brand/visuals/2026/discoverability-signal.webp",
-        "assets/brand/visuals/2026/nurture-outreach-signal.webp",
-        "assets/brand/visuals/2026/sales-automation-signal.webp",
+        *SERVICE_VISUAL_PATHS,
         "assets/brand/visuals/2026/reveal-straight-answers.webp",
         "assets/brand/visuals/2026/reveal-video-infrastructure.webp",
     )
@@ -1095,6 +1128,55 @@ def check_generated_visual_system(root: Path) -> CheckResult:
         if f'class="{expected_hero}' not in text:
             errors.append(f"{rel}: expected .{expected_hero} visual host is missing")
 
+    if len(set(SERVICE_VISUAL_PATHS)) != len(EXPECTED_SERVICE_VISUAL_ASSIGNMENTS):
+        errors.append("service hero visual assignments must be one-to-one")
+    for rel, (service_slug, visual_path) in EXPECTED_SERVICE_VISUAL_ASSIGNMENTS.items():
+        path = root / rel
+        if not path.is_file():
+            errors.append(f"{rel}: expected service visual page is missing")
+            continue
+        text = path.read_text(encoding="utf-8")
+        body = re.search(r"<body\b[^>]*>", text, re.I | re.S)
+        if not body or body.group(0).count(f'data-ra-service="{service_slug}"') != 1:
+            errors.append(f"{rel}: body must declare data-ra-service={service_slug!r}")
+        selector = re.compile(
+            rf"body\[data-ra-service=['\"]{re.escape(service_slug)}['\"]\]\s*\{{"
+            rf"[^}}]*url\(['\"]?/{re.escape(visual_path)}['\"]?\)",
+            re.I | re.S,
+        )
+        if not selector.search(css):
+            errors.append(
+                f"assets/css/ra-refresh-2026.css: {service_slug!r} must use /{visual_path}"
+            )
+
+    receipt_paths = (
+        "artifacts/service-image-generation-branding-v2.json",
+        "artifacts/service-image-generation-marketing-v2.json",
+        "artifacts/service-image-generation-sales-v2.json",
+    )
+    receipted: dict[str, str] = {}
+    for receipt_rel in receipt_paths:
+        receipt_path = root / receipt_rel
+        try:
+            receipt = load_json(receipt_path)
+        except (OSError, json.JSONDecodeError) as exc:
+            errors.append(f"{receipt_rel}: invalid image generation receipt: {exc}")
+            continue
+        for item in receipt.get("assets", []):
+            if not isinstance(item, dict):
+                continue
+            output = item.get("output") if isinstance(item.get("output"), dict) else {}
+            output_path = item.get("outputPath") or item.get("output_path") or output.get("path")
+            output_hash = item.get("sha256") or item.get("outputSha256") or output.get("sha256")
+            if output_path and output_hash:
+                receipted[str(output_path)] = str(output_hash).lower()
+    for rel in SERVICE_VISUAL_PATHS:
+        path = root / rel
+        if path.is_file():
+            actual_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+            if receipted.get(rel) != actual_hash:
+                errors.append(f"{rel}: generation receipt must declare SHA-256 {actual_hash}")
+
     reveal_index = (root / "the-reveal" / "index.html").read_text(encoding="utf-8")
     for rel in visual_paths[-2:]:
         if f"/{rel}" not in reveal_index:
@@ -1102,7 +1184,8 @@ def check_generated_visual_system(root: Path) -> CheckResult:
 
     return CheckResult(
         "generated-editorial-visual-system",
-        f"{len(visual_paths)} first-party visuals and {len(EXPECTED_VISUAL_ASSIGNMENTS)} page assignments checked",
+        f"{len(visual_paths)} first-party visuals, {len(EXPECTED_VISUAL_ASSIGNMENTS)} themed pages, "
+        f"and {len(EXPECTED_SERVICE_VISUAL_ASSIGNMENTS)} unique service heroes checked",
         errors,
     )
 
@@ -1672,7 +1755,7 @@ def check_service_proof_alignment(root: Path) -> CheckResult:
 
 
 def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> CheckResult:
-    """Protect the deterministic mobile accordion and chat-safe viewport."""
+    """Protect the canonical desktop mega-menu and mobile accordion."""
     errors: list[str] = []
     nav_pages = 0
     retired_markers: list[str] = []
@@ -1747,9 +1830,24 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         "grid-template-columns: minmax(0, 1fr)",
         ".p-leaf",
         ".ra-orbit__frame:not(.ra-orbit--active)",
+        "#ra-nav .ra-nav__links > li.has-drop > .ra-drop--l2",
+        "grid-template-columns: repeat(3, minmax(0, 1fr))",
+        "top: calc(100% + 14px)",
+        "#ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3:hover > a",
+        "@media (min-width: 1200px)",
+        "@media (max-width: 1199px)",
+        "flex-direction: column !important",
+        "align-items: stretch !important",
     ):
         if token not in css:
-            errors.append(f"assets/css/ra-refresh-2026.css: missing mobile contract token {token!r}")
+            errors.append(f"assets/css/ra-refresh-2026.css: missing navigation contract token {token!r}")
+
+    shared_nav_css = read_text(root / "assets/css/ra-nav-footer.css")
+    if "@media (max-width: 1199px)" not in shared_nav_css:
+        errors.append("assets/css/ra-nav-footer.css: compact accordion breakpoint must extend through 1199px")
+    for token in ("min-width: 220px", "left: calc(100% + 6px)"):
+        if token in shared_nav_css:
+            errors.append(f"assets/css/ra-nav-footer.css: retired compact flyout token remains {token!r}")
 
     js = read_text(root / "assets/js/ra-refresh-2026.js")
     for token in (
@@ -1757,6 +1855,7 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         'doc.body.classList.toggle("ra-mobile-nav-open", open)',
         "window.location.assign(anchor.href)",
         "event.stopImmediatePropagation()",
+        'var mobileQuery = window.matchMedia("(max-width: 1199px)")',
     ):
         if token not in js:
             errors.append(f"assets/js/ra-refresh-2026.js: missing mobile contract token {token!r}")
@@ -1765,7 +1864,7 @@ def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> Chec
         errors.append(f"only {nav_pages} HTML pages expose the canonical mobile navigation")
     return CheckResult(
         "mobile-navigation-contract",
-        f"{nav_pages} nav pages; full Portfolio drill-down, accordion, chat, and narrow-grid rules checked",
+        f"{nav_pages} nav pages; desktop 5 / 4 / 4 mega-menu plus mobile accordion and chat rules checked",
         errors,
     )
 
@@ -1809,7 +1908,7 @@ def check_responsive_spacing_contract(root: Path, html_files: list[Path]) -> Che
         "#hero-network",
         ".ra-orbit__summary",
         "@media (max-width: 360px)",
-        "@media (min-width: 769px)",
+        "@media (min-width: 1200px)",
         "rgba(255, 255, 255, 0.78) !important",
     ):
         if token not in css:

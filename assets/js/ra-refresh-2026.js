@@ -181,7 +181,7 @@
     var nav = doc.getElementById("ra-nav");
     if (!nav || !window.matchMedia) return;
 
-    var mobileQuery = window.matchMedia("(max-width: 768px)");
+    var mobileQuery = window.matchMedia("(max-width: 1199px)");
     var hamburger = nav.querySelector(".ra-nav__hamburger");
 
     function resetBranch(branch) {

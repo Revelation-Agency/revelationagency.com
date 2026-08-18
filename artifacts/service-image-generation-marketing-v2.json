@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "batch": "marketing-service-images-v2",
+  "generation_mode": "built-in image_gen",
+  "optimization": {
+    "resize_mode": "cover",
+    "width": 1672,
+    "height": 941,
+    "output_format": "webp",
+    "quality": 90
+  },
+  "assets": [
+    {
+      "service": "SEO / AI Answers",
+      "slug": "seo-ai-answers-system",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 website service hero for SEO / AI Answers\nPrimary request: Create a premium photorealistic operations scene that clearly shows one believable SEO and AI-answer workflow: a real customer question becomes structured website content, then appears as an organic search result and as a cited AI answer.\nScene/backdrop: sophisticated real research-and-content workstation in a dark editorial studio; physical keyboard, mouse, notebook and a large calibrated monitor on the right. The monitor shows a practical shippable interface with four visibly connected stages: question research, structured page/content editor, organic search result, and cited AI answer. Use restrained connector lines within the screen UI only.\nStyle/medium: premium commercial photography blended seamlessly with realistic product UI; credible agency workstation, not concept art.\nComposition/framing: wide landscape, 16:9. Reserve the left 38-42% as dark copy-safe negative space with no important objects or labels. Concentrate detailed workflow on the right 58-62%. Slightly elevated three-quarter camera, 35mm editorial lens, realistic screen perspective.\nLighting/mood: low-key cinematic studio light, warm off-white screen surfaces, near-black environment, controlled reflections, subtle restrained crimson highlights.\nColor palette: near-black #111111, warm off-white #F5F0E8, restrained #C91C1D only for active states and connecting details.\nMaterials/textures: matte black metal, warm paper grain, real glass reflections, subtle fabric and desk wear.\nText (verbatim): \"QUESTION\", \"CONTENT\", \"SEARCH\", \"AI ANSWER\", \"CITED\". Render these exact short labels only, clean and legible; no other visible words.\nConstraints: the workflow must be understandable at a glance and technically believable; organic search result is not an ad; cited AI answer visibly references the structured content; shippable modern UI, natural proportions, premium website quality; no logos, no brand names, no watermark.\nAvoid: gibberish, fake paragraphs, abstract machinery, gears, floating holograms, sci-fi, neon cyberpunk, generic dashboards, excessive red, duplicated screens, decorative charts unrelated to the workflow.",
+      "source": {
+        "path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135f-2e7a-7f71-a88f-0588eaf7c8df\\exec-113fc41f-a47f-4894-83a1-fe88c9e7dd27.png",
+        "format": "png",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "bytes": 1468565,
+        "sha256": "4930482c7ebef6c871a380dadfa1f8b465c91e15a17f704684a541f194b8f6fb"
+      },
+      "output": {
+        "path": "assets/brand/visuals/2026/service-v2/seo-ai-answers-system.webp",
+        "format": "webp",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "quality": 90,
+        "bytes": 94034,
+        "sha256": "aa3e7209ddb17f9feca6d0f5ef222ede0f17fa515c9afb43ff0a86ac728f3eaf"
+      }
+    },
+    {
+      "service": "Social Media",
+      "slug": "social-content-system",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 website service hero for Social Media\nPrimary request: Create a premium photorealistic social-content production scene that clearly shows one real workflow from capture to edit to content calendar to short-form/feed publishing across phone and desktop.\nScene/backdrop: high-end but believable small creative studio workstation on the right, with a compact camera or phone rig, tasteful human hands trimming a real vertical video at a desktop editing station, a practical weekly content calendar, and a phone showing a finished short-form/feed preview ready to publish.\nStyle/medium: premium commercial editorial photography with seamless realistic shippable UI; human, tactile, operational, not abstract.\nComposition/framing: wide 16:9 landscape. Keep the left 38-42% deep near-black and copy-safe with no important objects or labels. Build a clear right-side progression from physical capture device to edit timeline to calendar to phone/desktop publishing preview. Slightly overhead three-quarter view, natural hand anatomy, realistic device scale.\nLighting/mood: sophisticated warm studio lighting, controlled contrast, subtle practical red indicator lights, energetic but calm and expensive.\nColor palette: near-black #111111, warm off-white #F5F0E8, restrained #C91C1D for selected timeline clips, calendar markers and publish state.\nMaterials/textures: matte camera body, brushed black desk, realistic skin and fabric, glass screens, paper notes with no writing.\nText (verbatim): \"CAPTURE\", \"EDIT\", \"SCHEDULE\", \"PUBLISH\". Render these exact short labels only, clean and legible; no other visible words.\nConstraints: clearly different from advertising or CRM; the viewer should understand a professional ongoing social-content system; screen interfaces must be practical and shippable; no logos, no platform trademarks, no watermark.\nAvoid: gibberish, fake captions, influencer glamour shot, selfie pose, multiple redundant phones, abstract machinery, gears, holograms, sci-fi, neon cyberpunk, excessive red, impossible hands, duplicated UI.",
+      "source": {
+        "path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135f-2e7a-7f71-a88f-0588eaf7c8df\\exec-79fe92e9-d63f-4ae5-9b77-03f41f141529.png",
+        "format": "png",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "bytes": 1341055,
+        "sha256": "c2fa281d341bf2101a8597ceef3119b90ffbed129aec43066a2ebeb8f79ebf73"
+      },
+      "output": {
+        "path": "assets/brand/visuals/2026/service-v2/social-content-system.webp",
+        "format": "webp",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "quality": 90,
+        "bytes": 98280,
+        "sha256": "1ead83fd05e54394f919c8a819616fc7395406194f62f5109117f764c963bfaa"
+      }
+    },
+    {
+      "service": "Digital Advertising",
+      "slug": "digital-advertising-system",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 website service hero for Digital Advertising\nPrimary request: Create a premium photorealistic campaign-operations scene showing a realistic paid-ad testing system: creative variants, audience and budget test controls, a matching landing page, and clear performance measurement. This is campaign optimization, not lead routing.\nScene/backdrop: dark professional media-buying workstation on the right with two realistic monitors and a physical control surface or keyboard. One monitor shows three distinct ad creative variants alongside audience segments and an A/B budget allocation control; the other shows the corresponding landing-page preview and a restrained measurement panel with conversion trend and cost indicators.\nStyle/medium: premium commercial photography blended with shippable product UI, credible agency campaign room, precise and modern.\nComposition/framing: wide 16:9 landscape. Leave the left 38-42% near-black and copy-safe with no important objects or labels. Arrange the operational detail on the right in a clear visual sequence: creative test -> audience/budget decision -> landing page -> measurement. Eye-level three-quarter camera, realistic screen perspective and human-scale controls.\nLighting/mood: focused low-key studio light, crisp warm screen glow, disciplined analytical mood, subtle crimson active states.\nColor palette: near-black #111111, warm off-white #F5F0E8, restrained #C91C1D for selected creative, budget split and key measurement only.\nMaterials/textures: matte workstation surfaces, real monitor glass, brushed metal, subtle fingerprints and desk wear.\nText (verbatim): \"CREATIVE\", \"AUDIENCE\", \"BUDGET\", \"LANDING PAGE\", \"MEASURE\". Render these exact short labels only, clean and legible; no other visible words.\nConstraints: creative variants must visibly differ; audience and budget controls must look usable; landing page must visually correspond to the selected ad; measurement must be clear but not a generic wall of charts; no CRM, inbox, contact cards, routing arrows, logos, brand names or watermark.\nAvoid: gibberish, fake ad copy, abstract machinery, gears, floating holograms, sci-fi, neon cyberpunk, stock-market trading screen, excessive red, duplicated dashboards, lead-routing flowcharts.",
+      "source": {
+        "path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135f-2e7a-7f71-a88f-0588eaf7c8df\\exec-d0869e6d-3f3c-4fdc-b6fc-808283c67a0f.png",
+        "format": "png",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "bytes": 1401488,
+        "sha256": "384add6a6b4358e5c15741cdaaa997c37349304bb02f077f530710260db0f744"
+      },
+      "output": {
+        "path": "assets/brand/visuals/2026/service-v2/digital-advertising-system.webp",
+        "format": "webp",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "quality": 90,
+        "bytes": 87348,
+        "sha256": "20c2b8c15c4ed9dd95a6694f7f11051884a37245fcffeaf3a8cf73ae9dce8b6b"
+      }
+    },
+    {
+      "service": "Customer Nurture",
+      "slug": "customer-nurture-system",
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 website service hero for Customer Nurture\nPrimary request: Create a premium photorealistic lifecycle-operations scene that clearly shows one practical customer-nurture system: a real inquiry enters, is segmented, receives an email/SMS/reminder sequence, and results in an appointment or a reactivated customer.\nScene/backdrop: believable service-business lifecycle workstation on the right with a laptop, phone and small appointment calendar display. The main practical interface shows a horizontal or gently stepped customer timeline with one inquiry card, segmentation choice, email message, SMS message, reminder, then two clear end states: booked appointment and reactivated customer.\nStyle/medium: premium commercial editorial photography seamlessly combined with shippable lifecycle UI; warm, human and operational, not a conceptual infographic.\nComposition/framing: wide 16:9 landscape. Preserve the left 38-42% as clean near-black copy-safe negative space with no important objects or labels. Concentrate the complete lifecycle timeline and real devices on the right 58-62%. Slightly elevated natural camera angle, realistic proportions, no floating interface detached from devices.\nLighting/mood: warm controlled studio light suggesting thoughtful follow-through and trust, deep shadows, soft off-white interface, restrained crimson progress markers.\nColor palette: near-black #111111, warm off-white #F5F0E8, restrained #C91C1D for active sequence steps, appointment confirmation and reactivation state.\nMaterials/textures: matte black desk, real phone glass, warm paper/calendar texture, subtle everyday wear.\nText (verbatim): \"INQUIRY\", \"SEGMENT\", \"EMAIL\", \"SMS\", \"REMINDER\", \"APPOINTMENT\", \"REACTIVATE\". Render these exact short labels only, clean and legible; no other visible words.\nConstraints: make the sequence immediately understandable and realistic for a service business; email and SMS are distinct; appointment and reactivation are clear outcomes; practical shippable UI; no logos, no brand names, no watermark.\nAvoid: gibberish, fake paragraphs, sales pipeline stages, ad creative variants, abstract machinery, gears, floating holograms, sci-fi, neon cyberpunk, excessive red, duplicated messages, impossible devices.",
+      "source": {
+        "path": "C:\\Users\\blain\\.codex\\generated_images\\01a0135f-2e7a-7f71-a88f-0588eaf7c8df\\exec-93c01fe9-a613-4623-ae60-ec9632dee3a7.png",
+        "format": "png",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "bytes": 1364919,
+        "sha256": "3307b29aa826a06e38ef8b25d96ab26b21416c094f33a6250cdf89542d82d974"
+      },
+      "output": {
+        "path": "assets/brand/visuals/2026/service-v2/customer-nurture-system.webp",
+        "format": "webp",
+        "dimensions": {
+          "width": 1672,
+          "height": 941
+        },
+        "quality": 90,
+        "bytes": 106608,
+        "sha256": "3db7e5adf50618769dfccd39bc8e0b839d605873ffff24c2e27ac78aa8b23961"
+      }
+    }
+  ]
+}
