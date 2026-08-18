@@ -25,7 +25,7 @@
     {
       "test": "05_all_retired_have_direct_redirect",
       "pass": true,
-      "detail": "retired=27 missing=[]"
+      "detail": "retired=26 missing=[]"
     },
     {
       "test": "06_no_redirect_chain_or_loop",
@@ -50,7 +50,7 @@
     {
       "test": "10_titles_and_meta_coverage",
       "pass": true,
-      "detail": "missing_title=0 missing_desc=0 dup_titles=2 dup_descs=11 (dups informational)"
+      "detail": "missing_title=0 missing_desc=0 dup_titles=1 dup_descs=11 (dups informational)"
     },
     {
       "test": "11_one_h1_per_page",
@@ -125,7 +125,7 @@
     {
       "test": "25_responsive_images_no_regression",
       "pass": true,
-      "detail": "weak=146 baseline_cap=275"
+      "detail": "weak=2 baseline_cap=275"
     },
     {
       "test": "26_page_byte_budget",

@@ -26,11 +26,11 @@ from typing import Any, Iterable, Optional
 from urllib.parse import unquote, urljoin, urlsplit
 
 
-EXPECTED_HTML_COUNT = 140
+EXPECTED_HTML_COUNT = 143
 EXPECTED_CASE_COUNT = 68
 EXPECTED_MASTER_COUNT = 21
-REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817c"
-REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817c"
+REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817e"
+REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817e"
 PORTFOLIO_MANIFEST = "assets/data/portfolio-taxonomy-2026.json"
 
 EXPECTED_SOURCE_HASHES = {
@@ -51,6 +51,11 @@ REQUIRED_REFRESH_ASSETS = (
     "assets/brand/visuals/2026/marketing-signal.webp",
     "assets/brand/visuals/2026/sales-signal.webp",
     "assets/brand/visuals/2026/ai-automation-signal.webp",
+    "assets/brand/visuals/2026/digital-surfaces-signal.webp",
+    "assets/brand/visuals/2026/identity-design-signal.webp",
+    "assets/brand/visuals/2026/discoverability-signal.webp",
+    "assets/brand/visuals/2026/nurture-outreach-signal.webp",
+    "assets/brand/visuals/2026/sales-automation-signal.webp",
     "assets/brand/visuals/2026/reveal-straight-answers.webp",
     "assets/brand/visuals/2026/reveal-video-infrastructure.webp",
     "assets/revelation-logo.png",
@@ -65,19 +70,19 @@ EXPECTED_VISUAL_ASSIGNMENTS = {
     "services/branding/index.html": "branding",
     "services/branding/apps-digital-products.html": "branding",
     "services/branding/brand-strategy-identity.html": "branding",
+    "services/branding/design.html": "branding",
     "services/branding/video-visual-content.html": "branding",
     "services/branding/websites-landing-pages.html": "branding",
     "services/marketing/index.html": "marketing",
     "services/marketing/email-lifecycle-marketing.html": "marketing",
-    "services/marketing/positioning-content-authority.html": "marketing",
+    "services/marketing/digital-ads.html": "marketing",
     "services/marketing/seo-ai-visibility.html": "marketing",
     "services/marketing/social-media.html": "marketing",
     "services/sales/index.html": "sales",
-    "services/sales/conversion-advertising.html": "sales",
+    "services/sales/ai-automation-systems.html": "sales",
     "services/sales/crm-sales-infrastructure.html": "sales",
-    "services/sales/follow-up-nurture.html": "sales",
+    "services/sales/lead-gen-ads.html": "sales",
     "services/sales/lead-generation-outreach.html": "sales",
-    "services/ai-automation.html": "ai-automation",
     "the-reveal/straight-answers.html": "reveal-straight-answers",
     "the-reveal/video-is-no-longer-optional-its-infrastructure.html":
         "reveal-video-infrastructure",
@@ -85,7 +90,7 @@ EXPECTED_VISUAL_ASSIGNMENTS = {
 
 VALID_PILLARS = {"branding", "marketing", "sales"}
 VALID_DISCIPLINES = {
-    "B1", "B2", "B3", "B4",
+    "B1", "B2", "B3", "B4", "B5",
     "M1", "M2", "M3", "M4",
     "S1", "S2", "S3", "S4",
 }
@@ -106,18 +111,83 @@ LEGACY_FOOTER_LABELS = {
     "video production",
     "website development",
     "app development",
-    "digital ads",
     "search rankings",
     "outsource marketing",
+    "positioning, content & authority",
+    "follow-up & nurture",
+    "conversion advertising",
 }
 
 LEGACY_FOOTER_ROUTE_PREFIXES = (
     "/services/systems",
     "/services/creative",
-    "/services/marketing/digital-ads",
     "/services/marketing/search-rankings",
     "/services/marketing/outsource-marketing",
+    "/services/marketing/positioning-content-authority",
+    "/services/sales/follow-up-nurture",
+    "/services/sales/conversion-advertising",
+    "/services/ai-automation",
 )
+
+EXPECTED_SERVICE_CANONICAL_PATHS = {
+    "/services/branding",
+    "/services/branding/apps-digital-products",
+    "/services/branding/brand-strategy-identity",
+    "/services/branding/design",
+    "/services/branding/video-visual-content",
+    "/services/branding/websites-landing-pages",
+    "/services/marketing",
+    "/services/marketing/digital-ads",
+    "/services/marketing/email-lifecycle-marketing",
+    "/services/marketing/seo-ai-visibility",
+    "/services/marketing/social-media",
+    "/services/sales",
+    "/services/sales/ai-automation-systems",
+    "/services/sales/crm-sales-infrastructure",
+    "/services/sales/lead-gen-ads",
+    "/services/sales/lead-generation-outreach",
+}
+
+EXPECTED_SERVICE_LEAVES = {
+    "B1": "services/branding/websites-landing-pages.html",
+    "B2": "services/branding/apps-digital-products.html",
+    "B3": "services/branding/brand-strategy-identity.html",
+    "B4": "services/branding/design.html",
+    "B5": "services/branding/video-visual-content.html",
+    "M1": "services/marketing/seo-ai-visibility.html",
+    "M2": "services/marketing/social-media.html",
+    "M3": "services/marketing/digital-ads.html",
+    "M4": "services/marketing/email-lifecycle-marketing.html",
+    "S1": "services/sales/lead-generation-outreach.html",
+    "S2": "services/sales/lead-gen-ads.html",
+    "S3": "services/sales/crm-sales-infrastructure.html",
+    "S4": "services/sales/ai-automation-systems.html",
+}
+
+EXPECTED_CORRECTED_ROUTE_REDIRECTS = {
+    "/services/marketing/positioning-content-authority":
+        "/services/marketing/seo-ai-visibility",
+    "/services/sales/follow-up-nurture":
+        "/services/marketing/email-lifecycle-marketing",
+    "/services/sales/conversion-advertising":
+        "/services/marketing/digital-ads",
+    "/services/ai-automation":
+        "/services/sales/ai-automation-systems",
+    "/services/systems/ai-automation":
+        "/services/sales/ai-automation-systems",
+    "/portfolio/creative/branding": "/portfolio?filter=b3",
+    "/portfolio/creative/website-development": "/portfolio?filter=b1",
+    "/portfolio/creative/app-development": "/portfolio?filter=b2",
+    "/portfolio/creative/video-production": "/portfolio?filter=b5",
+    "/portfolio/systems/brand-systems": "/portfolio?filter=b3",
+    "/portfolio/systems/digital-presence": "/portfolio?filter=b1",
+    "/portfolio/systems/sales-infrastructure": "/portfolio?filter=s3",
+    "/portfolio/systems/ai-automation": "/portfolio?filter=s4",
+    "/portfolio/marketing/search-rankings": "/portfolio?filter=m1",
+    "/portfolio/marketing/social-media": "/portfolio?filter=m2",
+    "/portfolio/marketing/outsource-marketing": "/portfolio?filter=marketing",
+    "/portfolio/marketing/digital-ads": "/portfolio?filter=m3",
+}
 
 
 @dataclass
@@ -953,6 +1023,11 @@ def check_generated_visual_system(root: Path) -> CheckResult:
         "assets/brand/visuals/2026/marketing-signal.webp",
         "assets/brand/visuals/2026/sales-signal.webp",
         "assets/brand/visuals/2026/ai-automation-signal.webp",
+        "assets/brand/visuals/2026/digital-surfaces-signal.webp",
+        "assets/brand/visuals/2026/identity-design-signal.webp",
+        "assets/brand/visuals/2026/discoverability-signal.webp",
+        "assets/brand/visuals/2026/nurture-outreach-signal.webp",
+        "assets/brand/visuals/2026/sales-automation-signal.webp",
         "assets/brand/visuals/2026/reveal-straight-answers.webp",
         "assets/brand/visuals/2026/reveal-video-infrastructure.webp",
     )
@@ -1094,8 +1169,26 @@ def check_vercel_routes(root: Path, vercel: dict[str, Any]) -> CheckResult:
     }
     if rewrites != expected_rewrites:
         errors.append(f"vercel.json: sales aliases mismatch; expected {sorted(expected_rewrites)}, got {sorted(rewrites)}")
-    if migration_count != 35:
-        errors.append(f"vercel.json: expected 35 clean migration redirects, found {migration_count}")
+
+    migration_redirects = {
+        str(rule.get("source")): str(rule.get("destination"))
+        for rule in vercel.get("redirects", [])
+        if isinstance(rule, dict) and not rule.get("has") and not rule.get("missing")
+    }
+    for source, destination in EXPECTED_CORRECTED_ROUTE_REDIRECTS.items():
+        actual = migration_redirects.get(source)
+        if actual != destination:
+            errors.append(
+                f"vercel.json: corrected route must redirect {source} directly to "
+                f"{destination}, got {actual!r}"
+            )
+    if "/services/marketing/digital-ads" in migration_redirects:
+        errors.append(
+            "vercel.json: /services/marketing/digital-ads is canonical Marketing work, "
+            "not a redirect source"
+        )
+    if migration_count != 38:
+        errors.append(f"vercel.json: expected 38 clean migration redirects, found {migration_count}")
 
     return CheckResult(
         "vercel-clean-routing",
@@ -1173,6 +1266,17 @@ def check_sitemap_contract(root: Path) -> CheckResult:
         errors.append(
             "sitemap.xml does not exactly match artifacts/proposed-routes.json; "
             f"missing={sorted(set(proposed) - set(urls))[:8]} extra={sorted(set(urls) - set(proposed))[:8]}"
+        )
+    service_paths = {
+        urlsplit(url).path
+        for url in urls
+        if urlsplit(url).path.startswith("/services/")
+    }
+    if service_paths != EXPECTED_SERVICE_CANONICAL_PATHS:
+        errors.append(
+            "sitemap.xml: corrected 5/4/4 service architecture mismatch; "
+            f"missing={sorted(EXPECTED_SERVICE_CANONICAL_PATHS - service_paths)} "
+            f"extra={sorted(service_paths - EXPECTED_SERVICE_CANONICAL_PATHS)}"
         )
     for url in urls:
         parsed = urlsplit(url)
@@ -1291,6 +1395,30 @@ def check_public_taxonomy(root: Path, html_files: list[Path], vercel: dict[str, 
             r'<span class="ar-hero__tag[^>]*>\s*(?:Strategy|Creative)\s*</span>', text, re.I
         ):
             errors.append(f"{rel}: retired editorial hero taxonomy remains")
+        if re.search(r"AI\s*(?:&|&amp;)\s*Automation", text, re.I):
+            errors.append(f"{rel}: retired AI & Automation service label remains")
+        if re.search(
+            r'<span><i class="fa-regular fa-folder"></i>\s*(?:Strategy|Creative)\s*</span>',
+            text,
+            re.I,
+        ):
+            errors.append(f"{rel}: retired editorial folder taxonomy remains")
+        if re.search(r'<div class="faq-insight__tag">\s*(?:Strategy|Creative|Systems)\s*</div>', text, re.I):
+            errors.append(f"{rel}: retired FAQ insight taxonomy remains")
+        for retired_title in (
+            "SEO &amp; AI Visibility",
+            "Websites &amp; Landing Pages",
+            "Back to Website Development",
+        ):
+            if retired_title.lower() in text.lower():
+                errors.append(f"{rel}: retired service title remains: {retired_title}")
+        retired_related = re.findall(
+            r'<h3\b[^>]*>\s*(Outsourced Marketing|Performance Marketing (?:&|&amp;) Paid Ads|Website Development|Video Production|Sales Infrastructure|Search Rankings (?:&|&amp;) SEO)\s*</h3>',
+            text,
+            re.I,
+        )
+        if retired_related:
+            errors.append(f"{rel}: retired related-service heading(s) remain: {retired_related}")
         for blocker in (
             ">Systems Work<",
             ">Creative Work<",
@@ -1454,6 +1582,128 @@ def check_root_relative_links(root: Path, html_files: list[Path], vercel: dict[s
     )
 
 
+def check_service_proof_alignment(root: Path) -> CheckResult:
+    """Require every service-specific proof card to carry that service code."""
+    errors: list[str] = []
+    manifest = load_json(root / "assets/data/portfolio-taxonomy-2026.json")
+    masters = manifest.get("masterCardsByRoute", {}) if isinstance(manifest, dict) else {}
+    checked = 0
+
+    for code, rel in EXPECTED_SERVICE_LEAVES.items():
+        path = root / rel
+        if not path.is_file():
+            errors.append(f"{rel}: canonical service leaf is missing")
+            continue
+        text = read_text(path)
+        if f'data-service-code="{code}"' not in text:
+            errors.append(f"{rel}: hero does not declare service code {code}")
+        section = re.search(
+            r'<section\b[^>]*class=["\'][^"\']*\bra-service-proof-section\b[^"\']*["\'][^>]*>.*?</section>',
+            text,
+            re.I | re.S,
+        )
+        if not section:
+            errors.append(f"{rel}: service proof/proof-standard section is missing")
+            continue
+        slugs = re.findall(
+            r'href=["\']/portfolio/case-studies/([^"\'/?#]+)',
+            section.group(0),
+            re.I,
+        )
+        if code == "S1":
+            if slugs:
+                errors.append(f"{rel}: Outreach has no ratified S1 proof but publishes {slugs}")
+            if "Proof Standard" not in section.group(0):
+                errors.append(f"{rel}: Outreach must state the no-invented-proof standard")
+            continue
+        if len(slugs) != 3:
+            errors.append(f"{rel}: expected 3 service-specific proof cards, found {len(slugs)}")
+        for slug in slugs:
+            checked += 1
+            record = masters.get(f"/portfolio/case-studies/{slug}.html")
+            disciplines = record.get("disciplines", []) if isinstance(record, dict) else []
+            if code not in disciplines:
+                errors.append(f"{rel}: {slug} does not carry {code} in the portfolio manifest")
+
+    return CheckResult(
+        "service-proof-taxonomy",
+        f"{len(EXPECTED_SERVICE_LEAVES)} service leaves and {checked} attributed proof cards checked",
+        errors,
+    )
+
+
+def check_mobile_navigation_contract(root: Path, html_files: list[Path]) -> CheckResult:
+    """Protect the deterministic mobile accordion and chat-safe viewport."""
+    errors: list[str] = []
+    nav_pages = 0
+    retired_markers: list[str] = []
+    for path in html_files:
+        text = read_text(path)
+        rel = posix_rel(path, root)
+        if 'id="ra-nav"' in text:
+            nav_pages += 1
+        if any(
+            marker in text
+            for marker in (
+                "RA-MOBILE-NAV-JS-FIX-START",
+                "RA-MOBILE-NAV-FIX-START",
+                "NAV-3L-MOBILE",
+                "NAV-REBUILD-MOBILE",
+                "NAV-3L-JS",
+                "NAV-REBUILD-JS",
+            )
+        ):
+            retired_markers.append(rel)
+        if re.search(r"</nav>\s*<script>(?:(?!</script>).)*?ra-nav-hamburger", text, re.I | re.S):
+            retired_markers.append(rel + " (post-nav handler)")
+        for pattern, label in (
+            (r"classList\.toggle\(['\"]is-open['\"]", "inline is-open controller"),
+            (r"document\.querySelectorAll\(['\"]\.has-drop-l3 > a['\"]\)", "inline label controller"),
+            (r"document\.querySelectorAll\(['\"]\.ra-nav__services-toggle['\"]\)", "inline level-one controller"),
+            (r"document\.querySelectorAll\(['\"]\.ra-nav__l2-toggle['\"]\)", "inline level-two controller"),
+            (
+                r"(?:var|let|const)\s+(?:ham|hamBtn)\s*=\s*document\.getElementById"
+                r"\(['\"]ra-nav-hamburger['\"]\)",
+                "dead inline hamburger binding",
+            ),
+        ):
+            if re.search(pattern, text):
+                retired_markers.append(rel + f" ({label})")
+    if retired_markers:
+        errors.append(
+            "retired page-local mobile-nav overrides remain: "
+            + ", ".join(retired_markers[:12])
+        )
+
+    css = read_text(root / "assets/css/ra-refresh-2026.css")
+    for token in (
+        "body.ra-mobile-nav-open chat-widget",
+        "#ra-nav.is-open .ra-nav__links",
+        "grid-template-columns: minmax(0, 1fr)",
+        ".p-leaf",
+    ):
+        if token not in css:
+            errors.append(f"assets/css/ra-refresh-2026.css: missing mobile contract token {token!r}")
+
+    js = read_text(root / "assets/js/ra-refresh-2026.js")
+    for token in (
+        "function setupMobileNavigation()",
+        'doc.body.classList.toggle("ra-mobile-nav-open", open)',
+        "window.location.assign(anchor.href)",
+        "event.stopImmediatePropagation()",
+    ):
+        if token not in js:
+            errors.append(f"assets/js/ra-refresh-2026.js: missing mobile contract token {token!r}")
+
+    if nav_pages < 100:
+        errors.append(f"only {nav_pages} HTML pages expose the canonical mobile navigation")
+    return CheckResult(
+        "mobile-navigation-contract",
+        f"{nav_pages} nav pages; shared label-navigation, accordion, chat, and narrow-grid rules checked",
+        errors,
+    )
+
+
 def check_generator_guardrails(root: Path) -> CheckResult:
     """Ensure superseded authors cannot silently restore the retired site."""
     errors: list[str] = []
@@ -1463,6 +1713,7 @@ def check_generator_guardrails(root: Path) -> CheckResult:
         "scripts/rewrite_nav_footer.py": "apply_2026_site_refresh.py",
         "scripts/repair_p5_pillar_nav_footer.py": "apply_2026_site_refresh.py",
         "scripts/build_landing_pages.py": "apply_2026_site_refresh.py",
+        "scripts/mobile_nav_fix_v1.py": "apply_2026_site_refresh.py",
     }
     for rel, successor in retired.items():
         path = root / rel
@@ -1557,6 +1808,8 @@ def main(argv: Optional[list[str]] = None) -> int:
         check_public_taxonomy(root, html_files, vercel),
         check_proof_safety(root),
         check_root_relative_links(root, html_files, vercel),
+        check_service_proof_alignment(root),
+        check_mobile_navigation_contract(root, html_files),
         check_generator_guardrails(root),
     ]
     if vercel_errors:

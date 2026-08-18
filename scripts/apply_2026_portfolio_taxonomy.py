@@ -24,18 +24,19 @@ MASTER_CARDS: dict[str, dict] = MANIFEST["masterCardsByRoute"]
 
 
 DISCIPLINE_LINKS = {
-    "B1": "/services/branding/brand-strategy-identity",
-    "B2": "/services/branding/websites-landing-pages",
-    "B3": "/services/branding/apps-digital-products",
-    "B4": "/services/branding/video-visual-content",
+    "B1": "/services/branding/websites-landing-pages",
+    "B2": "/services/branding/apps-digital-products",
+    "B3": "/services/branding/brand-strategy-identity",
+    "B4": "/services/branding/design",
+    "B5": "/services/branding/video-visual-content",
     "M1": "/services/marketing/seo-ai-visibility",
-    "M2": "/services/marketing/positioning-content-authority",
-    "M3": "/services/marketing/social-media",
+    "M2": "/services/marketing/social-media",
+    "M3": "/services/marketing/digital-ads",
     "M4": "/services/marketing/email-lifecycle-marketing",
     "S1": "/services/sales/lead-generation-outreach",
-    "S2": "/services/sales/crm-sales-infrastructure",
-    "S3": "/services/sales/follow-up-nurture",
-    "S4": "/services/sales/conversion-advertising",
+    "S2": "/services/sales/lead-gen-ads",
+    "S3": "/services/sales/crm-sales-infrastructure",
+    "S4": "/services/sales/ai-automation-systems",
 }
 
 
@@ -43,17 +44,17 @@ PILLAR_COPY = {
     "Branding": {
         "eyebrow": "Branding Proof",
         "title": "The brand, built to live.",
-        "description": "Identity, websites, products, and visual content — the surfaces where the market meets the business.",
+        "description": "Websites, Apps, Brand Identity, Design, and Video — the surfaces where the market meets the business.",
     },
     "Marketing": {
         "eyebrow": "Marketing Proof",
         "title": "Demand, earned with clarity.",
-        "description": "Visibility, authority, social, and lifecycle work connected to a coherent position and a measurable next step.",
+        "description": "SEO / AI Answers, Social Media, Digital Advertising, and Customer Nurture connected to a measurable next step.",
     },
     "Sales": {
         "eyebrow": "Sales Proof",
         "title": "Attention, moved toward revenue.",
-        "description": "Lead generation, CRM, nurture, and conversion infrastructure — built so demand has somewhere disciplined to go.",
+        "description": "Outreach, Lead Gen Ads, CRMs / Sales Tools, and AI Automation Systems — built so demand has somewhere disciplined to go.",
     },
 }
 
@@ -102,11 +103,6 @@ def taxonomy_chips(record: dict) -> str:
             f'<a href="{DISCIPLINE_LINKS[code]}" class="ra-case-taxonomy__chip" '
             f'title="{html.escape(code + " · " + TAXONOMY[code], quote=True)}">'
             f'<span>{code}</span>{html.escape(TAXONOMY[code])}</a>'
-        )
-    if record["aiAutomation"]:
-        links.append(
-            '<a href="/services/ai-automation" class="ra-case-taxonomy__chip ra-case-taxonomy__chip--ai">'
-            '<span>AI</span>AI &amp; Automation · Cross-cutting</a>'
         )
     return (
         '<!-- RA-PORTFOLIO-TAXONOMY:visible -->\n'
@@ -165,7 +161,7 @@ def add_case_jsonld(text: str, record: dict, route: str) -> str:
         "url": "https://www.revelationagency.com" + clean,
         "creator": {"@type": "Organization", "name": "Revelation Agency"},
         "about": [TAXONOMY[code] for code in record["disciplines"]],
-        "keywords": record["pillars"] + (["AI and automation"] if record["aiAutomation"] else []),
+        "keywords": record["pillars"] + (["AI-enabled"] if record["aiAutomation"] else []),
     }
     block = (
         '<!-- RA-PORTFOLIO-TAXONOMY:jsonld -->\n'
@@ -192,20 +188,49 @@ def migrate_case_studies() -> int:
         text = with_body_metadata(original, record)
         text = add_visible_taxonomy(text, record)
 
-        # Normalize only evidenced service-label vocabulary; project prose stays intact.
-        text = text.replace("Brand Identity", "Brand Strategy &amp; Identity")
-        text = text.replace("Website Development", "Websites &amp; Landing Pages")
-        text = text.replace("App Development", "Apps &amp; Digital Products")
-        text = text.replace("Video Production", "Video &amp; Visual Content")
-        text = text.replace("Digital Advertising", "Conversion Advertising")
-        text = text.replace("Search &amp; AI Rankings", "SEO &amp; AI Visibility")
-        text = text.replace("Search Rankings", "SEO &amp; AI Visibility")
+        # Global navigation/footer vocabulary is owned by the site-refresh
+        # generator. Protect those shared blocks while normalizing case copy.
+        protected_chrome: list[str] = []
+
+        def protect_chrome(match: re.Match[str]) -> str:
+            protected_chrome.append(match.group(0))
+            return f"<!-- RA-PORTFOLIO-PROTECTED-CHROME:{len(protected_chrome) - 1} -->"
+
+        text = re.sub(
+            r'<(?:nav|footer)\b.*?</(?:nav|footer)>',
+            protect_chrome,
+            text,
+            flags=re.I | re.S,
+        )
+
+        # Normalize only service-label vocabulary; project claims stay intact.
+        # The replacements are deliberately one-way so a second run is byte-stable.
+        for old, new in (
+            ("Brand Strategy &amp; Identity", "Brand Identity"),
+            ("Websites &amp; Landing Pages", "Websites"),
+            ("Website Development", "Websites"),
+            ("Apps &amp; Digital Products", "Apps"),
+            ("App Development", "Apps"),
+            ("Video &amp; Visual Content", "Video"),
+            ("Video Production", "Video"),
+            ("SEO &amp; AI Visibility", "SEO / AI Answers"),
+            ("Search &amp; AI Rankings", "SEO / AI Answers"),
+            ("Search Rankings", "SEO / AI Answers"),
+            ("Positioning, Content &amp; Authority", "SEO / AI Answers"),
+            ("Email &amp; Lifecycle Marketing", "Customer Nurture"),
+            ("Lead Generation &amp; Personalized Outreach", "Lead Gen Ads"),
+            ("Follow-up &amp; Nurture", "Customer Nurture"),
+            ("Conversion Advertising", "Digital Advertising"),
+            ("AI &amp; Automation", "AI Automation Systems"),
+            ("AI & Automation", "AI Automation Systems"),
+        ):
+            text = text.replace(old, new)
         text = re.sub(
             r'(?:(?:CRM (?:&amp;|&) )*)Sales Infrastructure',
-            'CRM &amp; Sales Infrastructure',
+            'CRMs / Sales Tools',
             text,
         )
-        text = text.replace("AI Automation", "AI &amp; Automation")
+        text = re.sub(r"AI Automation(?! Systems)", "AI Automation Systems", text)
         text = text.replace("More Creative Engagements", "More Branding Engagements")
         text = text.replace(
             "Browse all creative case studies across the Revelation portfolio.",
@@ -215,36 +240,35 @@ def migrate_case_studies() -> int:
         text = text.replace('<div class="cs-cross__lbl">Creative</div>', '<div class="cs-cross__lbl">Branding</div>')
         text = text.replace("Outsourced Marketing Ops", "Lifecycle Marketing Ops")
         text = text.replace("Book Your Free Session", "Start a Growth Conversation")
-        text = text.replace(">Paid Ads</a>", ">Conversion Ads</a>")
+        text = text.replace(">Paid Ads</a>", ">Digital Advertising</a>")
         text = text.replace(
             '<div class="cs-cross__title">Paid Ads</div>',
-            '<div class="cs-cross__title">Conversion Advertising</div>',
+            '<div class="cs-cross__title">Digital Advertising</div>',
         )
         text = text.replace(
             '<span class="eyebrow">05 &mdash; The Paid Ads</span>',
-            '<span class="eyebrow">05 &mdash; Conversion Advertising</span>',
+            '<span class="eyebrow">05 &mdash; Digital Advertising</span>',
         )
         text = text.replace(
             '<span class="highlight">Paid Ads</span>',
-            '<span class="highlight">Conversion Advertising</span>',
+            '<span class="highlight">Digital Advertising</span>',
         )
         text = text.replace(
             '<span class="lbl">Creative</span><span class="val">Video-fed campaigns</span>',
             '<span class="lbl">Campaign Assets</span><span class="val">Video-fed campaigns</span>',
         )
 
-        # The former NMS "Systems" tab actually contains CRM, follow-up,
-        # automation, and reporting. Map the visible label to Sales + AI; map
-        # its SEO cross-card to Marketing.
+        # The former NMS "Systems" tab contains CRM, customer nurture,
+        # automation, and reporting. AI Automation Systems belongs to Sales.
         text = re.sub(
-            r'(<a\b[^>]*href=["\']/portfolio/case-studies/net-metering-systems-strategy["\'][^>]*>)Systems(</a>)',
-            r'\1Sales &amp; AI\2',
+            r'(<a\b[^>]*href=["\']/portfolio/case-studies/net-metering-systems-strategy["\'][^>]*>)(?:Systems|Sales &amp; AI)(</a>)',
+            r'\1Sales\2',
             text,
             flags=re.I,
         )
         text = re.sub(
             r'(<a\b[^>]*href=["\'][^"\']*net-metering-systems-strategy["\'][^>]*>.*?<div class="cs-cross__lbl">)(?:Systems|Sales &amp; AI)(</div>)',
-            r'\1Sales &amp; AI\2',
+            r'\1Sales\2',
             text,
             flags=re.I | re.S,
         )
@@ -254,6 +278,13 @@ def migrate_case_studies() -> int:
             text,
             flags=re.I | re.S,
         )
+
+        for index, chrome in enumerate(protected_chrome):
+            text = text.replace(
+                f"<!-- RA-PORTFOLIO-PROTECTED-CHROME:{index} -->",
+                chrome,
+                1,
+            )
 
         # Add raw JSON only after visible HTML entities are normalized so
         # discipline names remain valid JSON strings rather than "&amp;" text.
@@ -302,11 +333,7 @@ def migrate_master_cards(text: str) -> tuple[str, int]:
                 "background:#1E1E1E url('/assets/brand/current/ra-mark-red.png') center/30% auto no-repeat;",
             )
         label = " · ".join(record["pillars"])
-        if record["aiAutomation"]:
-            label += " · AI-enabled"
         thumbnail_label = " · ".join(record["pillars"]).upper()
-        if record["aiAutomation"]:
-            thumbnail_label += " · AI"
 
         def thumbnail_repl(bg_match: re.Match[str]) -> str:
             bg_opening = re.sub(
@@ -339,33 +366,158 @@ def migrate_master_cards(text: str) -> tuple[str, int]:
 
 
 def update_filter_script(text: str) -> str:
-    replacement = """function matchesPillar(card, pillar) {
-    var values = (card.getAttribute('data-pillars') || '')
+    replacement = """  // RA-PORTFOLIO-FILTERS:START
+  function portfolioFilterMatches(card, filter) {
+    var normalized = (filter || 'all').toLowerCase();
+    if (normalized === 'all') return true;
+    var isDiscipline = /^[bms]\\d+$/.test(normalized);
+    var attribute = isDiscipline ? 'data-disciplines' : 'data-pillars';
+    var values = (card.getAttribute(attribute) || '')
       .toLowerCase().split(/\\s+/).filter(Boolean);
-    return values.indexOf(pillar) !== -1;
-  }"""
-    text, count = re.subn(
-        r"function matchesPillar\(cat, pillar\) \{.*?\n  \}",
-        lambda _match: replacement,
+    return values.indexOf(normalized) !== -1;
+  }
+
+  const filterBtns = document.querySelectorAll('.pf-filter-btn');
+  const cards = document.querySelectorAll('.pf-card');
+  const filterStatus = document.getElementById('pf-filter-status');
+
+  function applyPortfolioFilter(filter, updateQuery) {
+    var normalized = (filter || 'all').toLowerCase();
+    var shown = 0;
+    filterBtns.forEach(function(button) {
+      var active = button.getAttribute('data-filter') === normalized;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    cards.forEach(function(card) {
+      var visible = portfolioFilterMatches(card, normalized);
+      card.classList.toggle('pf-card--hidden', !visible);
+      if (visible) shown += 1;
+    });
+    if (filterStatus) {
+      filterStatus.textContent = 'Showing ' + shown + (shown === 1 ? ' project' : ' projects');
+    }
+    if (updateQuery && window.history && window.history.replaceState) {
+      var url = new URL(window.location.href);
+      if (normalized === 'all') url.searchParams.delete('filter');
+      else url.searchParams.set('filter', normalized);
+      window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    }
+  }
+
+  filterBtns.forEach(function(button) {
+    button.addEventListener('click', function() {
+      applyPortfolioFilter(button.getAttribute('data-filter'), true);
+    });
+  });
+
+  (function initPortfolioFilter() {
+    var query = new URLSearchParams(location.search || '');
+    var requested = (query.get('filter') || 'all').toLowerCase();
+    var target = document.querySelector('.pf-filter-btn[data-filter="' + requested + '"]');
+    applyPortfolioFilter(target ? requested : 'all', false);
+  })();
+  // RA-PORTFOLIO-FILTERS:END"""
+    marker_pattern = re.compile(
+        r"  // RA-PORTFOLIO-FILTERS:START.*?  // RA-PORTFOLIO-FILTERS:END",
+        re.S,
+    )
+    if marker_pattern.search(text):
+        return marker_pattern.sub(lambda _match: replacement, text, count=1)
+
+    legacy_pattern = re.compile(
+        r"  // Portfolio filter.*?  \}\)\(\);",
+        re.S,
+    )
+    text, count = legacy_pattern.subn(lambda _match: replacement, text, count=1)
+    if count != 1:
+        raise ValueError("Portfolio filter script not found")
+    return text
+
+
+def add_filter_styles(text: str) -> str:
+    marker = """/* RA-PORTFOLIO-SERVICE-FILTERS:START */
+.pf-filters__label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(43,43,43,.54);text-align:center;margin:0 0 12px;}
+.pf-service-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px auto 0;max-width:1240px;}
+.pf-service-filter-group{background:rgba(255,255,255,.72);border:1px solid rgba(43,43,43,.08);border-radius:16px;padding:16px;}
+.pf-service-filter-group__title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 10px;}
+.pf-service-filter-group__buttons{display:flex;flex-wrap:wrap;gap:8px;}
+.pf-filter-btn--service{font-size:12px;letter-spacing:.01em;text-transform:none;padding:9px 13px;}
+.pf-filter-count{font-variant-numeric:tabular-nums;opacity:.68;margin-left:4px;}
+.pf-filter-status{font-size:12px;color:rgba(43,43,43,.62);text-align:center;margin:18px 0 0;}
+@media (max-width:900px){.pf-service-filters{grid-template-columns:1fr;max-width:620px;}}
+@media (max-width:520px){.pf-service-filter-group{padding:13px}.pf-filter-btn--service{font-size:11px;padding:8px 11px}}
+/* RA-PORTFOLIO-SERVICE-FILTERS:END */"""
+    text = re.sub(
+        r"\n?/\* RA-PORTFOLIO-SERVICE-FILTERS:START \*/.*?/\* RA-PORTFOLIO-SERVICE-FILTERS:END \*/\n?",
+        "\n",
         text,
         count=1,
         flags=re.S,
     )
-    if count != 1 and "function matchesPillar(card, pillar)" not in text:
-        raise ValueError("Portfolio filter function not found")
-    text = text.replace("        const cat = card.getAttribute('data-cat');\n", "")
-    text = text.replace("matchesPillar(cat, filter)", "matchesPillar(card, filter)")
-    return text
+    anchor = ".pf-filter-btn.is-active{background:var(--red);border-color:var(--red);color:#fff;}"
+    if anchor not in text:
+        raise ValueError("Portfolio filter style anchor not found")
+    return text.replace(anchor, anchor + "\n" + marker, 1)
 
 
-def add_filter_counts(text: str) -> str:
-    counts = {pillar.lower(): sum(pillar in r["pillars"] for r in MASTER_CARDS.values()) for pillar in PILLAR_COPY}
-    counts["all"] = len(MASTER_CARDS)
-    for pillar, count in counts.items():
-        pattern = rf'(<(?:button|a)\b[^>]*data-filter="{pillar}"[^>]*>).*?(</(?:button|a)>)'
-        label = "All Work" if pillar == "all" else pillar.title()
-        replacement = rf'\1{label} <span class="pf-filter-count">{count}</span>\2'
-        text = re.sub(pattern, replacement, text, count=1, flags=re.S | re.I)
+def build_filter_section() -> str:
+    pillar_counts = {
+        pillar.lower(): sum(pillar in record["pillars"] for record in MASTER_CARDS.values())
+        for pillar in PILLAR_COPY
+    }
+    discipline_counts = {
+        code: sum(code in record["disciplines"] for record in MASTER_CARDS.values())
+        for code in TAXONOMY
+    }
+    pillar_buttons = [
+        f'<button class="pf-filter-btn is-active" data-filter="all" aria-pressed="true">All Work <span class="pf-filter-count">{len(MASTER_CARDS)}</span></button>'
+    ]
+    pillar_buttons.extend(
+        f'<button class="pf-filter-btn" data-filter="{pillar.lower()}" aria-pressed="false">{pillar} <span class="pf-filter-count">{pillar_counts[pillar.lower()]}</span></button>'
+        for pillar in PILLAR_COPY
+    )
+
+    service_groups: list[str] = []
+    for pillar, prefix in (("Branding", "B"), ("Marketing", "M"), ("Sales", "S")):
+        buttons = "\n          ".join(
+            f'<button class="pf-filter-btn pf-filter-btn--service" data-filter="{code.lower()}" data-discipline="{code}" aria-pressed="false">{html.escape(title)} <span class="pf-filter-count">{discipline_counts[code]}</span></button>'
+            for code, title in TAXONOMY.items()
+            if code.startswith(prefix)
+        )
+        service_groups.append(
+            f'''<div class="pf-service-filter-group" data-service-pillar="{pillar.lower()}">
+        <div class="pf-service-filter-group__title">{pillar}</div>
+        <div class="pf-service-filter-group__buttons">
+          {buttons}
+        </div>
+      </div>'''
+        )
+
+    return f'''<section class="pf-filters">
+  <div class="container">
+    <div class="pf-filters__label">Filter by pillar</div>
+    <div class="pf-filters__bar fade-up">
+      {chr(10).join(pillar_buttons)}
+    </div>
+    <div class="pf-service-filters" aria-label="Filter portfolio by service">
+      {chr(10).join(service_groups)}
+    </div>
+    <p class="pf-filter-status" id="pf-filter-status" aria-live="polite">Showing {len(MASTER_CARDS)} projects</p>
+  </div>
+</section>'''
+
+
+def replace_filter_section(text: str) -> str:
+    text, count = re.subn(
+        r'<section class="pf-filters">.*?</section>',
+        lambda _match: build_filter_section(),
+        text,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise ValueError("Portfolio filter section not found")
     return text
 
 
@@ -387,8 +539,9 @@ def migrate_portfolio_hub() -> tuple[int, str]:
     text, mapped = migrate_master_cards(original)
     if mapped != 21:
         raise ValueError(f"Expected 21 mapped master cards, found {mapped}")
+    text = add_filter_styles(text)
+    text = replace_filter_section(text)
     text = update_filter_script(text)
-    text = add_filter_counts(text)
     text = neutralize_unverified_summary_stats(text)
     if text != original:
         write(path, text)
@@ -439,6 +592,16 @@ def populate_pillar_hubs(portfolio_text: str) -> int:
         path = ROOT / "portfolio" / f"{pillar.lower()}.html"
         original = read(path)
         text = original
+        copy = PILLAR_COPY[pillar]
+        text, hero_count = re.subn(
+            r'(<section class="p-hero">.*?<h1>.*?</h1>\s*<p class="lead">).*?(</p>)',
+            rf"\g<1>{copy['description']}\g<2>",
+            text,
+            count=1,
+            flags=re.S,
+        )
+        if hero_count != 1:
+            raise ValueError(f"Could not normalize pillar hero in {path}")
         section = build_pillar_section(pillar, cards)
         text, count = re.subn(
             r'<section class="p-section(?: ra-portfolio-shelf)?"[^>]*>.*?</section>',
@@ -754,7 +917,13 @@ def normalize_paid_social_placeholder(text: str) -> str:
 
 
 def neutralize_proof_exceptions() -> int:
-    files = list(ROOT.rglob("*.html"))
+    # Keep this generator bounded to the portfolio surfaces it owns. Global
+    # service, route, and navigation pages are maintained by other generators.
+    files = sorted({
+        ROOT / "portfolio.html",
+        *(ROOT / "portfolio" / f"{pillar.lower()}.html" for pillar in PILLAR_COPY),
+        *(ROOT / route.lstrip("/") for route in CASE_STUDIES),
+    })
     replacements = {
         "single-digit lead costs": "qualified site-visit opportunities",
         "Two years, single-digit leads.": "A coordinated acquisition system.",

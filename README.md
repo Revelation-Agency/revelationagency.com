@@ -18,6 +18,20 @@ Deployed via Vercel from the `main` branch.
 /vercel.json          rewrites, security headers, conditional noindex
 ```
 
+The canonical service IA is fixed at 5 Branding leaves, 4 Marketing leaves,
+and 4 Sales leaves:
+
+- Branding: `websites-landing-pages`, `apps-digital-products`,
+  `brand-strategy-identity`, `video-visual-content`, `design`
+- Marketing: `seo-ai-visibility`, `social-media`,
+  `email-lifecycle-marketing`, `digital-ads`
+- Sales: `lead-generation-outreach`, `crm-sales-infrastructure`,
+  `lead-gen-ads`, `ai-automation-systems`
+
+Superseded service files may remain in the checkout for redirect continuity,
+but they are excluded from the sitemap and must resolve in one hop to the
+canonical routes above.
+
 ## Indexing behavior
 
 `vercel.json` applies `X-Robots-Tag: noindex, nofollow` to every host **except**

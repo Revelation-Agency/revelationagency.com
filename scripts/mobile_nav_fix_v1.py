@@ -17,6 +17,11 @@ mobile-only nav legibility / tap-target issues, all inside @media
 Pages without the marker (sales-growth-engine, sales-intelligence decks)
 have their own self-contained layouts and are skipped automatically.
 """
+raise SystemExit(
+    "DEPRECATED: mobile navigation now belongs to apply_2026_site_refresh.py "
+    "and the shared ra-refresh-2026.css/js assets."
+)
+
 import os, re, sys
 
 sys.stdout.reconfigure(encoding='utf-8')

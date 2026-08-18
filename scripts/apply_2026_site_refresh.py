@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = sorted(ROOT.rglob("*.html"))
 CSS_MARKER = "<!-- RA-REFRESH-2026:css -->"
 JS_MARKER = "<!-- RA-REFRESH-2026:js -->"
-REFRESH_ASSET_VERSION = "20260817c"
+REFRESH_ASSET_VERSION = "20260817e"
 REFRESH_CSS_URL = f"/assets/css/ra-refresh-2026.css?v={REFRESH_ASSET_VERSION}"
 REFRESH_JS_URL = f"/assets/js/ra-refresh-2026.js?v={REFRESH_ASSET_VERSION}"
 APEX = "https://www.revelationagency.com"
@@ -28,13 +28,23 @@ APEX = "https://www.revelationagency.com"
 REVEAL_CATEGORY_BY_SLUG = {
     "why-ai-answer-engines-are-rewriting-the-seo-playbook": "Marketing",
     "video-is-no-longer-optional-its-infrastructure": "Branding",
-    "the-paid-ads-playbook-is-dead": "Sales",
+    "the-paid-ads-playbook-is-dead": "Marketing",
     "your-brand-isnt-what-you-say-it-is": "Branding",
     "the-website-is-still-your-most-important-real-estate": "Branding",
     "why-social-media-reach-is-a-vanity-metric": "Marketing",
     "what-gohighlevel-actually-does": "Sales",
     "outsourcing-your-marketing-isnt-a-shortcut": "Marketing",
     "the-ai-content-trap": "Marketing",
+}
+
+REVEAL_RELATED_SERVICE_BY_SLUG = {
+    "outsourcing-your-marketing-isnt-a-shortcut": "Marketing Services",
+    "the-ai-content-trap": "Digital Advertising",
+    "the-paid-ads-playbook-is-dead": "Digital Advertising",
+    "the-website-is-still-your-most-important-real-estate": "Websites",
+    "video-is-no-longer-optional-its-infrastructure": "Video",
+    "what-gohighlevel-actually-does": "CRMs / Sales Tools",
+    "why-ai-answer-engines-are-rewriting-the-seo-playbook": "SEO / AI Answers",
 }
 
 GENERATED_VISUAL_BY_REL = {
@@ -131,28 +141,29 @@ SERVICE_LIST = """<ul class="ra-footer__svc">
           <li class="ra-footer__svc-group">
             <a class="ra-footer__svc-parent" href="/services/branding">Branding<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
-              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
-              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
-              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Identity</a></li>
+              <li><a href="/services/branding/design">Design</a></li>
+              <li><a href="/services/branding/video-visual-content">Video</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
             <a class="ra-footer__svc-parent" href="/services/marketing">Marketing<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
-              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO / AI Answers</a></li>
               <li><a href="/services/marketing/social-media">Social Media</a></li>
-              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/digital-ads">Digital Advertising</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Customer Nurture</a></li>
             </ul>
           </li>
           <li class="ra-footer__svc-group">
             <a class="ra-footer__svc-parent" href="/services/sales">Sales<span class="ra-footer__svc-caret" aria-hidden="true">&#9662;</span></a>
             <ul class="ra-footer__svc-children">
-              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
-              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
-              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
+              <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRMs / Sales Tools</a></li>
+              <li><a href="/services/sales/ai-automation-systems">AI Automation Systems</a></li>
             </ul>
           </li>
         </ul>"""
@@ -183,33 +194,33 @@ def build_nav_links(rel: str) -> str:
             <a href="/services/branding">Branding <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Branding menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="/services/branding/brand-strategy-identity">Brand Strategy &amp; Identity</a></li>
-              <li><a href="/services/branding/websites-landing-pages">Websites &amp; Landing Pages</a></li>
-              <li><a href="/services/branding/apps-digital-products">Apps &amp; Digital Products</a></li>
-              <li><a href="/services/branding/video-visual-content">Video &amp; Visual Content</a></li>
+              <li><a href="/services/branding/websites-landing-pages">Websites</a></li>
+              <li><a href="/services/branding/apps-digital-products">Apps</a></li>
+              <li><a href="/services/branding/brand-strategy-identity">Brand Identity</a></li>
+              <li><a href="/services/branding/design">Design</a></li>
+              <li><a href="/services/branding/video-visual-content">Video</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
             <a href="/services/marketing">Marketing <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Marketing menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a></li>
-              <li><a href="/services/marketing/positioning-content-authority">Positioning, Content &amp; Authority</a></li>
+              <li><a href="/services/marketing/seo-ai-visibility">SEO / AI Answers</a></li>
               <li><a href="/services/marketing/social-media">Social Media</a></li>
-              <li><a href="/services/marketing/email-lifecycle-marketing">Email &amp; Lifecycle Marketing</a></li>
+              <li><a href="/services/marketing/digital-ads">Digital Advertising</a></li>
+              <li><a href="/services/marketing/email-lifecycle-marketing">Customer Nurture</a></li>
             </ul>
           </li>
           <li class="has-drop-l3">
             <a href="/services/sales">Sales <i class="fa-solid fa-chevron-right ra-drop__arrow"></i></a>
             <button class="ra-nav__l2-toggle" type="button" aria-label="Toggle Sales menu" aria-expanded="false">&#9662;</button>
             <ul class="ra-drop ra-drop--l3">
-              <li><a href="/services/sales/lead-generation-outreach">Lead Generation &amp; Outreach</a></li>
-              <li><a href="/services/sales/crm-sales-infrastructure">CRM &amp; Sales Infrastructure</a></li>
-              <li><a href="/services/sales/follow-up-nurture">Follow-up &amp; Nurture</a></li>
-              <li><a href="/services/sales/conversion-advertising">Conversion Advertising</a></li>
+              <li><a href="/services/sales/lead-generation-outreach">Outreach</a></li>
+              <li><a href="/services/sales/lead-gen-ads">Lead Gen Ads</a></li>
+              <li><a href="/services/sales/crm-sales-infrastructure">CRMs / Sales Tools</a></li>
+              <li><a href="/services/sales/ai-automation-systems">AI Automation Systems</a></li>
             </ul>
           </li>
-          <li><a href="/services/ai-automation" style="padding:10px 12px;font-size:13px;color:var(--charcoal);opacity:0.7;">Cross-cutting: AI &amp; Automation</a></li>
         </ul>
       </li>
       <li><a href="/the-reveal"{active("reveal")}>The Reveal</a></li>
@@ -228,29 +239,37 @@ def build_nav_links(rel: str) -> str:
 
 
 HERO_VISUAL = """      <div class="ra-hero__visual">
-        <div class="ra-orbit" role="img" aria-label="Branding, Marketing, and Sales connected as one growth system">
+        <div class="ra-orbit" role="group" aria-label="Branding, Marketing, and Sales connected as one growth system">
           <div class="ra-orbit__frame">
             <div class="ra-orbit__grid" aria-hidden="true"></div>
             <div class="ra-orbit__sweep" aria-hidden="true"></div>
+            <svg class="ra-orbit__routes" viewBox="0 0 620 620" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path class="ra-orbit__route ra-orbit__route--triangle" d="M310 125 L122 486 L498 486 Z"></path>
+              <path class="ra-orbit__route ra-orbit__route--branding" d="M310 310 C310 250 310 196 310 142"></path>
+              <path class="ra-orbit__route ra-orbit__route--marketing" d="M310 310 C252 342 202 395 146 464"></path>
+              <path class="ra-orbit__route ra-orbit__route--sales" d="M310 310 C368 342 418 395 474 464"></path>
+            </svg>
+            <div class="ra-orbit__track ra-orbit__track--outer" aria-hidden="true"><i></i><i></i></div>
+            <div class="ra-orbit__track ra-orbit__track--inner" aria-hidden="true"><i></i></div>
             <a class="ra-orbit__node ra-orbit__node--branding" href="/services/branding">
               <span>01 · IDENTITY</span>
               <strong>Branding</strong>
-              <small>Identity · Web · Product · Visual</small>
+              <small>Websites · Apps · Identity · Design · Video</small>
             </a>
             <a class="ra-orbit__node ra-orbit__node--marketing" href="/services/marketing">
               <span>02 · DEMAND</span>
               <strong>Marketing</strong>
-              <small>Visibility · Content · Social · Lifecycle</small>
+              <small>SEO · Social · Ads · Nurture</small>
             </a>
             <a class="ra-orbit__node ra-orbit__node--sales" href="/services/sales">
               <span>03 · REVENUE</span>
               <strong>Sales</strong>
-              <small>Leads · CRM · Nurture · Conversion</small>
+              <small>Outreach · Lead Gen · CRM · AI Systems</small>
             </a>
             <div class="ra-orbit__core">
               <img src="/assets/brand/current/ra-mark-red.png" alt="" width="116" height="116">
             </div>
-            <a class="ra-orbit__capability" href="/services/ai-automation">AI &amp; Automation · Woven Through Every Layer</a>
+            <a class="ra-orbit__capability" href="/services/sales/ai-automation-systems">AI Automation Systems · Built for the Sales Pipeline</a>
           </div>
           <div class="ra-orbit__caption">Diagnose · Scope · Operate · Prove</div>
         </div>
@@ -266,7 +285,7 @@ SPRINT_REPLACEMENT = """<!-- ==================== CONNECTED DELIVERY ===========
       <div class="fade-up">
         <span class="eyebrow eyebrow--white">Connected Delivery</span>
         <h2 class="display-2 ra-sprint__title">One <span class="highlight">Growth System</span></h2>
-        <p class="ra-sprint__desc">We diagnose the constraint, scope the disciplines it requires, and operate Branding, Marketing, and Sales as one connected system. No fixed menu. No disconnected handoffs. AI and automation strengthen the work without becoming the product.</p>
+        <p class="ra-sprint__desc">We diagnose the constraint, choose the exact services it requires, and operate Branding, Marketing, and Sales as one connected system. Websites, campaigns, CRM, and AI automation share clear handoffs instead of becoming disconnected projects.</p>
         <ul class="ra-sprint__list">
           <li><i class="fa-solid fa-stethoscope"></i> Diagnose the highest-leverage constraint</li>
           <li><i class="fa-solid fa-fingerprint"></i> Sharpen the position and brand people remember</li>
@@ -416,7 +435,180 @@ def normalize_nav(text: str, rel: str) -> str:
         count=1,
         flags=re.I | re.S,
     )
+
+    def normalize_nav_mark(match: re.Match[str]) -> str:
+        tag = re.sub(r'\s+(?:width|height)=["\'][^"\']*["\']', "", match.group(0), flags=re.I)
+        return tag[:-1].rstrip() + ' width="640" height="640">'
+
+    segment = re.sub(
+        r'<img\b(?=[^>]*\bsrc=["\']/assets/brand/current/ra-mark-red\.png["\'])[^>]*>',
+        normalize_nav_mark,
+        segment,
+        count=1,
+        flags=re.I,
+    )
     return text[:nav_start] + segment + text[nav_end:]
+
+
+def remove_retired_mobile_nav_overrides(text: str) -> str:
+    """Remove page-local mobile-nav patches now owned by the shared assets.
+
+    The retired capture handler treated category links as accordion controls,
+    so a tap could animate a submenu instead of navigating to the selected
+    service page. Page-local CSS also competed with the desktop mega-menu and
+    produced off-canvas dark panels on narrow iPhones. The 2026 experience
+    layer now owns this behavior once, sitewide.
+    """
+    text = re.sub(
+        r"\s*/\* RA-MOBILE-NAV-FIX-START.*?/\* RA-MOBILE-NAV-FIX-END \*/\s*",
+        "\n",
+        text,
+        flags=re.S,
+    )
+    text = re.sub(
+        r"\s*<!-- RA-MOBILE-NAV-JS-FIX-START.*?<!-- RA-MOBILE-NAV-JS-FIX-END -->\s*",
+        "\n",
+        text,
+        flags=re.S,
+    )
+
+    # Retire the earlier page-local accordion models. They used competing
+    # `.is-open` and `.open` conventions and duplicated the shared runtime.
+    # Keep the surrounding @media block intact while removing only the named
+    # rule groups.
+    for marker, following in (
+        ("NAV-3L-MOBILE", "LOGO-MOBILE-FIRM|NAV-3L-HIERARCHY|NAV-REBUILD-MOBILE"),
+        ("LOGO-MOBILE-FIRM", "NAV-3L-HIERARCHY|NAV-REBUILD-MOBILE"),
+        ("NAV-3L-HIERARCHY", "NAV-REBUILD-MOBILE"),
+    ):
+        text = re.sub(
+            rf"\s*/\* {marker} \*/.*?(?=\s*/\* (?:{following}) \*/|\n\}})",
+            "\n",
+            text,
+            flags=re.S,
+        )
+    text = re.sub(
+        r"\s*/\* NAV-REBUILD-MOBILE \*/.*?(?=\n\})",
+        "\n",
+        text,
+        flags=re.S,
+    )
+
+    # The external 2026 experience layer is the sole navigation controller.
+    # Remove the immediate post-nav script that previously wired hamburger,
+    # label, and chevron handlers a second time.
+    text = re.sub(
+        r"(</nav>)\s*<script>(?:(?!</script>).)*?ra-nav-hamburger(?:(?!</script>).)*?</script>",
+        r"\1",
+        text,
+        count=1,
+        flags=re.S | re.I,
+    )
+
+    # Some older pages appended the same handlers to a larger page script
+    # instead of the immediate post-nav script. Remove only the named tails,
+    # preserving the surrounding page IIFE and its real functionality.
+    text = re.sub(
+        r"\s*/\* NAV-3L-JS \*/.*?(?=\n\s*\}\)\(\);)",
+        "\n",
+        text,
+        flags=re.S,
+    )
+    text = re.sub(
+        r"\s*/\* NAV-REBUILD-JS \*/\s*\(function\(\)\{.*?\n\s*\}\)\(\);",
+        "\n",
+        text,
+        flags=re.S,
+    )
+
+    # Earlier templates also embedded unmarked copies of the same handlers in
+    # their main page scripts. Remove those bounded statements while keeping
+    # scroll, reveal, canvas, filter, and other page behavior intact.
+    text = re.sub(
+        r"^[ \t]*if\s*\(\s*ham\s*&&\s*nav\s*\)\s*ham\.addEventListener\([^\r\n]*nav\.classList\.toggle\(['\"]is-open['\"]\)[^\r\n]*\r?\n?",
+        "",
+        text,
+        flags=re.M,
+    )
+    text = re.sub(
+        r"^(?P<indent>[ \t]*)if\s*\(\s*btn\s*&&\s*nav\s*\)\s*\{\r?\n"
+        r".*?^(?P=indent)\}\r?\n?",
+        "",
+        text,
+        flags=re.M | re.S,
+    )
+
+    # A pre-release pass used an insufficiently anchored version of the rule
+    # above and could leave `); }` after removing the click callback.  Repair
+    # only that exact hamburger-declaration shape while retaining a following
+    # `nav` declaration used by unrelated sticky-scroll code.
+    def repair_partial_hamburger_block(match: re.Match[str]) -> str:
+        return match.group("nav") or ""
+
+    text = re.sub(
+        r"^[ \t]*(?:var|let|const)\s+btn\s*=\s*document\.getElementById\(['\"]ra-nav-hamburger['\"]\);\r?\n"
+        r"(?P<nav>^[ \t]*(?:var|let|const)\s+nav\s*=\s*document\.getElementById\(['\"]ra-nav['\"]\);\r?\n)?"
+        r"^[ \t]*\);\r?\n^[ \t]*\}\r?\n?",
+        repair_partial_hamburger_block,
+        text,
+        flags=re.M,
+    )
+    text = re.sub(
+        r"^[ \t]*(?:var|let|const)\s+(?:ham|hamBtn)\s*=\s*"
+        r"document\.getElementById\(['\"]ra-nav-hamburger['\"]\);\r?\n",
+        "",
+        text,
+        flags=re.M,
+    )
+    # Remove complete selector-owned forEach statements before considering any
+    # compact one-line variants.  Matching the closing line at the opener's
+    # indentation keeps nested event-handler closures inside the deletion.
+    for selector in (
+        r"\.ra-nav__services-toggle",
+        r"\.has-drop-l3 > a",
+        r"\.ra-nav__l2-toggle",
+    ):
+        text = re.sub(
+            rf"^(?P<indent>[ \t]*)document\.querySelectorAll\(['\"]{selector}['\"]\)"
+            rf"\.forEach\(function\([^)]*\)\{{\r?\n.*?^(?P=indent)\}}\);\r?\n?",
+            "",
+            text,
+            flags=re.M | re.S,
+        )
+
+    # Repair the twelve retained redirect documents that an older cleanup pass
+    # left with the forEach opener removed but its anchor callback still in
+    # place.  This is deliberately bounded to the legacy anchor variable and
+    # the two matching statement closures.
+    text = re.sub(
+        r"^(?P<indent>[ \t]*)anchor\.addEventListener\(['\"]click['\"],\s*function\(ev\)\{\r?\n"
+        r".*?^(?P=indent)\}\);\r?\n^[ \t]*\}\);\r?\n?",
+        "",
+        text,
+        flags=re.M | re.S,
+    )
+    text = re.sub(
+        r"\s*\(function\(\)\{\s*var\s+navEl\s*=\s*document\.getElementById\(['\"]ra-nav['\"]\);.*?\n\s*\}\)\(\);\s*",
+        "\n",
+        text,
+        flags=re.S,
+    )
+    return text
+
+
+def normalize_brand_image_dimensions(text: str) -> str:
+    """Give the square supplied lockup an intrinsic ratio to avoid layout shift."""
+
+    def normalize_lockup(match: re.Match[str]) -> str:
+        tag = re.sub(r'\s+(?:width|height)=["\'][^"\']*["\']', "", match.group(0), flags=re.I)
+        return tag[:-1].rstrip() + ' width="960" height="960">'
+
+    return re.sub(
+        r'<img\b(?=[^>]*\bsrc=["\']/assets/brand/current/ra-lockup-red\.png["\'])[^>]*>',
+        normalize_lockup,
+        text,
+        flags=re.I,
+    )
 
 
 def normalize_href(value: str, rel_path: str) -> str:
@@ -617,6 +809,22 @@ def normalize_reveal_taxonomy(text: str, rel: str) -> str:
                 count=1,
                 flags=re.S,
             )
+            text = re.sub(
+                r'(<span><i class="fa-regular fa-folder"></i>\s*).*?(</span>)',
+                rf'\1{category}\2',
+                text,
+                count=1,
+                flags=re.S,
+            )
+        related_service = REVEAL_RELATED_SERVICE_BY_SLUG.get(slug)
+        if related_service:
+            text = re.sub(
+                r'(<section class="rv-related-services".*?<h3\b[^>]*>).*?(</h3>)',
+                rf'\1{related_service}\2',
+                text,
+                count=1,
+                flags=re.I | re.S,
+            )
     return text
 
 
@@ -656,6 +864,22 @@ def apply_home_copy(text: str) -> str:
     )
     text = text.replace('View Our Work', 'Explore the Proof')
     text = text.replace('Operators. Not decorators.', 'One connected growth system.')
+    home_service_copy = {
+        'Identity, websites, apps, and video — built as one connected system, not a folder of assets. The layer people see first, and the layer that governs everything else downstream.':
+            'Websites, apps, brand identity, design, and video — the things customers see and use to understand your business.',
+        'SEO and AI visibility, positioning and authority, social, and lifecycle marketing — the disciplines that build audience and demand around the brand instead of leaking it into a feed.':
+            'SEO / AI Answers, social media, digital advertising, and customer nurture — the work that helps the right people find, remember, and return to you.',
+        'Lead generation and outreach, CRM and sales infrastructure, disciplined follow-up, and conversion advertising — the layer that turns attention into pipeline and pipeline into revenue.':
+            'Outreach, lead gen ads, CRMs / sales tools, and AI automation systems — the work that creates opportunities and helps your team move them forward.',
+        'Earn visibility and authority through the right mix of search, content, social, and lifecycle marketing.':
+            'Build demand through SEO / AI Answers, social media, digital advertising, and customer nurture.',
+        'Connect leads, CRM, follow-up, and conversion. Measure the handoffs, then improve the system from real evidence.':
+            'Connect outreach, lead gen ads, CRMs / sales tools, and AI automation. Measure the handoffs, then improve them from real evidence.',
+        'Every engagement starts with diagnosis. We identify the constraint, scope the Branding, Marketing, and Sales disciplines required to solve it, define ownership and evidence, then operate the connected handoffs. AI and automation are woven in only where they improve the system. Strategy, coaching, and fractional advisory remain separate from the Agency offer.':
+            'Every engagement starts with diagnosis. We identify the constraint, choose the exact Branding, Marketing, and Sales services required, define ownership and evidence, then operate the handoffs. AI Automation Systems are scoped inside Sales when faster response, routing, or follow-through will improve the result.',
+    }
+    for old, new in home_service_copy.items():
+        text = text.replace(old, new)
     text = replace_home_visual(text)
     text = text.replace('id="ecosystem"', 'id="growth-machine"', 1)
     text = text.replace(
@@ -819,12 +1043,21 @@ def apply_faq_copy(text: str) -> str:
         'A third of searches now end without a click. If you only optimize for SEO, you\'re invisible to that traffic. Our <a href="/services/marketing/seo-ai-visibility">Search &amp; AI Rankings</a> track runs both in parallel.': 'Search now includes both ranked links and generated answers. Our <a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a> work helps a brand become technically discoverable, useful, and citable across both surfaces.',
         'Yes. A lot of our long-term relationships start with a <strong>Growth Machine Blueprint</strong> — a 30-day strategic sprint that maps positioning, offer, funnel, and growth plan. From there, you can take it to any team, or we roll into build-and-run.': 'Yes, when a bounded first scope is the right diagnosed move. We define the deliverable and its relationship to the wider system rather than forcing a preset starter package.',
         'Brand identity sprints, site builds, and creative production runs can also stand alone.': 'A brand, site, or production scope can stand alone when it solves the actual constraint and has a clear definition of done.',
-        'Yes — the <a href="/services/systems/ai-automation">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It\'s a core part of the growth machine for most clients.': 'Yes. <a href="/services/ai-automation">AI &amp; Automation</a> is a governed capability woven through Branding, Marketing, and Sales where it improves the system — including CRM automation, routing, follow-up, internal workflows, and evidence capture. It is not a fourth public pillar.',
+        'Yes — the <a href="/services/systems/ai-automation">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It\'s a core part of the growth machine for most clients.': 'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
         'That\'s common. We\'ll run the parts they can\'t — systems, creative, paid media scaling, AEO — and coexist with the parts they do well. Our job is to install what\'s missing, not to displace what\'s working.': 'That is common. We can operate the Branding, Marketing, or Sales disciplines they cannot cover and connect cleanly to the work they already do well. Our job is to fix the gap, not displace what works.',
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
+    text = text.replace(
+        'Yes. <a href="/services/ai-automation">AI &amp; Automation</a> is a governed capability woven through Branding, Marketing, and Sales where it improves the system — including CRM automation, routing, follow-up, internal workflows, and evidence capture. It is not a fourth public pillar.',
+        'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
+    )
+    text = text.replace(
+        'Yes — the <a href="/services/sales/ai-automation-systems">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It\'s a core part of the growth machine for most clients.',
+        'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
+    )
     text = text.replace('<div class="faq-insight__tag">Systems</div>', '<div class="faq-insight__tag">Sales</div>')
+    text = text.replace('<div class="faq-insight__tag">Strategy</div>', '<div class="faq-insight__tag">Branding</div>')
     return text
 
 
@@ -849,18 +1082,29 @@ def apply_straight_answers_copy(text: str) -> str:
         'A third of searches now end without a click. If you only optimize for SEO, you\'re invisible to that traffic. Our <a href="/services/marketing/seo-ai-visibility">Search &amp; AI Rankings</a> track runs both in parallel.': 'Search now includes both ranked links and generated answers. Our <a href="/services/marketing/seo-ai-visibility">SEO &amp; AI Visibility</a> work helps a brand become technically discoverable, useful, and citable across both surfaces.',
         'Yes. A lot of our long-term relationships start with a <strong>Growth Machine Blueprint</strong> &mdash; a 30-day strategic sprint that maps positioning, offer, funnel, and growth plan. From there, you can take it to any team, or we roll into build-and-run.': 'Yes, when a bounded first scope is the right diagnosed move. We define the deliverable and its relationship to the wider system rather than forcing a preset starter package.',
         'Brand identity sprints, site builds, and creative production runs can also stand alone.': 'A brand, site, or production scope can stand alone when it solves the actual constraint and has a clear definition of done.',
-        'Yes &mdash; the <a href="/services/ai-automation">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It\'s a core part of the growth machine for most clients.': 'Yes. <a href="/services/ai-automation">AI &amp; Automation</a> is a governed capability woven through Branding, Marketing, and Sales where it improves the system &mdash; including CRM automation, routing, follow-up, internal workflows, and evidence capture. It is not a fourth public pillar.',
+        'Yes &mdash; the <a href="/services/ai-automation">AI &amp; Automation</a> track inside Strategy covers CRM automation, lead routing, follow-up sequences, internal AI agents, and workflow systems that remove manual work from sales and ops teams. It\'s a core part of the growth machine for most clients.': 'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
         'That\'s common. We\'ll run the parts they can\'t &mdash; systems, creative, paid media scaling, AEO &mdash; and coexist with the parts they do well. Our job is to install what\'s missing, not to displace what\'s working.': 'That is common. We can operate the Branding, Marketing, or Sales disciplines they cannot cover and connect cleanly to the work they already do well. Our job is to fix the gap, not displace what works.',
         'Thirty minutes with a principal. No pitch. Walk away with a plan.': 'Bring the real constraint. Get a direct read on the connected system and whether Revelation is the right operator.',
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
+    text = text.replace(
+        'Yes. <a href="/services/ai-automation">AI &amp; Automation</a> is a governed capability woven through Branding, Marketing, and Sales where it improves the system &mdash; including CRM automation, routing, follow-up, internal workflows, and evidence capture. It is not a fourth public pillar.',
+        'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
+    )
+    text = text.replace(
+        'Yes. <a href="/services/sales/ai-automation-systems">AI &amp; Automation</a> is a governed capability woven through Branding, Marketing, and Sales where it improves the system &mdash; including CRM automation, routing, follow-up, internal workflows, and evidence capture. It is not a fourth public pillar.',
+        'Yes. Our <a href="/services/sales/ai-automation-systems">AI Automation Systems</a> service covers governed CRM automation, lead routing, follow-up, internal workflows, and evidence capture. It sits clearly inside Sales and connects to the rest of the system when needed.',
+    )
     return text
 
 
 GLOBAL_REPLACEMENTS = {
     'href="/services/.../..."': 'href="/services"',
     'https://revelationagency.com/assets/brand/current/ra-social-card.png': 'https://www.revelationagency.com/assets/brand/current/ra-social-card.png',
+    'SEO &amp; AI Visibility': 'SEO / AI Answers',
+    'Websites &amp; Landing Pages': 'Websites',
+    'Back to Website Development': 'Back to Websites',
     'Book a Free Strategy Session': 'Start a Growth Conversation',
     'Book Your Free Strategy Session': 'Start a Growth Conversation',
     'Book a Strategy Session': 'Start a Growth Conversation',
@@ -934,6 +1178,8 @@ def migrate_html(path: Path) -> tuple[bool, bool]:
         text,
     )
     text = normalize_nav(text, rel)
+    text = remove_retired_mobile_nav_overrides(text)
+    text = normalize_brand_image_dimensions(text)
 
     text, footer_changed = replace_footer_services(text)
     for old, new in GLOBAL_REPLACEMENTS.items():
@@ -976,7 +1222,7 @@ def migrate_html(path: Path) -> tuple[bool, bool]:
     if rel == "the-reveal/revelation-agency-is-now-live.html":
         text = text.replace(
             "We're starting with the ten categories of work that matter most to the businesses we serve: brand systems, paid media, video, AI-native content and SEO, automation, web design, social, outsourced marketing, and the creative systems that tie all of it together. We're going deep on each, with real research, real opinions, and real utility.",
-            "We're organizing the work around the three disciplines businesses must connect: Branding, Marketing, and Sales. AI and automation run across those pillars as capabilities, not as a disconnected fourth offer. We're going deep on each with research, direct opinions, and useful operating detail.",
+            "We're organizing the work around three clear categories businesses must connect: Branding, Marketing, and Sales. That includes AI Automation Systems as a defined Sales service. We're going deep on each with research, direct opinions, and useful operating detail.",
         )
     if rel == "web-hosting.html":
         text = text.replace(

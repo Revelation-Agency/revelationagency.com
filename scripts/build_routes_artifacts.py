@@ -18,7 +18,9 @@ CANON = "https://www.revelationagency.com"
 #   was already Creative
 # Creative -> Branding
 # Marketing -> Marketing (mostly retained)
-# New Sales pillar collects: sales-infrastructure, digital-ads, plus new leaves
+# The corrected public service architecture is exactly 5 Branding leaves,
+# 4 Marketing leaves, and 4 Sales leaves. AI & Automation is a Sales service,
+# not a fourth/cross-cutting canonical route.
 
 # For every legacy sitemap URL, we produce a disposition record.
 # disposition ∈ {"keep","rename","retire_redirect","retire_gone"}
@@ -30,21 +32,19 @@ BRANDING_LEAVES = [
     ("websites-landing-pages", "Websites & Landing Pages"),
     ("apps-digital-products", "Apps & Digital Products"),
     ("video-visual-content", "Video & Visual Content"),
+    ("design", "Design"),
 ]
 MARKETING_LEAVES = [
     ("seo-ai-visibility", "SEO & AI Visibility"),
-    ("positioning-content-authority", "Positioning, Content & Authority"),
     ("social-media", "Social Media"),
     ("email-lifecycle-marketing", "Email & Lifecycle Marketing"),
+    ("digital-ads", "Digital Ads"),
 ]
 SALES_LEAVES = [
     ("lead-generation-outreach", "Lead Generation & Personalized Outreach"),
     ("crm-sales-infrastructure", "CRM & Sales Infrastructure"),
-    ("follow-up-nurture", "Follow-up & Nurture"),
-    ("conversion-advertising", "Conversion Advertising"),
-]
-CROSSCUT_LEAVES = [
-    ("ai-automation", "AI & Automation (cross-cutting)"),
+    ("lead-gen-ads", "Lead Gen & Ads"),
+    ("ai-automation-systems", "AI & Automation Systems"),
 ]
 
 # Direct legacy -> new service page mapping (per packet)
@@ -62,14 +62,23 @@ SERVICE_MAP = {
     "/services/marketing/search-rankings.html":    "/services/marketing/seo-ai-visibility.html",
     "/services/marketing/social-media.html":       "/services/marketing/social-media.html",
     "/services/marketing/outsource-marketing.html":"/services/marketing/",  # remove from nav; direct to hub
-    "/services/marketing/digital-ads.html":        "/services/sales/conversion-advertising.html",
-    # Systems -> split across Sales + Branding + cross-cutting AI
+    # Systems -> split across Sales + Branding
     "/services/systems/sales-infrastructure.html": "/services/sales/crm-sales-infrastructure.html",
     "/services/systems/brand-systems.html":        "/services/branding/brand-strategy-identity.html",
     "/services/systems/digital-presence.html":     "/services/branding/websites-landing-pages.html",
-    "/services/systems/ai-automation.html":        "/services/ai-automation.html",
+    "/services/systems/ai-automation.html":        "/services/sales/ai-automation-systems.html",
     "/services/systems/index.html":                "/services.html",
     "/services/systems/":                          "/services.html",
+}
+
+# These routes were canonical in the first 2026 refresh but are superseded by
+# the corrected 5/4/4 architecture. They are not necessarily present in the
+# older pinned baseline, so keep them explicit in both redirects and the diff.
+CORRECTED_CANONICAL_RETIREMENTS = {
+    "/services/marketing/positioning-content-authority.html": "/services/marketing/seo-ai-visibility.html",
+    "/services/sales/follow-up-nurture.html":      "/services/marketing/email-lifecycle-marketing.html",
+    "/services/sales/conversion-advertising.html": "/services/marketing/digital-ads.html",
+    "/services/ai-automation.html":                "/services/sales/ai-automation-systems.html",
 }
 
 PORTFOLIO_HUB_MAP = {
@@ -77,21 +86,20 @@ PORTFOLIO_HUB_MAP = {
     "/portfolio/creative.html":                    "/portfolio/branding.html",
     "/portfolio/systems.html":                     "/portfolio.html",  # collapse — no single "systems" pillar
     "/portfolio/marketing.html":                   "/portfolio/marketing.html",
-    # portfolio sub-categories redirect straight to the new pillar hubs
-    # (finer portfolio leaves are not created — the filtered All-work page
-    # + pillar hubs cover them). Direct single-hop always resolves.
-    "/portfolio/creative/branding.html":           "/portfolio/branding.html?filter=branding",
-    "/portfolio/creative/website-development.html":"/portfolio/branding.html?filter=branding",
-    "/portfolio/creative/app-development.html":    "/portfolio/branding.html?filter=branding",
-    "/portfolio/creative/video-production.html":   "/portfolio/branding.html?filter=branding",
-    "/portfolio/systems/brand-systems.html":       "/portfolio/branding.html?filter=branding",
-    "/portfolio/systems/digital-presence.html":    "/portfolio/branding.html?filter=branding",
-    "/portfolio/systems/sales-infrastructure.html":"/portfolio/sales.html?filter=sales",
-    "/portfolio/systems/ai-automation.html":       "/services/ai-automation.html",
-    "/portfolio/marketing/search-rankings.html":   "/portfolio/marketing.html?filter=marketing",
-    "/portfolio/marketing/social-media.html":      "/portfolio/marketing.html?filter=marketing",
-    "/portfolio/marketing/outsource-marketing.html":"/portfolio/marketing.html?filter=marketing",
-    "/portfolio/marketing/digital-ads.html":       "/portfolio/sales.html?filter=sales",
+    # Preserve the exact service intent of retired portfolio shelves by
+    # landing on the main proof index with its 2026 discipline filter active.
+    "/portfolio/creative/branding.html":           "/portfolio.html?filter=b3",
+    "/portfolio/creative/website-development.html":"/portfolio.html?filter=b1",
+    "/portfolio/creative/app-development.html":    "/portfolio.html?filter=b2",
+    "/portfolio/creative/video-production.html":   "/portfolio.html?filter=b5",
+    "/portfolio/systems/brand-systems.html":       "/portfolio.html?filter=b3",
+    "/portfolio/systems/digital-presence.html":    "/portfolio.html?filter=b1",
+    "/portfolio/systems/sales-infrastructure.html":"/portfolio.html?filter=s3",
+    "/portfolio/systems/ai-automation.html":       "/portfolio.html?filter=s4",
+    "/portfolio/marketing/search-rankings.html":   "/portfolio.html?filter=m1",
+    "/portfolio/marketing/social-media.html":      "/portfolio.html?filter=m2",
+    "/portfolio/marketing/outsource-marketing.html":"/portfolio.html?filter=marketing",
+    "/portfolio/marketing/digital-ads.html":       "/portfolio.html?filter=m3",
 }
 
 # Case studies: keep every one at its current URL. Case study taxonomy is corrected
@@ -103,6 +111,7 @@ KEEP_UNCHANGED = set()
 ALL_LEGACY_MAP = {}
 ALL_LEGACY_MAP.update(SERVICE_MAP)
 ALL_LEGACY_MAP.update(PORTFOLIO_HUB_MAP)
+ALL_LEGACY_MAP.update(CORRECTED_CANONICAL_RETIREMENTS)
 
 
 def load_baseline_urls():
@@ -146,7 +155,7 @@ def build_baseline_routes():
 
 def build_proposed_routes():
     """New sitemap: keep every current URL that has no rename target,
-    add the new hub + leaf URLs, add /services/ai-automation.html."""
+    then add the exact 5/4/4 service hubs and leaf URLs."""
     urls = load_baseline_urls()
     proposed = set()
     for u in urls:
@@ -163,8 +172,6 @@ def build_proposed_routes():
         proposed.add(f"{CANON}/services/marketing/{slug}")
     for slug, _ in SALES_LEAVES:
         proposed.add(f"{CANON}/services/sales/{slug}")
-    # Cross-cutting page
-    proposed.add(f"{CANON}/services/ai-automation")
     # Portfolio pillar hubs
     proposed.add(f"{CANON}/portfolio/branding")
     proposed.add(f"{CANON}/portfolio/marketing")
@@ -251,7 +258,7 @@ def build_route_diff(baseline, proposed):
         "Every truly retired route has exactly ONE permanent, direct redirect in `redirect-map.json`.",
         "No chains, no loops. Case-study URLs are all retained.",
         "",
-        "## Retired (301 to new)",
+        "## Retired (permanent redirect to successor)",
         "",
     ]
     clean_legacy_map = {
@@ -262,6 +269,14 @@ def build_route_diff(baseline, proposed):
         legacy_path = strip_canon(u)
         target = clean_legacy_map.get(legacy_path, "(missing)")
         lines.append(f"- `{u}` → `{target}`")
+    lines.append("")
+    lines.append("## Post-baseline canonical routes now redirected")
+    lines.append("")
+    for source, destination in CORRECTED_CANONICAL_RETIREMENTS.items():
+        lines.append(
+            f"- `{CANON}{clean_public_path(source)}` → "
+            f"`{clean_public_path(destination)}`"
+        )
     lines.append("")
     lines.append("## New URLs")
     lines.append("")

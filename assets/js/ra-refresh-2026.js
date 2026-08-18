@@ -127,11 +127,187 @@
     });
   }
 
+  function setupOrbitMotion() {
+    var frame = doc.querySelector(".ra-orbit__frame");
+    if (!frame || reduceMotion) return;
+
+    var orbit = frame.closest(".ra-orbit");
+    if ("IntersectionObserver" in window && orbit) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          each(entries, function (entry) {
+            frame.classList.toggle("ra-orbit--active", entry.isIntersecting);
+          });
+        },
+        { threshold: 0.12 }
+      );
+      observer.observe(orbit);
+    } else {
+      frame.classList.add("ra-orbit--active");
+    }
+
+    if (!window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    frame.addEventListener("pointermove", function (event) {
+      var rect = frame.getBoundingClientRect();
+      var x = (event.clientX - rect.left) / rect.width - 0.5;
+      var y = (event.clientY - rect.top) / rect.height - 0.5;
+      frame.style.setProperty("--ra-orbit-pan-x", (x * 9).toFixed(2) + "px");
+      frame.style.setProperty("--ra-orbit-pan-y", (y * 9).toFixed(2) + "px");
+      frame.style.setProperty("--ra-orbit-route-x", (-x * 3.2).toFixed(2) + "px");
+      frame.style.setProperty("--ra-orbit-route-y", (-y * 3.2).toFixed(2) + "px");
+      frame.style.setProperty("--ra-orbit-rotate-x", (-y * 1.25).toFixed(2) + "deg");
+      frame.style.setProperty("--ra-orbit-rotate-y", (x * 1.25).toFixed(2) + "deg");
+    });
+
+    frame.addEventListener("pointerleave", function () {
+      frame.style.setProperty("--ra-orbit-pan-x", "0px");
+      frame.style.setProperty("--ra-orbit-pan-y", "0px");
+      frame.style.setProperty("--ra-orbit-route-x", "0px");
+      frame.style.setProperty("--ra-orbit-route-y", "0px");
+      frame.style.setProperty("--ra-orbit-rotate-x", "0deg");
+      frame.style.setProperty("--ra-orbit-rotate-y", "0deg");
+    });
+  }
+
   function updateFooterYear() {
     var year = String(new Date().getFullYear());
     each(doc.querySelectorAll("[data-ra-current-year]"), function (element) {
       element.textContent = year;
     });
+  }
+
+  function setupMobileNavigation() {
+    var nav = doc.getElementById("ra-nav");
+    if (!nav || !window.matchMedia) return;
+
+    var mobileQuery = window.matchMedia("(max-width: 768px)");
+    var hamburger = nav.querySelector(".ra-nav__hamburger");
+
+    function resetBranch(branch) {
+      if (!branch) return;
+      branch.classList.remove("is-open");
+      each(branch.querySelectorAll(".ra-drop.open"), function (drop) {
+        drop.classList.remove("open");
+      });
+      each(branch.querySelectorAll(".ra-nav__services-toggle, .ra-nav__l2-toggle"), function (button) {
+        button.classList.remove("open");
+        button.setAttribute("aria-expanded", "false");
+      });
+      each(branch.querySelectorAll(".has-drop-l3.is-open"), function (item) {
+        item.classList.remove("is-open");
+      });
+    }
+
+    function setDrawer(open) {
+      nav.classList.toggle("is-open", open);
+      doc.body.classList.toggle("ra-mobile-nav-open", open);
+      if (hamburger) hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) {
+        each(nav.querySelectorAll(".ra-nav__links > li.has-drop"), resetBranch);
+      }
+    }
+
+    function toggleTopLevel(button) {
+      var branch = button.closest(".ra-nav__links > li.has-drop");
+      if (!branch) return;
+      var drop = branch.querySelector(":scope > .ra-drop--l2");
+      if (!drop) return;
+      var open = !branch.classList.contains("is-open");
+
+      each(nav.querySelectorAll(".ra-nav__links > li.has-drop"), function (sibling) {
+        if (sibling !== branch) resetBranch(sibling);
+      });
+      resetBranch(branch);
+      branch.classList.toggle("is-open", open);
+      drop.classList.toggle("open", open);
+      button.classList.toggle("open", open);
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function toggleSecondLevel(button) {
+      var branch = button.closest(".has-drop-l3");
+      if (!branch) return;
+      var drop = branch.querySelector(":scope > .ra-drop--l3");
+      if (!drop) return;
+      var open = !branch.classList.contains("is-open");
+      var list = branch.parentElement;
+
+      if (list) {
+        each(list.querySelectorAll(":scope > .has-drop-l3"), function (sibling) {
+          if (sibling !== branch) resetBranch(sibling);
+        });
+      }
+      resetBranch(branch);
+      branch.classList.toggle("is-open", open);
+      drop.classList.toggle("open", open);
+      button.classList.toggle("open", open);
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    nav.addEventListener(
+      "click",
+      function (event) {
+        if (!mobileQuery.matches) return;
+        var target = event.target;
+        if (!target || !target.closest) return;
+
+        var hamburgerTarget = target.closest(".ra-nav__hamburger");
+        if (hamburgerTarget) {
+          event.preventDefault();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
+          setDrawer(!nav.classList.contains("is-open"));
+          return;
+        }
+
+        var secondToggle = target.closest(".ra-nav__l2-toggle");
+        if (secondToggle) {
+          event.preventDefault();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
+          toggleSecondLevel(secondToggle);
+          return;
+        }
+
+        var topToggle = target.closest(".ra-nav__services-toggle");
+        if (topToggle) {
+          event.preventDefault();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
+          toggleTopLevel(topToggle);
+          return;
+        }
+
+        var anchor = target.closest(".ra-nav__links a");
+        if (!anchor) return;
+        var href = anchor.getAttribute("href");
+        if (!href || href.charAt(0) === "#") return;
+
+        // On mobile, labels are links and chevrons are accordion controls.
+        // Stop the retired page-local handlers from turning a page tap into
+        // an off-canvas animation, then navigate deterministically.
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        setDrawer(false);
+        window.location.assign(anchor.href);
+      },
+      true
+    );
+
+    doc.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setDrawer(false);
+        if (hamburger) hamburger.focus();
+      }
+    });
+
+    function closeAtDesktop() {
+      if (!mobileQuery.matches) setDrawer(false);
+    }
+    if (mobileQuery.addEventListener) mobileQuery.addEventListener("change", closeAtDesktop);
+    else if (mobileQuery.addListener) mobileQuery.addListener(closeAtDesktop);
   }
 
   function tuneChatWidget() {
@@ -161,6 +337,8 @@
     setupRevealMotion();
     setupScrollState();
     setupTilt();
+    setupOrbitMotion();
+    setupMobileNavigation();
     updateFooterYear();
     tuneChatWidget();
     doc.body.classList.add("ra-page-ready");

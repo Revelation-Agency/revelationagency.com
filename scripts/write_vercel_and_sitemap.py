@@ -155,7 +155,7 @@ def build_sitemap() -> None:
 
     lines = [SITEMAP_HEADER, "\n  <!-- Core pages -->\n"]
     append_group(lines, "core")
-    lines.append("\n  <!-- Services (Branding / Marketing / Sales + AI cross-cutting) -->\n")
+    lines.append("\n  <!-- Services (5 Branding / 4 Marketing / 4 Sales leaves) -->\n")
     append_group(lines, "services")
     lines.append("\n  <!-- Portfolio -->\n")
     append_group(lines, "portfolio")

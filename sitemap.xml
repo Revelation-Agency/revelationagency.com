@@ -51,13 +51,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Services (Branding / Marketing / Sales + AI cross-cutting) -->
-  <url>
-    <loc>https://www.revelationagency.com/services/ai-automation</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Services (5 Branding / 4 Marketing / 4 Sales leaves) -->
   <url>
     <loc>https://www.revelationagency.com/services/branding</loc>
     <lastmod>2026-08-17</lastmod>
@@ -72,6 +66,12 @@
   </url>
   <url>
     <loc>https://www.revelationagency.com/services/branding/brand-strategy-identity</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.revelationagency.com/services/branding/design</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -95,13 +95,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.revelationagency.com/services/marketing/email-lifecycle-marketing</loc>
+    <loc>https://www.revelationagency.com/services/marketing/digital-ads</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.revelationagency.com/services/marketing/positioning-content-authority</loc>
+    <loc>https://www.revelationagency.com/services/marketing/email-lifecycle-marketing</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -125,7 +125,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.revelationagency.com/services/sales/conversion-advertising</loc>
+    <loc>https://www.revelationagency.com/services/sales/ai-automation-systems</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -137,7 +137,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.revelationagency.com/services/sales/follow-up-nurture</loc>
+    <loc>https://www.revelationagency.com/services/sales/lead-gen-ads</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

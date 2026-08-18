@@ -49,11 +49,6 @@
       "permanent": true
     },
     {
-      "source": "/services/marketing/digital-ads",
-      "destination": "/services/sales/conversion-advertising",
-      "permanent": true
-    },
-    {
       "source": "/services/systems/sales-infrastructure",
       "destination": "/services/sales/crm-sales-infrastructure",
       "permanent": true
@@ -70,7 +65,7 @@
     },
     {
       "source": "/services/systems/ai-automation",
-      "destination": "/services/ai-automation",
+      "destination": "/services/sales/ai-automation-systems",
       "permanent": true
     },
     {
@@ -90,62 +85,82 @@
     },
     {
       "source": "/portfolio/creative/branding",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b3",
       "permanent": true
     },
     {
       "source": "/portfolio/creative/website-development",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b1",
       "permanent": true
     },
     {
       "source": "/portfolio/creative/app-development",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b2",
       "permanent": true
     },
     {
       "source": "/portfolio/creative/video-production",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b5",
       "permanent": true
     },
     {
       "source": "/portfolio/systems/brand-systems",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b3",
       "permanent": true
     },
     {
       "source": "/portfolio/systems/digital-presence",
-      "destination": "/portfolio/branding?filter=branding",
+      "destination": "/portfolio?filter=b1",
       "permanent": true
     },
     {
       "source": "/portfolio/systems/sales-infrastructure",
-      "destination": "/portfolio/sales?filter=sales",
+      "destination": "/portfolio?filter=s3",
       "permanent": true
     },
     {
       "source": "/portfolio/systems/ai-automation",
-      "destination": "/services/ai-automation",
+      "destination": "/portfolio?filter=s4",
       "permanent": true
     },
     {
       "source": "/portfolio/marketing/search-rankings",
-      "destination": "/portfolio/marketing?filter=marketing",
+      "destination": "/portfolio?filter=m1",
       "permanent": true
     },
     {
       "source": "/portfolio/marketing/social-media",
-      "destination": "/portfolio/marketing?filter=marketing",
+      "destination": "/portfolio?filter=m2",
       "permanent": true
     },
     {
       "source": "/portfolio/marketing/outsource-marketing",
-      "destination": "/portfolio/marketing?filter=marketing",
+      "destination": "/portfolio?filter=marketing",
       "permanent": true
     },
     {
       "source": "/portfolio/marketing/digital-ads",
-      "destination": "/portfolio/sales?filter=sales",
+      "destination": "/portfolio?filter=m3",
+      "permanent": true
+    },
+    {
+      "source": "/services/marketing/positioning-content-authority",
+      "destination": "/services/marketing/seo-ai-visibility",
+      "permanent": true
+    },
+    {
+      "source": "/services/sales/follow-up-nurture",
+      "destination": "/services/marketing/email-lifecycle-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/services/sales/conversion-advertising",
+      "destination": "/services/marketing/digital-ads",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-automation",
+      "destination": "/services/sales/ai-automation-systems",
       "permanent": true
     },
     {
