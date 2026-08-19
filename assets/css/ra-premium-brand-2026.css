@@ -1,0 +1,70 @@
+/* Premium brand system: black header, white navigation, red active accents. */
+.ra-nav,
+#ra-nav {
+  background: rgba(23, 23, 23, 0.98) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.12) !important;
+}
+
+.ra-nav__links > li > a,
+.ra-nav__links > li > a:visited,
+.ra-nav__links .has-drop > a,
+.ra-nav__hamburger,
+.ra-nav__hamburger span,
+.ra-nav__services-toggle,
+.ra-nav__l2-toggle {
+  color: #fff !important;
+}
+
+/* Some refreshed pages use #ra-nav-scoped navigation rules. */
+#ra-nav .ra-nav__links > li > a,
+#ra-nav .ra-nav__links > li > a:visited,
+#ra-nav .ra-nav__links .has-drop > a,
+#ra-nav .ra-nav__links .ra-drop a,
+#ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a,
+#ra-nav .ra-nav__links .ra-drop--l3 a {
+  color: #fff !important;
+}
+
+.ra-nav__hamburger span { background: #fff !important; }
+.ra-nav__links > li > a { opacity: .84 !important; }
+.ra-nav__links > li > a:hover,
+.ra-nav__links > li > a:focus-visible,
+.ra-nav__links > li > a.is-current { opacity: 1 !important; }
+.ra-nav__links > li > a.is-current::after { background: var(--red, #C91C1D) !important; }
+
+/* Menus retain the same dark field so every navigation label is white. */
+.ra-nav__links .ra-drop,
+.ra-nav__links .ra-drop--l2,
+.ra-nav__links .ra-drop--l3 {
+  background: #171717 !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+.ra-nav__links .ra-drop a,
+.ra-nav__links .ra-drop--l2 > .has-drop-l3 > a,
+.ra-nav__links .ra-drop--l3 a {
+  color: #fff !important;
+}
+.ra-nav__links .ra-drop a:hover,
+.ra-nav__links .ra-drop a:focus-visible {
+  color: #fff !important;
+  background: rgba(201,28,29,.42) !important;
+}
+
+@media (max-width: 1199px) {
+  .ra-nav__links,
+  #ra-nav .ra-nav__links {
+    background: #171717 !important;
+    border-top-color: rgba(255,255,255,.14) !important;
+  }
+  #ra-nav .ra-nav__links > li > a,
+  #ra-nav .ra-nav__links .ra-drop--l2 > .has-drop-l3 > a,
+  #ra-nav .ra-nav__links .ra-drop--l3 a,
+  #ra-nav .ra-nav__services-toggle,
+  #ra-nav .ra-nav__l2-toggle {
+    color: #fff !important;
+  }
+  #ra-nav .ra-nav__links .ra-drop--l3 {
+    background: rgba(255,255,255,.05) !important;
+    border-left-color: rgba(201,28,29,.7) !important;
+  }
+}
