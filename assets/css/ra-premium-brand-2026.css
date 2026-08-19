@@ -5,6 +5,28 @@
   box-shadow: 0 1px 0 rgba(255,255,255,0.12) !important;
 }
 
+/* The navigation uses the standalone transparent RA mark, not a profile tile. */
+.ra-nav__logo,
+#ra-nav .ra-nav__logo {
+  width: 118px !important;
+  min-width: 118px !important;
+  height: 92px !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.ra-nav__logo img,
+.ra-nav.scrolled .ra-nav__logo img,
+#ra-nav .ra-nav__logo img,
+#ra-nav.scrolled .ra-nav__logo img {
+  width: 108px !important;
+  max-width: 108px !important;
+  height: 92px !important;
+  max-height: 92px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
 .ra-nav__links > li > a,
 .ra-nav__links > li > a:visited,
 .ra-nav__links .has-drop > a,
@@ -51,6 +73,23 @@
 }
 
 @media (max-width: 1199px) {
+  .ra-nav__logo,
+  #ra-nav .ra-nav__logo {
+    width: 82px !important;
+    min-width: 82px !important;
+    height: 68px !important;
+  }
+
+  .ra-nav__logo img,
+  .ra-nav.scrolled .ra-nav__logo img,
+  #ra-nav .ra-nav__logo img,
+  #ra-nav.scrolled .ra-nav__logo img {
+    width: 78px !important;
+    max-width: 78px !important;
+    height: 66px !important;
+    max-height: 66px !important;
+  }
+
   .ra-nav__links,
   #ra-nav .ra-nav__links {
     background: #171717 !important;
