@@ -72,6 +72,26 @@
   background: rgba(201,28,29,.42) !important;
 }
 
+/* Reveal closing CTA: white button on the red field, with a visible red-tint shimmer. */
+.rv-cta .btn.btn--primary {
+  background: #fff !important;
+  color: var(--red-deep, #9d1216) !important;
+  border-color: #fff !important;
+  box-shadow: 0 16px 36px rgba(23,23,23,.18) !important;
+}
+
+.rv-cta .btn.btn--primary::before {
+  background: linear-gradient(115deg, transparent 16%, rgba(201,28,29,.16) 48%, transparent 74%) !important;
+}
+
+.rv-cta .btn.btn--primary:hover,
+.rv-cta .btn.btn--primary:focus-visible {
+  background: #fff !important;
+  color: var(--red-deep, #9d1216) !important;
+  border-color: #fff !important;
+  box-shadow: 0 22px 52px rgba(23,23,23,.24) !important;
+}
+
 @media (max-width: 1199px) {
   .ra-nav__logo,
   #ra-nav .ra-nav__logo {
