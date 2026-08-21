@@ -179,6 +179,13 @@ def build_proposed_routes():
     proposed.add(f"{CANON}/portfolio/sales")
     # Public policy page required by the Reviii Slack listing.
     proposed.add(f"{CANON}/privacy")
+    # Local SEO geo architecture, emitted by scripts/build_local_seo_pages.py.
+    # Read from that generator's manifest rather than restating the city x
+    # service matrix here, so the two cannot drift apart.
+    local_manifest = "artifacts/local-seo-routes.json"
+    if os.path.exists(local_manifest):
+        for route in load(local_manifest)["routes"]:
+            proposed.add(CANON + route)
     # Strip any query-string variants that were introduced by the portfolio
     # sub-category redirects (they map to a hub page + filter param, which
     # does not belong in the sitemap as a distinct URL).

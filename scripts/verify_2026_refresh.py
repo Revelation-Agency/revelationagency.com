@@ -26,7 +26,7 @@ from typing import Any, Iterable, Optional
 from urllib.parse import unquote, urljoin, urlsplit
 
 
-EXPECTED_HTML_COUNT = 144
+EXPECTED_HTML_COUNT = 173
 EXPECTED_CASE_COUNT = 68
 EXPECTED_MASTER_COUNT = 21
 REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817g"
@@ -1368,8 +1368,11 @@ def check_sitemap_contract(root: Path) -> CheckResult:
         )
     urls = re.findall(r"<loc>([^<]+)</loc>", read_text(sitemap_path))
     proposed = load_json(proposed_path).get("urls", [])
-    if len(urls) != 112:
-        errors.append(f"sitemap.xml: expected 112 canonical URLs, found {len(urls)}")
+    if len(urls) != len(proposed):
+        errors.append(
+            f"sitemap.xml: expected {len(proposed)} canonical URLs "
+            f"(artifacts/proposed-routes.json), found {len(urls)}"
+        )
     if len(urls) != len(set(urls)):
         errors.append("sitemap.xml: duplicate URLs found")
     if set(urls) != set(proposed):

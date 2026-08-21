@@ -1,0 +1,151 @@
+/* Local SEO location pages — /locations/**
+   Only the two classes the location templates introduce. Everything else on
+   these pages reuses the canonical service-leaf styles already loaded by
+   ra-refresh-2026.css and the leaf template's inline block. */
+
+.ra-loc-services {
+  list-style: none;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: none;
+}
+
+.ra-loc-services li {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(18px, 2.4vw, 26px);
+  background: var(--ra-paper-bright, #fffdfa);
+  border: 1px solid var(--ra-line, rgba(23, 23, 23, 0.12));
+  border-left: 3px solid var(--ra-red, #c91c1d);
+  border-radius: var(--ra-radius-sm, 14px);
+  box-shadow: var(--ra-shadow-sm, 0 12px 34px rgba(17, 17, 17, 0.08));
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(23, 23, 23, 0.72);
+}
+
+.ra-loc-services li a {
+  display: block;
+  font-family: var(--ra-display, 'Bebas Neue', Impact, sans-serif);
+  font-size: clamp(21px, 2.2vw, 26px);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--ra-ink, #171717);
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: color 0.18s ease;
+}
+
+.ra-loc-services li a:hover,
+.ra-loc-services li a:focus-visible {
+  color: var(--ra-red, #c91c1d);
+}
+
+/* FAQ — answer-first blocks. These are the FAQPage schema's visible twin, so
+   the question must read as a question and the answer must be complete on its
+   own; AI answer engines quote the paragraph, not the section around it. */
+.ra-faq {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  display: grid;
+  gap: 14px;
+  max-width: var(--ra-copy-measure, 68ch);
+}
+
+.ra-faq__item {
+  padding: clamp(20px, 2.6vw, 28px);
+  background: var(--ra-paper-bright, #fffdfa);
+  border: 1px solid var(--ra-line, rgba(23, 23, 23, 0.12));
+  border-radius: var(--ra-radius-sm, 14px);
+}
+
+.ra-faq__item h3 {
+  margin: 0 0 10px;
+  font-family: var(--ra-display, 'Bebas Neue', Impact, sans-serif);
+  font-size: clamp(20px, 2.1vw, 25px);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--ra-ink, #171717);
+}
+
+.ra-faq__item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.68;
+  color: rgba(23, 23, 23, 0.74);
+}
+
+/* Location index cards. Navigation, not client proof — deliberately a separate
+   class from .ra-service-proof, which is reserved for cards carrying real
+   client work and a 16:9 image. */
+.ra-loc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ra-loc-card {
+  min-width: 0;
+  display: block;
+  padding: clamp(22px, 3vw, 32px);
+  background: var(--ra-paper-bright, #fffdfa);
+  border: 1px solid var(--ra-line, rgba(23, 23, 23, 0.12));
+  border-top: 3px solid var(--ra-red, #c91c1d);
+  border-radius: var(--ra-radius-md, 24px);
+  box-shadow: var(--ra-shadow-sm, 0 12px 34px rgba(17, 17, 17, 0.08));
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ra-loc-card:hover,
+.ra-loc-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--ra-shadow-lg, 0 32px 90px rgba(17, 17, 17, 0.18));
+}
+
+.ra-loc-card span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ra-red, #c91c1d);
+  margin-bottom: 10px;
+}
+
+.ra-loc-card strong {
+  display: block;
+  font-family: var(--ra-display, 'Bebas Neue', Impact, sans-serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--ra-ink, #171717);
+  margin-bottom: 10px;
+}
+
+.ra-loc-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.62;
+  color: rgba(23, 23, 23, 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ra-loc-card {
+    transition: none;
+  }
+  .ra-loc-card:hover,
+  .ra-loc-card:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .ra-loc-services,
+  .ra-loc-grid {
+    grid-template-columns: 1fr;
+  }
+}

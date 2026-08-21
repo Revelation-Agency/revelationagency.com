@@ -1,10 +1,10 @@
 # Route diff — baseline vs proposed
 
 - Baseline URL count: 122
-- Proposed URL count: 112
+- Proposed URL count: 141
 - Retained (unchanged path): 96
 - Retired (redirected via redirect-map.json): 26
-- New URLs: 16
+- New URLs: 45
 
 The pinned baseline remains byte-stable; comparison here normalizes Vercel clean URLs.
 Every truly retired route has exactly ONE permanent, direct redirect in `redirect-map.json`.
@@ -48,6 +48,35 @@ No chains, no loops. Case-study URLs are all retained.
 
 ## New URLs
 
+- `https://www.revelationagency.com/locations`
+- `https://www.revelationagency.com/locations/clovis-ca`
+- `https://www.revelationagency.com/locations/clovis-ca/branding`
+- `https://www.revelationagency.com/locations/clovis-ca/google-ads`
+- `https://www.revelationagency.com/locations/clovis-ca/seo`
+- `https://www.revelationagency.com/locations/clovis-ca/social-media`
+- `https://www.revelationagency.com/locations/clovis-ca/video-production`
+- `https://www.revelationagency.com/locations/clovis-ca/web-design`
+- `https://www.revelationagency.com/locations/fresno-ca`
+- `https://www.revelationagency.com/locations/fresno-ca/branding`
+- `https://www.revelationagency.com/locations/fresno-ca/google-ads`
+- `https://www.revelationagency.com/locations/fresno-ca/seo`
+- `https://www.revelationagency.com/locations/fresno-ca/social-media`
+- `https://www.revelationagency.com/locations/fresno-ca/video-production`
+- `https://www.revelationagency.com/locations/fresno-ca/web-design`
+- `https://www.revelationagency.com/locations/madera-ca`
+- `https://www.revelationagency.com/locations/madera-ca/branding`
+- `https://www.revelationagency.com/locations/madera-ca/google-ads`
+- `https://www.revelationagency.com/locations/madera-ca/seo`
+- `https://www.revelationagency.com/locations/madera-ca/social-media`
+- `https://www.revelationagency.com/locations/madera-ca/video-production`
+- `https://www.revelationagency.com/locations/madera-ca/web-design`
+- `https://www.revelationagency.com/locations/visalia-ca`
+- `https://www.revelationagency.com/locations/visalia-ca/branding`
+- `https://www.revelationagency.com/locations/visalia-ca/google-ads`
+- `https://www.revelationagency.com/locations/visalia-ca/seo`
+- `https://www.revelationagency.com/locations/visalia-ca/social-media`
+- `https://www.revelationagency.com/locations/visalia-ca/video-production`
+- `https://www.revelationagency.com/locations/visalia-ca/web-design`
 - `https://www.revelationagency.com/portfolio/branding`
 - `https://www.revelationagency.com/portfolio/sales`
 - `https://www.revelationagency.com/privacy`
