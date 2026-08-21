@@ -177,6 +177,8 @@ def build_proposed_routes():
     proposed.add(f"{CANON}/portfolio/branding")
     proposed.add(f"{CANON}/portfolio/marketing")
     proposed.add(f"{CANON}/portfolio/sales")
+    # Public policy page required by the Reviii Slack listing.
+    proposed.add(f"{CANON}/privacy")
     # Strip any query-string variants that were introduced by the portfolio
     # sub-category redirects (they map to a hub page + filter param, which
     # does not belong in the sitemap as a distinct URL).

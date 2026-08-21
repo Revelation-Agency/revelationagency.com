@@ -125,7 +125,7 @@ def build_sitemap() -> None:
     groups = {"core": [], "services": [], "portfolio": [], "the-reveal": [], "landing": [], "other": []}
     for u in urls:
         p = u.replace(CANON, "") or "/"
-        if p in ("/", "/about", "/booking", "/contact", "/faq",
+        if p in ("/", "/about", "/booking", "/contact", "/faq", "/privacy",
                  "/portfolio", "/services", "/web-hosting"):
             groups["core"].append(u)
         elif p.startswith("/services/"):

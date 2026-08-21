@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviii Privacy Notice — Revelation Agency</title>
+  <meta name="description" content="How Revelation Agency collects, uses, protects, retains, and deletes data when organizations use the Reviii Slack app and connected services.">
+  <link rel="canonical" href="https://www.revelationagency.com/privacy">
+  <meta property="og:title" content="Reviii Privacy Notice — Revelation Agency">
+  <meta property="og:description" content="Plain-language data practices for the Reviii Slack app and connected five-agent system.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.revelationagency.com/privacy">
+  <meta property="og:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.revelationagency.com/assets/brand/current/ra-social-card.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/ra-refresh-2026.css?v=20260817g">
+  <style>
+    @font-face{font-family:Orbitron;src:url('/assets/webfonts/Orbitron-VF.woff2') format('woff2');font-weight:400 900;font-style:normal;font-display:swap}
+    :root{
+      --red:#c91c1d;
+      --red-deep:#941014;
+      --ink:#171717;
+      --charcoal:#252525;
+      --paper:#f6f3ee;
+      --white:#fff;
+      --line:rgba(23,23,23,.14);
+      --muted:#6c6862;
+      --head:Orbitron,'Arial Narrow',sans-serif;
+      --body:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(246,243,238,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .topbar__inner{max-width:1240px;margin:auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .brand img{display:block;width:166px;height:auto}
+    .topbar__links{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .topbar__links a{text-decoration:none}
+    .topbar__links a:hover{color:var(--red)}
+    .hero{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:-40% -10% auto auto;width:600px;height:600px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.018)}
+    .hero:after{content:"III";position:absolute;right:5%;bottom:-.33em;color:rgba(201,28,29,.23);font-family:var(--head);font-size:clamp(180px,32vw,520px);font-weight:900;line-height:.8;letter-spacing:-.14em;pointer-events:none}
+    .hero__inner{position:relative;z-index:1;max-width:1240px;margin:auto;padding:120px 28px 108px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:72px;align-items:end}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 28px;color:#f09a9b;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:38px;height:2px;background:var(--red)}
+    h1,h2,h3{font-family:var(--head);text-transform:uppercase;line-height:1.08;margin:0;letter-spacing:.035em}
+    h1{font-size:clamp(52px,8vw,112px);max-width:900px}
+    .hero__lede{font-size:clamp(19px,2vw,25px);line-height:1.5;color:rgba(255,255,255,.72);max-width:760px;margin:30px 0 0}
+    .hero__meta{border-left:2px solid var(--red);padding-left:24px;color:rgba(255,255,255,.7);font-size:15px}
+    .hero__meta strong{display:block;color:#fff;font-family:var(--head);font-size:17px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+    .layout{max-width:1240px;margin:auto;padding:88px 28px 110px;display:grid;grid-template-columns:270px minmax(0,780px);gap:84px;align-items:start}
+    .toc{position:sticky;top:92px;border-top:3px solid var(--red);padding-top:22px}
+    .toc strong{font-family:var(--head);font-size:14px;letter-spacing:.13em;text-transform:uppercase}
+    .toc ol{list-style:none;margin:18px 0 0;padding:0;counter-reset:item}
+    .toc li{counter-increment:item;border-top:1px solid var(--line)}
+    .toc a{display:grid;grid-template-columns:30px 1fr;gap:9px;padding:11px 0;text-decoration:none;color:var(--muted);font-size:14px;line-height:1.4}
+    .toc a:before{content:counter(item,decimal-leading-zero);color:var(--red);font-family:var(--head);font-size:11px;padding-top:3px}
+    .toc a:hover{color:var(--ink)}
+    .notice{background:var(--white);border:1px solid var(--line);box-shadow:0 24px 80px rgba(23,23,23,.06)}
+    .notice__intro{padding:54px 58px;border-bottom:1px solid var(--line);font-size:20px;line-height:1.65}
+    .notice__intro p{margin:0}
+    .section{padding:52px 58px;border-bottom:1px solid var(--line);scroll-margin-top:105px}
+    .section:last-child{border-bottom:0}
+    .section__number{color:var(--red);font-family:var(--head);font-weight:800;font-size:12px;letter-spacing:.16em;margin-bottom:12px}
+    h2{font-size:clamp(28px,4vw,43px);margin-bottom:25px}
+    h3{font-size:18px;margin:28px 0 10px}
+    p{margin:0 0 18px}
+    p:last-child{margin-bottom:0}
+    ul{margin:12px 0 22px;padding-left:22px}
+    li{padding-left:7px;margin:9px 0}
+    .plain-table{width:100%;border-collapse:collapse;margin:22px 0 8px;font-size:15px}
+    .plain-table th,.plain-table td{text-align:left;vertical-align:top;padding:15px 14px;border-top:1px solid var(--line)}
+    .plain-table th{width:29%;font-family:var(--head);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .callout{margin:28px 0 6px;background:var(--paper);border-left:4px solid var(--red);padding:22px 24px}
+    .callout strong{font-family:var(--head);text-transform:uppercase;letter-spacing:.06em}
+    .contact-card{background:var(--ink);color:var(--white);padding:30px;margin-top:26px;display:grid;gap:8px}
+    .contact-card a{color:#f3a1a2}
+    .site-footer{background:#0f0f0f;color:rgba(255,255,255,.62)}
+    .site-footer__inner{max-width:1240px;margin:auto;padding:38px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:14px}
+    .site-footer a{color:#fff;text-decoration:none}
+    .site-footer nav{display:flex;gap:22px}
+    @media(max-width:900px){
+      .hero__inner{grid-template-columns:1fr;gap:36px;padding-top:90px}
+      .layout{grid-template-columns:1fr;gap:32px;padding-top:50px}
+      .toc{position:static}
+      .toc ol{columns:2;column-gap:28px}
+      .toc li{break-inside:avoid}
+    }
+    @media(max-width:620px){
+      body{font-size:16px}
+      .topbar__inner{padding:12px 18px}
+      .brand img{width:132px}
+      .topbar__links a:first-child{display:none}
+      .hero__inner{padding:76px 20px 72px}
+      .layout{padding:38px 16px 72px}
+      .notice__intro,.section{padding:34px 24px}
+      .toc ol{columns:1}
+      .plain-table,.plain-table tbody,.plain-table tr,.plain-table th,.plain-table td{display:block}
+      .plain-table th{width:auto;padding-bottom:4px}
+      .plain-table td{padding-top:4px}
+      .site-footer__inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/" aria-label="Revelation Agency home">
+        <img src="/assets/brand/current/ra-lockup-red.png" alt="Revelation Agency">
+      </a>
+      <nav class="topbar__links" aria-label="Page links">
+        <a href="/services/sales/ai-automation-systems">AI systems</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__inner">
+        <div>
+          <p class="eyebrow">Revelation Agency · Reviii</p>
+          <h1>Privacy,<br>without fog.</h1>
+          <p class="hero__lede">A plain-language account of what Reviii receives, why it uses it, where it may travel, and how to request access or deletion.</p>
+        </div>
+        <div class="hero__meta">
+          <strong>Reviii Privacy Notice</strong>
+          Effective August 20, 2026<br>
+          Last updated August 20, 2026
+        </div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="toc" aria-label="Privacy notice contents">
+        <strong>On this page</strong>
+        <ol>
+          <li><a href="#scope">Scope</a></li>
+          <li><a href="#collect">Data we collect</a></li>
+          <li><a href="#use">How we use data</a></li>
+          <li><a href="#ai">AI processing</a></li>
+          <li><a href="#share">Sharing</a></li>
+          <li><a href="#retain">Retention</a></li>
+          <li><a href="#choices">Your choices</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#changes">Changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </aside>
+
+      <article class="notice">
+        <div class="notice__intro">
+          <p>Reviii is Revelation Agency’s shared Slack bridge to one coordinated system with five modes: <strong>Assist, Ops, Sales, Outreach, and Marketing</strong>. Each customer receives only the modes, tools, data connections, and permissions configured for that organization. This notice describes Reviii’s handling of Slack and connected-service data.</p>
+        </div>
+
+        <section class="section" id="scope">
+          <div class="section__number">01 / Scope</div>
+          <h2>Who this notice covers</h2>
+          <p>This notice applies when an organization installs or uses the Reviii Slack app, or when an authorized person interacts with a Reviii capability connected to that Slack installation. Revelation Agency, located in Clovis, California, operates Reviii for its customers.</p>
+          <p>The customer organization controls which Reviii modes are enabled, which channels and people may use them, and which external systems may be connected. Customer-specific agreements may set additional or shorter retention and access rules.</p>
+        </section>
+
+        <section class="section" id="collect">
+          <div class="section__number">02 / Data we collect</div>
+          <h2>Only what the enabled work requires</h2>
+          <table class="plain-table">
+            <tbody>
+              <tr><th>Slack identifiers</th><td>Workspace, app, channel, thread, message, file, user, and installation identifiers; timestamps; and event-delivery identifiers needed to authenticate, route, deduplicate, and reply to an authorized request.</td></tr>
+              <tr><th>Authorized content</th><td>Messages and thread history sent in approved channels or surfaces, plus files an authorized user intentionally shares with Reviii, such as voice notes, images, or PDFs.</td></tr>
+              <tr><th>Connected-service data</th><td>Only the records and fields required for an enabled workflow, such as contact, opportunity, pipeline, calendar, campaign, project, or operational data from the customer’s expressly configured account.</td></tr>
+              <tr><th>Operational evidence</th><td>Sanitized audit records, request and response receipts, delivery status, tool results, approval state, errors, security events, and configuration versions used to make work reliable and reviewable.</td></tr>
+              <tr><th>Support data</th><td>Information a customer or user sends to Revelation Agency when requesting support, access, correction, export, or deletion.</td></tr>
+            </tbody>
+          </table>
+          <div class="callout"><strong>Tenant boundaries matter.</strong> A Reviii deployment is configured to reject absent, mismatched, or unapproved workspace, channel, user, account, and tenant identifiers. Data is not supposed to fall back to another customer’s account.</div>
+        </section>
+
+        <section class="section" id="use">
+          <div class="section__number">03 / How we use data</div>
+          <h2>To perform the request and protect the system</h2>
+          <p>We use collected data to:</p>
+          <ul>
+            <li>authenticate an installation and enforce its channel, user, tenant, and tool permissions;</li>
+            <li>understand and respond in the originating Slack conversation or thread;</li>
+            <li>retrieve or update an authorized connected system when the enabled workflow permits it;</li>
+            <li>maintain context, plans, approvals, schedules, and receipts needed for reliable work;</li>
+            <li>detect duplicates, recover interrupted work, troubleshoot failures, prevent abuse, and investigate security incidents;</li>
+            <li>provide support and improve reliability using sanitized operational evidence; and</li>
+            <li>comply with law, enforce agreements, and protect people, customers, Revelation Agency, and Slack.</li>
+          </ul>
+          <p>We do not use Slack data for advertising, unrelated profiling, or contacting a person outside the authorized workflow.</p>
+        </section>
+
+        <section class="section" id="ai">
+          <div class="section__number">04 / AI processing</div>
+          <h2>AI is a processor, not a new owner</h2>
+          <p>Reviii may send the minimum relevant message content and connected-service context to an AI model provider selected for the customer’s deployment. The model is used to interpret the authorized request, reason over supplied context, draft or return a response, and decide which approved tool path may be appropriate.</p>
+          <p><strong>We do not use Slack data to train Reviii or general-purpose AI models.</strong> We do not sell Slack data, create advertising profiles from it, or give an AI model independent permission to act outside the deployment’s configured tools and safeguards.</p>
+          <p>AI outputs can be incomplete or incorrect. Reviii uses deterministic permissions, tenant binding, approvals, receipts, and read-back checks around higher-impact actions, but authorized users remain responsible for reviewing consequential decisions.</p>
+        </section>
+
+        <section class="section" id="share">
+          <div class="section__number">05 / Sharing</div>
+          <h2>Limited service providers, never a data market</h2>
+          <p>We may disclose data to vendors that operate infrastructure required for the enabled service—for example Slack, hosting and security providers, configured AI model providers, and the customer’s connected CRM, calendar, file, project, or communication systems. These providers receive data only for the relevant service function and are subject to their own agreements and privacy obligations.</p>
+          <p>We may also disclose data if required by law or reasonably necessary to protect rights, safety, and system integrity; during a corporate transaction subject to appropriate confidentiality and notice; or at the customer’s direction.</p>
+          <p><strong>We do not sell or share personal information for cross-context behavioral advertising.</strong> We do not rent customer data or disclose it to data brokers.</p>
+        </section>
+
+        <section class="section" id="retain">
+          <div class="section__number">06 / Retention</div>
+          <h2>Long enough to operate; not forever by default</h2>
+          <p>Installation credentials are retained while the Slack installation is active. Conversation state, authorized attachments, connected-service receipts, plans, approvals, and audit evidence may be retained for the active service period so Reviii can preserve context, recover interrupted work, and show what happened.</p>
+          <p>When a customer uninstalls Reviii or ends the service, Revelation Agency will delete or de-identify associated Slack data within 14 business days, unless a customer agreement requires a shorter period or a limited record must be retained for security, fraud prevention, dispute resolution, or legal compliance. Backup copies are removed through the normal backup rotation.</p>
+          <p>A verified deletion request can also trigger earlier deletion of data that is not required to maintain security, honor another person’s rights, or comply with law.</p>
+        </section>
+
+        <section class="section" id="choices">
+          <div class="section__number">07 / Your choices and rights</div>
+          <h2>Access, correction, export, or deletion</h2>
+          <p>You or your workspace administrator may ask us to:</p>
+          <ul>
+            <li>explain the categories of data associated with you or your installation;</li>
+            <li>provide access to or a portable copy of eligible data;</li>
+            <li>correct inaccurate data;</li>
+            <li>delete eligible data or disconnect the installation; or</li>
+            <li>describe the service providers involved in processing.</li>
+          </ul>
+          <p>Email <a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a> or use our <a href="/contact">contact form</a>. Put “Reviii privacy request” in the subject or message. We may verify your identity and relationship to the workspace before acting. We will not discriminate against a person for exercising an applicable privacy right.</p>
+          <p>You may also remove Reviii from Slack through your workspace’s app-management controls, subject to your organization’s administrator permissions.</p>
+        </section>
+
+        <section class="section" id="security">
+          <div class="section__number">08 / Security</div>
+          <h2>Layered, least-privilege safeguards</h2>
+          <p>Revelation Agency uses administrative, technical, and operational safeguards appropriate to the service, including encrypted transport, encrypted stored credentials, server-side secret handling, least-privilege Slack scopes, allowlisted users and surfaces, exact tenant bindings, replay protection, durable receipts, audit trails, and fail-closed checks around sensitive actions.</p>
+          <p>No system is perfectly secure. If you believe Reviii exposed data or credentials, contact us immediately at <a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a>.</p>
+        </section>
+
+        <section class="section" id="changes">
+          <div class="section__number">09 / Changes</div>
+          <h2>Material changes will be visible</h2>
+          <p>We may update this notice as Reviii, our vendors, or legal requirements change. The effective date at the top will identify the current version. We will provide additional notice through an appropriate customer or Slack channel before a material change that meaningfully expands how existing data is used.</p>
+          <p>Reviii is not directed to children under 13, and Revelation Agency does not knowingly collect children’s personal information through the Slack app.</p>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section__number">10 / Contact</div>
+          <h2>Questions should reach a person</h2>
+          <p>Contact Revelation Agency for privacy, data, security, or support requests related to Reviii.</p>
+          <div class="contact-card">
+            <strong>Revelation Agency</strong>
+            <span>55 Shaw Avenue, Suite 201 · Clovis, California 93612</span>
+            <a href="mailto:connect@revelationagency.com">connect@revelationagency.com</a>
+            <a href="tel:+15592017039">+1 559-201-7039</a>
+            <a href="/contact">revelationagency.com/contact</a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>&copy; 2026 Revelation Agency. Branding. Marketing. Sales Systems.</span>
+      <nav aria-label="Footer links"><a href="/privacy">Privacy</a><a href="/contact">Contact</a><a href="/">Home</a></nav>
+    </div>
+  </footer>
+  <script src="/assets/js/ra-refresh-2026.js?v=20260817g"></script>
+</body>
+</html>
