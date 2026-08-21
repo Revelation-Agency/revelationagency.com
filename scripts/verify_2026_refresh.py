@@ -26,9 +26,9 @@ from typing import Any, Iterable, Optional
 from urllib.parse import unquote, urljoin, urlsplit
 
 
-EXPECTED_HTML_COUNT = 173
-EXPECTED_CASE_COUNT = 68
-EXPECTED_MASTER_COUNT = 21
+EXPECTED_HTML_COUNT = 176
+EXPECTED_CASE_COUNT = 71
+EXPECTED_MASTER_COUNT = 22
 REFRESH_CSS = "/assets/css/ra-refresh-2026.css?v=20260817g"
 REFRESH_JS = "/assets/js/ra-refresh-2026.js?v=20260817g"
 PORTFOLIO_MANIFEST = "assets/data/portfolio-taxonomy-2026.json"

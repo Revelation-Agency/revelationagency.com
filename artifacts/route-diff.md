@@ -1,10 +1,10 @@
 # Route diff — baseline vs proposed
 
 - Baseline URL count: 122
-- Proposed URL count: 141
+- Proposed URL count: 144
 - Retained (unchanged path): 96
 - Retired (redirected via redirect-map.json): 26
-- New URLs: 45
+- New URLs: 48
 
 The pinned baseline remains byte-stable; comparison here normalizes Vercel clean URLs.
 Every truly retired route has exactly ONE permanent, direct redirect in `redirect-map.json`.
@@ -78,6 +78,9 @@ No chains, no loops. Case-study URLs are all retained.
 - `https://www.revelationagency.com/locations/visalia-ca/video-production`
 - `https://www.revelationagency.com/locations/visalia-ca/web-design`
 - `https://www.revelationagency.com/portfolio/branding`
+- `https://www.revelationagency.com/portfolio/case-studies/excel-sign-company-seo`
+- `https://www.revelationagency.com/portfolio/case-studies/shepherd-cleaning-solutions`
+- `https://www.revelationagency.com/portfolio/case-studies/shepherd-cleaning-solutions-seo`
 - `https://www.revelationagency.com/portfolio/sales`
 - `https://www.revelationagency.com/privacy`
 - `https://www.revelationagency.com/services/branding`

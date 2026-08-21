@@ -1,5 +1,5 @@
 {
-  "count": 29,
+  "count": 32,
   "routes": [
     "/locations",
     "/locations/clovis-ca",
@@ -29,6 +29,9 @@
     "/locations/visalia-ca/seo",
     "/locations/visalia-ca/social-media",
     "/locations/visalia-ca/video-production",
-    "/locations/visalia-ca/web-design"
+    "/locations/visalia-ca/web-design",
+    "/portfolio/case-studies/excel-sign-company-seo",
+    "/portfolio/case-studies/shepherd-cleaning-solutions",
+    "/portfolio/case-studies/shepherd-cleaning-solutions-seo"
   ]
 }
