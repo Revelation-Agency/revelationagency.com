@@ -110,9 +110,17 @@
     max-height: 66px !important;
   }
 
+  /* The mobile drawer is part of the black header, so it keeps the dark
+     field these white nav labels are drawn for. The `.is-open` selectors
+     are required: ra-refresh-2026.css sets the open panel to a cream
+     background via `#ra-nav.is-open .ra-nav__links`, which outranks a
+     plain `#ra-nav .ra-nav__links` and would leave white text on white. */
   .ra-nav__links,
-  #ra-nav .ra-nav__links {
+  #ra-nav .ra-nav__links,
+  .ra-nav.is-open .ra-nav__links,
+  #ra-nav.is-open .ra-nav__links {
     background: #171717 !important;
+    color: #fff !important;
     border-top-color: rgba(255,255,255,.14) !important;
   }
   #ra-nav .ra-nav__links > li > a,
