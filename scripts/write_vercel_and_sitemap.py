@@ -144,10 +144,11 @@ def build_sitemap() -> None:
     def append_group(lines: list[str], key: str, *, frequency: str | None = None, fixed_priority: str | None = None) -> None:
         for u in sorted(groups[key]):
             emitted_urls.append(u)
+            lastmod = "2026-09-17" if u == f"{CANON}/" else "2026-08-17"
             lines.append(
                 "  <url>\n"
                 f"    <loc>{u}</loc>\n"
-                "    <lastmod>2026-08-17</lastmod>\n"
+                f"    <lastmod>{lastmod}</lastmod>\n"
                 f"    <changefreq>{frequency or changefreq(u)}</changefreq>\n"
                 f"    <priority>{fixed_priority or priority(u)}</priority>\n"
                 "  </url>\n"

@@ -3427,6 +3427,52 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
       "publisher": {
         "@id": "https://www.revelationagency.com/#organization"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.revelationagency.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Revelation Agency actually do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We connect the Branding, Marketing, and Sales disciplines growing businesses need but rarely operate as one. That means auditing what's broken, rebuilding the foundation, and activating growth across brand, web, ads, automation, and sales systems as one connected machine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a connected engagement work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every engagement starts with diagnosis. We identify the constraint, choose the exact Branding, Marketing, and Sales services required, define ownership and evidence, then operate the handoffs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Timing depends on the constraint, baseline, buying cycle, and channel. The scope defines the sequence, leading indicators, decision gates, and definition of done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with businesses outside of Fresno or California?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Revelation Agency is remote-first and works with founders and operators across the United States through video calls, shared documents, and asynchronous collaboration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the first step to working with Revelation Agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bring the real constraint. We'll read the connected system, name the highest-leverage next move, and be direct about whether Revelation is the right operator."
+          }
+        }
+      ]
     }
   ]
 }
@@ -4126,19 +4172,6 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; font-weight: 7
         </div>
       </div>
       <div class="fade-up fade-up-d2">
-        <!-- ========== NATIVE LEAD FORM (fires GHL inbound webhook) ========== -->
-        <!-- RA_GO_LIVE_MARKER
-             The <form> below has data-webhook set to the LIVE GHL
-             inbound-webhook URL. If GHL ever rotates the hook, swap
-             the value on the <form data-webhook="..."> attribute.
-             The JS fallback guard (no-webhook-attr) stays — it keeps
-             the site from silently pretending to submit if the attr
-             is ever blanked.
-             Payload contract is documented in the GHL WORKER PROMPT
-             delivered alongside this form. If a field name changes
-             there, update the `var payload = { ... }` block below
-             and this marker. -->
-
         <style>
           .ra-form{position:relative;background:#fff;border:1px solid rgba(43,43,43,0.08);border-radius:20px;padding:40px 36px 32px;box-shadow:0 22px 60px rgba(0,0,0,0.08);overflow:hidden;}
           .ra-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0.85;z-index:2;}
