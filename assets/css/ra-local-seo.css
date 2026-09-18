@@ -44,6 +44,85 @@
   color: var(--ra-red, #c91c1d);
 }
 
+.ra-local-detail-grid {
+  list-style: none;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ra-local-detail-grid li {
+  min-width: 0;
+  padding: clamp(20px, 2.6vw, 28px);
+  background: var(--ra-paper-bright, #fffdfa);
+  border: 1px solid var(--ra-line, rgba(23, 23, 23, 0.12));
+  border-radius: var(--ra-radius-sm, 14px);
+}
+
+.ra-local-detail-grid strong,
+.ra-local-detail-grid span {
+  display: block;
+}
+
+.ra-local-detail-grid strong {
+  margin-bottom: 8px;
+  font-family: var(--ra-display, 'Bebas Neue', Impact, sans-serif);
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ra-ink, #171717);
+}
+
+.ra-local-detail-grid span {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(23, 23, 23, 0.74);
+}
+
+.ra-local-process {
+  list-style: none;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  max-width: 880px;
+}
+
+.ra-local-process li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ra-line, rgba(23, 23, 23, 0.12));
+}
+
+.ra-local-step {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ra-red, #c91c1d);
+  color: #fff;
+  font-weight: 800;
+}
+
+.ra-local-process strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: var(--ra-ink, #171717);
+}
+
+.ra-local-process p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgba(23, 23, 23, 0.74);
+}
+
 /* FAQ — answer-first blocks. These are the FAQPage schema's visible twin, so
    the question must read as a question and the answer must be complete on its
    own; AI answer engines quote the paragraph, not the section around it. */
@@ -145,7 +224,8 @@
 
 @media (max-width: 860px) {
   .ra-loc-services,
-  .ra-loc-grid {
+  .ra-loc-grid,
+  .ra-local-detail-grid {
     grid-template-columns: 1fr;
   }
 }
