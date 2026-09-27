@@ -139,7 +139,7 @@ CITIES = [
         ),
         # Proof Bank line approved by Blaine 2026-09-25; use verbatim or not at all.
         "services_proof": (
-            'One local search result: Net Metering Systems from page eight to page one for '
+            'Net Metering Systems went from page eight to page one for '
             '"top Clovis solar company".',
             "/portfolio/case-studies/net-metering-systems-seo",
             "Read the case study",
