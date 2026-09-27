@@ -123,6 +123,27 @@ CITIES = [
         "name": "Fresno",
         "full": "Fresno, CA",
         "headline": "Fresno",
+        # Optional hub overrides (2026-W39 SEO loop): Fresno searchers use
+        # "digital marketing" wording. Cities without these keys keep the defaults.
+        "hub_title": "Fresno Digital Marketing Agency | Revelation Agency",
+        "hub_desc": ("Digital marketing agency for Fresno, CA businesses: branding, web design, SEO, "
+                     "Google Ads, social media, and video production from our Clovis office."),
+        "hub_h1": "Digital Marketing Agency in Fresno",
+        "hub_modified": "2026-09-26",
+        "services_heading": "Digital marketing services for Fresno businesses.",
+        "services_intro": (
+            "Revelation Agency plans and runs digital marketing for Fresno companies: the brand, "
+            "the website, search visibility, Google Ads, social media, and video. We build them as "
+            "one system from our Clovis office, so each piece supports the next instead of "
+            "competing for the same budget."
+        ),
+        # Proof Bank line approved by Blaine 2026-09-25; use verbatim or not at all.
+        "services_proof": (
+            'One local search result: Net Metering Systems from page eight to page one for '
+            '"top Clovis solar company".',
+            "/portfolio/case-studies/net-metering-systems-seo",
+            "Read the case study",
+        ),
         "intro": (
             "Fresno is the largest market in the Central Valley and the most crowded. "
             "Revelation Agency works with Fresno businesses from our office minutes away "
@@ -157,6 +178,17 @@ CITIES = [
              "Timing depends on the starting site, competition, content, authority, and Google's "
              "crawl and indexing cycles. We report what changed and what the search data shows; "
              "we do not promise a specific rank by a specific date."),
+            ("What does a digital marketing agency do for a Fresno business?",
+             "At Revelation Agency it means the brand, website, SEO, Google Ads, social media, and "
+             "video are planned together instead of bought one channel at a time. We start with the "
+             "piece that is holding the rest back, then connect the others to it."),
+            ("Do you build websites and produce video for Fresno companies?",
+             "Yes. We handle website strategy, copy, design, and development, and we plan, shoot, and "
+             "edit video for company stories, customer proof, recruiting, ads, and the website. Each "
+             "service has its own Fresno page with the full scope."),
+            ("Do you manage social media for Fresno businesses?",
+             "Yes. We set the role social should play, produce content in planned batches, publish "
+             "it, and review what brings inquiries, so your team is not inventing a post every morning."),
         ],
     },
     {
@@ -480,7 +512,8 @@ def local_business_ld(page_url: str, city: str | None, service_name: str | None)
     return node
 
 
-def webpage_ld(page_url: str, title: str, desc: str, page_type: str = "WebPage") -> dict:
+def webpage_ld(page_url: str, title: str, desc: str, page_type: str = "WebPage",
+               modified: str = "2026-09-17") -> dict:
     return {
         "@context": "https://schema.org",
         "@type": page_type,
@@ -488,7 +521,7 @@ def webpage_ld(page_url: str, title: str, desc: str, page_type: str = "WebPage")
         "url": page_url,
         "name": title,
         "description": desc,
-        "dateModified": "2026-09-17",
+        "dateModified": modified,
         "isPartOf": {"@id": CANON + "/#website"},
         "about": {"@id": CANON + "/#organization"},
         "inLanguage": "en-US",
@@ -614,12 +647,19 @@ def city_service_links(city: dict) -> str:
         f'      <li><a href="/locations/{city["slug"]}/{s_slug}">{esc(h1_noun)} in {esc(city["name"])}</a> — {esc(promise)}</li>'
         for s_slug, _label, h1_noun, promise, _leaf in SERVICES
     )
+    heading = city.get("services_heading", f"Services for {city['name']} businesses.")
+    intro = ""
+    if "services_intro" in city:
+        intro += f'\n      <p class="lead">{esc(city["services_intro"])}</p>'
+    if "services_proof" in city:
+        text, href, label = city["services_proof"]
+        intro += f'\n      <p>{esc(text)} <a href="{href}">{esc(label)} →</a></p>'
     return f'''
 <section class="p-section">
   <div class="container">
     <div class="ra-service-intro__lede fade-up">
       <div class="eyebrow">What We Do Here</div>
-      <h2>Services for {esc(city["name"])} businesses.</h2>
+      <h2>{esc(heading)}</h2>{intro}
     </div>
     <ul class="ra-loc-services fade-up">
 {items}
@@ -663,20 +703,20 @@ def write(path: Path, head: str, body: str, footer: str, ld: str) -> None:
 
 def build_city_hub(city: dict, head_t: str, foot_t: str) -> str:
     url = f"{CANON}/locations/{city['slug']}"
-    title = f"{city['name']} Marketing Agency | Revelation Agency"
-    desc = (f"Marketing agency serving {city['full']}. Branding, web design, SEO, Google Ads, "
-            f"social, and video built as one system. Based in Clovis.")
+    title = city.get("hub_title", f"{city['name']} Marketing Agency | Revelation Agency")
+    desc = city.get("hub_desc", (f"Marketing agency serving {city['full']}. Branding, web design, SEO, Google Ads, "
+                                 f"social, and video built as one system. Based in Clovis."))
     head = set_head(head_t, title=title, desc=desc, url=url)
     ld = ld_block(
         local_business_ld(url, city["full"], None),
-        webpage_ld(url, title, desc, "CollectionPage"),
+        webpage_ld(url, title, desc, "CollectionPage", city.get("hub_modified", "2026-09-17")),
         breadcrumb_ld([("Home", "/"), ("Locations", "/locations"),
                        (city["full"], f"/locations/{city['slug']}")]),
         faq_ld(city["faqs"]),
     )
     body = (
         hero(f"Marketing Agency · {city['full']}",
-             f"Marketing Agency in {city['headline']}",
+             city.get("hub_h1", f"Marketing Agency in {city['headline']}"),
              city["intro"], "/locations", "All locations")
         + f'''
 <section class="p-section ra-service-intro">
@@ -935,7 +975,7 @@ def write_llms_txt() -> None:
 ## Local marketing services
 
 - [Clovis Marketing Agency](https://www.revelationagency.com/locations/clovis-ca): Local agency overview, services, proof, questions, and office information.
-- [Fresno Marketing Agency](https://www.revelationagency.com/locations/fresno-ca): Marketing services for Fresno businesses from the nearby Clovis office.
+- [Fresno Digital Marketing Agency](https://www.revelationagency.com/locations/fresno-ca): Digital marketing services for Fresno businesses from the nearby Clovis office.
 - [Clovis SEO Company](https://www.revelationagency.com/locations/clovis-ca/seo): Technical, local, content, and AI-search optimization for Clovis businesses.
 - [Fresno SEO Company](https://www.revelationagency.com/locations/fresno-ca/seo): SEO strategy and execution for Fresno businesses.
 - [Clovis Web Design Company](https://www.revelationagency.com/locations/clovis-ca/web-design): Website strategy, copy, design, development, and measurement.
