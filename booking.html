@@ -297,7 +297,8 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.1;font-weight:700;letter-
   .bk-hero{padding:120px 0 56px;min-height:0;}
   .bk-hero__title{font-size:clamp(32px,9vw,48px);}
   .bk-cal{padding:56px 0;}
-  .bk-cal__embed{min-height:480px;padding:36px 20px;}
+  .bk-cal__embed{min-height:0;padding:0;display:block;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;text-align:left;}
+  .bk-cal__embed::before{display:none;}
   .bk-expect{padding:64px 0;}
   .bk-expect__grid{grid-template-columns:1fr !important;gap:12px !important;}
   .ra-footer{padding:60px 0 0;}

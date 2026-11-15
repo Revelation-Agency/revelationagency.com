@@ -29,7 +29,9 @@
     '#ra-booking .rb-done{text-align:center;padding:30px 10px}',
     '#ra-booking .rb-done h3{font-size:24px}',
     '#ra-booking .rb-hp{position:absolute;left:-9999px}',
-    '@media(max-width:560px){#ra-booking{padding:20px}#ra-booking .rb-row{grid-template-columns:1fr}}'
+    '#ra-booking input,#ra-booking textarea{font-size:16px;text-align:left}',
+    '@media(max-width:768px){#ra-booking{width:100%;max-width:100%;min-width:0;box-sizing:border-box;text-align:left}#ra-booking h3{font-size:19px;line-height:1.25;letter-spacing:0;text-transform:none}#ra-booking .rb-days{-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;margin-right:-4px}#ra-booking .rb-day{scroll-snap-align:start;min-width:64px;min-height:48px}#ra-booking .rb-slot{min-height:46px}#ra-booking input,#ra-booking textarea{min-height:46px}#ra-booking textarea{min-height:90px}#ra-booking .rb-go{min-height:52px}}',
+    '@media(max-width:560px){#ra-booking{padding:20px 16px}#ra-booking .rb-row{grid-template-columns:1fr}#ra-booking .rb-slots{grid-template-columns:repeat(2,1fr)}}'
   ].join('');
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
